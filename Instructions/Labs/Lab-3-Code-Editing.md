@@ -27,23 +27,56 @@ GitHub Copilot offers multiple modes in the IDE for different types of code gene
 
 | Mode | Trigger | Best For | Scope |
 |------|---------|----------|-------|
-| **Agent Mode** | Copilot Chat, select "Agent" | Complex features requiring multiple file changes | Workspace-wide |
-| **Edit Mode** | Copilot Chat, select "Edit" | Quick modifications to specific code sections | Selected code or single file |
+| **Agent Mode** | Copilot Chat, select "Agent" | Exploratory tasks, architectural planning, complex problem-solving | Workspace-wide, autonomous |
+| **Edit Mode** | Copilot Chat, select "Edit" | Deliberate, specific changes to explicitly targeted files (1 to many files) | Targeted files you specify |
+| **Plan Mode** | Copilot Chat, select "Plan" | Previewing changes before execution, understanding impact | Shows plan without making changes |
 | **Ask Mode** | Copilot Chat, select "Ask" | Understanding code, getting suggestions | Read-only, no changes |
 
 **When to use each mode:**
 
-- **Agent Mode**: Use when implementing features that require changes across multiple files, creating new components with integrations, or making architectural improvements. Agent mode has full workspace context and can plan multi-step changes.
+- **Agent Mode**: Use when you need AI to explore your codebase, make decisions about architecture, or solve complex problems where the solution isn't immediately clear. Agent mode autonomously plans and executes changes across your workspace.
 
-- **Edit Mode**: Use for targeted changes to existing code, quick refactoring of a specific function or component, or when you want more control over what gets modified.
+- **Edit Mode**: Use when you know exactly what needs to change and in which files. Edit mode makes deliberate, specific modifications to 1 to many files that you explicitly target. Perfect for focused refactoring, bug fixes, or feature additions where you control the scope.
+
+- **Plan Mode**: Use when you want to preview what changes Copilot would make before executing them. Plan mode generates a detailed plan showing files to be modified, changes to be made, and the reasoning behind decisions—without actually applying any changes. Great for understanding impact and validating approach before committing.
 
 - **Ask Mode**: Use when you need to understand code first, want suggestions before implementation, or are exploring different approaches.
 
-> **Note**: This lab focuses on **IDE Agent mode** which works interactively within VS Code. This is different from **Coding Agent** (covered in Lab 7) which works autonomously on GitHub issues.
+### 🆕 About Plan Mode (Recently Released)
+
+**Plan mode** is a new addition to GitHub Copilot in VS Code that helps you understand what changes will be made before they're executed. Think of it as a "dry run" for your AI-assisted changes.
+
+**How Plan Mode Works:**
+1. You describe what you want to accomplish
+2. Copilot analyzes your codebase and creates a detailed plan
+3. The plan shows:
+   - Which files will be modified or created
+   - What specific changes will be made to each file
+   - The reasoning behind the changes
+   - Dependencies and impacts
+4. You review the plan without any code being changed
+5. You can then execute the plan, modify your request, or try a different approach
+
+**Benefits:**
+- **Risk reduction**: See the impact before changes are made
+- **Learning opportunity**: Understand AI's decision-making process
+- **Better prompts**: Refine your request based on the preview
+- **Confidence**: Proceed with changes knowing what will happen
+
+**When to Use Plan Mode:**
+- Before making significant refactoring changes
+- When working with unfamiliar code sections
+- To validate your approach before implementation
+- When you want to understand AI's reasoning
+- Before changes that might affect multiple files
+
+> **Note**: Plan mode is currently available in VS Code Insiders and will be rolled out to stable VS Code soon. This lab focuses on **Agent and Edit modes** which are the primary modes for code generation. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 7) which works autonomously on GitHub issues.
 
 ## 🤖 Step 1: Using Agent Mode to Add a Footer Component
 
-Let's start by using GitHub Copilot's Agent mode to add a footer component to the application. Agent mode excels at this because it can create the component file and integrate it into the layout in one workflow.
+Let's start by using GitHub Copilot's Agent mode to add a footer component to the application. Agent mode excels at exploratory tasks where AI can autonomously determine the best approach.
+
+> **Lab Note**: In this exercise, we're providing specific requirements to help you learn Agent mode in a structured way. In real-world usage, you'd typically give Agent mode more freedom to explore and decide the implementation approach.
 
 ### Instructions:
 
@@ -290,22 +323,24 @@ Watch for signs that you should start a fresh conversation:
 
 ## 📝 Step 4: When to Use Edit Mode Instead of Agent Mode
 
-While Agent mode is powerful for multi-file changes, Edit mode is better for quick, targeted modifications. Let's explore when and how to use Edit mode effectively.
+While Agent mode is powerful for exploratory and autonomous work, Edit mode is better when you know exactly what needs to change. Let's explore when and how to use Edit mode effectively.
 
 ### When to Choose Edit Mode:
 
 **Use Edit Mode for:**
-- ✅ Refactoring a single function or component
-- ✅ Quick bug fixes in specific code sections
-- ✅ Adding a single method or feature to an existing class
-- ✅ Improving specific code blocks (performance, readability)
-- ✅ When you want to see changes before they're applied
+- ✅ Deliberate, specific changes where you know which files to modify
+- ✅ Refactoring functions, classes, or components across one or multiple files
+- ✅ Making targeted bug fixes with precise scope control
+- ✅ Adding specific features where the implementation is clear
+- ✅ When you want explicit control over which files are modified
+- ✅ Changes to 1 to many files that you explicitly target
 
 **Use Agent Mode for:**
-- ✅ Creating new features that span multiple files
-- ✅ Architectural changes affecting several components
-- ✅ Adding new routes, pages, or major components
-- ✅ Integrating new libraries or patterns across the codebase
+- ✅ Exploratory tasks where AI needs to discover what to change
+- ✅ Complex problem-solving requiring autonomous decision-making
+- ✅ Architectural planning and implementation
+- ✅ When you want AI to determine the best approach
+- ✅ Situations where the full scope isn't immediately clear
 
 ### Exercise: Quick Refactoring with Edit Mode
 
@@ -336,10 +371,11 @@ Let's use Edit mode for a focused improvement to existing code.
 
 ### 💡 Edit Mode Best Practices:
 
-- **Select specific code**: Highlight exactly what you want to modify
-- **Be surgical**: Ask for one specific improvement at a time
+- **Be explicit about files**: Specify exactly which files should be modified
+- **Be deliberate**: Know what you want changed before using Edit mode
+- **Use for targeted scope**: Works on 1 to many files you explicitly name
 - **Review diffs carefully**: Edit mode shows you exactly what will change
-- **Keep prompts focused**: "Add error handling to this function" not "improve everything"
+- **Control the changes**: You determine the scope, not the AI
 
 ### 🔍 Comparing Agent Mode vs Edit Mode:
 
@@ -347,23 +383,27 @@ Let's use Edit mode for a focused improvement to existing code.
 
 **Agent Mode approach:**
 ```
-Add error handling throughout the application for all API calls, 
-file operations, and user inputs. Include error boundaries and 
-toast notifications.
+Analyze the application and add appropriate error handling wherever needed. 
+Use your judgment to determine which components need error boundaries, 
+which functions need try-catch blocks, and how to handle errors gracefully.
 ```
-*Result: Multiple files modified with comprehensive error handling*
+*Result: AI autonomously explores, plans, and implements error handling across multiple files*
 
 **Edit Mode approach:**
 ```
-[Select specific function]
-Add try-catch error handling to this function with user-friendly 
-error messages
+Add try-catch error handling to the following files:
+- src/components/gallery/GalleryGrid.tsx (in the filter function)
+- src/app/page.tsx (in the data loading section)
+- src/lib/mock-photo-data.ts (in the data export)
+
+Use consistent error messages and logging.
 ```
-*Result: One function improved with targeted error handling*
+*Result: Targeted, deliberate changes to the 3 files you specified*
 
-### ⚠️ When Edit Mode Isn't Enough:
+### ⚠️ Key Difference:
 
-If Edit mode suggests creating new files or modifying multiple files, switch to Agent mode instead. Edit mode works best within the scope of what you have selected.
+**Edit Mode**: You tell Copilot what to change and where (1 to many specific files)  
+**Agent Mode**: Copilot explores, decides what to change, and where to make those changes
 
 ## 🎓 Step 5: Best Practices for IDE AI-Assisted Development
 
@@ -371,19 +411,19 @@ Let's review what makes for effective AI-assisted development in the IDE:
 
 ### ✅ Do's for Agent Mode:
 
-1. **Start with Clear Requirements**: Define the complete scope upfront
-   - ❌ "Add a footer"
-   - ✅ "Create a Footer.tsx component in src/components/ui/layout/ with branding, links, and dark mode support, then integrate it into layout.tsx"
+1. **Let AI Explore and Decide**: Give high-level goals and let Agent mode determine the approach
+   - ❌ "Modify these 3 specific files to add error handling"
+   - ✅ "Add comprehensive error handling to the application where appropriate"
 
-2. **Provide Rich Context**: Open relevant files before making requests
+2. **Provide Context, Not Instructions**: Open relevant files to guide discovery
    - Open similar components for style patterns
-   - Open files that will be modified or imported
-   - Reference existing components: "Follow patterns in @Hero.tsx"
+   - Reference existing patterns: "Follow patterns in @Hero.tsx"
+   - Let Agent mode decide which files to modify
 
-3. **Think Multi-File**: Use Agent mode when changes span multiple files
-   - Creating components with integration
-   - Adding features that need data, types, and UI
-   - Architectural improvements
+3. **Use for Complex Problems**: Leverage Agent mode's autonomous capabilities
+   - Architectural decisions and planning
+   - Exploratory refactoring
+   - Problems where the solution isn't immediately clear
 
 4. **Review Plans Before Accepting**: Always check what Agent mode intends to do
    - Verify all files to be modified are correct
@@ -396,15 +436,20 @@ Let's review what makes for effective AI-assisted development in the IDE:
 
 ### ✅ Do's for Edit Mode:
 
-1. **Select Precisely**: Highlight exactly what needs to change
-   - Select specific functions, not entire files
-   - Be surgical about what you want modified
+1. **Be Explicit About Files**: Tell Copilot exactly which files to modify
+   - ✅ "Refactor the filter function in src/components/gallery/GalleryGrid.tsx"
+   - ✅ "Add error handling to auth.ts, api.ts, and database.ts"
 
-2. **One Change at a Time**: Focus on single improvements
-   - ✅ "Add memoization to this filter function"
+2. **Be Deliberate and Specific**: Know what you want changed
+   - ✅ "Add memoization to the filter function"
    - ❌ "Improve this component" (too vague)
 
-3. **Review Diffs**: Edit mode shows exactly what will change
+3. **Control the Scope**: Use Edit mode when you want to control exactly what changes
+   - Specify 1 to many files explicitly
+   - Define the exact changes needed
+   - Maintain control over the modification scope
+
+4. **Review Diffs**: Edit mode shows exactly what will change
    - Check additions and deletions carefully
    - Ensure functionality is preserved
 
@@ -420,12 +465,15 @@ Let's review what makes for effective AI-assisted development in the IDE:
 
 | Scenario | Use This Mode | Why |
 |----------|--------------|-----|
-| Add new feature with multiple files | **Agent** | Coordinates changes across codebase |
-| Create component and integrate it | **Agent** | Handles file creation and imports |
-| Refactor single function | **Edit** | Quick, targeted change |
-| Fix bug in specific code | **Edit** | Surgical precision |
-| Understand code first | **Ask** | Read-only exploration |
-| Major architectural change | **Agent** | Context-aware, multi-file planning |
+| Explore codebase and decide what to change | **Agent** | Autonomous discovery and planning |
+| Complex problem where solution isn't clear | **Agent** | AI determines best approach |
+| Architectural planning and implementation | **Agent** | Workspace-wide context and decisions |
+| Refactor specific files you identify | **Edit** | Targeted changes to 1-many files you specify |
+| Fix bug in known locations | **Edit** | Deliberate modifications with explicit control |
+| Add feature to specific components | **Edit** | You control which files are changed |
+| Preview changes before executing | **Plan** | See impact without modifying code |
+| Validate approach before committing | **Plan** | Review plan and reasoning first |
+| Understand code or get suggestions | **Ask** | Read-only exploration |
 
 ## 🏆 Exercise Wrap-up
 
