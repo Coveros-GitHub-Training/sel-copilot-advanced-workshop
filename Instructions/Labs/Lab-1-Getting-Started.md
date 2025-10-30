@@ -173,7 +173,3 @@ In this lab, you successfully:
 - ✅ Verified your setup is working correctly
 
 You're now ready to dive into using GitHub Copilot to explore and enhance the PixelPerfect Gallery application!
-
-#### You have successfully completed the lab. Click on **Next >>** to continue to the next lab.
-
-![Next page navigation](../../media/next-page.png)
