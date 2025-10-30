@@ -75,22 +75,17 @@ Let's discover what this application does and how it's built.
 ### Instructions:
 Ask GitHub Copilot to help you understand the application purpose and structure. Try these sample prompts:
 
-<details>
-  <summary>Sample Prompts</summary>
-  
-  ```
-  What is the main purpose of this application and what are its key features?
-  ```
+```
+What is the main purpose of this application and what are its key features?
+```
 
-  ```
-  How is this project structured? Can you explain the main folders and their purposes?
-  ```
+```
+How is this project structured? Can you explain the main folders and their purposes?
+```
 
-  ```
-  What technologies and frameworks does this project use?
-  ```
-
-</details>
+```
+What technologies and frameworks does this project use?
+```
 
 **💡 Pro Tip:** GitHub Copilot analyzes your workspace structure, configuration files, and code patterns to provide insights. The more specific your questions, the more targeted the responses.
 
@@ -101,63 +96,56 @@ Now let's explore key files and configuration details.
 ### Instructions:
 Ask GitHub Copilot to help you identify important files and understand configuration:
 
-<details>
-  <summary>Sample Prompts</summary>
+```
+What are the most important files I should understand as a new developer?
+```
 
-  ```
-  What are the most important files I should understand as a new developer?
-  ```
+```
+Are there any configuration files I should be aware of? What do they control?
+```
 
-  ```
-  Are there any configuration files I should be aware of? What do they control?
-  ```
-
-  ```
-  Explain the package.json dependencies and what they're used for.
-  ```
-
-</details>
+```
+Explain the package.json dependencies and what they're used for.
+```
 
 **💡 Pro Tip:** Don't hesitate to ask follow-up questions about unfamiliar technologies! GitHub Copilot is your onboarding buddy—ask it to explain frameworks, libraries, or architectural decisions.
 
 ## 🔨 Step 4: Exploring Components and Code
 
-Let's explore the component architecture and see how specific components work.
+Let's explore specific components to see how they work.
 
 ### Instructions:
 
-1. **Explore a component:**
-   - Open `src/components/gallery/GalleryGrid.tsx`
-   - Select an interesting section of code
-   - Ask GitHub Copilot to explain it using `@workspace /explain`
+1. **Explore a UI component:**
+   - Open the file `src/components/gallery/GalleryGrid.tsx`
+   - Select lines 30-43 (or any interesting section)
+   - Ask GitHub Copilot to explain the selected code
 
-2. **Understand the component system:**
+2. **Use the workspace participant:**
 
-<details>
-  <summary>Sample Prompts</summary>
+Try these sample prompts:
 
-  ```
-  How does the GalleryGrid component handle photo filtering?
-  ```
+```
+@workspace /explain
+```
 
-  ```
-  What UI components are available in src/components/ui/ and what are they used for?
-  ```
+```
+How does the GalleryGrid component handle photo filtering?
+```
 
-  ```
-  How does this project organize reusable vs feature-specific components?
-  ```
+```
+Explain how the UploadZone component implements drag-and-drop functionality.
+```
 
-  ```
-  Explain how the UploadZone component implements drag-and-drop functionality.
-  ```
+```
+What are the UI layout components and how are they used?
+```
 
-</details>
-
-### 💡 Pro Tips:
+### 💡 Pro Tips for Code Exploration:
 - Highlight specific code sections before asking for explanations
-- Use `@workspace` for context-aware answers about the codebase
-- Check `COMPONENT_USAGE_GUIDE.md` for detailed component documentation
+- Use `@workspace` to get context-aware answers
+- Ask about design patterns or architectural decisions
+- Compare different component implementations
 
 ## 🏆 Exercise Wrap-up
 
