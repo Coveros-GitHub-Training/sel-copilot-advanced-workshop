@@ -29,132 +29,41 @@ Your manager has asked you to explore GitHub Copilot's customization features to
 
 ## 📊 Step 1: Monitor Premium Request Usage
 
-Understanding your usage helps you make informed decisions about which AI models to use and when.
+Understanding your usage helps you make informed decisions about which AI models to use and when. This exercise will show you how to quickly check your usage and understand the basics.
 
-### Why This Matters:
-- **Cost awareness**: Different models have different costs
-- **Usage planning**: Know when you're approaching limits
-- **Model selection**: Choose appropriate models based on remaining allowance
-- **Team management**: Track usage patterns across your organization
-- **Budget optimization**: Maximize value from your premium requests
-- **Strategic planning**: Allocate resources to high-impact tasks
+### Quick Check Your Usage
 
-### 📈 Advanced Usage Monitoring Strategies
-
-Beyond basic monitoring, consider these advanced approaches:
-
-**1. Usage Pattern Analysis**
-Track when and how you use premium requests:
-- Which types of tasks consume the most requests?
-- What time of day do you use requests most?
-- Which team members use premium features most frequently?
-- Are there patterns that suggest inefficient usage?
-
-**2. Cost-Benefit Optimization**
-- Use premium models for complex, high-value tasks
-- Reserve 0x models for routine completions and simple queries
-- Save premium requests for critical deadlines
-- Batch similar tasks to maximize model context reuse
-
-**3. Team Usage Dashboard**
-For teams and organizations:
-- Set up regular usage reviews
-- Identify training opportunities for efficient usage
-- Share best practices across the team
-- Create usage guidelines for different task types
-
-### Option A: View Usage in VS Code
+**Option A: View Usage in VS Code**
 
 1. **Open VS Code** and ensure GitHub Copilot is active
-
 2. **Locate Copilot status:**
    - Look for the GitHub Copilot logo in the bottom-right status bar
    - Click on it to see current status and usage information
-
 3. **Review information displayed:**
    - Current model being used
    - Premium request count (if applicable)
    - Subscription status
 
-### Option B: Access the Premium Dashboard on GitHub.com
+**Option B: Access the Premium Dashboard on GitHub.com**
 
-1. **Navigate to GitHub**: Go to [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features)
+1. **Navigate to**: [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features)
+2. **Sign in** and view your dashboard
+3. **Review**: Usage percentage, requests remaining, and billing cycle reset date
 
-2. **Sign in**: Ensure you're logged into your GitHub account
-
-3. **View dashboard**: Review your premium request usage
-
-**What to Look For:**
-- Usage percentage and limits
-- Requests used vs. remaining this month
-- Model usage breakdown (which models you've used most)
-- Billing cycle reset date
-
-### 💰 Understanding Model Costs:
-
-Different AI models have different pricing structures:
+### Key Things to Know
 
 - **0x Models**: Unlimited usage within your Copilot subscription
 - **Premium Models**: Count against your monthly request allowance
-  - Different cost multipliers per model
-  - Some consume more requests per use than others
-- **Auto Model Selection**: Automatic model choice at 10% discount
-- **Usage Allowances**:
   - Copilot Business: 300 requests per user per month
   - Copilot Enterprise: 1,000 requests per user per month
-- **Overage**: Additional requests at $0.04 each
+- **Best Practice**: Use premium models for complex, high-value tasks; use 0x models for routine work
 
-For complete details: [GitHub Copilot Billing Documentation](https://docs.github.com/copilot/concepts/billing/copilot-requests)
-
-### 💡 Pro Tips for Usage Management:
-
-**Smart Request Allocation**
-```markdown
-High-Value Tasks (Use Premium Models):
-✅ Complex architectural refactoring
-✅ Critical bug investigation and fixes
-✅ Performance optimization analysis
-✅ Security vulnerability remediation
-✅ Complex test generation
-✅ Documentation for public APIs
-
-Low-Value Tasks (Use 0x Models):
-✅ Code completions and suggestions
-✅ Simple syntax fixes
-✅ Formatting and style adjustments
-✅ Basic code explanations
-✅ Simple variable renaming
-```
-
-**Monthly Budget Strategy**
-- **Week 1-2**: Normal usage, all task types
-- **Week 3**: Monitor usage, optimize if >50%
-- **Week 4**: Conserve premium for critical tasks if >75%
-- **Always available**: Use 0x models without limits
-
-**Team Guidelines Template**
-Create a team policy document:
-```markdown
-## Premium Request Usage Policy
-
-### Priority 1 (Always use premium):
-- Production incidents
-- Security vulnerabilities
-- Customer-facing features
-- Deadline-driven development
-
-### Priority 2 (Use premium if available):
-- Complex refactoring
-- New feature development
-- Test coverage improvements
-- Performance optimization
-
-### Priority 3 (Prefer 0x models):
-- Code formatting
-- Documentation updates
-- Simple bug fixes
-- Learning and exploration
-```
+> 📚 **For Detailed Information**: See the [Premium Request Usage Guide](../Reference/Premium-Request-Usage.md) for comprehensive information about:
+> - Advanced monitoring strategies
+> - Cost optimization techniques
+> - Model selection by task type
+> - Team usage policies and best practices
+> - Monthly budget planning strategies
 
 ## 🔄 Step 2: Experiment with Model Switching (Optional)
 
