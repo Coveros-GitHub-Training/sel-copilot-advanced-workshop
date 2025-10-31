@@ -5,361 +5,518 @@
 ## 🎯 Learning Objectives
 
 By the end of this exercise, you will:
-- Understand how to use GitHub Copilot's Autocomplete feature for code generation
-- Learn to use GitHub Copilot's Edit mode for code modifications
-- Generate new UI components and features with AI assistance
+- Master GitHub Copilot's Agent mode for multi-file code generation and modifications
+- Understand when to use Agent mode vs. Edit mode in the IDE
+- Generate new features and components with context-aware AI assistance
 - Review and refine AI-generated code effectively
+- Learn best practices for iterative AI-assisted development
 
 ## 📸 Scenario: Enhancing PixelPerfect Gallery Features
 
-Your manager at PixelPerfect Gallery has noticed that the application is missing a footer component and could benefit from some UI enhancements. You've been tasked with adding these features quickly while maintaining the high quality standards of the codebase.
+Your manager at PixelPerfect Gallery has requested several new features that will require changes across multiple files. You've been tasked with implementing these enhancements efficiently while maintaining the high quality standards of the codebase.
 
-Your task today is to use GitHub Copilot to:
-- Add a footer component to the main layout
-- Generate new UI components for the gallery
-- Understand best practices for AI-assisted code generation
-- Review and iterate on AI-generated code
+Your task today is to use GitHub Copilot's Agent mode to:
+- Implement multi-file features with AI assistance
+- Create new components and integrate them into the application
+- Make context-aware changes across the codebase
+- Understand best practices for AI-assisted development
 
-## 💡 Understanding Code Generation Modes
+## 💡 Understanding IDE Code Generation Modes
 
-GitHub Copilot offers several ways to generate code:
+GitHub Copilot offers multiple modes in the IDE for different types of code generation:
 
-| Feature | Trigger | Best For |
-|---------|---------|----------|
-| **Autocomplete** | Type naturally in the editor | Quick, inline code suggestions as you type |
-| **Edit Mode** | Open Copilot Chat, select "Edit" | Modifying existing code, refactoring, feature additions |
-| **Generate Code** | Right-click → Copilot → Generate | Creating new functions, classes, or components |
-| **Slash Commands** | `/new`, `/fix`, `/tests` in chat | Specific code generation tasks |
+| Mode | Trigger | Best For | Scope |
+|------|---------|----------|-------|
+| **Agent Mode** | Copilot Chat, select "Agent" | Exploratory tasks, architectural planning, complex problem-solving | Workspace-wide, autonomous |
+| **Edit Mode** | Copilot Chat, select "Edit" | Deliberate, specific changes to explicitly targeted files (1 to many files) | Targeted files you specify |
+| **Plan Mode** | Copilot Chat, select "Plan" | Previewing changes before execution, understanding impact | Shows plan without making changes |
+| **Ask Mode** | Copilot Chat, select "Ask" | Understanding code, getting suggestions | Read-only, no changes |
 
-## ✨ Step 1: Using Autocomplete to Generate a Footer Component
+**When to use each mode:**
 
-Let's start by adding a footer to the main layout using GitHub Copilot's autocomplete feature.
+- **Agent Mode**: Use when you need AI to explore your codebase, make decisions about architecture, or solve complex problems where the solution isn't immediately clear. Agent mode autonomously plans and executes changes across your workspace.
+
+- **Edit Mode**: Use when you know exactly what needs to change and in which files. Edit mode makes deliberate, specific modifications to 1 to many files that you explicitly target. Perfect for focused refactoring, bug fixes, or feature additions where you control the scope.
+
+- **Plan Mode**: Use when you want to preview what changes Copilot would make before executing them. Plan mode generates a detailed plan showing files to be modified, changes to be made, and the reasoning behind decisions—without actually applying any changes. Great for understanding impact and validating approach before committing.
+
+- **Ask Mode**: Use when you need to understand code first, want suggestions before implementation, or are exploring different approaches.
+
+### 🆕 About Plan Mode (Recently Released)
+
+**Plan mode** is a new addition to GitHub Copilot in VS Code that helps you understand what changes will be made before they're executed. Think of it as a "dry run" for your AI-assisted changes.
+
+**How Plan Mode Works:**
+1. You describe what you want to accomplish
+2. Copilot analyzes your codebase and creates a detailed plan
+3. The plan shows:
+   - Which files will be modified or created
+   - What specific changes will be made to each file
+   - The reasoning behind the changes
+   - Dependencies and impacts
+4. You review the plan without any code being changed
+5. You can then execute the plan, modify your request, or try a different approach
+
+**Benefits:**
+- **Risk reduction**: See the impact before changes are made
+- **Learning opportunity**: Understand AI's decision-making process
+- **Better prompts**: Refine your request based on the preview
+- **Confidence**: Proceed with changes knowing what will happen
+
+**When to Use Plan Mode:**
+- Before making significant refactoring changes
+- When working with unfamiliar code sections
+- To validate your approach before implementation
+- When you want to understand AI's reasoning
+- Before changes that might affect multiple files
+
+> **Note**: Plan mode is currently available in VS Code Insiders and will be rolled out to stable VS Code soon. This lab focuses on **Agent and Edit modes** which are the primary modes for code generation. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 7) which works autonomously on GitHub issues.
+
+## 🤖 Step 1: Using Agent Mode to Add a Footer Component
+
+Let's start by using GitHub Copilot's Agent mode to add a footer component to the application. Agent mode excels at exploratory tasks where AI can autonomously determine the best approach.
+
+> **Lab Note**: In this exercise, we're providing specific requirements to help you learn Agent mode in a structured way. In real-world usage, you'd typically give Agent mode more freedom to explore and decide the implementation approach.
 
 ### Instructions:
 
-1. **Navigate to the layout file:**
-   - Open `src/app/layout.tsx`
+1. **Open GitHub Copilot Chat:**
+   - Click the chat icon in the sidebar (or press `Ctrl+Alt+I` / `Cmd+Opt+I`)
+   - Ensure you're in **Agent mode** (select "Agent" from the mode selector at the top)
 
-2. **Find the location to add the footer:**
-   - Go to line 52 where you see `{/* REPLACE THIS COMMENT */}`
+2. **Provide context by opening related files:**
+   - Open `src/app/layout.tsx` to show where the footer will be integrated
+   - Open `src/components/ui/layout/Hero.tsx` as an example of existing component style
+   - Having these files open helps Agent mode understand your project patterns
 
-3. **Remove the comment and add a descriptive comment:**
-   - Delete the existing comment on line 52
-   - Type the following comment:
-   ```tsx
-   {/* Create a footer for this section. It should contain the logo and copyright information. */}
+3. **Give Agent mode a clear task:**
+   
+   Type the following prompt in the chat:
+   ```
+   Create a footer component for this application and integrate it into the main layout.
+   
+   Requirements:
+   - Create a new Footer.tsx component in src/components/ui/layout/
+   - Include PixelPerfect Gallery branding/logo text
+   - Add copyright information with current year
+   - Include links to About, Privacy, and Terms pages
+   - Style with Tailwind CSS matching the existing design system
+   - Support dark mode using dark: classes
+   - Add the footer to layout.tsx at line 52 where the REPLACE THIS COMMENT placeholder is
+   
+   Follow the patterns used in other layout components like Hero.tsx.
    ```
 
-4. **Wait for GitHub Copilot's suggestion:**
-   - After typing the comment, press `Enter` to go to a new line
-   - GitHub Copilot will start suggesting code (you'll see ghost text in gray)
-   - Press `Tab` to accept the suggestion
-   - Continue pressing `Enter` and `Tab` to build the complete footer
-   - Press `Esc` when the footer is complete or when Copilot starts suggesting unrelated code
+4. **Review Agent mode's plan:**
+   - Agent mode will analyze your codebase and show you what files it plans to create or modify
+   - Review the plan to ensure it matches your expectations
+   - You'll see a preview of files to be created/modified
+   - Click **"Accept"** to proceed or edit your prompt if needed
 
-5. **Review the generated code:**
-   - Make sure the footer includes appropriate elements
-   - Check that the styling matches the rest of the application
-   - Verify that the component structure makes sense
+5. **Watch Agent mode work:**
+   - Agent mode will create the Footer component file
+   - It will modify layout.tsx to import and use the footer
+   - Changes appear in your editor in real-time
+   - You can see the progress in the chat window
 
-6. **Test your changes:**
-   - Save the file
-   - Refresh [http://localhost:3000](http://localhost:3000) in your browser
-   - Scroll to the bottom of the page to see your new footer
+6. **Review the generated code:**
+   - Check the new `src/components/ui/layout/Footer.tsx` file
+   - Review the changes to `src/app/layout.tsx`
+   - Verify the styling matches existing components
+   - Ensure proper TypeScript types are used
+   - Check that imports are correct
 
-### 💡 Pro Tips for Autocomplete:
-- **Be descriptive in comments**: The more specific your comment, the better the suggestions
-- **Use consistent naming**: Follow the project's naming conventions in your prompts
-- **Accept partially**: You can accept part of a suggestion and modify the rest
-- **Iterate**: If the first suggestion isn't perfect, try rephrasing your comment
+7. **Test your changes:**
+   - Save all modified files (if not auto-saved)
+   - Check the browser at [http://localhost:3000](http://localhost:3000)
+   - Scroll to the bottom to see your new footer
+   - Toggle dark mode to verify dark mode support works
+
+### 💡 Pro Tips for Agent Mode:
+- **Open related files first**: Agent mode uses open files for context about patterns and style
+- **Be specific about file locations**: Specify exact paths where new files should be created
+- **Reference existing patterns**: Point Agent mode to similar components to follow
+- **Use `@workspace` for broader context**: Include `@workspace` in your prompt for codebase-wide awareness
+- **Review before accepting**: Always check Agent mode's plan before proceeding
+- **Iterate if needed**: You can refine your prompt and try again if the plan isn't quite right
 
 ### ⚠️ Common Issues:
-- **Suggestion not appearing**: Make sure GitHub Copilot is enabled (check the status bar)
-- **Wrong suggestion**: Press `Esc` and rephrase your comment more specifically
-- **Too much generated**: Press `Esc` to stop generation and clean up manually
+- **Agent mode not available**: Ensure GitHub Copilot is enabled and you have the latest VS Code version
+- **Changes not appearing**: Make sure you accepted the plan and Agent mode completed its work
+- **Styling doesn't match**: Reference specific components in your prompt for consistent styling
+- **Files created in wrong location**: Be explicit about file paths in your requirements
+- **Build errors**: Check that imports are correct and component syntax is valid
 
-## 🎨 Step 2: Reviewing AI-Generated Code
+## 🎯 Step 2: Using Agent Mode for Multi-File Feature Implementation
 
-Before we move forward, it's important to understand how to review and improve AI-generated code.
+Now let's use Agent mode for a more complex task that involves creating a new feature across multiple files. This demonstrates Agent mode's real power.
 
-### Option A: AI-Powered Review (Premium Feature)
+### Scenario:
 
-If you have premium access to advanced models:
-
-1. **Select the generated footer code**
-2. **Right-click** on the selection
-3. **Select "Copilot" → "Review and Comment"** (or similar option)
-4. **Review the feedback** provided by GitHub Copilot
-5. **Apply suggested improvements** as needed
-
-### Option B: Manual Review (Always Available)
-
-Use these criteria to review any AI-generated code:
-
-**Code Quality Checklist:**
-- [ ] Does the code follow the project's style and conventions?
-- [ ] Are TypeScript types properly defined?
-- [ ] Does it use appropriate Tailwind CSS classes for styling?
-- [ ] Is the code accessible (proper semantic HTML)?
-- [ ] Does it handle edge cases and potential errors?
-- [ ] Is the component reusable and well-structured?
-
-**Ask GitHub Copilot for help reviewing:**
-
-<details>
-  <summary>Sample Review Prompts</summary>
-
-  ```
-  Review this footer component for best practices and suggest improvements.
-  ```
-
-  ```
-  Does this component follow React and Next.js best practices?
-  ```
-
-  ```
-  Check if this code is accessible and suggest improvements.
-  ```
-
-  ```
-  Is there a more efficient way to write this component?
-  ```
-
-</details>
-
-## 💭 Step 3: Using Edit Mode to Generate New Components
-
-Now let's use GitHub Copilot's Edit mode to create more substantial features. Edit mode is more powerful for complex changes because it:
-- Understands the full context of your files
-- Can make multi-line modifications
-- Follows your project's patterns more consistently
-- Allows for iterative refinement
-
-### 🔍 Providing Context for Better Code Generation
-
-GitHub Copilot automatically gathers context from several sources:
-- **Active editor**: The currently open file and cursor position
-- **Selection**: Any highlighted/selected code
-- **Open tabs**: Files you have open in VS Code
-- **Workspace**: Your project structure and related files
-
-**Best Practices for Context:**
-1. **Open related files**: Have related components or utilities open in tabs
-2. **Use file references**: Include `@filename` in your prompts
-3. **Highlight relevant code**: Select sections you want to reference or modify
-4. **Reference documentation**: Point to README or component guides
-
-**Learn More:** [VS Code Copilot Chat Context Documentation](https://code.visualstudio.com/docs/copilot/chat/copilot-chat-context)
+The gallery needs a "Featured Photos" section on the homepage that highlights selected photos. This requires:
+- Creating a new component
+- Adding mock data
+- Integrating it into the home page
+- Ensuring consistent styling
 
 ### Instructions:
 
-1. **Open GitHub Copilot Chat** (click the chat icon in the sidebar)
+1. **Prepare the context:**
+   - Open `src/app/page.tsx` (the home page where feature will be added)
+   - Open `src/components/gallery/GalleryGrid.tsx` (for component pattern reference)
+   - Open `src/lib/mock-photo-data.ts` (to see data structure)
 
-2. **Switch to Edit mode** (select "Edit" at the top of the chat panel)
-
-3. **Choose a component to create:**
-
-   **Option A: Photo Stats Component**
+2. **Prompt Agent mode with the complete requirement:**
+   
    ```
-   Create a new component in src/components/gallery/ called PhotoStats.tsx that displays statistics about a photo (views, likes, date uploaded). Use TypeScript interfaces and Tailwind CSS for styling. Follow the existing component patterns in this project.
+   Create a Featured Photos section for the homepage.
+   
+   Tasks:
+   1. Create a new FeaturedSection.tsx component in src/components/gallery/
+   2. The component should display 3 featured photos in a hero-style layout
+   3. Add a "featured" boolean field to the Photo type in src/lib/mock-photo-data.ts
+   4. Update the mock data to mark 3 photos as featured
+   5. Import and add FeaturedSection to the home page (src/app/page.tsx) after the Hero component
+   6. Use existing components like SectionContainer and SectionTitle for consistency
+   7. Style with Tailwind CSS and include dark mode support
+   8. Make it responsive (different layouts for mobile/desktop)
+   
+   Follow patterns from GalleryGrid.tsx and other components.
    ```
 
-   **Option B: Filter Bar Component**
-   ```
-   Create a FilterBar component in src/components/gallery/ that allows users to filter photos by category and date. Include dropdown selects for both filters. Use Radix UI components if appropriate, and Tailwind CSS for styling.
-   ```
+3. **Review the multi-file plan:**
+   - Agent mode will show all files it plans to create or modify
+   - Verify it includes:
+     - New `FeaturedSection.tsx` component
+     - Updates to `mock-photo-data.ts` (type and data)
+     - Changes to `page.tsx` (integration)
+   - Accept the plan to proceed
 
-   **Option C: Custom Component**
-   - Think of a component that would be useful for the photo gallery
-   - Describe it clearly to GitHub Copilot
-   - Specify the file location, technologies to use, and styling approach
+4. **Monitor the implementation:**
+   - Watch as Agent mode creates the component
+   - See it update the data structure and mock data
+   - Observe it integrate everything into the home page
+   - Check that it follows existing patterns
 
-4. **Review the generated component:**
-   - Check that it follows TypeScript best practices
-   - Verify it uses appropriate styling
-   - Ensure it matches the project's component patterns
-   - Test that it compiles without errors
+5. **Review and test:**
+   - Check each modified/created file
+   - Verify TypeScript types are consistent
+   - Test the homepage at [http://localhost:3000](http://localhost:3000)
+   - Confirm the featured section appears and looks good
+   - Test responsiveness by resizing the browser
 
-5. **Iterate if needed:**
-   - Ask for specific improvements
-   - Request additional features
-   - Refine the styling or structure
+### 💡 What Makes This Agent Mode-Perfect:
 
-<details>
-  <summary>Sample Iteration Prompts</summary>
+- **Multiple files**: Agent mode coordinates changes across several files
+- **Dependencies**: It understands that the component needs data, types, and integration
+- **Context awareness**: It follows patterns from files you have open
+- **Consistency**: It maintains styling and architectural patterns
 
-  ```
-  Add TypeScript type definitions for the component props.
-  ```
+### 🔍 Understanding Agent Mode's Workflow:
 
-  ```
-  Make this component more accessible by adding ARIA labels.
-  ```
+When you accept the plan, Agent mode:
+1. **Analyzes** your entire workspace and relevant files
+2. **Plans** the sequence of changes needed
+3. **Creates** new files with appropriate content
+4. **Modifies** existing files to integrate the new feature
+5. **Validates** that changes follow project patterns
+6. **Applies** all changes atomically
 
-  ```
-  Add dark mode support using Tailwind's dark: prefix.
-  ```
+### ⚠️ Troubleshooting:
 
-  ```
-  Improve the component's responsive design for mobile devices.
-  ```
+- **Plan missing files**: Be more explicit about all required changes
+- **Component doesn't appear**: Check that imports were added correctly
+- **Type errors**: Review the type definitions in mock-photo-data.ts
+- **Styling issues**: Reference specific components for style consistency
 
-</details>
+## 🔄 Step 3: Iterating and Refining with Agent Mode
 
-## 🛠️ Step 4: Using Prompt Files for Consistent Generation
+One of Agent mode's strengths is the ability to iterate on existing code. Let's enhance the Featured Photos section we just created.
 
-PixelPerfect Gallery includes custom prompt files that help generate consistent code. Let's try using one!
+### Scenario:
+
+After reviewing the Featured section, you want to add animations and improve the user experience. This requires iterative refinement across the component files.
 
 ### Instructions:
 
-1. **Explore existing prompt files:**
-   - Navigate to `.github/prompts/` folder
-   - Look through the available prompt files
-   - Notice the format: header with metadata, then the prompt body
+1. **Open the Featured section component:**
+   - Navigate to `src/components/gallery/FeaturedSection.tsx` (created in Step 2)
+   - Keep `src/app/page.tsx` open for context
 
-2. **Use a prompt file to generate mock data:**
-
-   In GitHub Copilot Chat, try this command:
+2. **Continue the conversation in Agent mode:**
+   
+   Since Agent mode remembers your previous conversation, you can build on it:
    ```
-   /generate-mock-photo-data 5
-   ```
-
-   This uses the custom prompt file to generate mock photo data following the project's data structure.
-
-3. **Try the UI generation prompt:**
-   ```
-   /generate-new-ui for a photo card component that displays a photo thumbnail with title and photographer name. Place it in the gallery folder.
-   ```
-
-### 💡 Understanding Prompt Files:
-
-Prompt files allow you to:
-- **Standardize** common code generation tasks
-- **Include context** specific to your project
-- **Specify parameters** that can be customized each time
-- **Maintain consistency** across your team
-
-**Format:**
-```markdown
----
-description: 'What this prompt does'
-mode: 'edit' or 'ask' or 'agent'
----
-Your prompt template here with ${variables}
-```
-
-### 🎁 Optional Challenge: Create Your Own Prompt File
-
-Try creating a custom prompt file for a common task:
-
-1. **Create a new file** in `.github/prompts/`
-2. **Name it descriptively**, e.g., `create-test-component.prompt.md`
-3. **Use this template:**
-   ```markdown
-   ---
-   description: 'Generate a test component with sample data'
-   ---
-   Create a new React component in ${input:location} called ${input:componentName}.
-   The component should ${input:functionality}.
-   Use TypeScript, Tailwind CSS, and follow Next.js 15 best practices.
-   Include proper type definitions and export the component as default.
+   Enhance the FeaturedSection component we just created:
+   
+   Improvements:
+   1. Add smooth fade-in animations using Framer Motion (already installed)
+   2. Add hover effects on featured photos (scale and shadow)
+   3. Include a "View Gallery" call-to-action button at the bottom
+   4. Add loading states for when data is being fetched
+   5. Improve the mobile layout to show 1 photo at a time in a carousel style
+   
+   Use the patterns from other components that use Framer Motion.
    ```
 
-4. **Test your prompt file** by using it in Copilot Chat
+3. **Review the enhancement plan:**
+   - Agent mode will show what files it will modify
+   - It should update the FeaturedSection component
+   - Possibly add new imports for Framer Motion
+   - Accept the plan
 
-## 🔄 Step 5: Refactoring Existing Code
+4. **Test the improvements:**
+   - Refresh the browser and observe the animations
+   - Hover over photos to see the effects
+   - Resize the browser to see responsive behavior
+   - Check that dark mode still works
 
-Let's use Edit mode to improve existing code. We'll refactor the GalleryGrid component for better performance and readability.
+5. **Request additional refinements if needed:**
+   
+   You can continue the conversation:
+   ```
+   Make the animation timing slower and more elegant
+   ```
+   
+   Or:
+   ```
+   Add a subtle background pattern to the featured section
+   ```
+
+### 💡 Benefits of Iterative Agent Mode:
+
+- **Context preservation**: Agent mode remembers what it just built
+- **Incremental improvements**: Make changes step-by-step rather than all at once
+- **Learning opportunity**: See how to progressively enhance features
+- **Safe experimentation**: Easy to ask for changes and see results immediately
+
+### 🔍 Providing Effective Feedback to Agent Mode:
+
+When iterating, be specific about what you want changed:
+
+**Good iteration prompts:**
+- ✅ "Make the animation duration 0.5 seconds instead of the current timing"
+- ✅ "Change the hover scale from 1.05 to 1.02 for a more subtle effect"
+- ✅ "Add error handling for when featured photos array is empty"
+
+**Less effective prompts:**
+- ❌ "Make it better"
+- ❌ "Fix the animations"
+- ❌ "Improve performance"
+
+### 🎯 Practice Exercise:
+
+Try one more iteration on your own:
+1. Ask Agent mode to add photo captions that appear on hover
+2. Request that clicking a featured photo navigates to a detail view
+3. Add a smooth transition between photos on mobile
+
+### ⚠️ When to Stop Iterating:
+
+Watch for signs that you should start a fresh conversation:
+- The conversation history becomes very long
+- Agent mode starts making unrelated changes
+- You're changing direction significantly from the original task
+- TypeScript errors accumulate
+
+**Tip**: Start a new Agent mode conversation for unrelated features
+
+## 📝 Step 4: When to Use Edit Mode Instead of Agent Mode
+
+While Agent mode is powerful for exploratory and autonomous work, Edit mode is better when you know exactly what needs to change. Let's explore when and how to use Edit mode effectively.
+
+### When to Choose Edit Mode:
+
+**Use Edit Mode for:**
+- ✅ Deliberate, specific changes where you know which files to modify
+- ✅ Refactoring functions, classes, or components across one or multiple files
+- ✅ Making targeted bug fixes with precise scope control
+- ✅ Adding specific features where the implementation is clear
+- ✅ When you want explicit control over which files are modified
+- ✅ Changes to 1 to many files that you explicitly target
+
+**Use Agent Mode for:**
+- ✅ Exploratory tasks where AI needs to discover what to change
+- ✅ Complex problem-solving requiring autonomous decision-making
+- ✅ Architectural planning and implementation
+- ✅ When you want AI to determine the best approach
+- ✅ Situations where the full scope isn't immediately clear
+
+### Exercise: Quick Refactoring with Edit Mode
+
+Let's use Edit mode for a focused improvement to existing code.
 
 ### Instructions:
 
 1. **Open the file** `src/components/gallery/GalleryGrid.tsx`
 
-2. **Select lines 26-43** (the filtering logic)
+2. **Select lines 26-43** (the filtering logic section)
 
-3. **Open Copilot Chat in Edit mode**
+3. **Switch to Edit mode** in Copilot Chat
 
-4. **Ask for refactoring:**
+4. **Request a targeted improvement:**
+   ```
+   Refactor this filtering logic to use useMemo for better performance. Add proper TypeScript types for the filtered results.
+   ```
 
-<details>
-  <summary>Sample Refactoring Prompts</summary>
+5. **Review the changes before accepting:**
+   - Edit mode shows you a diff of what will change
+   - You can see exactly what code is being added/removed
+   - Accept if it looks good, or refine your prompt
 
-  ```
-  Refactor this filtering logic for better performance and readability. Add TypeScript type improvements.
-  ```
+6. **Apply and test:**
+   - Click "Apply" to make the changes
+   - Save the file
+   - Test that filtering still works in the browser
 
-  ```
-  Extract the filtering logic into a separate utility function with proper TypeScript types.
-  ```
+### 💡 Edit Mode Best Practices:
 
-  ```
-  Optimize this component to reduce unnecessary re-renders.
-  ```
+- **Be explicit about files**: Specify exactly which files should be modified
+- **Be deliberate**: Know what you want changed before using Edit mode
+- **Use for targeted scope**: Works on 1 to many files you explicitly name
+- **Review diffs carefully**: Edit mode shows you exactly what will change
+- **Control the changes**: You determine the scope, not the AI
 
-  ```
-  Add memoization to improve performance of this filtering logic.
-  ```
+### 🔍 Comparing Agent Mode vs Edit Mode:
 
-</details>
+**Example Scenario**: Adding error handling
 
-5. **Review the suggestions:**
-   - Compare the refactored code to the original
-   - Understand what improvements were made
-   - Check if the changes maintain the same functionality
+**Agent Mode approach:**
+```
+Analyze the application and add appropriate error handling wherever needed. 
+Use your judgment to determine which components need error boundaries, 
+which functions need try-catch blocks, and how to handle errors gracefully.
+```
+*Result: AI autonomously explores, plans, and implements error handling across multiple files*
 
-6. **Test the refactored code:**
-   - Run `npm run dev` to ensure no errors
-   - Test the filtering functionality in the browser
-   - Verify performance improvements if applicable
+**Edit Mode approach:**
+```
+Add try-catch error handling to the following files:
+- src/components/gallery/GalleryGrid.tsx (in the filter function)
+- src/app/page.tsx (in the data loading section)
+- src/lib/mock-photo-data.ts (in the data export)
 
-## 🎓 Step 6: Best Practices for AI-Assisted Code Generation
+Use consistent error messages and logging.
+```
+*Result: Targeted, deliberate changes to the 3 files you specified*
 
-Let's review what makes for effective AI-assisted development:
+### ⚠️ Key Difference:
 
-### ✅ Do's:
+**Edit Mode**: You tell Copilot what to change and where (1 to many specific files)  
+**Agent Mode**: Copilot explores, decides what to change, and where to make those changes
 
-1. **Be Specific**: Clear, detailed prompts get better results
-   - ❌ "Make a button"
-   - ✅ "Create a primary button component with hover and active states using Tailwind CSS"
+## 🎓 Step 5: Best Practices for IDE AI-Assisted Development
 
-2. **Provide Context**: Reference related files and patterns
-   - ✅ "Follow the pattern used in @SectionContainer.tsx"
-   - ✅ "Use the same styling approach as the existing components"
+Let's review what makes for effective AI-assisted development in the IDE:
 
-3. **Iterate**: Refine the generated code through conversation
-   - Generate → Review → Request improvements → Repeat
+### ✅ Do's for Agent Mode:
 
-4. **Review Critically**: Always review AI-generated code
-   - Check for correctness and completeness
-   - Verify it follows project conventions
-   - Test thoroughly
+1. **Let AI Explore and Decide**: Give high-level goals and let Agent mode determine the approach
+   - ❌ "Modify these 3 specific files to add error handling"
+   - ✅ "Add comprehensive error handling to the application where appropriate"
 
-### ❌ Don'ts:
+2. **Provide Context, Not Instructions**: Open relevant files to guide discovery
+   - Open similar components for style patterns
+   - Reference existing patterns: "Follow patterns in @Hero.tsx"
+   - Let Agent mode decide which files to modify
 
-1. **Don't blindly accept**: Always understand what code does before using it
-2. **Don't skip testing**: AI-generated code needs testing just like human-written code
-3. **Don't ignore patterns**: Make sure generated code follows your project's conventions
-4. **Don't over-rely**: Use AI as a tool, not a replacement for understanding
+3. **Use for Complex Problems**: Leverage Agent mode's autonomous capabilities
+   - Architectural decisions and planning
+   - Exploratory refactoring
+   - Problems where the solution isn't immediately clear
+
+4. **Review Plans Before Accepting**: Always check what Agent mode intends to do
+   - Verify all files to be modified are correct
+   - Ensure no unintended changes
+   - Confirm the approach makes sense
+
+5. **Iterate Conversationally**: Build on previous context
+   - "Now add animations to the component we just created"
+   - "Enhance the Featured section with hover effects"
+
+### ✅ Do's for Edit Mode:
+
+1. **Be Explicit About Files**: Tell Copilot exactly which files to modify
+   - ✅ "Refactor the filter function in src/components/gallery/GalleryGrid.tsx"
+   - ✅ "Add error handling to auth.ts, api.ts, and database.ts"
+
+2. **Be Deliberate and Specific**: Know what you want changed
+   - ✅ "Add memoization to the filter function"
+   - ❌ "Improve this component" (too vague)
+
+3. **Control the Scope**: Use Edit mode when you want to control exactly what changes
+   - Specify 1 to many files explicitly
+   - Define the exact changes needed
+   - Maintain control over the modification scope
+
+4. **Review Diffs**: Edit mode shows exactly what will change
+   - Check additions and deletions carefully
+   - Ensure functionality is preserved
+
+### ❌ Universal Don'ts:
+
+1. **Don't skip review**: Always understand generated code before using it
+2. **Don't ignore errors**: If TypeScript complains, investigate and fix
+3. **Don't forget testing**: Test all AI-generated code in the browser
+4. **Don't lose context**: If conversations get long, start fresh
+5. **Don't over-rely**: AI is a powerful assistant, not a replacement for thinking
+
+### 🎯 Mode Selection Quick Guide:
+
+| Scenario | Use This Mode | Why |
+|----------|--------------|-----|
+| Explore codebase and decide what to change | **Agent** | Autonomous discovery and planning |
+| Complex problem where solution isn't clear | **Agent** | AI determines best approach |
+| Architectural planning and implementation | **Agent** | Workspace-wide context and decisions |
+| Refactor specific files you identify | **Edit** | Targeted changes to 1-many files you specify |
+| Fix bug in known locations | **Edit** | Deliberate modifications with explicit control |
+| Add feature to specific components | **Edit** | You control which files are changed |
+| Preview changes before executing | **Plan** | See impact without modifying code |
+| Validate approach before committing | **Plan** | Review plan and reasoning first |
+| Understand code or get suggestions | **Ask** | Read-only exploration |
 
 ## 🏆 Exercise Wrap-up
 
-Great work! You've successfully used GitHub Copilot to:
-- ✅ Generate code using Autocomplete
-- ✅ Create new components with Edit mode
-- ✅ Use custom prompt files for consistent generation
-- ✅ Refactor existing code for improvements
-- ✅ Review and iterate on AI-generated code
+Excellent work! You've mastered GitHub Copilot's IDE modes for code generation:
+- ✅ Used Agent mode to create multi-file features with full integration
+- ✅ Implemented complex functionality across components, data, and pages
+- ✅ Iterated on AI-generated code to refine and enhance features
+- ✅ Applied Edit mode for targeted, surgical code improvements
+- ✅ Learned when to use each mode for maximum effectiveness
 
 ### Reflection Questions:
-1. **How did Autocomplete compare to Edit mode for different tasks?**
-2. **What types of code generation did GitHub Copilot excel at?**
-3. **Where did you need to provide additional guidance or corrections?**
-4. **How might prompt files improve team consistency?**
-5. **What best practices will you adopt for AI-assisted coding?**
+1. **How does Agent mode's multi-file capability change your development workflow?**
+2. **When would you choose Edit mode over Agent mode, and why?**
+3. **What surprised you about Agent mode's understanding of your codebase?**
+4. **How might you use iterative prompting to build complex features?**
+5. **What strategies will you use to provide better context to Copilot?**
 
 ### Key Takeaways:
-- Different generation methods (Autocomplete, Edit mode, prompts) suit different tasks
-- Clear, specific prompts produce better results
-- Always review and test AI-generated code
-- Iterative refinement improves code quality
-- Custom prompt files help maintain consistency
+- **Agent mode is the primary tool** for feature development requiring multiple files
+- **Edit mode complements Agent mode** for quick, targeted improvements
+- Context is critical: open related files and reference existing patterns
+- Iterative development with AI works just like with human developers
+- Always review, test, and understand what AI generates
+- Clear requirements and specific prompts yield better results
+
+### 🎯 Real-World Applications:
+
+**Agent Mode Use Cases:**
+- Building new features from scratch
+- Adding components with full integration
+- Implementing requirements that touch multiple files
+- Refactoring that affects architecture
+
+**Edit Mode Use Cases:**
+- Quick bug fixes
+- Performance optimizations in specific functions
+- Adding error handling to existing code
+- Refining algorithms or logic
+
+### 📚 What's Next?
+
+- **Lab 4**: Learn engineering best practices for AI-assisted development
+- **Lab 5**: Customize Copilot with prompt files and chat modes
+- **Lab 7**: Explore Coding Agent for autonomous development on GitHub issues
+
+Remember: Agent mode in the IDE (this lab) is for interactive development, while Coding Agent (Lab 7) is for autonomous work on GitHub. Both are powerful tools for different workflows!
