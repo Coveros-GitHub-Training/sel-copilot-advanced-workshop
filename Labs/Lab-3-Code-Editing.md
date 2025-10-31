@@ -21,16 +21,20 @@ Your task today is to use GitHub Copilot's Agent mode to:
 - Make context-aware changes across the codebase
 - Understand best practices for AI-assisted development
 
-## 💡 Understanding IDE Code Generation Modes
+## 💡 Understanding GitHub Copilot Chat Modes
 
-GitHub Copilot offers multiple modes in the IDE for different types of code generation:
+Before we dive into code generation, let's understand the different ways you can interact with GitHub Copilot in VS Code. GitHub Copilot Chat offers multiple modes, each optimized for different types of tasks:
 
 | Mode | Trigger | Best For | Scope |
 |------|---------|----------|-------|
-| **Agent Mode** | Copilot Chat, select "Agent" | Exploratory tasks, architectural planning, complex problem-solving | Workspace-wide, autonomous |
+| **Ask Mode** | Copilot Chat, select "Ask" | Understanding code, getting explanations, learning concepts | Read-only, no changes |
 | **Edit Mode** | Copilot Chat, select "Edit" | Deliberate, specific changes to explicitly targeted files (1 to many files) | Targeted files you specify |
+| **Agent Mode** | Copilot Chat, select "Agent" | Exploratory tasks, architectural planning, complex problem-solving | Workspace-wide, autonomous |
 | **Plan Mode** | Copilot Chat, select "Plan" | Previewing changes before execution, understanding impact | Shows plan without making changes |
-| **Ask Mode** | Copilot Chat, select "Ask" | Understanding code, getting suggestions | Read-only, no changes |
+
+> **You learned Ask mode in Lab 2** where you explored the codebase. Now we'll focus on **Agent Mode** and **Edit Mode** for making code changes.
+
+### 🎯 Understanding IDE Code Generation Modes
 
 **When to use each mode:**
 
@@ -76,7 +80,9 @@ GitHub Copilot offers multiple modes in the IDE for different types of code gene
 
 Let's start by using GitHub Copilot's Agent mode to add a footer component to the application. Agent mode excels at exploratory tasks where AI can autonomously determine the best approach.
 
-> **Lab Note**: In this exercise, we're providing specific requirements to help you learn Agent mode in a structured way. In real-world usage, you'd typically give Agent mode more freedom to explore and decide the implementation approach.
+> **Lab Notes**: 
+> - In this exercise, we're providing specific requirements to help you learn Agent mode in a structured way. In real-world usage, you'd typically give Agent mode more freedom to explore and decide the implementation approach.
+> - The components created in Steps 1 and 2 are examples for learning. If you skip any step or encounter issues, you can continue with later steps - just adjust the prompts to reference different existing components.
 
 ### Instructions:
 
@@ -231,21 +237,24 @@ When you accept the plan, Agent mode:
 
 ## 🔄 Step 3: Iterating and Refining with Agent Mode
 
-One of Agent mode's strengths is the ability to iterate on existing code. Let's enhance the Featured Photos section we just created.
+One of Agent mode's strengths is the ability to iterate on existing code. Let's practice this by enhancing an existing component or the one you created in Step 2.
 
 ### Scenario:
 
-After reviewing the Featured section, you want to add animations and improve the user experience. This requires iterative refinement across the component files.
+You want to add animations and improve the user experience for one of the components. This demonstrates iterative refinement with Agent mode.
 
 ### Instructions:
 
-1. **Open the Featured section component:**
-   - Navigate to `pixelperfect-gallery/src/components/gallery/FeaturedSection.tsx` (created in Step 2)
-   - Keep `pixelperfect-gallery/src/app/page.tsx` open for context
+1. **Choose a component to enhance:**
+   - If you completed Step 2: Open `pixelperfect-gallery/src/components/gallery/FeaturedSection.tsx`
+   - Alternative: Open `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx` (existing component)
+   - Keep the page file that uses this component open for context
 
 2. **Continue the conversation in Agent mode:**
    
-   Since Agent mode remembers your previous conversation, you can build on it:
+   Agent mode remembers your previous conversation, so you can build on it:
+   
+   **If enhancing FeaturedSection from Step 2:**
    ```
    Enhance the FeaturedSection component we just created:
    
@@ -255,6 +264,20 @@ After reviewing the Featured section, you want to add animations and improve the
    3. Include a "View Gallery" call-to-action button at the bottom
    4. Add loading states for when data is being fetched
    5. Improve the mobile layout to show 1 photo at a time in a carousel style
+   
+   Use the patterns from other components that use Framer Motion.
+   ```
+   
+   **If enhancing GalleryGrid instead:**
+   ```
+   Enhance the GalleryGrid component in pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx:
+   
+   Improvements:
+   1. Add smooth fade-in animations when photos load using Framer Motion
+   2. Add hover effects on photos (scale and shadow)
+   3. Improve the mobile layout with better spacing
+   4. Add loading skeletons while photos are being fetched
+   5. Add a subtle entrance animation when the grid appears
    
    Use the patterns from other components that use Framer Motion.
    ```

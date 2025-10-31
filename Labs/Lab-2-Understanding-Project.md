@@ -22,30 +22,15 @@ As a modern developer, you'll leverage GitHub Copilot Chat to accelerate your on
 
 ## 🤖 Introduction to GitHub Copilot Chat
 
-GitHub Copilot Chat is an AI-powered conversational interface that helps you understand code, generate implementations, and solve development challenges. There are several modes to interact with GitHub Copilot:
+GitHub Copilot Chat is an AI-powered conversational interface that helps you understand code, generate implementations, and solve development challenges. In this lab, we'll focus on using Copilot Chat in **Ask mode** to explore and understand an unfamiliar codebase.
 
-| Mode | Purpose | Best For |
-|------|---------|----------|
-| **Ask** | Get explanations and answers about code | Understanding existing code, learning new concepts |
-| **Edit** | Modify existing code with AI assistance | Refactoring, bug fixes, feature additions |
-| **Agent** | Delegate complex tasks to AI | Multi-file changes, architectural decisions |
-
-For exploring an unfamiliar codebase, **Ask mode** is ideal because it allows you to:
+**Ask mode** is ideal for exploring code because it allows you to:
 - Query specific files or code patterns without making changes
 - Get high-level explanations of project structure and purpose
 - Understand dependencies, build processes, and development workflows
 - Ask follow-up questions to deepen your understanding
 
-## 🧠 AI Models in GitHub Copilot
-
-GitHub Copilot offers multiple AI models optimized for different tasks—some excel at code analysis, others at complex reasoning or speed. The default model works great for most scenarios, but you can experiment with different models to compare responses.
-
-**Key Points:**
-- **Model Selector**: Look below the chat input area to switch between available models
-- **Pricing**: Different models have different usage limits ([See Billing Docs](https://docs.github.com/copilot/concepts/billing/copilot-requests))
-- **Auto Selection**: VS Code can automatically choose the best model for your task ([Learn More](https://docs.github.com/copilot/concepts/auto-model-selection))
-
-For detailed model comparisons and capabilities, see: [GitHub Copilot Model Documentation](https://docs.github.com/copilot/reference/ai-models/supported-models)
+> **Note**: In later labs, you'll learn about other Copilot modes (Edit and Agent) for making code changes. For now, we'll focus on understanding the codebase through conversation.
 
 ## 🔍 Step 1: Discovering Available Copilot Features
 
@@ -165,4 +150,4 @@ Congratulations! You've successfully used GitHub Copilot Chat in Ask mode to:
 - Start with high-level questions, then drill down into specifics
 - Use `/help` to discover available features and slash commands
 - Use `@workspace` for context-aware code explanations
-- Different AI models can provide varied perspectives—experiment when needed
+- Ask mode is perfect for understanding code without making changes

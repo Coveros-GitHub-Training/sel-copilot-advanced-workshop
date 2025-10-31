@@ -27,11 +27,11 @@ All lab exercises are located in the [`Labs/`](Labs/) directory:
 | [Lab 2](Labs/Lab-2-Understanding-Project.md) | Exploring the Codebase | 20 min | Use Copilot Chat to understand project structure, technologies, and architecture |
 | [Lab 3](Labs/Lab-3-Code-Editing.md) | Code Editing & Generation | 30 min | Generate code with Autocomplete and Edit mode, use prompt files |
 | [Lab 4](Labs/Lab-4-Engineering-Practices.md) | Engineering Best Practices | 15 min | Debug Copilot's decisions, configure personal instructions |
-| [Lab 5](Labs/Lab-5-Customizing-Copilot.md) | Customizing Copilot | 30 min | Switch models, create prompt files and chat modes, optimize for your workflow |
+| [Lab 5](Labs/Lab-5-Customizing-Copilot.md) | Customizing Copilot | 45 min | Switch models, create prompt files and chat modes, optimize for your workflow |
 | [Lab 6](Labs/Lab-6-Copilot-Spaces.md) | Copilot Spaces | 25 min | Create dedicated AI workspaces for focused, collaborative development |
-| [Lab 7](Labs/Lab-7-Coding-Agent.md) | Coding Agent | 30 min | Assign issues to Copilot for autonomous implementation and PR creation |
+| [Lab 7](Labs/Lab-7-Coding-Agent.md) | Coding Agent | 45 min | Assign issues to Copilot for autonomous implementation and PR creation |
 
-**Total Duration**: Approximately 2 hours 50 minutes
+**Total Duration**: Approximately 3 hours 15 minutes
 
 ## 🚀 Quick Start
 
