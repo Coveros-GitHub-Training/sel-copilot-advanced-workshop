@@ -150,4 +150,4 @@ Congratulations! You've successfully used GitHub Copilot Chat in Ask mode to:
 - Start with high-level questions, then drill down into specifics
 - Use `/help` to discover available features and slash commands
 - Use `@workspace` for context-aware code explanations
-- Different AI models can provide varied perspectives—experiment when needed
+- Ask mode is perfect for understanding code without making changes
