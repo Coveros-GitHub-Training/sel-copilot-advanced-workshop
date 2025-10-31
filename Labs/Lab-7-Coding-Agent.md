@@ -294,7 +294,7 @@ so that the gallery loads faster and is easier to navigate.
 
 ## Technical Approach
 - Use existing GalleryGrid component
-- Add Pagination component in src/components/ui/
+- Add Pagination component in pixelperfect-gallery/src/components/ui/
 - Update gallery page.tsx to handle page state
 - Follow Tailwind CSS patterns from project
 
@@ -774,7 +774,7 @@ Session logs provide unprecedented insight into AI decision-making:
 Session Log Entry:
 "Analyzing repository structure..."
 "Reading .github/copilot-instructions.md..."
-"Examining similar components in src/components/gallery/..."
+"Examining similar components in pixelperfect-gallery/src/components/gallery/..."
 
 What This Tells You:
 ✓ Copilot is following your custom instructions
@@ -886,7 +886,7 @@ But your project uses Tailwind only!
 Action:
 Comment on PR: "@copilot please use Tailwind CSS
 instead of creating custom CSS files. Follow patterns
-in @src/components/ui/layout/Hero.tsx"
+in @pixelperfect-gallery/src/components/ui/layout/Hero.tsx"
 ```
 
 **Scenario 2: Missing Requirement**
@@ -1562,13 +1562,13 @@ If all good → Approve!
 ```markdown
 Round 1: Structural Changes
 "@copilot please reorganize to follow pattern in
-@src/components/ui/layout/SectionContainer.tsx"
+@pixelperfect-gallery/src/components/ui/layout/SectionContainer.tsx"
 
 Wait for update...
 
 Round 2: Implementation Details
 "@copilot add error handling for network failures
-following pattern in @src/components/gallery/GalleryGrid.tsx
+following pattern in @pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx
 lines 78-95"
 
 Wait for update...
@@ -2140,7 +2140,7 @@ Large-Scale Refactoring:
 - Merge incrementally
 
 Example:
-"Refactor props destructuring in src/components/gallery/"
+"Refactor props destructuring in pixelperfect-gallery/src/components/gallery/"
 → 15 files updated consistently
 → Fast, reliable, maintainable
 ```

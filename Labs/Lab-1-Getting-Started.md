@@ -51,12 +51,13 @@ The fastest way to get started is using GitHub Codespaces:
 5. Wait for the codespace to build and start
 
 The codespace will automatically:
-- Install all dependencies (`npm install`)
 - Configure GitHub Copilot and essential VS Code extensions
 - Provide a fully configured development environment
+- Install dependencies and start the development server in the `pixelperfect-gallery` directory
 
-Once ready, you can start the development server:
+If you need to manually start the server:
 ```bash
+cd pixelperfect-gallery
 npm run dev
 ```
 
@@ -75,7 +76,7 @@ If you prefer to work locally:
 2. **Clone the repository:**
    ```bash
    git clone https://github.com/Coveros-GitHub-Training/sel-copilot-advanced-workshop.git
-   cd sel-copilot-advanced-workshop
+   cd sel-copilot-advanced-workshop/pixelperfect-gallery
    ```
 
 3. **Install dependencies:**
@@ -125,17 +126,19 @@ Now that your environment is set up, let's explore what you'll be working with:
 
 2. **Explore the codebase structure:**
    ```
-   src/
-   ├── app/                 # Next.js 15 App Router pages
-   │   ├── page.tsx         # Home page
-   │   ├── gallery/         # Gallery page
-   │   ├── upload/          # Upload page
-   │   └── admin/           # Admin dashboard
-   ├── components/          # Reusable React components
-   │   ├── ui/              # UI components
-   │   ├── gallery/         # Gallery-specific components
-   │   └── upload/          # Upload-specific components
-   └── lib/                 # Utility functions and mock data
+   pixelperfect-gallery/
+   ├── src/
+   │   ├── app/             # Next.js 15 App Router pages
+   │   │   ├── page.tsx     # Home page
+   │   │   ├── gallery/     # Gallery page
+   │   │   ├── upload/      # Upload page
+   │   │   └── admin/       # Admin dashboard
+   │   ├── components/      # Reusable React components
+   │   │   ├── ui/          # UI components
+   │   │   ├── gallery/     # Gallery-specific components
+   │   │   └── upload/      # Upload-specific components
+   │   └── lib/             # Utility functions and mock data
+   └── public/              # Static assets
    ```
 
 3. **Key technologies in use:**
@@ -151,6 +154,7 @@ Let's make sure everything is working correctly:
 
 1. **Check that the application builds:**
    ```bash
+   cd pixelperfect-gallery
    npm run build
    ```
 
@@ -160,7 +164,7 @@ Let's make sure everything is working correctly:
    ```
 
 3. **Verify GitHub Copilot is active:**
-   - Open any `.tsx` file in the `src/` directory
+   - Open any `.tsx` file in the `pixelperfect-gallery/src/` directory
    - Start typing a comment like `// Function to calculate`
    - You should see Copilot suggestions appear (ghost text in gray)
 

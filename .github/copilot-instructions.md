@@ -1,7 +1,7 @@
 # Copilot Instructions for Photo Gallery & Portfolio
 
 ## Project Overview
-This is a Photo Gallery & Portfolio application built with Next.js 15, TypeScript, and Tailwind CSS. The application follows a component-driven architecture with:
+This is a Photo Gallery & Portfolio application built with Next.js 15, TypeScript, and Tailwind CSS. The application code is located in the `pixelperfect-gallery/` directory. The application follows a component-driven architecture with:
 
 - **Client-Side Interactions** using React hooks and Framer Motion animations
 - **Smart UI Components** for consistent layout and styling
@@ -11,7 +11,7 @@ This is a Photo Gallery & Portfolio application built with Next.js 15, TypeScrip
 ## Architecture
 
 ### Core Components
-1. **Layout Components** (`src/components/ui/layout/`)
+1. **Layout Components** (`pixelperfect-gallery/src/components/ui/layout/`)
    - `Hero.tsx` - Page headers with title and description
    - `SectionContainer.tsx` - Consistent section wrappers
    - `SectionTitle.tsx` - Section headers with optional "View All" links
@@ -23,20 +23,23 @@ This is a Photo Gallery & Portfolio application built with Next.js 15, TypeScrip
    - `FeatureCard.tsx` - Reusable feature highlight cards
 
 ### Data Flow
-- Mock data is stored in `src/lib/` for development
+- Mock data is stored in `pixelperfect-gallery/src/lib/` for development
 - State management uses React hooks
 - Component props follow strict TypeScript interfaces
 - Data transformations happen at the component level
 
 ### Project Structure
 ```
-src/
-├── app/                # Next.js 15 App Router pages
-├── components/
-│   ├── ui/            # Reusable UI components
-│   ├── gallery/       # Gallery-specific components
-│   └── upload/        # Upload-specific components
-└── lib/               # Mock data and utilities
+pixelperfect-gallery/
+├── src/
+│   ├── app/            # Next.js 15 App Router pages
+│   ├── components/
+│   │   ├── ui/        # Reusable UI components
+│   │   ├── gallery/   # Gallery-specific components
+│   │   └── upload/    # Upload-specific components
+│   └── lib/           # Mock data and utilities
+├── public/            # Static assets
+└── ...                # Configuration files
 ```
 
 ## Component Patterns
@@ -94,13 +97,14 @@ src/
 
 ### Running the Project
 ```bash
+cd pixelperfect-gallery
 npm run dev  # Starts development server with Turbopack
 ```
 
 ### Key Files to Reference
-- `COMPONENT_USAGE_GUIDE.md` - Examples of component usage
-- `mock-*-data.ts` files - Data structure examples
-- `page.tsx` files - Page layout patterns
+- `pixelperfect-gallery/COMPONENT_USAGE_GUIDE.md` - Examples of component usage
+- `pixelperfect-gallery/src/lib/mock-*-data.ts` files - Data structure examples
+- `pixelperfect-gallery/src/app/**/page.tsx` files - Page layout patterns
 
 ## Best Practices
 
