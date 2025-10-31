@@ -28,9 +28,9 @@ Generate a new UI component for the Photo Gallery & Portfolio application follow
 
 ## File Structure
 Place components in appropriate directories:
-- Layout components: `src/components/ui/layout/`
-- Feature components: `src/components/gallery/` or `src/components/upload/`
-- Generic UI: `src/components/ui/`
+- Layout components: `pixelperfect-gallery/src/components/ui/layout/`
+- Feature components: `pixelperfect-gallery/src/components/gallery/` or `pixelperfect-gallery/src/components/upload/`
+- Generic UI: `pixelperfect-gallery/src/components/ui/`
 
 ## Example Usage Pattern
 ```tsx

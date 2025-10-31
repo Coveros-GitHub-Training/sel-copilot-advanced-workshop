@@ -85,8 +85,8 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
    - Ensure you're in **Agent mode** (select "Agent" from the mode selector at the top)
 
 2. **Provide context by opening related files:**
-   - Open `src/app/layout.tsx` to show where the footer will be integrated
-   - Open `src/components/ui/layout/Hero.tsx` as an example of existing component style
+   - Open `pixelperfect-gallery/src/app/layout.tsx` to show where the footer will be integrated
+   - Open `pixelperfect-gallery/src/components/ui/layout/Hero.tsx` as an example of existing component style
    - Having these files open helps Agent mode understand your project patterns
 
 3. **Give Agent mode a clear task:**
@@ -96,7 +96,7 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
    Create a footer component for this application and integrate it into the main layout.
    
    Requirements:
-   - Create a new Footer.tsx component in src/components/ui/layout/
+   - Create a new Footer.tsx component in pixelperfect-gallery/src/components/ui/layout/
    - Include PixelPerfect Gallery branding/logo text
    - Add copyright information with current year
    - Include links to About, Privacy, and Terms pages
@@ -120,8 +120,8 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
    - You can see the progress in the chat window
 
 6. **Review the generated code:**
-   - Check the new `src/components/ui/layout/Footer.tsx` file
-   - Review the changes to `src/app/layout.tsx`
+   - Check the new `pixelperfect-gallery/src/components/ui/layout/Footer.tsx` file
+   - Review the changes to `pixelperfect-gallery/src/app/layout.tsx`
    - Verify the styling matches existing components
    - Ensure proper TypeScript types are used
    - Check that imports are correct
@@ -162,9 +162,9 @@ The gallery needs a "Featured Photos" section on the homepage that highlights se
 ### Instructions:
 
 1. **Prepare the context:**
-   - Open `src/app/page.tsx` (the home page where feature will be added)
-   - Open `src/components/gallery/GalleryGrid.tsx` (for component pattern reference)
-   - Open `src/lib/mock-photo-data.ts` (to see data structure)
+   - Open `pixelperfect-gallery/src/app/page.tsx` (the home page where feature will be added)
+   - Open `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx` (for component pattern reference)
+   - Open `pixelperfect-gallery/src/lib/mock-photo-data.ts` (to see data structure)
 
 2. **Prompt Agent mode with the complete requirement:**
    
@@ -172,9 +172,9 @@ The gallery needs a "Featured Photos" section on the homepage that highlights se
    Create a Featured Photos section for the homepage.
    
    Tasks:
-   1. Create a new FeaturedSection.tsx component in src/components/gallery/
+   1. Create a new FeaturedSection.tsx component in pixelperfect-gallery/src/components/gallery/
    2. The component should display 3 featured photos in a hero-style layout
-   3. Add a "featured" boolean field to the Photo type in src/lib/mock-photo-data.ts
+   3. Add a "featured" boolean field to the Photo type in pixelperfect-gallery/src/lib/mock-photo-data.ts
    4. Update the mock data to mark 3 photos as featured
    5. Import and add FeaturedSection to the home page (src/app/page.tsx) after the Hero component
    6. Use existing components like SectionContainer and SectionTitle for consistency
@@ -240,8 +240,8 @@ After reviewing the Featured section, you want to add animations and improve the
 ### Instructions:
 
 1. **Open the Featured section component:**
-   - Navigate to `src/components/gallery/FeaturedSection.tsx` (created in Step 2)
-   - Keep `src/app/page.tsx` open for context
+   - Navigate to `pixelperfect-gallery/src/components/gallery/FeaturedSection.tsx` (created in Step 2)
+   - Keep `pixelperfect-gallery/src/app/page.tsx` open for context
 
 2. **Continue the conversation in Agent mode:**
    
@@ -348,7 +348,7 @@ Let's use Edit mode for a focused improvement to existing code.
 
 ### Instructions:
 
-1. **Open the file** `src/components/gallery/GalleryGrid.tsx`
+1. **Open the file** `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx`
 
 2. **Select lines 26-43** (the filtering logic section)
 
@@ -392,9 +392,9 @@ which functions need try-catch blocks, and how to handle errors gracefully.
 **Edit Mode approach:**
 ```
 Add try-catch error handling to the following files:
-- src/components/gallery/GalleryGrid.tsx (in the filter function)
-- src/app/page.tsx (in the data loading section)
-- src/lib/mock-photo-data.ts (in the data export)
+- pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx (in the filter function)
+- pixelperfect-gallery/src/app/page.tsx (in the data loading section)
+- pixelperfect-gallery/src/lib/mock-photo-data.ts (in the data export)
 
 Use consistent error messages and logging.
 ```
@@ -437,7 +437,7 @@ Let's review what makes for effective AI-assisted development in the IDE:
 ### ✅ Do's for Edit Mode:
 
 1. **Be Explicit About Files**: Tell Copilot exactly which files to modify
-   - ✅ "Refactor the filter function in src/components/gallery/GalleryGrid.tsx"
+   - ✅ "Refactor the filter function in pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx"
    - ✅ "Add error handling to auth.ts, api.ts, and database.ts"
 
 2. **Be Deliberate and Specific**: Know what you want changed

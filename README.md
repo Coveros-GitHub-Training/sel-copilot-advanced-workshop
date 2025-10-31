@@ -19,17 +19,17 @@ Through guided, real-world exercises, you will:
 
 ## 📚 Lab Exercises
 
-All lab exercises are located in the [`Instructions/Labs/`](Instructions/Labs/) directory:
+All lab exercises are located in the [`Labs/`](Labs/) directory:
 
 | Lab | Title | Duration | Description |
 |-----|-------|----------|-------------|
-| [Lab 1](Instructions/Labs/Lab-1-Getting-Started.md) | Getting Started | 15 min | Set up your development environment and get introduced to PixelPerfect Gallery |
-| [Lab 2](Instructions/Labs/Lab-2-Understanding-Project.md) | Exploring the Codebase | 20 min | Use Copilot Chat to understand project structure, technologies, and architecture |
-| [Lab 3](Instructions/Labs/Lab-3-Code-Editing.md) | Code Editing & Generation | 30 min | Generate code with Autocomplete and Edit mode, use prompt files |
-| [Lab 4](Instructions/Labs/Lab-4-Engineering-Practices.md) | Engineering Best Practices | 15 min | Debug Copilot's decisions, configure personal instructions |
-| [Lab 5](Instructions/Labs/Lab-5-Customizing-Copilot.md) | Customizing Copilot | 30 min | Switch models, create prompt files and chat modes, optimize for your workflow |
-| [Lab 6](Instructions/Labs/Lab-6-Copilot-Spaces.md) | Copilot Spaces | 25 min | Create dedicated AI workspaces for focused, collaborative development |
-| [Lab 7](Instructions/Labs/Lab-7-Coding-Agent.md) | Coding Agent | 30 min | Assign issues to Copilot for autonomous implementation and PR creation |
+| [Lab 1](Labs/Lab-1-Getting-Started.md) | Getting Started | 15 min | Set up your development environment and get introduced to PixelPerfect Gallery |
+| [Lab 2](Labs/Lab-2-Understanding-Project.md) | Exploring the Codebase | 20 min | Use Copilot Chat to understand project structure, technologies, and architecture |
+| [Lab 3](Labs/Lab-3-Code-Editing.md) | Code Editing & Generation | 30 min | Generate code with Autocomplete and Edit mode, use prompt files |
+| [Lab 4](Labs/Lab-4-Engineering-Practices.md) | Engineering Best Practices | 15 min | Debug Copilot's decisions, configure personal instructions |
+| [Lab 5](Labs/Lab-5-Customizing-Copilot.md) | Customizing Copilot | 30 min | Switch models, create prompt files and chat modes, optimize for your workflow |
+| [Lab 6](Labs/Lab-6-Copilot-Spaces.md) | Copilot Spaces | 25 min | Create dedicated AI workspaces for focused, collaborative development |
+| [Lab 7](Labs/Lab-7-Coding-Agent.md) | Coding Agent | 30 min | Assign issues to Copilot for autonomous implementation and PR creation |
 
 **Total Duration**: Approximately 2 hours 50 minutes
 
@@ -61,7 +61,7 @@ The codespace will automatically:
 ```bash
 # Clone the repository
 git clone https://github.com/Coveros-GitHub-Training/sel-copilot-advanced-workshop.git
-cd sel-copilot-advanced-workshop
+cd sel-copilot-advanced-workshop/pixelperfect-gallery
 
 # Install dependencies
 npm install
@@ -74,7 +74,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## 📖 Getting Started
 
-1. **Start with Lab 1**: Begin with [Lab 1 - Getting Started](Instructions/Labs/Lab-1-Getting-Started.md)
+1. **Start with Lab 1**: Begin with [Lab 1 - Getting Started](Labs/Lab-1-Getting-Started.md)
 2. **Follow the sequence**: Complete labs in order for the best learning experience
 3. **Practice hands-on**: Each lab includes practical exercises and examples
 4. **Explore freely**: Feel free to experiment beyond the guided exercises
@@ -105,36 +105,37 @@ The workshop uses **PixelPerfect Gallery**, a professional photo gallery and por
 
 ```
 .
-├── Instructions/
-│   └── Labs/              # Hands-on lab exercises (START HERE!)
-├── demos/                 # Original demo files (deprecated, use Labs instead)
-├── src/
-│   ├── app/              # Next.js 15 App Router pages
-│   ├── components/       # Reusable React components
-│   │   ├── ui/          # UI components (buttons, cards, etc.)
-│   │   ├── gallery/     # Gallery-specific components
-│   │   └── upload/      # Upload-specific components
-│   └── lib/             # Utility functions and mock data
+├── Labs/                  # Hands-on lab exercises (START HERE!)
+├── References/            # Reference documentation
+├── pixelperfect-gallery/  # Photo Gallery & Portfolio Application
+│   ├── src/
+│   │   ├── app/          # Next.js 15 App Router pages
+│   │   ├── components/   # Reusable React components
+│   │   │   ├── ui/      # UI components (buttons, cards, etc.)
+│   │   │   ├── gallery/ # Gallery-specific components
+│   │   │   └── upload/  # Upload-specific components
+│   │   └── lib/         # Utility functions and mock data
+│   ├── public/          # Static assets
+│   └── ...              # Configuration files (package.json, tsconfig.json, etc.)
 ├── .github/
 │   ├── prompts/         # Custom prompt files for Copilot
 │   ├── chatmodes/       # Custom chat modes
 │   └── copilot-instructions.md  # Repository-level Copilot instructions
-└── public/              # Static assets
+└── media/               # Workshop media assets
 ```
 
 ## 📝 Additional Resources
 
 ### Component Documentation
-- [Component Usage Guide](COMPONENT_USAGE_GUIDE.md) - Detailed guide for using UI components
+- [Component Usage Guide](pixelperfect-gallery/COMPONENT_USAGE_GUIDE.md) - Detailed guide for using UI components
 
 ### Custom Copilot Features
 - **Prompt Files** (`.github/prompts/`) - Reusable prompts for common tasks
 - **Chat Modes** (`.github/chatmodes/`) - Specialized AI modes for specific workflows  
 - **Instructions** (`.github/copilot-instructions.md`) - Project-specific AI guidance
 
-### Deprecated Content
-- The original `demos/` folder content has been reorganized into the structured lab format in `Instructions/Labs/`
-- For the new structured learning experience, start with [Lab 1](Instructions/Labs/Lab-1-Getting-Started.md)
+### Reference Materials
+- [References/](References/) - Additional reference documentation and guides
 
 ## 🤝 Contributing
 
@@ -152,10 +153,10 @@ This project is licensed under the terms specified in the [LICENSE](LICENSE) fil
 
 If you encounter issues or have questions:
 - Review the lab instructions carefully
-- Check the [Component Usage Guide](COMPONENT_USAGE_GUIDE.md)
+- Check the [Component Usage Guide](pixelperfect-gallery/COMPONENT_USAGE_GUIDE.md)
 - Ask GitHub Copilot for help (it's great at explaining this codebase!)
 - Create an issue in the repository for technical problems
 
 ---
 
-**Ready to start?** Head to [Lab 1 - Getting Started](Instructions/Labs/Lab-1-Getting-Started.md) and begin your GitHub Copilot journey! 🚀
+**Ready to start?** Head to [Lab 1 - Getting Started](Labs/Lab-1-Getting-Started.md) and begin your GitHub Copilot journey! 🚀

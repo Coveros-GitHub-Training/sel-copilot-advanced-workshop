@@ -58,7 +58,7 @@ Understanding your usage helps you make informed decisions about which AI models
   - Copilot Enterprise: 1,000 requests per user per month
 - **Best Practice**: Use premium models for complex, high-value tasks; use 0x models for routine work
 
-> 📚 **For Detailed Information**: See the [Premium Request Usage Guide](../Reference/Premium-Request-Usage.md) for comprehensive information about:
+> 📚 **For Detailed Information**: See the [Premium Request Usage Guide](../References/Premium-Request-Usage.md) for comprehensive information about:
 > - Advanced monitoring strategies
 > - Cost optimization techniques
 > - Model selection by task type

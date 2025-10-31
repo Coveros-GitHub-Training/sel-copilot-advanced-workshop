@@ -100,9 +100,9 @@ Provide specific code examples and security recommendations that follow industry
 8. Click **"Add sources"** → **"Add files and repositories"**
 9. Add the following files:
    ```
-   src/components/upload/UploadZone.tsx
-   src/lib/mock-photo-data.ts
-   src/app/layout.tsx
+   pixelperfect-gallery/src/components/upload/UploadZone.tsx
+   pixelperfect-gallery/src/lib/mock-photo-data.ts
+   pixelperfect-gallery/src/app/layout.tsx
    next.config.ts
    ```
 10. Click **"Save"**
@@ -185,9 +185,9 @@ Provide well-structured, maintainable documentation that follows industry best p
 8. Click **"Add sources"** → **"Add files and repositories"**
 9. Add the following files:
    ```
-   src/components/ui/layout/SectionContainer.tsx
-   src/components/gallery/GalleryGrid.tsx
-   src/app/page.tsx
+   pixelperfect-gallery/src/components/ui/layout/SectionContainer.tsx
+   pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx
+   pixelperfect-gallery/src/app/page.tsx
    COMPONENT_USAGE_GUIDE.md
    ```
 10. Click **"Save"**
@@ -204,7 +204,7 @@ Provide well-structured, maintainable documentation that follows industry best p
 
 **Purpose**: [One sentence describing what this component does]
 
-**Location**: `src/components/[path]/ComponentName.tsx`
+**Location**: `pixelperfect-gallery/src/components/[path]/ComponentName.tsx`
 
 #### Props
 

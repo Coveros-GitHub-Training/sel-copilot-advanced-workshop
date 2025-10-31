@@ -11,7 +11,7 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "npm install && npm run dev",
+  "postCreateCommand": "cd pixelperfect-gallery && npm install && npm run dev",
   "customizations": {
     "vscode": {
       "extensions": [

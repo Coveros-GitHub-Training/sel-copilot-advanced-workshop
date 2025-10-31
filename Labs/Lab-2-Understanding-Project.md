@@ -105,7 +105,7 @@ Are there any configuration files I should be aware of? What do they control?
 ```
 
 ```
-Explain the package.json dependencies and what they're used for.
+Explain the pixelperfect-gallery/package.json dependencies and what they're used for.
 ```
 
 **💡 Pro Tip:** Don't hesitate to ask follow-up questions about unfamiliar technologies! GitHub Copilot is your onboarding buddy—ask it to explain frameworks, libraries, or architectural decisions.
@@ -117,7 +117,7 @@ Let's explore specific components to see how they work.
 ### Instructions:
 
 1. **Explore a UI component:**
-   - Open the file `src/components/gallery/GalleryGrid.tsx`
+   - Open the file `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx`
    - Select lines 30-43 (or any interesting section)
    - Ask GitHub Copilot to explain the selected code
 
