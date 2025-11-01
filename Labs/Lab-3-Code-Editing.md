@@ -74,7 +74,7 @@ Before we dive into code generation, let's understand the different ways you can
 - When you want to understand AI's reasoning
 - Before changes that might affect multiple files
 
-> **Note**: Plan mode is currently available in VS Code Insiders and will be rolled out to stable VS Code soon. This lab focuses on **Agent and Edit modes** which are the primary modes for code generation. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 7) which works autonomously on GitHub issues.
+> **Note**: Plan mode is currently available in VS Code Insiders and will be rolled out to stable VS Code soon. This lab focuses on **Agent and Edit modes** which are the primary modes for code generation. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 6) which works autonomously on GitHub issues.
 
 ## 🤖 Step 1: Using Agent Mode to Add a Footer Component
 
@@ -538,8 +538,7 @@ Excellent work! You've mastered GitHub Copilot's IDE modes for code generation:
 
 ### 📚 What's Next?
 
-- **Lab 4**: Learn engineering best practices for AI-assisted development
-- **Lab 5**: Customize Copilot with prompt files and chat modes
-- **Lab 7**: Explore Coding Agent for autonomous development on GitHub issues
+- **Lab 4**: Learn engineering practices and how to customize Copilot for your workflow
+- **Lab 6**: Explore Coding Agent for autonomous development on GitHub issues
 
-Remember: Agent mode in the IDE (this lab) is for interactive development, while Coding Agent (Lab 7) is for autonomous work on GitHub. Both are powerful tools for different workflows!
+Remember: Agent mode in the IDE (this lab) is for interactive development, while Coding Agent (Lab 6) is for autonomous work on GitHub. Both are powerful tools for different workflows!
