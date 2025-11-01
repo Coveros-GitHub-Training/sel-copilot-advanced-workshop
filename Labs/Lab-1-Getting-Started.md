@@ -102,7 +102,7 @@ If you prefer to work locally:
    - Click **Install** on the "GitHub Copilot" extension
    - Also install **"GitHub Copilot Chat"** if not automatically installed
 
-   ![Install GitHub Copilot Extension](../../media/install-github-copilot-extension.png)
+   ![Install GitHub Copilot Extension](../media/install-github-copilot-extension.png)
 
 3. **Sign in to GitHub:**
    - When prompted, sign in to your GitHub account
@@ -113,7 +113,7 @@ If you prefer to work locally:
    - Open the Copilot Chat panel (click the chat icon in the left sidebar or use the keyboard shortcut)
    - You should see the chat interface ready to use
 
-   ![Evidence that Copilot extension was installed](../../media/evidence-that-copilot-extension-was-installed.png)
+   ![Evidence that Copilot extension was installed](../media/evidence-that-copilot-extension-was-installed.png)
 
 ## Exploring the Application
 
