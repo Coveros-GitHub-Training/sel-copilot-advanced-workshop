@@ -1,6 +1,7 @@
 # Exercise 7 - GitHub Copilot Coding Agent
 
 #### Duration: 60 minutes
+> **Note**: While the lab content has been streamlined, the duration accounts for Copilot's autonomous work time (10-15 minutes per task) and the comprehensive hands-on scenario in Step 5.
 
 ## 🎯 Learning Objectives
 
@@ -1132,7 +1133,7 @@ gh agent-task create --title "Your task title" --body "Task description"
 - **Test thoroughly** before deploying to production
 - **Use branch protection** rules to require human review
 
-## �� Best Practices and Advanced Topics
+## 📚 Best Practices and Advanced Topics
 
 For comprehensive guidance on maximizing Coding Agent effectiveness, including:
 - Task selection strategies
