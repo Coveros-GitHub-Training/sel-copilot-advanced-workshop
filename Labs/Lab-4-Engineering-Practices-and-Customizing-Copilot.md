@@ -180,45 +180,9 @@ If you're stuck, click the **lightbulb icon** in the bottom right of the textbox
 
 ## 📊 Part 3: Managing Model Usage and Costs
 
-Understanding your usage helps you make informed decisions about which AI models to use and when. This section will show you how to monitor usage and understand the basics.
+Understanding premium request usage and model costs is essential for optimizing your GitHub Copilot experience. GitHub Copilot offers different AI models—some with unlimited usage (0x models) and others that count against a monthly request allowance (premium models). Learning to monitor your usage, select the right model for each task, and manage costs effectively will help you work more efficiently. For comprehensive information about pricing structures, advanced monitoring strategies, cost optimization techniques, and model selection guidelines by task type, see the **[Premium Request Usage Guide](../References/Premium-Request-Usage.md)**.
 
-### Step 3.1: Monitor Premium Request Usage
-
-#### Quick Check Your Usage
-
-**Option A: View Usage in VS Code**
-
-1. **Open VS Code** and ensure GitHub Copilot is active
-2. **Locate Copilot status:**
-   - Look for the GitHub Copilot logo in the bottom-right status bar
-   - Click on it to see current status and usage information
-3. **Review information displayed:**
-   - Current model being used
-   - Premium request count (if applicable)
-   - Subscription status
-
-**Option B: Access the Premium Dashboard on GitHub.com**
-
-1. **Navigate to**: [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features)
-2. **Sign in** and view your dashboard
-3. **Review**: Usage percentage, requests remaining, and billing cycle reset date
-
-#### Key Things to Know
-
-- **0x Models**: Unlimited usage within your Copilot subscription
-- **Premium Models**: Count against your monthly request allowance
-  - Copilot Business: 300 requests per user per month
-  - Copilot Enterprise: 1,000 requests per user per month
-- **Best Practice**: Use premium models for complex, high-value tasks; use 0x models for routine work
-
-> 📚 **For Detailed Information**: See the [Premium Request Usage Guide](../References/Premium-Request-Usage.md) for comprehensive information about:
-> - Advanced monitoring strategies
-> - Cost optimization techniques
-> - Model selection by task type
-> - Team usage policies and best practices
-> - Monthly budget planning strategies
-
-### Step 3.2: Experiment with Model Switching
+### Step 3.1: Experiment with Model Switching
 
 Different AI models excel at different tasks. Learning which models work best for specific scenarios helps you work more efficiently.
 
