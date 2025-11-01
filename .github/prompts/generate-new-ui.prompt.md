@@ -1,5 +1,5 @@
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Generate a new UI component following project patterns'
 tools: ['codebase', 'editFiles']
 ---
