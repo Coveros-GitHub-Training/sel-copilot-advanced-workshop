@@ -24,7 +24,7 @@ All lab exercises are located in the [`Labs/`](Labs/) directory:
 | Lab | Title | Duration | Description |
 |-----|-------|----------|-------------|
 | [Lab 1](Labs/Lab-1-Getting-Started.md) | Getting Started | 15 min | Set up your development environment and get introduced to PixelPerfect Gallery |
-| [Lab 2](Labs/Lab-2-Understanding-Project.md) | Exploring the Codebase | 20 min | Use Copilot Chat to understand project structure, technologies, and architecture |
+| [Lab 2](Labs/Lab-2-Lab-2-Exploring-the-Codebase.md) | Exploring the Codebase | 20 min | Use Copilot Chat to understand project structure, technologies, and architecture |
 | [Lab 3](Labs/Lab-3-Code-Editing.md) | Code Editing & Generation | 30 min | Generate code with Autocomplete and Edit mode, use prompt files |
 | [Lab 4](Labs/Lab-4-Engineering-Practices.md) | Engineering Best Practices | 15 min | Debug Copilot's decisions, configure personal instructions |
 | [Lab 5](Labs/Lab-5-Customizing-Copilot.md) | Customizing Copilot | 45 min | Switch models, create prompt files and chat modes, optimize for your workflow |
