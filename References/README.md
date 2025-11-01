@@ -26,7 +26,7 @@ These reference materials are designed to:
 
 ## Related Labs
 
-- **Lab 5 - Customizing GitHub Copilot**: References the Premium Request Usage Guide for detailed cost optimization information
+- **Lab 4 - Engineering Practices & Customizing Copilot**: References the Premium Request Usage Guide for detailed cost optimization information
 
 ---
 
