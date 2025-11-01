@@ -27,7 +27,7 @@ All lab exercises are located in the [`Labs/`](Labs/) directory:
 | [Lab 2](Labs/Lab-2-Lab-2-Exploring-the-Codebase.md) | Exploring the Codebase | 20 min | Use Copilot Chat to understand project structure, technologies, and architecture |
 | [Lab 3](Labs/Lab-3-Code-Editing.md) | Code Editing & Generation | 30 min | Master Edit mode and Agent mode for code generation and multi-file modifications |
 | [Lab 4](Labs/Lab-4-Engineering-Practices-and-Copilot-Instructions.md) | Engineering Practices & Copilot Instructions | 45 min | Debug Copilot's decisions, configure personal and repository instructions, switch models |
-| [Lab 5](Labs/Lab-5-Prompt-Files-Custom-Modes-and-MCP.md) | Prompt Files, Custom Modes, and MCP | 45 min | Create prompt files and custom chat modes, set up GitHub MCP for advanced integrations |
+| [Lab 5](Labs/Lab-5-Enhancing-Copilot.md) | Prompt Files, Custom Modes, and MCP | 45 min | Create prompt files and custom chat modes, set up GitHub MCP for advanced integrations |
 | [Lab 6](Labs/Lab-6-Copilot-Spaces.md) | Copilot Spaces | 25 min | Create dedicated AI workspaces for focused, collaborative development |
 | [Lab 7](Labs/Lab-7-Coding-Agent.md) | Coding Agent | 45 min | Assign issues to Copilot for autonomous implementation and PR creation |
 
