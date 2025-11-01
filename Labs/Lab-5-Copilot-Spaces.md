@@ -1,4 +1,4 @@
-# Exercise 6 - GitHub Copilot Spaces
+# Exercise 5 - GitHub Copilot Spaces
 
 #### Duration: 25 minutes
 

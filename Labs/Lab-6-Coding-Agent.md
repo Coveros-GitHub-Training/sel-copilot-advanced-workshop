@@ -1,4 +1,4 @@
-# Exercise 7 - GitHub Copilot Coding Agent
+# Exercise 6 - GitHub Copilot Coding Agent
 
 #### Duration: 45 minutes
 
