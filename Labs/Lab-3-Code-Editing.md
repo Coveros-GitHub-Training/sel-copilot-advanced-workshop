@@ -5,8 +5,9 @@
 ## 🎯 Learning Objectives
 
 By the end of this exercise, you will:
-- Master GitHub Copilot's Agent mode for multi-file code generation and modifications
-- Understand when to use Agent mode vs. Edit mode in the IDE
+- Master GitHub Copilot's Edit mode for targeted code modifications
+- Understand GitHub Copilot's Agent mode for multi-file code generation and modifications
+- Understand when to use Edit mode vs. Agent mode in the IDE
 - Generate new features and components with context-aware AI assistance
 - Review and refine AI-generated code effectively
 - Learn best practices for iterative AI-assisted development
@@ -15,8 +16,9 @@ By the end of this exercise, you will:
 
 Your manager at PixelPerfect Gallery has requested several new features that will require changes across multiple files. You've been tasked with implementing these enhancements efficiently while maintaining the high quality standards of the codebase.
 
-Your task today is to use GitHub Copilot's Agent mode to:
-- Implement multi-file features with AI assistance
+Your task today is to use GitHub Copilot's Edit and Agent modes to:
+- Make targeted, deliberate changes to specific files with Edit mode
+- Implement multi-file features with Agent mode assistance
 - Create new components and integrate them into the application
 - Make context-aware changes across the codebase
 - Understand best practices for AI-assisted development
@@ -32,7 +34,7 @@ Before we dive into code generation, let's understand the different ways you can
 | **Agent Mode** | Copilot Chat, select "Agent" | Exploratory tasks, architectural planning, complex problem-solving | Workspace-wide, autonomous |
 | **Plan Mode** | Copilot Chat, select "Plan" | Previewing changes before execution, understanding impact | Shows plan without making changes |
 
-> **You learned Ask mode in Lab 2** where you explored the codebase. Now we'll focus on **Agent Mode** and **Edit Mode** for making code changes.
+> **You learned Ask mode in Lab 2** where you explored the codebase. Now we'll focus on **Edit Mode** and **Agent Mode** for making code changes.
 
 ### 🎯 Understanding IDE Code Generation Modes
 
@@ -74,9 +76,93 @@ Before we dive into code generation, let's understand the different ways you can
 - When you want to understand AI's reasoning
 - Before changes that might affect multiple files
 
-> **Note**: Plan mode is currently available in VS Code Insiders and will be rolled out to stable VS Code soon. This lab focuses on **Agent and Edit modes** which are the primary modes for code generation. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 6) which works autonomously on GitHub issues.
+> **Note**: Plan mode is currently available in VS Code Insiders and will be rolled out to stable VS Code soon. This lab focuses on **Edit and Agent modes** which are the primary modes for code generation. **IDE Agent mode** (this lab) works interactively within VS Code, different from **Coding Agent** (Lab 7) which works autonomously on GitHub issues.
 
-## 🤖 Step 1: Using Agent Mode to Add a Footer Component
+## 📝 Step 1: Using Edit Mode for Targeted Code Changes
+
+While Agent mode is powerful for exploratory and autonomous work, Edit mode is ideal when you know exactly what needs to change. Let's start with Edit mode to make focused improvements to existing code.
+
+### When to Choose Edit Mode:
+
+**Use Edit Mode for:**
+- ✅ Deliberate, specific changes where you know which files to modify
+- ✅ Refactoring functions, classes, or components across one or multiple files
+- ✅ Making targeted bug fixes with precise scope control
+- ✅ Adding specific features where the implementation is clear
+- ✅ When you want explicit control over which files are modified
+- ✅ Changes to 1 to many files that you explicitly target
+
+**Use Agent Mode for:**
+- ✅ Exploratory tasks where AI needs to discover what to change
+- ✅ Complex problem-solving requiring autonomous decision-making
+- ✅ Architectural planning and implementation
+- ✅ When you want AI to determine the best approach
+- ✅ Situations where the full scope isn't immediately clear
+
+### Exercise: Quick Refactoring with Edit Mode
+
+Let's use Edit mode for a focused improvement to existing code.
+
+### Instructions:
+
+1. **Open the file** `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx`
+
+2. **Select lines 26-43** (the filtering logic section)
+
+3. **Switch to Edit mode** in Copilot Chat
+
+4. **Request a targeted improvement:**
+   ```
+   Refactor this filtering logic to use useMemo for better performance. Add proper TypeScript types for the filtered results.
+   ```
+
+5. **Review the changes before accepting:**
+   - Edit mode shows you a diff of what will change
+   - You can see exactly what code is being added/removed
+   - Accept if it looks good, or refine your prompt
+
+6. **Apply and test:**
+   - Click "Apply" to make the changes
+   - Save the file
+   - Test that filtering still works in the browser
+
+### 💡 Edit Mode Best Practices:
+
+- **Be explicit about files**: Specify exactly which files should be modified
+- **Be deliberate**: Know what you want changed before using Edit mode
+- **Use for targeted scope**: Works on 1 to many files you explicitly name
+- **Review diffs carefully**: Edit mode shows you exactly what will change
+- **Control the changes**: You determine the scope, not the AI
+
+### 🔍 Comparing Agent Mode vs Edit Mode:
+
+**Example Scenario**: Adding error handling
+
+**Edit Mode approach:**
+```
+Add try-catch error handling to the following files:
+- pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx (in the filter function)
+- pixelperfect-gallery/src/app/page.tsx (in the data loading section)
+- pixelperfect-gallery/src/lib/mock-photo-data.ts (in the data export)
+
+Use consistent error messages and logging.
+```
+*Result: Targeted, deliberate changes to the 3 files you specified*
+
+**Agent Mode approach:**
+```
+Analyze the application and add appropriate error handling wherever needed. 
+Use your judgment to determine which components need error boundaries, 
+which functions need try-catch blocks, and how to handle errors gracefully.
+```
+*Result: AI autonomously explores, plans, and implements error handling across multiple files*
+
+### ⚠️ Key Difference:
+
+**Edit Mode**: You tell Copilot what to change and where (1 to many specific files)  
+**Agent Mode**: Copilot explores, decides what to change, and where to make those changes
+
+## 🤖 Step 2: Using Agent Mode to Add a Footer Component
 
 Let's start by using GitHub Copilot's Agent mode to add a footer component to the application. Agent mode excels at exploratory tasks where AI can autonomously determine the best approach.
 
@@ -153,7 +239,7 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
 - **Files created in wrong location**: Be explicit about file paths in your requirements
 - **Build errors**: Check that imports are correct and component syntax is valid
 
-## 🎯 Step 2: Using Agent Mode for Multi-File Feature Implementation
+## 🎯 Step 3: Using Agent Mode for Multi-File Feature Implementation
 
 Now let's use Agent mode for a more complex task that involves creating a new feature across multiple files. This demonstrates Agent mode's real power.
 
@@ -235,9 +321,9 @@ When you accept the plan, Agent mode:
 - **Type errors**: Review the type definitions in mock-photo-data.ts
 - **Styling issues**: Reference specific components for style consistency
 
-## 🔄 Step 3: Iterating and Refining with Agent Mode
+## 🔄 Step 4: Iterating and Refining with Agent Mode
 
-One of Agent mode's strengths is the ability to iterate on existing code. Let's practice this by enhancing an existing component or the one you created in Step 2.
+One of Agent mode's strengths is the ability to iterate on existing code. Let's practice this by enhancing an existing component or the one you created in Step 3.
 
 ### Scenario:
 
@@ -246,7 +332,7 @@ You want to add animations and improve the user experience for one of the compon
 ### Instructions:
 
 1. **Choose a component to enhance:**
-   - If you completed Step 2: Open `pixelperfect-gallery/src/components/gallery/FeaturedSection.tsx`
+   - If you completed Step 3: Open `pixelperfect-gallery/src/components/gallery/FeaturedSection.tsx`
    - Alternative: Open `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx` (existing component)
    - Keep the page file that uses this component open for context
 
@@ -254,7 +340,7 @@ You want to add animations and improve the user experience for one of the compon
    
    Agent mode remembers your previous conversation, so you can build on it:
    
-   **If enhancing FeaturedSection from Step 2:**
+   **If enhancing FeaturedSection from Step 3:**
    ```
    Enhance the FeaturedSection component we just created:
    
@@ -344,89 +430,7 @@ Watch for signs that you should start a fresh conversation:
 
 **Tip**: Start a new Agent mode conversation for unrelated features
 
-## 📝 Step 4: When to Use Edit Mode Instead of Agent Mode
 
-While Agent mode is powerful for exploratory and autonomous work, Edit mode is better when you know exactly what needs to change. Let's explore when and how to use Edit mode effectively.
-
-### When to Choose Edit Mode:
-
-**Use Edit Mode for:**
-- ✅ Deliberate, specific changes where you know which files to modify
-- ✅ Refactoring functions, classes, or components across one or multiple files
-- ✅ Making targeted bug fixes with precise scope control
-- ✅ Adding specific features where the implementation is clear
-- ✅ When you want explicit control over which files are modified
-- ✅ Changes to 1 to many files that you explicitly target
-
-**Use Agent Mode for:**
-- ✅ Exploratory tasks where AI needs to discover what to change
-- ✅ Complex problem-solving requiring autonomous decision-making
-- ✅ Architectural planning and implementation
-- ✅ When you want AI to determine the best approach
-- ✅ Situations where the full scope isn't immediately clear
-
-### Exercise: Quick Refactoring with Edit Mode
-
-Let's use Edit mode for a focused improvement to existing code.
-
-### Instructions:
-
-1. **Open the file** `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx`
-
-2. **Select lines 26-43** (the filtering logic section)
-
-3. **Switch to Edit mode** in Copilot Chat
-
-4. **Request a targeted improvement:**
-   ```
-   Refactor this filtering logic to use useMemo for better performance. Add proper TypeScript types for the filtered results.
-   ```
-
-5. **Review the changes before accepting:**
-   - Edit mode shows you a diff of what will change
-   - You can see exactly what code is being added/removed
-   - Accept if it looks good, or refine your prompt
-
-6. **Apply and test:**
-   - Click "Apply" to make the changes
-   - Save the file
-   - Test that filtering still works in the browser
-
-### 💡 Edit Mode Best Practices:
-
-- **Be explicit about files**: Specify exactly which files should be modified
-- **Be deliberate**: Know what you want changed before using Edit mode
-- **Use for targeted scope**: Works on 1 to many files you explicitly name
-- **Review diffs carefully**: Edit mode shows you exactly what will change
-- **Control the changes**: You determine the scope, not the AI
-
-### 🔍 Comparing Agent Mode vs Edit Mode:
-
-**Example Scenario**: Adding error handling
-
-**Agent Mode approach:**
-```
-Analyze the application and add appropriate error handling wherever needed. 
-Use your judgment to determine which components need error boundaries, 
-which functions need try-catch blocks, and how to handle errors gracefully.
-```
-*Result: AI autonomously explores, plans, and implements error handling across multiple files*
-
-**Edit Mode approach:**
-```
-Add try-catch error handling to the following files:
-- pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx (in the filter function)
-- pixelperfect-gallery/src/app/page.tsx (in the data loading section)
-- pixelperfect-gallery/src/lib/mock-photo-data.ts (in the data export)
-
-Use consistent error messages and logging.
-```
-*Result: Targeted, deliberate changes to the 3 files you specified*
-
-### ⚠️ Key Difference:
-
-**Edit Mode**: You tell Copilot what to change and where (1 to many specific files)  
-**Agent Mode**: Copilot explores, decides what to change, and where to make those changes
 
 ## 🎓 Step 5: Best Practices for IDE AI-Assisted Development
 
@@ -501,10 +505,10 @@ Let's review what makes for effective AI-assisted development in the IDE:
 ## 🏆 Exercise Wrap-up
 
 Excellent work! You've mastered GitHub Copilot's IDE modes for code generation:
+- ✅ Applied Edit mode for targeted, surgical code improvements
 - ✅ Used Agent mode to create multi-file features with full integration
 - ✅ Implemented complex functionality across components, data, and pages
 - ✅ Iterated on AI-generated code to refine and enhance features
-- ✅ Applied Edit mode for targeted, surgical code improvements
 - ✅ Learned when to use each mode for maximum effectiveness
 
 ### Reflection Questions:
@@ -515,8 +519,8 @@ Excellent work! You've mastered GitHub Copilot's IDE modes for code generation:
 5. **What strategies will you use to provide better context to Copilot?**
 
 ### Key Takeaways:
+- **Edit mode is perfect** for targeted changes when you know exactly what to modify
 - **Agent mode is the primary tool** for feature development requiring multiple files
-- **Edit mode complements Agent mode** for quick, targeted improvements
 - Context is critical: open related files and reference existing patterns
 - Iterative development with AI works just like with human developers
 - Always review, test, and understand what AI generates
@@ -539,6 +543,6 @@ Excellent work! You've mastered GitHub Copilot's IDE modes for code generation:
 ### 📚 What's Next?
 
 - **Lab 4**: Learn engineering practices and how to customize Copilot for your workflow
-- **Lab 6**: Explore Coding Agent for autonomous development on GitHub issues
+- **Lab 7**: Explore Coding Agent for autonomous development on GitHub issues
 
-Remember: Agent mode in the IDE (this lab) is for interactive development, while Coding Agent (Lab 6) is for autonomous work on GitHub. Both are powerful tools for different workflows!
+Remember: Edit and Agent modes in the IDE (this lab) are for interactive development, while Coding Agent (Lab 7) is for autonomous work on GitHub. Both are powerful tools for different workflows!
