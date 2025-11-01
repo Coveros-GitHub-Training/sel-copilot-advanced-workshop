@@ -1,14 +1,15 @@
 # Exercise 6 - GitHub Copilot Spaces
 
-#### Duration: 25 minutes
+#### Duration: 35 minutes
 
 ## 🎯 Learning Objectives
 
 By the end of this exercise, you will:
 - Understand what GitHub Copilot Spaces are and their benefits
-- Know how to create and configure a new Copilot Space
-- Be able to set up a Space with specific goals, instructions, and context
-- Complete development tasks using collaborative AI assistance in Spaces
+- Create and configure multiple Copilot Spaces for different purposes
+- Set up Spaces with specific goals, instructions, and context
+- Complete development tasks using focused AI assistance in Spaces
+- Access and use Spaces from within your IDE via GitHub MCP
 - Share and manage Spaces with team members
 
 ## 📸 Scenario: Collaborative Development at PixelPerfect Gallery
@@ -48,9 +49,9 @@ These are complex, multi-faceted projects that benefit from focused, dedicated A
 | Collaboration | Individual conversations | Shared team Spaces |
 | Organization | Single chat thread | Multiple focused Spaces |
 
-## 🎯 Step 1: Create Your First Copilot Space
+## 🎯 Step 1: Create Your First Space - Security Analysis
 
-Let's create a dedicated Space for working on security improvements for the PixelPerfect Gallery.
+In this lab, you'll create TWO different Copilot Spaces to experience how they can be tailored for different purposes. Let's start with a Security Analysis Space.
 
 ### Instructions:
 
@@ -61,18 +62,16 @@ Let's create a dedicated Space for working on security improvements for the Pixe
 2. **Create a new Space:**
    - Click **"Create Space"** button
 
-3. **Configure basic Space settings:**
-
-   **Choose an option below based on your interest:**
-
-### Option A: Security Analysis & Hardening
+3. **Configure the Security Analysis Space:**
 
 **Purpose**: Analyze and improve the security posture of the photo gallery application.
+
+**Basic Settings:**
 
 1. **Space name**: `Photo Gallery - Security Assessment`
 2. **Owner**: Select your username or organization
 3. **Description**: `Implement security best practices for the photo gallery application`
-4. **Click "Save"**
+4. Click **"Save"**
 
 **Add Instructions:**
 
@@ -107,7 +106,7 @@ Provide specific code examples and security recommendations that follow industry
    ```
 10. Click **"Save"**
 
-**Add Issue Context:**
+**Add Issue Context (Optional):**
 
 11. Click **"Add sources"** → **"Link files, pull requests, and issues"**
 12. Add a relevant issue URL if available, or skip this step
@@ -149,14 +148,30 @@ Provide specific code examples and security recommendations that follow industry
 
 16. Click **"Save"**
 
-### Option B: Documentation Generation & API Design
+✅ **Checkpoint**: You've created your first Copilot Space! You should see it in your Spaces dashboard.
+
+## 🎯 Step 1b: Create Your Second Space - Documentation Hub
+
+Now let's create a second Space focused on documentation and API design. This demonstrates how you can organize different concerns into separate, focused workspaces.
+
+### Instructions:
+
+1. **Return to Copilot Spaces dashboard:**
+   - Go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces)
+
+2. **Create another new Space:**
+   - Click **"Create Space"** button
+
+3. **Configure the Documentation Space:**
 
 **Purpose**: Create comprehensive documentation and API design for the gallery application.
+
+**Basic Settings:**
 
 1. **Space name**: `Photo Gallery - Documentation Hub`
 2. **Owner**: Select your username or organization
 3. **Description**: `Create comprehensive documentation and API design documentation for the photo gallery application`
-4. **Click "Save"**
+4. Click **"Save"**
 
 **Add Instructions:**
 
@@ -238,113 +253,79 @@ Provide well-structured, maintainable documentation that follows industry best p
 
 13. Click **"Save"**
 
-### Option C: Performance Optimization
+✅ **Checkpoint**: Excellent! You now have TWO specialized Copilot Spaces:
+- **Security Assessment Space** - for security analysis and hardening
+- **Documentation Hub Space** - for creating comprehensive documentation
 
-**Purpose**: Optimize the photo gallery for better performance with large image collections.
+You should see both spaces in your Copilot Spaces dashboard. Each Space has its own focused instructions and relevant context files.
 
-1. **Space name**: `Photo Gallery - Performance Optimization`
-2. **Owner**: Select your username or organization
-3. **Description**: `Optimize photo gallery performance for large image collections and improve user experience`
-4. **Click "Save"**
+## 💬 Step 2: Work Within Your Copilot Spaces
 
-**Add Instructions:**
-
-5. Click **"Instructions"**
-6. Add optimization-focused instructions and context
-7. Add relevant source files related to gallery rendering and image loading
-
-## 💬 Step 2: Work Within Your Copilot Space
-
-Now that your Space is configured, let's use it to accomplish some goals.
+Now that your Spaces are configured, let's use them to accomplish specific goals. You'll work with each Space to see how the specialized context and instructions affect Copilot's responses.
 
 ### Instructions:
 
-1. **Open your Space** from the Copilot Spaces dashboard
+1. **Open your Security Assessment Space** from the Copilot Spaces dashboard
 
-2. **Start a conversation** with Copilot about your Space's focus area
+2. **Try these security-focused prompts:**
 
-**For Security Space:**
+**Try one or more of these prompts:**
 
-<details>
-  <summary>Sample Security Prompts</summary>
+```
+Analyze the UploadZone component for potential security vulnerabilities. What risks should we address?
+```
 
-  ```
-  Analyze the UploadZone component for potential security vulnerabilities. What risks should we address?
-  ```
+```
+How can we implement file type validation and size restrictions for uploaded images?
+```
 
-  ```
-  How can we implement file type validation and size restrictions for uploaded images?
-  ```
+```
+Review the mock data handling - are there any XSS vulnerabilities we should prevent?
+```
 
-  ```
-  Review the mock data handling - are there any XSS vulnerabilities we should prevent?
-  ```
+```
+What security headers should we configure in next.config.ts for this application?
+```
 
-  ```
-  What security headers should we configure in next.config.ts for this application?
-  ```
+```
+Create a security checklist for the photo upload feature based on OWASP Top 10.
+```
 
-  ```
-  Create a security checklist for the photo upload feature based on OWASP Top 10.
-  ```
+3. **Review the responses** - Notice how Copilot uses the security context and OWASP guidelines from your Space
 
-</details>
+4. **Have a multi-turn conversation** - Ask follow-up questions, request code examples, iterate on solutions
 
-**For Documentation Space:**
+5. **Switch to your Documentation Hub Space:**
+   - Return to your Spaces dashboard
+   - Open the "Photo Gallery - Documentation Hub" Space
 
-<details>
-  <summary>Sample Documentation Prompts</summary>
+6. **Try these documentation-focused prompts:**
 
-  ```
-  Generate comprehensive JSDoc comments for the GalleryGrid component.
-  ```
+```
+Generate comprehensive JSDoc comments for the GalleryGrid component.
+```
 
-  ```
-  Create an API specification document for the photo data structure used in this application.
-  ```
+```
+Create an API specification document for the photo data structure used in this application.
+```
 
-  ```
-  Write a component usage guide for the SectionContainer layout component.
-  ```
+```
+Write a component usage guide for the SectionContainer layout component.
+```
 
-  ```
-  Generate an architecture decision record (ADR) for using Next.js App Router in this project.
-  ```
+```
+Generate an architecture decision record (ADR) for using Next.js App Router in this project.
+```
 
-  ```
-  Create a getting started guide for new developers joining the photo gallery project.
-  ```
+```
+Create a getting started guide for new developers joining the photo gallery project.
+```
 
-</details>
-
-**For Performance Space:**
-
-<details>
-  <summary>Sample Performance Prompts</summary>
-
-  ```
-  Analyze the GalleryGrid component for performance bottlenecks with large photo collections.
-  ```
-
-  ```
-  How can we implement lazy loading and infinite scroll for the photo gallery?
-  ```
-
-  ```
-  What image optimization strategies should we use for faster loading?
-  ```
-
-  ```
-  Suggest React optimization techniques (memoization, useMemo, etc.) for the gallery components.
-  ```
-
-</details>
-
-3. **Review the responses** - notice how Copilot uses the context and instructions from your Space
-
-4. **Have a multi-turn conversation** - ask follow-up questions, request code examples, iterate on solutions
-
-5. **Implement suggestions** - copy code examples to your IDE and test them
+7. **Compare the experiences:**
+   - Notice how each Space has different expertise based on its instructions
+   - The Security Space focuses on vulnerabilities and OWASP standards
+   - The Documentation Space provides clear, well-structured documentation
+   - Each Space uses only the relevant files you added to its context
 
 ## 🤝 Step 3: Collaborate in Spaces
 
@@ -429,27 +410,206 @@ Many Spaces allow you to define specific goals or objectives:
 - Include migration guides and both old and new code examples
 - Track which files have been migrated
 
+## 🔌 Step 6: Using Spaces from Your IDE with GitHub MCP
+
+Now that you've created and worked with Spaces in the browser, let's integrate them into your daily workflow by accessing them directly from VS Code using the GitHub MCP server you configured in Lab 5.
+
+### Why Use Spaces from Your IDE?
+
+Accessing Copilot Spaces through the GitHub MCP server in your IDE provides:
+- **Seamless Workflow**: No need to switch between browser and IDE
+- **Context Aware**: Combine Space context with your current code
+- **Faster Iteration**: Test and implement suggestions immediately
+- **Integrated Experience**: Use Space expertise while actively coding
+
+### Prerequisites:
+
+Ensure you completed Lab 5 and have the GitHub MCP server configured in VS Code. If not, refer back to [Lab 5 - Step 3.2](Lab-5-Prompt-Files-Custom-Modes-and-MCP.md#step-32-install-and-configure-github-mcp) for setup instructions.
+
+### Step 6.1: Access Your Spaces via MCP
+
+1. **Open VS Code** with your PixelPerfect Gallery project
+
+2. **Open GitHub Copilot Chat** in VS Code
+
+3. **Reference the GitHub MCP server** by typing `@github` in the chat
+
+4. **List your Copilot Spaces:**
+   ```
+   @github Show me all my Copilot Spaces
+   ```
+
+5. **Review the list** - you should see both of your Spaces:
+   - Photo Gallery - Security Assessment
+   - Photo Gallery - Documentation Hub
+
+### Step 6.2: Use Space Context in Your IDE
+
+Now let's leverage your Spaces while working on code in VS Code.
+
+#### Exercise A: Security Analysis from IDE
+
+1. **Open the UploadZone component:**
+   ```
+   pixelperfect-gallery/src/components/upload/UploadZone.tsx
+   ```
+
+2. **In Copilot Chat, ask for security analysis using your Space context:**
+   ```
+   @github Using my "Photo Gallery - Security Assessment" Space context, analyze the currently open UploadZone component for security vulnerabilities. What specific improvements should I make?
+   ```
+
+3. **Review the suggestions** - Copilot should provide security-focused analysis informed by the OWASP context and instructions from your Space
+
+4. **Ask follow-up questions** while staying in your Space context:
+   ```
+   @github Based on the Security Assessment Space, what file type validation code should I add to this component?
+   ```
+
+#### Exercise B: Generate Documentation from IDE
+
+1. **Open the GalleryGrid component:**
+   ```
+   pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx
+   ```
+
+2. **Request documentation using your Documentation Hub Space:**
+   ```
+   @github Using my "Photo Gallery - Documentation Hub" Space, generate comprehensive JSDoc comments for this GalleryGrid component following the documentation template in the Space.
+   ```
+
+3. **Review and apply the documentation** - Notice how Copilot follows the documentation standards and templates from your Space
+
+4. **Generate additional documentation:**
+   ```
+   @github Using the Documentation Hub Space context, create a usage example for this component with all its props explained.
+   ```
+
+### Step 6.3: Combine Space Context with Active Work
+
+One of the most powerful features is combining Space expertise with your current development work.
+
+**Try this workflow:**
+
+1. **Select a section of code** in `UploadZone.tsx` (e.g., the file drop handler)
+
+2. **Ask for Space-informed improvements:**
+   ```
+   @github Using my Security Assessment Space, review this selected code for security issues and suggest improvements with code examples.
+   ```
+
+3. **Implement the suggestions** directly in your editor
+
+4. **Test the changes** using the development server
+
+5. **Request Space-specific review:**
+   ```
+   @github Based on my Security Assessment Space guidelines, does this implementation follow security best practices?
+   ```
+
+### Step 6.4: Working Across Multiple Spaces
+
+You can reference different Spaces for different aspects of your work:
+
+1. **Start a new feature request:**
+   ```
+   @github I need to add user authentication to the photo upload system. First, using my Documentation Hub Space, what documentation should I create for this feature?
+   ```
+
+2. **Then get security guidance:**
+   ```
+   @github Now using my Security Assessment Space, what security considerations should I implement for user authentication in this Next.js application?
+   ```
+
+3. **Compare approaches** - Notice how each Space provides specialized expertise based on its instructions and context
+
+### 💡 MCP + Spaces Best Practices:
+
+1. **Be Explicit**: Always mention which Space you want to use by name
+   ```
+   @github Using my "Space Name" Space, ...
+   ```
+
+2. **Combine Contexts**: Reference both the Space and current file
+   ```
+   @github Using my Security Space, analyze the current file for vulnerabilities
+   ```
+
+3. **Iterate Quickly**: Test suggestions immediately in your IDE
+   - Make changes
+   - Run the dev server
+   - Ask follow-up questions
+
+4. **Stay Focused**: Use the appropriate Space for each type of work
+   - Security reviews → Security Assessment Space
+   - Documentation → Documentation Hub Space
+   - Switch as needed for different aspects
+
+5. **Leverage Both Environments**:
+   - Use Space in browser for deep exploration and research
+   - Use Space via MCP in IDE for active development and iteration
+   - Each has its strengths!
+
+### 🎯 Challenge Exercise: Full Workflow Integration
+
+Put it all together with this comprehensive exercise:
+
+1. **In your IDE**, open `pixelperfect-gallery/src/app/upload/page.tsx`
+
+2. **Use your Security Space** to identify security improvements:
+   ```
+   @github Using my Security Assessment Space, what security enhancements should be made to this upload page?
+   ```
+
+3. **Implement one security improvement** suggested by Copilot
+
+4. **Use your Documentation Space** to document the change:
+   ```
+   @github Using my Documentation Hub Space, generate documentation for the security improvement I just implemented
+   ```
+
+5. **Create code comments** following the documentation Space's guidelines
+
+6. **Test your implementation** in the running application
+
+7. **Request a final review** from both Spaces:
+   ```
+   @github Using both my Security Assessment and Documentation Hub Spaces, review my changes for security compliance and documentation completeness
+   ```
+
+✅ **Success!** You've now integrated Copilot Spaces directly into your development workflow using GitHub MCP!
+
 ## 🏆 Exercise Wrap-up
 
-Excellent work! You've learned how to use GitHub Copilot Spaces:
-- ✅ Created a dedicated Copilot Space with custom instructions
-- ✅ Added relevant context files and documentation to a Space
-- ✅ Used Spaces for focused, goal-oriented AI assistance
+Excellent work! You've mastered GitHub Copilot Spaces:
+- ✅ Created TWO specialized Copilot Spaces with custom instructions
+- ✅ Configured a Security Assessment Space with OWASP context
+- ✅ Set up a Documentation Hub Space with documentation templates
+- ✅ Added relevant context files and documentation to each Space
+- ✅ Worked within Spaces for focused, goal-oriented AI assistance
+- ✅ Accessed and used Spaces from your IDE via GitHub MCP
+- ✅ Combined Space expertise with active development workflow
 - ✅ Understood collaboration features and best practices
 - ✅ Learned to organize and manage multiple Spaces
 
 ### Reflection Questions:
 1. **How do Spaces differ from regular Copilot Chat in your workflow?**
 2. **What types of projects or tasks would benefit most from dedicated Spaces?**
-3. **How might your team use Spaces for collaboration?**
-4. **What instructions and context were most effective in your Space?**
-5. **How would you organize Spaces for your current projects?**
+3. **How did accessing Spaces from your IDE via MCP change your development experience?**
+4. **What was different about the responses from your Security Space vs. Documentation Space?**
+5. **How might your team use Spaces for collaboration?**
+6. **What instructions and context were most effective in your Spaces?**
+7. **How would you organize Spaces for your current projects?**
 
 ### Key Takeaways:
 - Spaces provide persistent, focused AI assistance for complex projects
-- Custom instructions and curated context improve AI responses
+- Each Space can have specialized instructions and curated context
+- Custom instructions and relevant source files dramatically improve AI responses
+- Different Spaces serve different purposes (security, docs, features, performance, etc.)
+- Spaces work both in the browser (for exploration) and IDE (for active development)
+- GitHub MCP integration brings Space expertise directly into your coding workflow
+- Combining Space context with current code enables powerful, context-aware assistance
 - Spaces enable better team collaboration and knowledge sharing
-- Different Spaces can serve different purposes (security, docs, features, etc.)
 - Spaces are particularly valuable for long-running, complex initiatives
 
 ### When to Use Spaces vs. Regular Chat:
