@@ -1067,7 +1067,7 @@ Title: Document the component architecture
 - **Monitor progress**: Check in on session logs periodically
 - **Iterate**: Provide feedback to improve results
 
-## 🌐 Step 5: Alternative Ways to Work with Coding Agent
+## 🌐 Step 6: Alternative Ways to Work with Coding Agent
 
 There are multiple ways to interact with Coding Agent beyond the GitHub Issues UI.
 
