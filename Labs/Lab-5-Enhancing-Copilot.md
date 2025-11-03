@@ -287,12 +287,8 @@ This is where you define the agent's expertise and approach.
 
 Let's create a custom agent that excels at C#
 
-1. **Create the agent directory** (if it doesn't exist):
-   ```bash
-   mkdir -p .github/agents
-   ```
-
-2. **Create a new agent file**: `.github/agents/csharp-expert.yml`
+1. **Create the agent directory** (if it doesn't exist): Create a new directory `agents` in the `.github` folder
+2. **Create a new agent file**: `.github/agents/csharp-expert.agent.yml`
 
 <details>
   <summary>Example: C# Agent</summary>
