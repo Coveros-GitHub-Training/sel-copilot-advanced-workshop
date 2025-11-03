@@ -252,6 +252,7 @@ const query = "SELECT * FROM users WHERE id = '" + userId + "'";
 Follow this pattern for all feature components:
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 
 interface PhotoCardProps {
@@ -262,7 +263,15 @@ interface PhotoCardProps {
 
 export default function PhotoCard({ photoUrl, title, onSelect }: PhotoCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const photoId = photoUrl.split('/').pop() || photoUrl; // Extract ID from URL
+  
+  // Extract photo ID from URL (assumes URL format: /photos/photo-id)
+  const extractPhotoId = (url: string): string => {
+    try {
+      return url.split('/').filter(Boolean).pop() || url;
+    } catch {
+      return url;
+    }
+  };
   
   return (
     <div 
@@ -270,9 +279,17 @@ export default function PhotoCard({ photoUrl, title, onSelect }: PhotoCardProps)
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={photoUrl} alt={title} className="w-full h-48 object-cover" />
+      <Image 
+        src={photoUrl} 
+        alt={title} 
+        width={400} 
+        height={300}
+        className="w-full h-48 object-cover" 
+      />
       {isHovered && (
-        <Button onClick={() => onSelect(photoId)}>Select</Button>
+        <Button onClick={() => onSelect(extractPhotoId(photoUrl))}>
+          Select
+        </Button>
       )}
     </div>
   );
@@ -439,17 +456,20 @@ applyTo:
   - src/frontend/**
   - components/ui/**/*.tsx
 
-❌ Bad - Too broad or wrong:
+❌ Bad - Common mistakes:
 applyTo:
-  - frontend  # Missing /**
-  - /src/**   # Leading slash may not match
-  - *.tsx     # Missing path, matches all levels
+  - frontend          # Missing /** for recursive match
+  - /src/**           # Leading slash - don't use, paths are relative to repo root
+  - *.tsx             # Missing path prefix, too broad
+  - **/*.test.tsx     # Works but be aware it matches at all directory levels
 ```
 
 **Test Your Globs:**
-- Verify patterns match actual file paths
-- Test with `find` command: `find . -path "./src/frontend/**"`
-- Remember globs are relative to repository root
+- Verify patterns match actual file paths in your repository
+- Test with `find` command: `find . -path "src/frontend/**" -type f`
+- Paths are relative to repository root (no leading slash needed)
+- Use `**` for recursive directory matching
+- Be specific to avoid unintended matches
 
 ### 2. Keep Instructions Focused and Relevant
 
