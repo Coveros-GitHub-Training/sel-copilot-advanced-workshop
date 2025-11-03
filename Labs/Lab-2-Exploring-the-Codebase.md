@@ -30,7 +30,7 @@ GitHub Copilot Chat is an AI-powered conversational interface that helps you und
 - Understand dependencies, build processes, and development workflows
 - Ask follow-up questions to deepen your understanding
 
-> **Note**: In later labs, you'll learn about other Copilot modes (Edit and Agent) for making code changes. For now, we'll focus on understanding the codebase through conversation.
+> **Note**: In later labs, you'll learn about other Copilot modes (Edit, Agent, and Plan) for making code changes. For now, we'll focus on understanding the codebase through conversation.
 
 ## 🔍 Step 1: Discovering Available Copilot Features
 

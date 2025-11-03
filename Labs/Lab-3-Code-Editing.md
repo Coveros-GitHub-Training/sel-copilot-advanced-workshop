@@ -21,7 +21,6 @@ Your task today is to use GitHub Copilot's Edit and Agent modes to:
 - Implement multi-file features with Agent mode assistance
 - Create new components and integrate them into the application
 - Make context-aware changes across the codebase
-- Understand best practices for AI-assisted development
 
 ## 💡 Understanding GitHub Copilot Chat Modes
 
@@ -40,13 +39,13 @@ Before we dive into code generation, let's understand the different ways you can
 
 **When to use each mode:**
 
-- **Agent Mode**: Use when you need AI to explore your codebase, make decisions about architecture, or solve complex problems where the solution isn't immediately clear. Agent mode autonomously plans and executes changes across your workspace.
+- **Ask Mode**: Use when you need to understand code first, want suggestions before implementation, or are exploring different approaches.
 
 - **Edit Mode**: Use when you know exactly what needs to change and in which files. Edit mode makes deliberate, specific modifications to 1 to many files that you explicitly target. Perfect for focused refactoring, bug fixes, or feature additions where you control the scope.
 
-- **Plan Mode**: Use when you want to preview what changes Copilot would make before executing them. Plan mode generates a detailed plan showing files to be modified, changes to be made, and the reasoning behind decisions—without actually applying any changes. Great for understanding impact and validating approach before committing.
+- **Agent Mode**: Use when you need AI to explore your codebase, make decisions about architecture, or solve complex problems where the solution isn't immediately clear. Agent mode autonomously plans and executes changes across your workspace.
 
-- **Ask Mode**: Use when you need to understand code first, want suggestions before implementation, or are exploring different approaches.
+- **Plan Mode**: Use when you want to preview what changes Copilot would make before executing them. Plan mode generates a detailed plan showing files to be modified, changes to be made, and the reasoning behind decisions—without actually applying any changes. Great for understanding impact and validating approach before committing.
 
 ### 🆕 About Plan Mode (Recently Released)
 
@@ -82,23 +81,6 @@ Before we dive into code generation, let's understand the different ways you can
 
 While Agent mode is powerful for exploratory and autonomous work, Edit mode is ideal when you know exactly what needs to change. Let's start with Edit mode to make focused improvements to existing code.
 
-### When to Choose Edit Mode:
-
-**Use Edit Mode for:**
-- ✅ Deliberate, specific changes where you know which files to modify
-- ✅ Refactoring functions, classes, or components across one or multiple files
-- ✅ Making targeted bug fixes with precise scope control
-- ✅ Adding specific features where the implementation is clear
-- ✅ When you want explicit control over which files are modified
-- ✅ Changes to 1 to many files that you explicitly target
-
-**Use Agent Mode for:**
-- ✅ Exploratory tasks where AI needs to discover what to change
-- ✅ Complex problem-solving requiring autonomous decision-making
-- ✅ Architectural planning and implementation
-- ✅ When you want AI to determine the best approach
-- ✅ Situations where the full scope isn't immediately clear
-
 ### Exercise: Quick Refactoring with Edit Mode
 
 Let's use Edit mode for a focused improvement to existing code.
@@ -121,8 +103,8 @@ Let's use Edit mode for a focused improvement to existing code.
    - You can see exactly what code is being added/removed
    - Accept if it looks good, or refine your prompt
 
-6. **Apply and test:**
-   - Click "Apply" to make the changes
+6. **Keep and test:**
+   - Click "Keep" to accept the changes
    - Save the file
    - Test that filtering still works in the browser
 
@@ -166,78 +148,72 @@ which functions need try-catch blocks, and how to handle errors gracefully.
 
 Let's start by using GitHub Copilot's Agent mode to add a footer component to the application. Agent mode excels at exploratory tasks where AI can autonomously determine the best approach.
 
-> **Lab Notes**: 
-> - In this exercise, we're providing specific requirements to help you learn Agent mode in a structured way. In real-world usage, you'd typically give Agent mode more freedom to explore and decide the implementation approach.
-> - The components created in Steps 1 and 2 are examples for learning. If you skip any step or encounter issues, you can continue with later steps - just adjust the prompts to reference different existing components.
-
 ### Instructions:
 
 1. **Open GitHub Copilot Chat:**
-   - Click the chat icon in the sidebar (or press `Ctrl+Alt+I` / `Cmd+Opt+I`)
+   - Click the chat icon in the sidebar (or press `Ctrl+Alt+I` / `Cmd+Ctrl+I`)
    - Ensure you're in **Agent mode** (select "Agent" from the mode selector at the top)
 
 2. **Provide context by opening related files:**
-   - Open `pixelperfect-gallery/src/app/layout.tsx` to show where the footer will be integrated
-   - Open `pixelperfect-gallery/src/components/ui/layout/Hero.tsx` as an example of existing component style
-   - Having these files open helps Agent mode understand your project patterns
+   - Open `pixelperfect-gallery/src/app/layout.tsx` to show where the footer will be integrated. In the chat window click the `+` next to the file name to include it as context
+   - Open `pixelperfect-gallery/src/components/ui/layout/Hero.tsx` as an example of existing component style. In the chat window click the `+` next to the file name to include it as context
+   - Having these files open helps Agent mode understand your project patterns. You can also directly use files as context with `#fileName.xxx`
 
 3. **Give Agent mode a clear task:**
-   
-   Type the following prompt in the chat:
-   ```
-   Create a footer component for this application and integrate it into the main layout.
-   
-   Requirements:
-   - Create a new Footer.tsx component in pixelperfect-gallery/src/components/ui/layout/
-   - Include PixelPerfect Gallery branding/logo text
-   - Add copyright information with current year
-   - Include links to About, Privacy, and Terms pages
-   - Style with Tailwind CSS matching the existing design system
-   - Support dark mode using dark: classes
-   - Add the footer to layout.tsx at line 52 where the REPLACE THIS COMMENT placeholder is
-   
-   Follow the patterns used in other layout components like Hero.tsx.
-   ```
+   - Give Agent mode a prompt that clearly instructs it to add the `<footer>` section to our Gallery site. If you'd like an example of what this could look like see below
 
-4. **Review Agent mode's plan:**
-   - Agent mode will analyze your codebase and show you what files it plans to create or modify
-   - Review the plan to ensure it matches your expectations
-   - You'll see a preview of files to be created/modified
-   - Click **"Accept"** to proceed or edit your prompt if needed
+   <details>
+      <summary>Example Prompt</summary>
 
-5. **Watch Agent mode work:**
+      Type the following prompt in the chat:
+      ```
+      Create a footer component for this application and integrate it into the main layout.
+      
+      Requirements:
+      - Create a new Footer.tsx component in pixelperfect-gallery/src/components/ui/layout/
+      - Include PixelPerfect Gallery branding/logo text
+      - Add copyright information with current year
+      - Include links to About, Privacy, and Terms pages
+      - Style with Tailwind CSS matching the existing design system
+      - Support dark mode using dark: classes
+      - Add the footer to layout.tsx at line 52 where the REPLACE THIS COMMENT placeholder is
+      
+      Follow the patterns used in other layout components like Hero.tsx.
+      ```
+
+   </details>
+
+4. **Watch Agent mode work:**
    - Agent mode will create the Footer component file
    - It will modify layout.tsx to import and use the footer
    - Changes appear in your editor in real-time
    - You can see the progress in the chat window
 
-6. **Review the generated code:**
+5. **Review the generated code:**
    - Check the new `pixelperfect-gallery/src/components/ui/layout/Footer.tsx` file
    - Review the changes to `pixelperfect-gallery/src/app/layout.tsx`
    - Verify the styling matches existing components
    - Ensure proper TypeScript types are used
    - Check that imports are correct
 
-7. **Test your changes:**
-   - Save all modified files (if not auto-saved)
+6. **Test your changes:**
+   - `Keep` all of the changes and if needed save all modified files
    - Check the browser at [http://localhost:3000](http://localhost:3000)
    - Scroll to the bottom to see your new footer
    - Toggle dark mode to verify dark mode support works
+      - If dark mode support wasn't achieved iterate on the prompt with Agent mode to have it implement that.
 
 ### 💡 Pro Tips for Agent Mode:
-- **Open related files first**: Agent mode uses open files for context about patterns and style
 - **Be specific about file locations**: Specify exact paths where new files should be created
 - **Reference existing patterns**: Point Agent mode to similar components to follow
 - **Use `@workspace` for broader context**: Include `@workspace` in your prompt for codebase-wide awareness
-- **Review before accepting**: Always check Agent mode's plan before proceeding
-- **Iterate if needed**: You can refine your prompt and try again if the plan isn't quite right
+- **Review before accepting**: Always check Agent mode's output before accepting it
+- **Iterate if needed**: You can refine your prompt and try again if the plan isn't quite right. You don't have to opt to `Keep` anything to iterate. Simply type a follow-up prompt to Copilot and it will continue working.
 
 ### ⚠️ Common Issues:
 - **Agent mode not available**: Ensure GitHub Copilot is enabled and you have the latest VS Code version
-- **Changes not appearing**: Make sure you accepted the plan and Agent mode completed its work
 - **Styling doesn't match**: Reference specific components in your prompt for consistent styling
 - **Files created in wrong location**: Be explicit about file paths in your requirements
-- **Build errors**: Check that imports are correct and component syntax is valid
 
 ## 🎯 Step 3: Using Agent Mode for Multi-File Feature Implementation
 
@@ -276,33 +252,18 @@ The gallery needs a "Featured Photos" section on the homepage that highlights se
    Follow patterns from GalleryGrid.tsx and other components.
    ```
 
-3. **Review the multi-file plan:**
-   - Agent mode will show all files it plans to create or modify
-   - Verify it includes:
-     - New `FeaturedSection.tsx` component
-     - Updates to `mock-photo-data.ts` (type and data)
-     - Changes to `page.tsx` (integration)
-   - Accept the plan to proceed
-
-4. **Monitor the implementation:**
+3. **Monitor the implementation:**
    - Watch as Agent mode creates the component
    - See it update the data structure and mock data
    - Observe it integrate everything into the home page
    - Check that it follows existing patterns
 
-5. **Review and test:**
+4. **Review and test:**
    - Check each modified/created file
    - Verify TypeScript types are consistent
    - Test the homepage at [http://localhost:3000](http://localhost:3000)
    - Confirm the featured section appears and looks good
    - Test responsiveness by resizing the browser
-
-### 💡 What Makes This Agent Mode-Perfect:
-
-- **Multiple files**: Agent mode coordinates changes across several files
-- **Dependencies**: It understands that the component needs data, types, and integration
-- **Context awareness**: It follows patterns from files you have open
-- **Consistency**: It maintains styling and architectural patterns
 
 ### 🔍 Understanding Agent Mode's Workflow:
 
@@ -313,13 +274,6 @@ When you accept the plan, Agent mode:
 4. **Modifies** existing files to integrate the new feature
 5. **Validates** that changes follow project patterns
 6. **Applies** all changes atomically
-
-### ⚠️ Troubleshooting:
-
-- **Plan missing files**: Be more explicit about all required changes
-- **Component doesn't appear**: Check that imports were added correctly
-- **Type errors**: Review the type definitions in mock-photo-data.ts
-- **Styling issues**: Reference specific components for style consistency
 
 ## 🔄 Step 4: Iterating and Refining with Agent Mode
 
@@ -332,9 +286,9 @@ You want to add animations and improve the user experience for one of the compon
 ### Instructions:
 
 1. **Choose a component to enhance:**
-   - If you completed Step 3: Open `pixelperfect-gallery/src/components/gallery/FeaturedSection.tsx`
-   - Alternative: Open `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx` (existing component)
-   - Keep the page file that uses this component open for context
+   - Open `pixelperfect-gallery/src/components/gallery/FeaturedSection.tsx` or `pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx`
+   - Ensure the file you selected is included as context (hint: `#fileName.tsx`)
+   - You'll want to use the same chat session you used in Step 3
 
 2. **Continue the conversation in Agent mode:**
    
@@ -368,17 +322,16 @@ You want to add animations and improve the user experience for one of the compon
    Use the patterns from other components that use Framer Motion.
    ```
 
-3. **Review the enhancement plan:**
-   - Agent mode will show what files it will modify
-   - It should update the FeaturedSection component
-   - Possibly add new imports for Framer Motion
-   - Accept the plan
+3. **Review agent modes changes:**
+   - Agent mode will show what files it modifies as it works
+   - Depending on which file you selected, verify that it updates that file
+   - You should see new imports for Framer Motion
+   - Accept the changes
 
 4. **Test the improvements:**
    - Refresh the browser and observe the animations
    - Hover over photos to see the effects
    - Resize the browser to see responsive behavior
-   - Check that dark mode still works
 
 5. **Request additional refinements if needed:**
    
@@ -392,7 +345,10 @@ You want to add animations and improve the user experience for one of the compon
    Add a subtle background pattern to the featured section
    ```
 
-### 💡 Benefits of Iterative Agent Mode:
+   OR:
+   Have Copilot refine the changes to what you think will look best. There's no wrong answers!
+
+### 💡 Benefits of Iterating with Agent Mode:
 
 - **Context preservation**: Agent mode remembers what it just built
 - **Incremental improvements**: Make changes step-by-step rather than all at once
@@ -426,11 +382,8 @@ Watch for signs that you should start a fresh conversation:
 - The conversation history becomes very long
 - Agent mode starts making unrelated changes
 - You're changing direction significantly from the original task
-- TypeScript errors accumulate
 
 **Tip**: Start a new Agent mode conversation for unrelated features
-
-
 
 ## 🎓 Step 5: Best Practices for IDE AI-Assisted Development
 
@@ -486,7 +439,7 @@ Let's review what makes for effective AI-assisted development in the IDE:
 2. **Don't ignore errors**: If TypeScript complains, investigate and fix
 3. **Don't forget testing**: Test all AI-generated code in the browser
 4. **Don't lose context**: If conversations get long, start fresh
-5. **Don't over-rely**: AI is a powerful assistant, not a replacement for thinking
+5. **Don't over-rely**: AI is a powerful assistant, **not a replacement for thinking**
 
 ### 🎯 Mode Selection Quick Guide:
 
