@@ -11,7 +11,7 @@ By the end of this exercise, you will:
 - Monitor premium request usage to manage costs effectively
 - Switch between AI models for different tasks and understand their strengths
 - Master the custom instructions hierarchy (personal, repository, organization)
-- Apply best practices for instruction file creation as an advanced developer
+- Apply best practices for instruction file creation in real-world projects
 
 ## 📸 Scenario: Standardizing Development at PixelPerfect Gallery
 
@@ -29,7 +29,7 @@ Today, you'll learn professional engineering practices for using GitHub Copilot 
 - Optimize AI model usage for cost and efficiency
 - Create effective instruction files that guide Copilot to produce high-quality, consistent code
 
-## 🔍 Part 1: Understanding Copilot's Decision-Making
+## 🔍 Step 1: Understanding Copilot's Decision-Making
 
 When using AI-assisted development in a professional environment, it's crucial to:
 - **Understand the AI's reasoning** - Know why suggestions are made
@@ -97,7 +97,7 @@ Once the debug panel opens, you can explore:
 - Review system prompts to understand what standards Copilot is following
 - Look at token usage to optimize your prompts for efficiency
 
-## 🎛️ Part 2: Personal Instructions and Custom Configuration
+## 🎛️ Step 2: Personal Instructions and Custom Configuration
 
 Personal instructions define how Copilot behaves across all repositories you work on. They're powerful for maintaining consistent coding standards and preferences.
 
@@ -175,7 +175,7 @@ If you're stuck, click the **lightbulb icon** in the bottom right of the textbox
 - How do the instructions interact with repository-level instructions?
 - Do instructions apply consistently across different file types?
 
-## 📊 Part 3: Managing Model Usage and Costs
+## 📊 Step 3: Managing Model Usage and Costs
 
 Understanding premium request usage and model costs is essential for optimizing your GitHub Copilot experience. GitHub Copilot offers different AI models—some with unlimited usage (0x models) and others that count against a monthly request allowance (premium models). Learning to monitor your usage, select the right model for each task, and manage costs effectively will help you work more efficiently. For comprehensive information about pricing structures, advanced monitoring strategies, cost optimization techniques, and model selection guidelines by task type, see the **[Premium Request Usage Guide](../References/Premium-Request-Usage.md)**.
 
@@ -189,9 +189,24 @@ GitHub Copilot provides access to models from:
 - **OpenAI** (GPT series)
 - **Anthropic** (Claude series)
 - **Google** (Gemini series)
+- **Auto** - Automatically selects the best model for your task at a 10% discount
 - **Others** (constantly evolving)
 
 For current models: [Supported Models Documentation](https://docs.github.com/copilot/reference/ai-models/supported-models)
+
+#### About Auto Model Selection:
+
+The **Auto** option intelligently selects the most appropriate model for your specific task:
+- **Cost Savings**: Automatically get a 10% discount on premium request usage
+- **Smart Selection**: GitHub analyzes your prompt and selects the optimal model
+- **Simplified Workflow**: No need to manually choose between models for different tasks
+- **Best Practice**: Ideal when you're unsure which model is best suited for your task
+
+When to use Auto:
+- When you want cost optimization without manual model selection
+- For varied tasks where different models might be optimal
+- When you're new to Copilot and learning which models work best
+- For general development work without specific model requirements
 
 #### Instructions:
 
@@ -222,7 +237,7 @@ Let's try the same coding task with different models and compare results.
 
 6. **Note the response** - save or copy it for comparison
 
-7. **Repeat steps 4-6 with two other models**
+7. **Repeat steps 4-6 with two other models** (including trying the Auto option)
 
 #### 💡 Comparison Questions:
 
@@ -242,7 +257,7 @@ Based on typical strengths (check current docs for specifics):
 - **Explanations**: Models with detailed communication
 - **Performance optimization**: Models with deep analysis
 
-## 📋 Part 4: Understanding Custom Instructions Hierarchy
+## 📋 Step 4: Understanding Custom Instructions Hierarchy
 
 Custom instructions are rules that apply to every Copilot interaction in a context (personal, repository, or organization level).
 
@@ -307,220 +322,59 @@ The copilot-instructions.md file includes:
 
 These instructions help Copilot generate code that fits seamlessly into the existing codebase.
 
-## 💎 Best Practices for Creating Effective Instruction Files
+## 💎 Step 5: Best Practices for Creating Effective Instruction Files
 
-For advanced developers, creating high-quality instruction files is essential for maximizing Copilot's effectiveness. Here are professional best practices with real-world examples:
+Creating high-quality instruction files is essential for maximizing Copilot's effectiveness in production environments. Well-crafted instructions help teams maintain consistency, enforce standards, and guide AI-assisted development.
 
-### 1. Be Specific About Architecture Patterns
+### Why Instruction Files Matter in Real Projects
 
-**❌ Vague:**
-```markdown
-Use good coding practices
-```
+In real-world development scenarios, instruction files serve several critical purposes:
 
-**✅ Specific:**
+- **Team Consistency**: Ensure all team members receive similar guidance from Copilot, regardless of their experience level
+- **Code Quality**: Automatically enforce architectural patterns and coding standards across the project
+- **Faster Onboarding**: Help new developers understand project conventions quickly without extensive documentation reviews
+- **Living Documentation**: Serve as up-to-date documentation of project decisions and patterns
+- **Reduced Code Review**: Fewer style and pattern issues to catch during review when Copilot generates consistent code
+
+### Key Elements of Effective Instructions
+
+When creating instruction files for your projects, focus on these essential elements:
+
+1. **Architecture Patterns**: Be specific about folder structure, design patterns, and code organization
+2. **Technology Stack**: Clearly define frameworks, libraries, and versions in use
+3. **Code Style**: Specify naming conventions, file structure, and formatting preferences
+4. **Component Patterns**: Document where different components live and how they should be structured
+5. **Error Handling**: Define consistent approaches to error management and logging
+6. **Security Requirements**: Specify security practices that should be followed
+7. **Testing Standards**: Set expectations for test coverage and testing approaches
+8. **Performance Guidelines**: Include optimization patterns and best practices
+9. **Accessibility**: Define accessibility requirements and standards
+10. **Project-Specific Patterns**: Tailor instructions to your domain (e-commerce, dashboards, etc.)
+
+### Quick Example
+
+Instead of vague instructions like "Use good coding practices", be specific:
+
 ```markdown
 ## Architecture Patterns
 - Use Repository pattern for data access with interfaces in `repositories/`
 - Implement Service layer in `services/` for business logic
 - Keep Controllers thin - delegate to Services
 - Use Dependency Injection for all services
-- Follow SOLID principles, especially Single Responsibility
 ```
 
-### 2. Define Technology Stack Clearly
+### 📖 Complete Guide
 
-**Real-World Example:**
-```markdown
-## Technology Stack
-- **Framework**: Next.js 15 with App Router (not Pages Router)
-- **Language**: TypeScript 5+ with strict mode enabled
-- **Styling**: Tailwind CSS 3.x - no CSS modules or styled-components
-- **State**: React hooks (useState, useEffect, useContext) - no Redux
-- **Data Fetching**: React Server Components and Server Actions
-- **Testing**: Jest + React Testing Library
-- **Linting**: ESLint with Airbnb config
-```
+For comprehensive best practices, detailed real-world examples, and implementation strategies for creating effective instruction files, see:
 
-### 3. Specify Code Style and Conventions
+**[Copilot Instruction Best Practices Guide](../References/Copilot-Instruction-Best-Practices.md)**
 
-**Real-World Example:**
-```markdown
-## Code Style
-- **Naming**: camelCase for variables/functions, PascalCase for components/classes
-- **File Structure**: One component per file, named exports for utilities
-- **Imports**: Group by external → internal → relative, alphabetize within groups
-- **Functions**: Prefer arrow functions for components, named functions for utilities
-- **Types**: Define interfaces for props, types for unions/intersections
-- **Comments**: Use JSDoc for public APIs, inline comments sparingly
-- **Max Length**: 80 chars per line, break at logical points
-```
-
-### 4. Document Component Patterns
-
-**Real-World Example:**
-```markdown
-## Component Patterns
-### Layout Components
-- Place in `components/layout/`
-- Accept `children` prop
-- Example: `<Container>`, `<Section>`, `<Grid>`
-
-### Feature Components
-- Place in `components/features/{feature-name}/`
-- Co-locate with tests and styles
-- Use composition over prop drilling
-
-### UI Components
-- Place in `components/ui/`
-- Reusable across features
-- Follow Atomic Design principles (atoms, molecules, organisms)
-```
-
-### 5. Include Error Handling Standards
-
-**Real-World Example:**
-```markdown
-## Error Handling
-- **API Calls**: Always wrap in try-catch, return Result<T, Error> type
-- **User Input**: Validate with Zod schemas before processing
-- **Errors**: Use custom Error classes (ValidationError, NetworkError, etc.)
-- **Logging**: Use structured logging with context
-- **User Messages**: Never expose technical details, show user-friendly messages
-
-Example:
-\`\`\`typescript
-try {
-  const result = await apiCall();
-  return { success: true, data: result };
-} catch (error) {
-  logger.error('API call failed', { context, error });
-  return { success: false, error: 'Failed to load data' };
-}
-\`\`\`
-```
-
-### 6. Define Security Requirements
-
-**Real-World Example:**
-```markdown
-## Security Requirements
-- **Input Sanitization**: Sanitize all user input with DOMPurify
-- **Authentication**: Use JWT tokens, refresh before expiry
-- **Authorization**: Check permissions at API route level
-- **Secrets**: Never commit secrets, use environment variables
-- **SQL**: Use parameterized queries only, never string concatenation
-- **XSS Prevention**: Escape all dynamic content in JSX
-- **CSRF**: Include CSRF tokens in all state-changing requests
-```
-
-### 7. Specify Testing Requirements
-
-**Real-World Example:**
-```markdown
-## Testing Standards
-- **Coverage**: Minimum 80% for utilities, 60% for components
-- **Test Structure**: Arrange-Act-Assert pattern
-- **Test Files**: Co-locate with component: `Component.test.tsx`
-- **Naming**: describe('ComponentName', () => { it('should...', () => {}) })
-- **Mocking**: Mock external dependencies, not internal logic
-- **Accessibility**: Include accessibility tests for all interactive components
-- **Integration**: Test user flows, not implementation details
-```
-
-### 8. Document Performance Guidelines
-
-**Real-World Example:**
-```markdown
-## Performance Guidelines
-- **Images**: Use Next.js Image component with proper sizing
-- **Lazy Loading**: Lazy load components below the fold
-- **Memoization**: Use React.memo for expensive renders
-- **Callbacks**: Wrap callbacks in useCallback to prevent re-renders
-- **Bundle Size**: Keep client bundles < 200KB
-- **Server Components**: Prefer Server Components when no interactivity needed
-- **Suspense**: Use Suspense boundaries for data fetching
-```
-
-### 9. Include Accessibility Requirements
-
-**Real-World Example:**
-```markdown
-## Accessibility (WCAG 2.1 AA)
-- **Semantic HTML**: Use proper HTML5 elements (nav, main, article, etc.)
-- **ARIA**: Add ARIA labels only when semantic HTML insufficient
-- **Keyboard**: All interactive elements must be keyboard accessible
-- **Focus**: Visible focus indicators with 3:1 contrast ratio
-- **Color Contrast**: Minimum 4.5:1 for text, 3:1 for UI components
-- **Alt Text**: Descriptive alt text for all images (not decorative)
-- **Forms**: Associate labels with inputs, provide error messages
-```
-
-### 10. Real-World Use Case Examples
-
-**Scenario: E-commerce Platform**
-```markdown
-## E-commerce Specific Patterns
-- **Product Listings**: Virtualize lists with react-window for 1000+ items
-- **Cart State**: Use Context API, persist to localStorage
-- **Checkout Flow**: Multi-step form with validation at each step
-- **Payment**: Integrate Stripe, never handle card details directly
-- **Inventory**: Show real-time availability, handle race conditions
-- **SEO**: Generate structured data (JSON-LD) for products
-```
-
-**Scenario: Dashboard Application**
-```markdown
-## Dashboard Specific Patterns
-- **Data Visualization**: Use Recharts for charts, keep datasets optimized
-- **Real-time Updates**: WebSocket connection for live data
-- **Filtering**: Client-side filter for < 1000 items, server-side otherwise
-- **Export**: Generate CSV/Excel server-side for large datasets
-- **Permissions**: Hide/disable features based on user role
-- **Performance**: Virtual scrolling for tables with 100+ rows
-```
-
-### Advanced Tips for Instruction Files
-
-**1. Version Your Instructions**
-```markdown
----
-version: 2.1.0
-last-updated: 2025-01-15
----
-```
-
-**2. Link to External Documentation**
-```markdown
-For design system, see: [internal-docs/design-system.md]
-For API contracts, see: [api-specs/openapi.yaml]
-```
-
-**3. Provide Decision Context**
-```markdown
-## Why We Chose X Over Y
-- **React over Vue**: Team expertise, ecosystem maturity
-- **Tailwind over CSS-in-JS**: Performance, build times
-- **PostgreSQL over MongoDB**: ACID compliance requirements
-```
-
-**4. Include Migration Notes**
-```markdown
-## Deprecated Patterns (Don't Use)
-- ❌ Class components - use functional components with hooks
-- ❌ `any` type - always define proper types
-- ❌ `!important` in CSS - fix specificity instead
-```
-
-**5. Set Expectations**
-```markdown
-## Code Generation Expectations
-- Always include TypeScript types
-- Always add error handling
-- Always write tests for new functions
-- Always update documentation
-- Never commit console.logs
-```
+This reference guide covers:
+- Detailed examples for each best practice
+- Real-world scenarios for different project types
+- Advanced tips for versioning and maintaining instructions
+- Common pitfalls to avoid
+- Measuring effectiveness of your instruction files
 
 ## 🏆 Exercise Wrap-up
 
@@ -549,29 +403,5 @@ Excellent work! You've learned professional engineering practices and instructio
 - Instructions at different levels provide appropriate context (personal, repository, organization)
 - These practices make AI-assisted development more professional and reliable
 - Well-crafted instruction files multiply Copilot's effectiveness
-
-## 🚀 Next Steps
-
-Now that you've mastered engineering practices and instruction customization:
-
-1. **Apply to Your Work**
-   - Create personal instructions for your coding style
-   - Add repository instructions to your projects
-   - Share with your team
-
-2. **Measure Impact**
-   - Track code quality improvements
-   - Monitor consistency across the team
-   - Calculate time savings
-
-3. **Iterate and Improve**
-   - Refine instructions based on results
-   - Update as project patterns evolve
-   - Gather team feedback
-
-4. **Share Knowledge**
-   - Document effective patterns
-   - Train new team members
-   - Contribute best practices
 
 **Ready for the next challenge? Move on to Lab 5 to learn about Prompt Files, Custom Chat Modes, and MCP!**
