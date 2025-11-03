@@ -106,7 +106,6 @@ Personal instructions define how Copilot behaves across all repositories you wor
 #### Why This Matters:
 - **Consistency**: Get similar code style across all your projects
 - **Efficiency**: Don't repeat common preferences in every chat
-- **Standards**: Enforce your team's or personal coding guidelines
 - **Customization**: Tailor Copilot to your specific needs and workflows
 
 #### Access Personal Instructions
@@ -259,7 +258,7 @@ Based on typical strengths (check current docs for specifics):
 
 ## 📋 Step 4: Understanding Custom Instructions Hierarchy
 
-Custom instructions are rules that apply to every Copilot interaction in a context (personal, repository, or organization level).
+Custom instructions are rules that apply to every Copilot interaction. Which instructions are used depends on the context (personal, repository, or organization level).
 
 ### Step 4.1: Instructions Hierarchy
 
@@ -280,8 +279,8 @@ Custom instructions are rules that apply to every Copilot interaction in a conte
 #### ⚖️ Balancing Different Instruction Levels
 
 **Personal Instructions**: Your individual preferences across all repositories
-- Language-specific preferences
-- General coding style
+- How Copilot talks to you
+- Outlining your coding style
 - Comment and documentation preferences
 
 **Repository Instructions**: Project-specific requirements (in `.github/copilot-instructions.md`)
@@ -322,6 +321,17 @@ The copilot-instructions.md file includes:
 
 These instructions help Copilot generate code that fits seamlessly into the existing codebase.
 
+### Step 4.3: Auto-Generate Repository Instructions
+
+Use the Copilot Chat "Generate Chat Instructions" feature to automatically create (or refine) the repository’s `copilot-instructions.md`, then compare and improve it.
+
+1. Open Copilot Chat  
+2. Click the gear icon (Configure Chat) → choose **Generate Chat Instructions**
+3. Look through the changes that Copilot has suggested making to the instructions file
+4. Accept the changes that you think add value to the instructions, and `Undo` the ones that don't
+
+> Tip: You should repeat this process routinely to ensure that the instructions always stay up to date with the codebase. This ensures that Copilot gets the best context possible when working within your code.
+
 ## 💎 Step 5: Best Practices for Creating Effective Instruction Files
 
 Creating high-quality instruction files is essential for maximizing Copilot's effectiveness in production environments. Well-crafted instructions help teams maintain consistency, enforce standards, and guide AI-assisted development.
@@ -333,8 +343,7 @@ In real-world development scenarios, instruction files serve several critical pu
 - **Team Consistency**: Ensure all team members receive similar guidance from Copilot, regardless of their experience level
 - **Code Quality**: Automatically enforce architectural patterns and coding standards across the project
 - **Faster Onboarding**: Help new developers understand project conventions quickly without extensive documentation reviews
-- **Living Documentation**: Serve as up-to-date documentation of project decisions and patterns
-- **Reduced Code Review**: Fewer style and pattern issues to catch during review when Copilot generates consistent code
+- **Enhanced Copilot Output**: Copilot is tuned to your repository specifics, and as such is much more accurate with its output
 
 ### Key Elements of Effective Instructions
 
@@ -348,20 +357,7 @@ When creating instruction files for your projects, focus on these essential elem
 6. **Security Requirements**: Specify security practices that should be followed
 7. **Testing Standards**: Set expectations for test coverage and testing approaches
 8. **Performance Guidelines**: Include optimization patterns and best practices
-9. **Accessibility**: Define accessibility requirements and standards
 10. **Project-Specific Patterns**: Tailor instructions to your domain (e-commerce, dashboards, etc.)
-
-### Quick Example
-
-Instead of vague instructions like "Use good coding practices", be specific:
-
-```markdown
-## Architecture Patterns
-- Use Repository pattern for data access with interfaces in `repositories/`
-- Implement Service layer in `services/` for business logic
-- Keep Controllers thin - delegate to Services
-- Use Dependency Injection for all services
-```
 
 ### 📖 Complete Guide
 
