@@ -1,6 +1,6 @@
 # Exercise 7 - GitHub Copilot Coding Agent
 
-#### Duration: 60 minutes
+#### Duration: XX minutes
 > **Note**: While the lab content has been streamlined, the duration accounts for Copilot's autonomous work time (10-15 minutes per task) and the comprehensive hands-on scenario in Step 5.
 
 ## 🎯 Learning Objectives

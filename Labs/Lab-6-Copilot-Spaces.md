@@ -1,6 +1,6 @@
 # Exercise 6 - GitHub Copilot Spaces
 
-#### Duration: 40 minutes
+#### Duration: XX minutes
 
 ## 🎯 Learning Objectives
 

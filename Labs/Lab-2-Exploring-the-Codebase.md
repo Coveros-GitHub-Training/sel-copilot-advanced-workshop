@@ -1,6 +1,6 @@
 # Exercise 2 - Exploring the Codebase with GitHub Copilot
 
-#### Duration: 20 minutes
+#### Duration: XX minutes
 
 ## 🎯 Learning Objectives
 
