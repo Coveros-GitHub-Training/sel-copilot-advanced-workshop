@@ -206,7 +206,7 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
 ### 💡 Pro Tips for Agent Mode:
 - **Be specific about file locations**: Specify exact paths where new files should be created
 - **Reference existing patterns**: Point Agent mode to similar components to follow
-- **Use `@workspace` for broader context**: Include `@workspace` in your prompt for codebase-wide awareness
+- **Use `@workspace` for broader context**: `@workspace` should be included in agent requests automatically. However, depending on IDE version and feature it will sometimes be necessary to manually include it.
 - **Review before accepting**: Always check Agent mode's output before accepting it
 - **Iterate if needed**: You can refine your prompt and try again if the plan isn't quite right. You don't have to opt to `Keep` anything to iterate. Simply type a follow-up prompt to Copilot and it will continue working.
 
