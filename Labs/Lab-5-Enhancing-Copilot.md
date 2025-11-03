@@ -595,7 +595,7 @@ With that, you should be all set to begin work with the MCP Server.
 
 The most effective way to use GitHub MCP is through natural conversation with Copilot, letting it automatically utilize the GitHub tools when needed.
 
-Instead of explicitly calling `@github`, simply ask Copilot questions about your GitHub repositories in natural language. Copilot will automatically use the GitHub MCP tools when appropriate.
+Instead of explicitly calling `@github` or directly referencing a tool from the MCP, simply ask Copilot questions about your GitHub repositories in natural language. Copilot will automatically use the GitHub MCP tools when appropriate.
 
 **Examples of Effective Prompts:**
 
