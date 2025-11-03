@@ -127,7 +127,7 @@ Name: `Relevant OWASP Security Vulns`
 - Image processing vulnerabilities
 ```
 
-16. Click **"Save"**
+12. Click **"Save"**
 
 ✅ **Checkpoint**: You've created your first Copilot Space! You should see it in your Spaces dashboard.
 
@@ -230,7 +230,7 @@ Provide well-structured, maintainable documentation that follows industry best p
 - [Component 2]
 ```
 
-13. Click **"Save"**
+12. Click **"Save"**
 
 ✅ **Checkpoint**: Excellent! You now have TWO specialized Copilot Spaces:
 - **Security Assessment Space** - for security analysis and hardening
