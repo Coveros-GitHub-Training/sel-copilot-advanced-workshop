@@ -73,24 +73,63 @@ Help Copilot understand what the project does and who it's for.
 
 **Evidence-Based Recommendation**: Research shows that context and clarity are the most critical factors in instruction effectiveness.
 
-**Real-World Example:**
+**Real-World Examples:**
+
+**Example 1: E-Commerce Platform**
 ```markdown
 # Project Overview
-This is a Photo Gallery & Portfolio application for professional photographers to showcase their work. Built with Next.js 15, TypeScript, and Tailwind CSS. The application prioritizes performance, accessibility, and mobile-first design.
+This is an e-commerce platform for online retail operations. Built with microservices architecture using REST APIs. The system prioritizes scalability, data consistency, and payment security.
 
 ## Target Users
-- Professional photographers uploading high-resolution images
-- Portfolio visitors browsing on various devices
-- Gallery administrators managing content
+- Customers browsing and purchasing products
+- Merchants managing inventory and orders
+- Administrators monitoring system health
 
 ## Core Functionality
-- Photo upload with metadata
-- Responsive grid-based gallery display
-- Portfolio management dashboard
-- Dark mode support
+- Product catalog with search and filtering
+- Shopping cart and checkout process
+- Payment processing integration
+- Order management and fulfillment tracking
+- Inventory management system
 ```
 
-**Why This Works**: Copilot can make context-aware suggestions that fit your application's purpose and user needs.
+**Example 2: DevOps Automation Tool**
+```markdown
+# Project Overview
+This is a cloud infrastructure automation tool for managing multi-cloud deployments. Uses Infrastructure-as-Code principles with Terraform and Ansible. Focuses on idempotency, security, and cost optimization.
+
+## Target Users
+- DevOps engineers deploying infrastructure
+- SREs monitoring system reliability
+- Security teams auditing configurations
+
+## Core Functionality
+- Infrastructure provisioning and configuration
+- CI/CD pipeline automation
+- Security compliance scanning
+- Cost optimization recommendations
+- Multi-cloud resource management
+```
+
+**Example 3: Data Analytics Platform**
+```markdown
+# Project Overview
+This is a data analytics platform for processing and visualizing large datasets. Built with Python, Apache Spark, and PostgreSQL. Emphasizes data quality, performance, and reproducibility.
+
+## Target Users
+- Data scientists building models
+- Business analysts creating reports
+- Data engineers maintaining pipelines
+
+## Core Functionality
+- ETL data pipelines
+- Real-time data processing
+- Statistical analysis and ML models
+- Interactive dashboards and visualizations
+- Data governance and lineage tracking
+```
+
+**Why This Works**: Copilot can make context-aware suggestions that fit your application's domain, purpose, and technical requirements.
 
 ### 2. Define the Technology Stack Explicitly
 
@@ -98,20 +137,61 @@ Specify exact versions and choices to avoid incompatible suggestions.
 
 **Evidence-Based Recommendation**: Specific technology declarations prevent Copilot from suggesting outdated patterns or incompatible libraries found in the project's history.
 
-**Real-World Example:**
+**Real-World Examples:**
+
+**Example 1: Python Microservices**
 ```markdown
 ## Technology Stack
-- **Framework**: Next.js 15 with App Router (NOT Pages Router)
-- **Language**: TypeScript 5+ with strict mode enabled
-- **Styling**: Tailwind CSS 3.x - no CSS modules or styled-components
-- **State Management**: React hooks (useState, useEffect, useContext) - no Redux
-- **Data Fetching**: React Server Components and Server Actions
-- **Testing**: Jest + React Testing Library
-- **Linting**: ESLint with recommended config
-- **Package Manager**: npm (not yarn or pnpm)
+- **Language**: Python 3.11+ with type hints
+- **Framework**: FastAPI for REST APIs (not Flask)
+- **Database**: PostgreSQL 15+ with SQLAlchemy ORM
+- **Message Queue**: RabbitMQ for async communication
+- **Authentication**: OAuth 2.0 with JWT tokens
+- **Testing**: pytest with pytest-asyncio
+- **Code Quality**: Black for formatting, Flake8 for linting, MyPy for type checking
+- **Containerization**: Docker with multi-stage builds
 ```
 
-**Why This Works**: Copilot won't suggest Redux when you've chosen Context API, or Pages Router patterns in an App Router project.
+**Example 2: Java Enterprise Application**
+```markdown
+## Technology Stack
+- **Language**: Java 17 LTS (use records, sealed classes, pattern matching)
+- **Framework**: Spring Boot 3.x with Spring Security
+- **Database**: Oracle 19c with JPA/Hibernate
+- **Build Tool**: Maven 3.9+ (not Gradle)
+- **Testing**: JUnit 5 + Mockito for unit tests, TestContainers for integration tests
+- **Code Quality**: Checkstyle with Google Java conventions
+- **Logging**: SLF4J with Logback
+- **API Documentation**: OpenAPI 3.0 with SpringDoc
+```
+
+**Example 3: Infrastructure-as-Code**
+```markdown
+## Technology Stack
+- **IaC Tool**: Terraform 1.5+ (HCL syntax, not JSON)
+- **Cloud Provider**: AWS (use latest provider version)
+- **Configuration**: Ansible for post-provisioning configuration
+- **CI/CD**: GitHub Actions for automated deployments
+- **Secret Management**: AWS Secrets Manager (not environment variables in code)
+- **Testing**: Terratest for infrastructure validation
+- **State Management**: S3 backend with DynamoDB state locking
+- **Cost Optimization**: Infracost for cost analysis
+```
+
+**Example 4: .NET Microservices**
+```markdown
+## Technology Stack
+- **Language**: C# 12 with .NET 8
+- **Framework**: ASP.NET Core for REST APIs, gRPC for inter-service communication
+- **Database**: SQL Server 2022 with Entity Framework Core
+- **Message Broker**: Azure Service Bus
+- **Testing**: xUnit with FluentAssertions
+- **Code Quality**: StyleCop analyzers, SonarQube
+- **Logging**: Serilog with structured logging
+- **Package Management**: NuGet with central package management
+```
+
+**Why This Works**: Specific technology declarations prevent Copilot from suggesting deprecated patterns, incompatible libraries, or outdated approaches from the project's history.
 
 ### 3. Document Architecture and Code Organization
 
@@ -119,35 +199,95 @@ Define where code lives and how components should be structured.
 
 **Evidence-Based Recommendation**: Clear architectural guidance helps Copilot place new code in the right locations and follow established patterns.
 
-**Real-World Example:**
+**Real-World Examples:**
+
+**Example 1: Microservices Architecture**
+```markdown
+## Project Structure
+
+services/
+├── user-service/        # User authentication and profile management
+│   ├── api/            # REST API endpoints
+│   ├── models/         # Data models and schemas
+│   ├── services/       # Business logic
+│   └── tests/          # Unit and integration tests
+├── order-service/       # Order processing and management
+├── payment-service/     # Payment processing
+└── shared/             # Shared utilities and types
+
+## Architecture Patterns
+- Each service is independently deployable
+- Services communicate via REST APIs or message queues
+- Use repository pattern for data access
+- Implement circuit breaker pattern for resilience
+- Apply CQRS for read-heavy operations
+- Use API Gateway for external access
+
+## Service Guidelines
+- Each service has its own database (database per service)
+- Services expose health check endpoints
+- Use correlation IDs for distributed tracing
+- Implement idempotent operations
+- Version all APIs (v1, v2, etc.)
+```
+
+**Example 2: Monorepo Structure**
+```markdown
+## Project Structure
+
+packages/
+├── api/                # Backend REST API
+│   ├── controllers/   # Request handlers
+│   ├── middleware/    # Express middleware
+│   ├── models/        # Database models
+│   └── routes/        # API routes
+├── cli/               # Command-line tools
+├── shared/            # Shared code between packages
+│   ├── types/        # TypeScript type definitions
+│   ├── utils/        # Utility functions
+│   └── constants/    # Shared constants
+├── worker/            # Background job processors
+└── web/               # Web application
+
+## Architecture Patterns
+- Workspaces managed by npm/yarn/pnpm workspaces
+- Shared dependencies defined at root
+- Each package can be built independently
+- Use Lerna or Nx for monorepo management
+- Shared code must be backward compatible
+```
+
+**Example 3: Layered Architecture**
 ```markdown
 ## Project Structure
 
 src/
-├── app/              # Next.js 15 App Router pages
-├── components/
-│   ├── ui/           # Reusable UI components (buttons, inputs)
-│   ├── layout/       # Layout components (Header, Footer, Container)
-│   └── features/     # Feature-specific components
-└── lib/              # Utility functions and shared logic
+├── controllers/       # Presentation layer - handles HTTP requests
+├── services/          # Business logic layer
+├── repositories/      # Data access layer
+├── models/            # Domain models and entities
+├── dto/               # Data Transfer Objects
+├── middleware/        # Cross-cutting concerns
+├── config/            # Configuration files
+└── utils/             # Helper functions
 
 ## Architecture Patterns
-- Layout Components: Place in components/layout/, accept children prop
-- Feature Components: Place in components/features/{feature-name}/
-- UI Components: Reusable across features, place in components/ui/
-- Services: Business logic in lib/services/
-- Utilities: Helper functions in lib/utils/
-- Server Actions: Co-locate with components that use them
+- Controllers: Thin, delegate to services, handle HTTP concerns only
+- Services: Business logic, no direct database access
+- Repositories: Data access abstraction, queries and persistence
+- Models: Domain entities, business rules validation
+- Use dependency injection throughout
+- Follow SOLID principles
+- Apply separation of concerns
 
-## Component Guidelines
-- One component per file
-- Use default exports for components
-- Use named exports for utilities
-- Co-locate tests: Component.test.tsx
-- Follow Atomic Design principles for UI components
+## Guidelines
+- Controllers don't call repositories directly
+- Services don't handle HTTP responses
+- Repositories return domain models, not raw database objects
+- Use DTOs for API contracts
 ```
 
-**Impact**: Copilot will suggest placing new components in correct directories and following your organizational patterns.
+**Why This Works**: Clear structural guidance helps Copilot place new code in the correct locations and follow established architectural patterns across any language or framework.
 
 ### 4. Specify Code Style and Conventions
 
@@ -155,40 +295,112 @@ Define the specific formatting, naming, and code organization standards for your
 
 **Evidence-Based Recommendation**: Specific, actionable guidance works far better than vague directives like "write clean code."
 
-**Real-World Example:**
+**Real-World Examples:**
+
+**Example 1: Python Project Standards**
 ```markdown
 ## Code Style Standards
 - **Naming Conventions**:
-  - camelCase for variables and functions
-  - PascalCase for components and classes
-  - UPPER_SNAKE_CASE for constants
-  - Prefix boolean variables with `is`, `has`, `should`
+  - snake_case for functions, variables, and modules
+  - PascalCase for classes
+  - SCREAMING_SNAKE_CASE for constants
+  - Prefix private members with single underscore
 
 - **File Organization**:
-  - One component per file
-  - Import order: external → internal → relative
-  - Alphabetize imports within groups
+  - One class per file for large classes
+  - Group related functions in modules
+  - Import order: standard library → third-party → local
+  - Use absolute imports over relative
 
-- **TypeScript**:
-  - Define interfaces for all component props
-  - Use `type` for unions/intersections
-  - Use `interface` for object shapes
-  - Enable strict mode
-  - No `any` type - use `unknown` if necessary
+- **Type Hints**:
+  - Use type hints for all function signatures
+  - Use Optional for nullable values
+  - Define TypedDict for dictionary structures
+  - Run MyPy in strict mode
 
 - **Functions**:
   - Max function length: 50 lines
-  - Extract complex logic into helper functions
-  - Use arrow functions for React components
-  - Use named functions for utilities
+  - Use docstrings (Google or NumPy style)
+  - Avoid deep nesting (max 3 levels)
+  - Prefer early returns
 
 - **Comments**:
-  - JSDoc for all exported functions
-  - Inline comments to explain "why", not "what"
-  - Document complex algorithms
+  - Docstrings for all public functions and classes
+  - Inline comments to explain complex logic
+  - Document exceptions and edge cases
 ```
 
-**Why This Works**: Consistent, specific standards reduce code review friction and ensure all team members (and Copilot) follow the same patterns.
+**Example 2: Java/C# Enterprise Standards**
+```markdown
+## Code Style Standards
+- **Naming Conventions**:
+  - camelCase for methods and variables
+  - PascalCase for classes and interfaces
+  - UPPER_SNAKE_CASE for static final constants
+  - Prefix interfaces with 'I' (C# only)
+
+- **File Organization**:
+  - One public class per file
+  - Organize members: fields → constructors → methods
+  - Group by access modifier: public → protected → private
+
+- **Documentation**:
+  - XML documentation comments for public APIs (C#)
+  - Javadoc for all public methods (Java)
+  - Document parameters, return values, and exceptions
+  - Include usage examples for complex APIs
+
+- **Methods**:
+  - Max method length: 30 lines
+  - Extract complex conditions into named methods
+  - Use async/await for I/O operations (C#)
+  - Handle exceptions at appropriate levels
+
+- **Error Handling**:
+  - Use specific exception types
+  - Never catch System.Exception (C#) or Exception (Java)
+  - Always include context in exception messages
+  - Log exceptions with stack traces
+```
+
+**Example 3: General Best Practices (Language-Agnostic)**
+```markdown
+## Code Style Standards
+- **Naming Conventions**:
+  - Use descriptive names that reveal intent
+  - Avoid abbreviations except well-known ones (HTTP, API, URL)
+  - Boolean names should read like questions: canDelete, hasPermission
+  - Collections should be plural: users, orders, items
+
+- **Function Design**:
+  - Functions should do one thing well (Single Responsibility)
+  - Max parameters: 3 (use objects for more)
+  - Avoid side effects in functions
+  - Pure functions when possible
+  - Max cyclomatic complexity: 10
+
+- **Code Organization**:
+  - Group related code together
+  - Separate concerns (presentation, business logic, data access)
+  - Use consistent file naming across the project
+  - Keep files under 400 lines
+
+- **Error Handling**:
+  - Fail fast - validate inputs early
+  - Use specific error types
+  - Provide actionable error messages
+  - Log errors with context
+  - Don't swallow exceptions
+
+- **Comments and Documentation**:
+  - Code should be self-documenting
+  - Comment "why" not "what"
+  - Update comments when code changes
+  - Remove commented-out code
+  - Document assumptions and constraints
+```
+
+**Why This Works**: Language-appropriate standards ensure Copilot generates code that matches your team's conventions, regardless of the technology stack.
 
 ### 5. Include Security Requirements
 
@@ -196,28 +408,70 @@ Define security standards that should be followed in all generated code.
 
 **Evidence-Based Recommendation**: Security vulnerabilities are costly. Having Copilot follow security patterns by default significantly reduces risk.
 
-**Real-World Example:**
+**Real-World Examples:**
+
+**Example 1: API Security**
 ```markdown
 ## Security Requirements
-- **Input Sanitization**: Validate and sanitize all user input
-- **Authentication**: Use NextAuth.js for authentication flows
-- **Environment Variables**: Never commit secrets, use `.env.local`
-- **API Routes**: Implement rate limiting on all API endpoints
-- **SQL Queries**: Use parameterized queries only, never string concatenation
-- **XSS Prevention**: Escape all dynamic content in JSX
-- **File Uploads**: Validate file types and sizes before processing
-- **Error Messages**: Never expose sensitive information in error messages
+- **Authentication**: Use OAuth 2.0 with JWT tokens, rotate refresh tokens
+- **Authorization**: Implement role-based access control (RBAC)
+- **Input Validation**: Validate all inputs against strict schemas (JSON Schema, Joi, Pydantic)
+- **SQL Injection**: Use parameterized queries or ORM, never string concatenation
+- **API Rate Limiting**: Implement rate limiting (e.g., 100 requests/minute per user)
+- **CORS**: Configure CORS restrictively, whitelist specific origins only
+- **Secrets Management**: Use environment variables or secret managers (AWS Secrets Manager, Azure Key Vault)
+- **Logging**: Log security events (auth failures, privilege escalations) but never log sensitive data
 
-## Code Example
+## Example (Python with SQLAlchemy)
+# Good: Parameterized query
+user = session.query(User).filter(User.id == user_id).first()
 
-Good: Parameterized query
-const user = await db.user.findUnique({ where: { id: userId } });
-
-Bad: String concatenation (vulnerable to SQL injection)
-const query = "SELECT * FROM users WHERE id = '" + userId + "'";
+# Bad: String concatenation (SQL injection risk)
+# query = f"SELECT * FROM users WHERE id = '{user_id}'"
 ```
 
-**Critical Impact**: Security patterns built into generated code from the start prevent vulnerabilities rather than requiring security audits later.
+**Example 2: Infrastructure Security**
+```markdown
+## Security Requirements
+- **Network**: Use private subnets, security groups with least privilege
+- **Encryption**: Enable encryption at rest and in transit (TLS 1.3)
+- **IAM**: Apply principle of least privilege, use service accounts not root
+- **Secrets**: Never hard-code credentials, use secret rotation
+- **Compliance**: Enable audit logging (CloudTrail, Azure Monitor)
+- **Container Security**: Scan images for vulnerabilities, use minimal base images
+- **Access Control**: Use SSH keys not passwords, enable MFA for admin access
+
+## Example (Terraform)
+# Good: Reference secret from secret manager
+db_password = data.aws_secretsmanager_secret_version.db_password.secret_string
+
+# Bad: Hard-coded password
+# db_password = "MyP@ssw0rd123"
+```
+
+**Example 3: Web Application Security**
+```markdown
+## Security Requirements
+- **XSS Prevention**: Sanitize all user input, use Content Security Policy (CSP)
+- **CSRF Protection**: Use anti-CSRF tokens for state-changing operations
+- **Session Security**: Set HttpOnly and Secure flags on cookies
+- **Password Storage**: Use bcrypt/Argon2 with work factor >= 12
+- **File Uploads**: Validate MIME types, scan for malware, restrict file sizes
+- **Dependency Security**: Regularly update dependencies, scan with tools (npm audit, Snyk)
+- **Error Handling**: Return generic error messages to users, log detailed errors server-side
+- **Headers**: Set security headers (X-Frame-Options, X-Content-Type-Options, HSTS)
+
+## Example (Express.js middleware)
+// Good: Input validation and sanitization
+app.post('/api/users', 
+  body('email').isEmail().normalizeEmail(),
+  body('name').trim().escape(),
+  validateRequest,
+  createUserHandler
+);
+```
+
+**Critical Impact**: Security patterns built into generated code from the start prevent vulnerabilities across any technology stack, reducing the need for extensive security audits later.
 
 ### 6. Document Deprecated Patterns
 
@@ -245,55 +499,194 @@ const query = "SELECT * FROM users WHERE id = '" + userId + "'";
 
 **Research Finding**: Concrete examples significantly improve Copilot's ability to generate consistent code.
 
-**Real-World Example:**
+**Real-World Examples:**
+
+**Example 1: API Endpoint Pattern (Python/FastAPI)**
 ```markdown
-## Component Pattern Example
+## API Endpoint Pattern
 
-Follow this pattern for all feature components:
+Follow this pattern for all REST API endpoints:
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
+from fastapi import APIRouter, Depends, HTTPException, status
+from pydantic import BaseModel
+from typing import List
+from services.auth import get_current_user
+from services.orders import OrderService
 
-interface PhotoCardProps {
-  photoUrl: string;
-  title: string;
-  onSelect: (photoId: string) => void;
-}
+router = APIRouter(prefix="/api/v1/orders", tags=["orders"])
 
-export default function PhotoCard({ photoUrl, title, onSelect }: PhotoCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  
-  // Extract photo ID from URL (assumes URL format: /photos/photo-id)
-  const extractPhotoId = (url: string): string => {
-    try {
-      return url.split('/').filter(Boolean).pop() || url;
-    } catch {
-      return url;
+class OrderResponse(BaseModel):
+    id: int
+    user_id: int
+    total: float
+    status: str
+
+@router.get("/", response_model=List[OrderResponse])
+async def get_orders(
+    current_user: User = Depends(get_current_user),
+    order_service: OrderService = Depends()
+) -> List[OrderResponse]:
+    """
+    Get all orders for the current user.
+    
+    Returns:
+        List of orders with details
+        
+    Raises:
+        HTTPException: If user is unauthorized or service fails
+    """
+    try:
+        orders = await order_service.get_user_orders(current_user.id)
+        return [OrderResponse(**order.dict()) for order in orders]
+    except ServiceException as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to fetch orders: {str(e)}"
+        )
+
+# Always:
+# - Use dependency injection
+# - Define Pydantic models for request/response
+# - Include proper error handling
+# - Add docstrings
+# - Use type hints
+```
+
+**Example 2: Service Layer Pattern (Java/Spring)**
+```markdown
+## Service Layer Pattern
+
+Follow this pattern for all business logic services:
+
+@Service
+@Transactional
+public class OrderService {
+    
+    private final OrderRepository orderRepository;
+    private final PaymentService paymentService;
+    private final NotificationService notificationService;
+    private final Logger logger = LoggerFactory.getLogger(OrderService.class);
+    
+    @Autowired
+    public OrderService(
+        OrderRepository orderRepository,
+        PaymentService paymentService,
+        NotificationService notificationService
+    ) {
+        this.orderRepository = orderRepository;
+        this.paymentService = paymentService;
+        this.notificationService = notificationService;
     }
-  };
-  
-  return (
-    <div 
-      className="rounded-lg overflow-hidden shadow-md"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Image 
-        src={photoUrl} 
-        alt={title} 
-        width={400} 
-        height={300}
-        className="w-full h-48 object-cover" 
-      />
-      {isHovered && (
-        <Button onClick={() => onSelect(extractPhotoId(photoUrl))}>
-          Select
-        </Button>
-      )}
-    </div>
-  );
+    
+    public Order createOrder(CreateOrderRequest request) {
+        logger.info("Creating order for user: {}", request.getUserId());
+        
+        // Validation
+        validateOrderRequest(request);
+        
+        // Business logic
+        Order order = new Order();
+        order.setUserId(request.getUserId());
+        order.setTotal(calculateTotal(request.getItems()));
+        order.setStatus(OrderStatus.PENDING);
+        
+        // Persistence
+        Order savedOrder = orderRepository.save(order);
+        
+        // Side effects
+        try {
+            paymentService.processPayment(savedOrder);
+            notificationService.sendOrderConfirmation(savedOrder);
+        } catch (Exception e) {
+            logger.error("Failed to process order side effects", e);
+            throw new OrderProcessingException("Order created but processing failed", e);
+        }
+        
+        return savedOrder;
+    }
+    
+    private void validateOrderRequest(CreateOrderRequest request) {
+        if (request.getItems().isEmpty()) {
+            throw new ValidationException("Order must contain at least one item");
+        }
+    }
 }
+
+// Always:
+// - Use constructor injection
+// - Add @Transactional where needed
+// - Validate inputs
+// - Log important operations
+// - Handle exceptions appropriately
+```
+
+**Example 3: Data Access Pattern (C#/EF Core)**
+```markdown
+## Repository Pattern
+
+Follow this pattern for all data access:
+
+public interface IOrderRepository
+{
+    Task<Order> GetByIdAsync(int orderId);
+    Task<IEnumerable<Order>> GetByUserIdAsync(int userId);
+    Task<Order> CreateAsync(Order order);
+    Task UpdateAsync(Order order);
+}
+
+public class OrderRepository : IOrderRepository
+{
+    private readonly ApplicationDbContext _context;
+    private readonly ILogger<OrderRepository> _logger;
+    
+    public OrderRepository(
+        ApplicationDbContext context,
+        ILogger<OrderRepository> logger)
+    {
+        _context = context;
+        _logger = logger;
+    }
+    
+    public async Task<Order> GetByIdAsync(int orderId)
+    {
+        try
+        {
+            return await _context.Orders
+                .Include(o => o.OrderItems)
+                .FirstOrDefaultAsync(o => o.Id == orderId);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error fetching order {OrderId}", orderId);
+            throw new DataAccessException($"Failed to fetch order {orderId}", ex);
+        }
+    }
+    
+    public async Task<Order> CreateAsync(Order order)
+    {
+        ArgumentNullException.ThrowIfNull(order);
+        
+        try
+        {
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+            return order;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogError(ex, "Error creating order");
+            throw new DataAccessException("Failed to create order", ex);
+        }
+    }
+}
+
+// Always:
+// - Define interfaces for repositories
+// - Use async/await for database operations
+// - Include proper error handling
+// - Log data access operations
+// - Validate inputs
+// - Use Include() for eager loading
 ```
 
 ## Critical Limitations of Repository-Wide Instructions
@@ -413,34 +806,108 @@ Path-specific instructions use the `applyTo` field to define which files they af
     └── tests.instructions.md            # Test files
 ```
 
-**Example File** (`.github/instructions/frontend.instructions.md`):
+**Example Files:**
+
+**Example 1: API Layer** (`.github/instructions/api.instructions.md`):
 ```markdown
 applyTo:
-  - src/frontend/**
-  - webapp/components/**
-  - ui/**
+  - src/api/**
+  - services/api/**
+  - controllers/**
 
 ---
 
-# Frontend-Specific Instructions
+# API Layer Instructions
 
-## React Patterns
-- Use React Server Components by default
-- Add 'use client' only when necessary (interactivity, hooks, browser APIs)
-- Prefer composition over prop drilling
-- Use Context sparingly - props first
+## REST API Standards
+- Use RESTful conventions (GET/POST/PUT/PATCH/DELETE)
+- Version APIs: /api/v1/resource
+- Return consistent response format: { data, error, metadata }
+- Use proper HTTP status codes (200, 201, 400, 401, 403, 404, 500)
+- Implement pagination for list endpoints (limit, offset)
+- Include request validation middleware
 
-## Styling
-- Use Tailwind utility classes
-- Mobile-first responsive design
-- Include dark mode variants with `dark:` prefix
-- Accessibility: semantic HTML, ARIA labels, keyboard navigation
+## Error Handling
+- Return structured error responses: { error: { code, message, details } }
+- Log errors with correlation IDs for tracing
+- Never expose stack traces to clients
+- Use problem details format (RFC 7807)
 
-## Performance
-- Lazy load components below the fold
-- Use Next.js Image component for all images
-- Implement virtualization for long lists
-- Optimize re-renders with React.memo and useCallback
+## Documentation
+- Document all endpoints with OpenAPI/Swagger
+- Include request/response examples
+- Document authentication requirements
+- List all possible status codes and their meanings
+```
+
+**Example 2: Database Layer** (`.github/instructions/database.instructions.md`):
+```markdown
+applyTo:
+  - src/database/**
+  - repositories/**
+  - models/**
+  - migrations/**
+
+---
+
+# Database Layer Instructions
+
+## Data Access Patterns
+- Use repository pattern for data access abstraction
+- All database operations must be async
+- Use transactions for multi-step operations
+- Implement connection pooling
+- Use prepared statements / parameterized queries always
+
+## Query Optimization
+- Add indexes for frequently queried columns
+- Use SELECT specific columns, not SELECT *
+- Limit result sets with pagination
+- Use database-specific optimization hints when needed
+- Profile slow queries and optimize
+
+## Migrations
+- Make migrations reversible when possible
+- Test migrations on staging before production
+- Include rollback scripts
+- Document breaking changes
+- Version migrations with timestamps
+```
+
+**Example 3: Infrastructure Code** (`.github/instructions/infrastructure.instructions.md`):
+```markdown
+applyTo:
+  - terraform/**
+  - infrastructure/**
+  - *.tf
+  - ansible/**
+
+---
+
+# Infrastructure-as-Code Instructions
+
+## Terraform Standards
+- Use modules for reusable components
+- Define variables with descriptions and validation
+- Use remote state with state locking
+- Tag all resources (Environment, Owner, CostCenter)
+- Use data sources instead of hard-coded values
+- Implement lifecycle rules for critical resources
+
+## Security Best Practices
+- Never hard-code credentials or secrets
+- Use secret managers (AWS Secrets Manager, Azure Key Vault)
+- Enable encryption at rest and in transit
+- Apply least privilege IAM policies
+- Use private subnets for databases and internal services
+- Enable audit logging (CloudTrail, Azure Monitor)
+
+## Cost Optimization
+- Right-size resources based on usage
+- Use autoscaling where appropriate
+- Implement resource lifecycle policies
+- Tag resources for cost tracking
+- Use cost analysis tools (Infracost)
 ```
 
 ## Best Practices for Path-Specific Instructions
@@ -475,46 +942,67 @@ applyTo:
 
 **Evidence-Based Recommendation**: Path-specific instructions should only contain guidance relevant to that specific area.
 
-**Real-World Example** (`.github/instructions/tests.instructions.md`):
+**Example 4: Testing Standards** (`.github/instructions/tests.instructions.md`):
 ```markdown
 applyTo:
-  - **/*.test.ts
-  - **/*.test.tsx
-  - **/*.spec.ts
+  - **/*.test.*
+  - **/*.spec.*
   - tests/**
+  - test/**
 
 ---
 
 # Testing Standards
 
 ## Test Structure
-- Use Arrange-Act-Assert pattern
-- One test per behavior
-- Descriptive test names: `it('should X when Y')`
-- Group related tests in `describe` blocks
+- Use Arrange-Act-Assert (AAA) pattern
+- One test per behavior or scenario
+- Descriptive test names that explain what's being tested
+- Group related tests in describe/context blocks
 
-## Best Practices
-- Test behavior, not implementation
-- Mock external dependencies only
-- Use `data-testid` for component queries
-- Include accessibility tests for interactive components
-- Aim for 80% coverage on utilities, 60% on components
+## Coverage Requirements
+- Minimum 80% coverage for business logic
+- Minimum 60% coverage for data access layer
+- 100% coverage for critical security functions
+- Test happy paths and error cases
 
-## Example
+## Best Practices (Language-Agnostic)
+- Test behavior, not implementation details
+- Mock external dependencies (databases, APIs, file system)
+- Don't mock internal code you're testing
+- Use test fixtures and factories for test data
+- Clean up test data after each test
+- Make tests independent - can run in any order
 
-describe('PhotoCard', () => {
-  it('should display hover actions when mouse enters', () => {
+## Examples by Framework
+
+# Python (pytest)
+def test_create_order_succeeds_with_valid_data():
+    # Arrange
+    order_service = OrderService(mock_repository)
+    order_data = {"user_id": 1, "items": [{"id": 1, "quantity": 2}]}
+    
+    # Act
+    result = order_service.create_order(order_data)
+    
+    # Assert
+    assert result.status == "created"
+    assert len(result.items) == 1
+
+# Java (JUnit)
+@Test
+public void testCreateOrder_WithValidData_ReturnsCreatedOrder() {
     // Arrange
-    const onSelect = jest.fn();
-    render(<PhotoCard photoUrl="test.jpg" title="Test" onSelect={onSelect} />);
+    OrderService orderService = new OrderService(mockRepository);
+    OrderRequest request = new OrderRequest(1, items);
     
     // Act
-    fireEvent.mouseEnter(screen.getByRole('img'));
+    Order result = orderService.createOrder(request);
     
     // Assert
-    expect(screen.getByRole('button')).toBeInTheDocument();
-  });
-});
+    assertEquals(OrderStatus.CREATED, result.getStatus());
+    assertNotNull(result.getId());
+}
 ```
 
 ### 3. Handle Conflicts with Repository-Wide Instructions
