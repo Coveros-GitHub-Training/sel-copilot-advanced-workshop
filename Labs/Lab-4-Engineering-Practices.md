@@ -256,69 +256,59 @@ Based on typical strengths (check current docs for specifics):
 - **Explanations**: Models with detailed communication
 - **Performance optimization**: Models with deep analysis
 
-## 📋 Step 4: Understanding Custom Instructions Hierarchy
+## 📋 Step 4: Understanding Repository Custom Instructions
 
-Custom instructions are rules that apply to every Copilot interaction. Which instructions are used depends on the context (personal, repository, or organization level).
+Repository custom instructions guide Copilot's behavior for your specific project. Understanding how these work and interact with other instruction levels helps you use them effectively.
 
-### Step 4.1: Instructions Hierarchy
+### Step 4.1: Repository Instructions Overview
 
-#### Hierarchy Levels:
+#### Two Types of Repository Instructions:
 
-GitHub Copilot uses custom instructions from multiple levels simultaneously:
+**1. Repository-Wide Instructions** (`.github/copilot-instructions.md`)
+- Single file that applies to ALL files in the repository
+- Contains universal standards, tech stack, and project patterns
+- Foundation for all Copilot suggestions in this project
 
-1. **Personal Instructions** (User-Level)
-   - Your individual preferences across all repos
-   - Set at: https://github.com/copilot
-   - Location: Your GitHub user settings
+**2. Path-Specific Instructions** (`.github/instructions/*.instructions.md`)
+- Multiple files in the `.github/instructions/` directory
+- Each applies only to files matching its `applyTo` patterns
+- Provides specialized guidance for specific areas (frontend, backend, tests, etc.)
 
-2. **Repository Instructions** (Project-Level)
-   - Project-specific requirements
-   - File: `.github/copilot-instructions.md`
-   - Location: Version-controlled in the repository
+#### 🔄 How Repository Instructions Work with Other Levels
 
-3. **Organization Instructions** (Enterprise-Level)
-   - Company-wide standards
-   - Set by organization admins
-   - Location: Organization settings
+**Important Research Finding**: All relevant instructions (personal, repository, organization) are provided to Copilot as context. They merge together rather than following a strict priority hierarchy.
 
-#### ⚖️ Balancing Different Instruction Levels
+**Instruction Levels:**
 
-**Personal Instructions**: Your individual preferences across all repositories
-- Personal coding style and patterns
-- Comment and documentation preferences
-- How you prefer Copilot to communicate with you
-- Workflow preferences that apply everywhere
+1. **Personal Instructions** (Your GitHub settings)
+   - Your personal preferences across all projects
+   - Example: "I prefer functional programming patterns"
 
-**Repository Instructions**: Project-specific requirements (in `.github/copilot-instructions.md`)
-- Project architecture and folder structure
-- Specific libraries or frameworks for this project
-- Team coding standards and conventions
-- Technology stack decisions
-- Security and testing requirements
+2. **Repository-Wide Instructions** (`.github/copilot-instructions.md`)
+   - Project-specific standards for the whole codebase
+   - Example: "Use Next.js 15 App Router with TypeScript strict mode"
 
-**Organization Instructions**: Company-wide standards across all organization repos
-- Corporate security policies
-- Company coding standards
-- Compliance requirements
-- Shared architectural patterns
+3. **Path-Specific Instructions** (`.github/instructions/*.instructions.md`)
+   - Area-specific guidance within the repository
+   - Example: "For test files, use Arrange-Act-Assert pattern"
 
-#### 🔄 How They Work Together
-
-**Important Research Finding**: There is no guaranteed strict hierarchy when instructions from different levels conflict. Instead, all instructions are provided to Copilot as context, and the AI makes probabilistic decisions.
+4. **Organization Instructions** (Enterprise settings)
+   - Company-wide standards across all organization repos
+   - Example: "All code must pass security scanning before merge"
 
 **Best Practices:**
-- Keep personal instructions generic and universally applicable
-- Make repository instructions authoritative for project-specific patterns
-- Ensure instructions at different levels don't conflict
-- Repository instructions should be the "source of truth" for team standards
-- Document any known conflicts in team guidelines
+- Repository instructions should be the "source of truth" for project standards
+- Ensure instructions at different levels complement, not conflict
+- Personal instructions should be general, repository instructions specific
+- Path-specific instructions should extend, not contradict, repository-wide instructions
 
 **Example of Good Layering:**
-- **Personal**: "I prefer functional programming patterns"
-- **Repository**: "Use Next.js 15 App Router with TypeScript strict mode"
-- **Organization**: "All code must pass security scanning before merge"
+- **Personal**: "I prefer descriptive variable names"
+- **Repository-Wide**: "Use Next.js 15 with TypeScript strict mode"
+- **Path-Specific (tests)**: "Use data-testid attributes for test queries"
+- **Organization**: "All API keys must be in environment variables"
 
-These complement each other rather than conflict.
+These work together to provide comprehensive guidance.
 
 ### Step 4.2: Review Repository Instructions
 
@@ -370,48 +360,58 @@ In real-world development scenarios, instruction files serve several critical pu
 - **Faster Onboarding**: Help new developers understand project conventions quickly without extensive documentation reviews
 - **Enhanced Copilot Output**: Copilot is tuned to your repository specifics, and as such is much more accurate with its output
 
-### Understanding the Two Types of Instructions
+### Understanding Repository Custom Instructions
 
-It's critical to understand the difference between **User-Level** and **Repository-Level** custom instructions:
+Repository custom instructions provide project-specific guidance to Copilot. There are two types within a repository:
 
-**User-Level Instructions** (set in your GitHub settings):
-- Personal coding preferences that follow you everywhere
-- Apply to all projects you work on
-- Examples: Your preferred documentation style, personal coding patterns
+**Repository-Wide Instructions** (`.github/copilot-instructions.md`):
+- Single file that applies to all files in the repository
+- Defines universal standards, tech stack, and patterns for the entire project
+- Examples: Project overview, technology stack, architecture patterns, coding standards
 
-**Repository-Level Instructions** (`.github/copilot-instructions.md`):
-- Project-specific standards and conventions
-- Apply to all team members working on the project
-- Examples: Tech stack, architecture patterns, team coding standards
+**Path-Specific Instructions** (`.github/instructions/*.instructions.md`):
+- Multiple files in `.github/instructions/` directory
+- Each applies only to files matching specified `applyTo` patterns
+- Examples: Frontend-specific React patterns, backend API conventions, test file requirements
 
-### Key Elements of Effective Repository Instructions
+**How They Work Together:**
+Both types work through context merging - Copilot uses the repository-wide instructions plus any matching path-specific instructions to inform its suggestions.
 
-When creating repository instruction files for your projects, focus on these essential elements:
+### Key Elements of Repository-Wide Instructions (`.github/copilot-instructions.md`)
 
-1. **Project Overview**: Clear description of what the project does and who it's for
-2. **Technology Stack**: Explicitly define frameworks, libraries, and versions in use
+When creating the repository-wide instruction file, focus on these essential elements:
+
+1. **Project Overview**: Clear description of what the project does, who it's for, and core functionality
+2. **Technology Stack**: Explicitly define frameworks, libraries, and versions (including what NOT to use)
 3. **Architecture Patterns**: Be specific about folder structure, design patterns, and code organization
 4. **Code Style Standards**: Specify naming conventions, file structure, and formatting preferences
-5. **Component Patterns**: Document where different components live and how they should be structured
-6. **Security Requirements**: Specify security practices that must be followed
-7. **Error Handling**: Define consistent approaches to error management and logging
-8. **Testing Standards**: Set expectations for test coverage and testing approaches
+5. **Security Requirements**: Specify security practices that must be followed
+6. **Deprecated Patterns**: Explicitly document what patterns to avoid
+7. **Code Examples**: Provide concrete examples of correct patterns
+
+### When to Use Path-Specific Instructions (`.github/instructions/*.instructions.md`)
+
+Path-specific instructions are valuable for:
+- **Different areas with different needs**: Frontend vs Backend, Tests, Security-sensitive files
+- **Monorepos**: Different standards for different sub-projects
+- **Legacy code**: Modernization guidance for specific directories
+- **Specialized requirements**: Stricter patterns for certain file types
 
 ### 📖 Complete Guide with Research-Backed Best Practices
 
-For comprehensive, evidence-based best practices with detailed real-world examples and implementation strategies for creating effective instruction files, see:
+For comprehensive, evidence-based best practices with detailed real-world examples and implementation strategies for creating effective repository custom instructions, see:
 
 **[Copilot Instruction Best Practices Guide](../References/Copilot-Instruction-Best-Practices.md)**
 
 This reference guide covers:
-- **Clear distinction** between User-Level and Repository-Level instructions
+- **Clear distinction** between Repository-Wide (`.github/copilot-instructions.md`) and Path-Specific (`.github/instructions/*.instructions.md`) instructions
 - **Research-backed impact**: 50%+ productivity increase, 3-4x faster feature delivery, 60% code review reduction
-- **Evidence-based best practices** for both instruction types
-- **Critical limitations** you need to understand (token limits, non-deterministic behavior)
-- **Common mistakes** identified through real-world case studies
-- **Advanced techniques** including path-specific instructions
+- **Evidence-based best practices** for both repository instruction types
+- **Critical limitations** you need to understand (token limits, non-deterministic behavior, legacy code influence)
+- **Common mistakes** identified through real-world case studies (wrong glob patterns, missing `applyTo`, conflicts)
+- **Path-specific instruction techniques** with `applyTo` pattern examples
 - **Measuring effectiveness** with qualitative and quantitative metrics
-- **Implementation strategies** for new and existing projects
+- **Implementation strategies** for new and existing projects with phased rollout plans
 
 ## 🏆 Exercise Wrap-up
 

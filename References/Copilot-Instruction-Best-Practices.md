@@ -1,140 +1,71 @@
-# Best Practices for Creating Effective Copilot Instructions
+# Best Practices for Repository Custom Instructions
 
 ## Overview
 
-GitHub Copilot offers two distinct types of custom instructions, each serving different purposes and contexts. Understanding when and how to use each type is essential for maximizing Copilot's effectiveness in your development workflow.
+GitHub Copilot supports custom instructions at the repository level to guide AI-assisted development and ensure code consistency across your project. Understanding how to effectively use both repository-wide and path-specific instructions is essential for maximizing Copilot's effectiveness.
 
-This guide provides evidence-based best practices with practical, real-world examples that can be adapted to various project types and development scenarios.
+This guide provides evidence-based best practices with practical, real-world examples focused specifically on **repository custom instructions** (not user-level personal instructions).
 
-## Types of Custom Instructions
+## Types of Repository Custom Instructions
 
-GitHub Copilot supports two levels of custom instructions:
+GitHub Copilot supports two types of custom instructions within a repository:
 
-1. **User-Level Custom Instructions** (Personal Settings)
-   - Set in your IDE or GitHub.com user settings
-   - Apply to all repositories and projects you work on
-   - Reflect your personal coding style and preferences
-   - Stored in your user profile
+### 1. **Repository-Wide Instructions** (`.github/copilot-instructions.md`)
+- **Location**: Single file at `.github/copilot-instructions.md`
+- **Scope**: Applies to **all files** in the repository
+- **Purpose**: Define universal standards, tech stack, and patterns for the entire project
+- **Best For**: Broad, consistent standards that affect the entire codebase
 
-2. **Repository-Level Custom Instructions** (`.github/copilot-instructions.md`)
-   - Defined in the repository itself
-   - Apply to all contributors working on that specific project
-   - Enforce project-specific standards and conventions
-   - Version-controlled with the codebase
+### 2. **Path-Specific Instructions** (`.github/instructions/*.instructions.md`)
+- **Location**: Multiple files in `.github/instructions/` directory
+- **Scope**: Applies only to files matching specified `applyTo` patterns
+- **Purpose**: Provide targeted guidance for specific parts of the codebase
+- **Best For**: Different conventions for frontend/backend, security-sensitive areas, or legacy code
 
-**How They Work Together:**
-Both instruction types can be active simultaneously. User-level instructions set your personal baseline, while repository instructions layer on top to add project-specific context and requirements.
+## How They Work Together
+
+**Research Finding**: Both instruction types work together through **context merging**. When editing a file:
+1. Repository-wide instructions (`.github/copilot-instructions.md`) are always included
+2. Any matching path-specific instructions are also included
+3. Copilot merges all relevant instructions to inform its suggestions
+
+**Important**: There's no strict priority hierarchy - Copilot uses all matching instructions as context. This means instructions should complement each other, not conflict.
 
 ## When to Use Each Type
 
-| Scenario | User Instructions | Repository Instructions |
-|----------|-------------------|------------------------|
-| Personal coding style preferences across all projects | ✅ | ❌ |
-| Project-specific architecture and patterns | ❌ | ✅ |
-| Team collaboration and shared standards | ❌ | ✅ |
-| Individual workflow preferences | ✅ | ❌ |
-| Technology stack for a specific project | ❌ | ✅ |
-| Personal documentation preferences | ✅ | ❌ |
-| Onboarding new team members to project standards | ❌ | ✅ |
+| Scenario | Repository-Wide<br>(`copilot-instructions.md`) | Path-Specific<br>(`.instructions.md`) |
+|----------|---------------------------------------------|----------------------------------|
+| Technology stack and frameworks | ✅ | ❌ |
+| Universal coding standards | ✅ | ❌ |
+| Project architecture overview | ✅ | ❌ |
+| Frontend-specific React patterns | ❌ | ✅ |
+| Backend API conventions | ❌ | ✅ |
+| Security-sensitive file handling | ❌ | ✅ |
+| Test file requirements | ❌ | ✅ |
+| Legacy code modernization hints | ❌ | ✅ |
+| Monorepo with multiple sub-projects | ❌ | ✅ |
 
 ---
 
-# Part 1: User-Level Custom Instructions
+# Part 1: Repository-Wide Instructions (`.github/copilot-instructions.md`)
 
-## Why User Instructions Matter
+## Why Repository-Wide Instructions Matter
 
-User-level instructions personalize Copilot to match your individual coding style and preferences across all projects. They help you:
-
-- **Maintain Personal Style**: Your preferred patterns follow you everywhere
-- **Workflow Consistency**: Same approaches regardless of project
-- **Individual Productivity**: Copilot understands your habits
-- **Complement Team Standards**: Personal preferences that don't conflict with project rules
-
-## Best Practices for User Instructions
-
-### 1. Focus on Personal Preferences
-
-User instructions should reflect your individual style, not project requirements.
-
-**Good User Instructions:**
-```markdown
-## My Coding Preferences
-- I prefer functional programming patterns over imperative
-- Always include JSDoc comments for exported functions
-- Use descriptive variable names over short abbreviations
-- Prefer explicit error handling over implicit
-- Break complex functions into smaller, focused helpers
-```
-
-**Why This Works**: These are personal choices that can apply across any project you work on.
-
-### 2. Keep Instructions Concise
-
-User instructions should be brief and focused on truly universal preferences.
-
-**Good User Instructions:**
-```markdown
-## General Preferences
-- Prefer TypeScript over JavaScript when available
-- Use async/await over .then() for promises
-- Write unit tests using Arrange-Act-Assert pattern
-- Include error handling for all async operations
-- Document complex logic with inline comments
-```
-
-**Why This Works**: These preferences can apply to most projects without conflicting with team standards.
-
-### 3. Avoid Project-Specific Details
-
-Don't include project architecture or team decisions in user instructions.
-
-**❌ Bad User Instructions:**
-```markdown
-## Architecture
-- Use our company's CustomAuthService for authentication
-- All API calls must go through the ApiGateway class
-- Store data in the ProjectDatabase using our ORM layer
-```
-
-**✅ Good User Instructions:**
-```markdown
-## Code Organization Preferences
-- I prefer small, focused functions (< 20 lines)
-- I like to separate business logic from UI components
-- I prefer dependency injection over global state
-```
-
-**Why**: User instructions should work across different projects and teams, not be tied to one codebase.
-
-## Common Mistakes with User Instructions
-
-1. **Including Team-Specific Patterns**: User instructions should be personal, not team-wide
-2. **Too Much Detail**: Keep it focused on true preferences that apply everywhere
-3. **Conflicting with Projects**: Avoid instructions that might contradict repository standards
-4. **Technology Lock-in**: Don't force specific libraries unless you truly use them everywhere
-
----
-
-# Part 2: Repository-Level Custom Instructions (`.github/copilot-instructions.md`)
-
-## Why Repository Instructions Matter
-
-Repository-level custom instructions are **essential for team collaboration** and project-specific guidance. Research shows that teams using well-crafted repository instructions report:
+Repository-wide custom instructions are the **foundation** of effective AI-assisted development. Research shows that teams using well-crafted repository instructions report:
 
 - **50%+ increase** in coding productivity
 - **3-4x faster** feature delivery
 - **60% reduction** in code review cycles
 - **Improved onboarding** for new team members
 
-Repository instructions serve critical purposes:
-
+These instructions serve critical purposes:
 - **Team Consistency**: All contributors receive the same project-specific guidance
 - **Code Quality**: Enforce architectural patterns and coding standards automatically
 - **Living Documentation**: Version-controlled documentation of project decisions
 - **Onboarding**: Help new developers understand conventions quickly
 - **Standards Enforcement**: Prevent introducing outdated or incompatible patterns
 
-## Best Practices for Repository Instructions
+## Best Practices for Repository-Wide Instructions
 
 ### 1. Start with a Clear Project Overview
 
@@ -191,7 +122,7 @@ Define where code lives and how components should be structured.
 **Real-World Example:**
 ```markdown
 ## Project Structure
-```
+\`\`\`
 src/
 ├── app/              # Next.js 15 App Router pages
 ├── components/
@@ -199,7 +130,7 @@ src/
 │   ├── layout/       # Layout components (Header, Footer, Container)
 │   └── features/     # Feature-specific components
 └── lib/              # Utility functions and shared logic
-```
+\`\`\`
 
 ## Architecture Patterns
 - **Layout Components**: Place in `components/layout/`, accept `children` prop
@@ -290,188 +221,11 @@ const user = await db.user.findUnique({ where: { id: userId } });
 
 **Critical Impact**: Security patterns built into generated code from the start prevent vulnerabilities rather than requiring security audits later.
 
-### 6. Error Handling Standards
-
-Define consistent error handling approaches for your project.
-
-**Real-World Example:**
-```markdown
-## Error Handling
-- **API Calls**: Wrap all async operations in try-catch blocks
-- **User Feedback**: Show user-friendly error messages, log technical details
-- **Error Boundaries**: Use React Error Boundaries for component errors
-- **Logging**: Use structured logging with context
-- **Status Codes**: Return appropriate HTTP status codes from API routes
-
-\`\`\`typescript
-// Standard error handling pattern
-try {
-  const result = await fetchData();
-  return { success: true, data: result };
-} catch (error) {
-  logger.error('Data fetch failed', { context, error });
-  return { 
-    success: false, 
-    error: 'Unable to load data. Please try again.' 
-  };
-}
-\`\`\`
-```
-
-### 7. Testing Requirements
-
-Specify testing standards to ensure generated code includes appropriate tests.
-
-**Real-World Example:**
-```markdown
-## Testing Standards
-- **Coverage**: Minimum 80% for utilities, 60% for components
-- **Test Structure**: Follow Arrange-Act-Assert pattern
-- **Test Files**: Co-locate with component: `Component.test.tsx`
-- **Naming**: `describe('ComponentName', () => { it('should...', () => {}) })`
-- **Mocking**: Mock external dependencies, not internal logic
-- **Accessibility**: Include accessibility tests for interactive components
-- **Test Commands**: Run `npm test` before committing
-```
-
-## Repository Instructions: Critical Limitations
-
-**Evidence-Based Research**: Understanding these limitations is essential for setting realistic expectations.
-
-### Token Limits and Context Windows
-
-**Research Finding**: GitHub Copilot models have context windows between 8K-32K tokens, with part reserved for code context.
-
-**Best Practice:**
-- Keep repository instructions concise (preferably under 2KB)
-- Focus on the most important patterns and standards
-- Use clear, direct language
-- Extremely large files may be truncated or partially ignored
-
-### Non-Deterministic Behavior
-
-**Research Finding**: Repository instructions "tilt" Copilot's suggestions but don't guarantee strict enforcement. Copilot may occasionally diverge due to the probabilistic nature of AI.
-
-**Reality Check:**
-- Instructions guide behavior, they don't control it absolutely
-- Some suggestions may not follow instructions perfectly
-- Code review is still necessary
-- Update instructions when patterns don't work as expected
-
-### Priority and Layering
-
-**Research Finding**: There's no guaranteed hierarchy when user, repository, and organization instructions conflict.
-
-**Best Practice:**
-- Ensure user instructions don't conflict with repository standards
-- Keep repository instructions authoritative for team decisions
-- Document any known conflicts in your team guidelines
-
-## Common Mistakes with Repository Instructions
-
-**Evidence-Based Analysis**: These patterns have been identified in real-world case studies as ineffective.
-
-### 1. Overly Vague or Generic Instructions
-
-**❌ Doesn't Work:**
-```markdown
-Write clean, maintainable code
-Follow best practices
-Use good coding standards
-```
-
-**✅ Works Better:**
-```markdown
-- Functions should be < 50 lines
-- Extract complex logic into named helper functions
-- Use TypeScript strict mode with explicit types
-- Follow the existing patterns in `src/components/ui/`
-```
-
-**Research Insight**: Vague directives yield inconsistent results. Copilot needs specific, actionable guidance.
-
-### 2. Overloading the Instructions File
-
-**Research Finding**: Large, unfocused instruction files dilute Copilot's ability to synthesize productive suggestions.
-
-**Best Practice:**
-- Focus on the 20% of patterns that matter 80% of the time
-- Remove outdated or rarely-used instructions
-- Link to external documentation for deep details
-- Keep the file under 2KB when possible
-
-### 3. Outdated or Incorrect Instructions
-
-**Research Finding**: Instructions that reference obsolete dependencies or don't match current code cause Copilot to suggest broken solutions.
-
-**Best Practice:**
-- Review and update instructions with each major project change
-- Remove deprecated patterns explicitly
-- Test instructions by asking Copilot to generate code
-- Version control allows tracking changes over time
-
-### 4. Ignoring Path-Specific Instructions
-
-**Research Finding**: Many teams don't leverage path-specific instructions for granular control.
-
-**Opportunity:**
-- Create `.github/instructions/tests.instructions.md` for test-specific guidance
-- Create component-specific instructions in subdirectories
-- Different standards for different parts of the codebase
-
-### 5. No Validation of Generated Code
-
-**Critical Mistake**: Trusting Copilot's output without review leads to bugs and security issues.
-
-**Best Practice:**
-- Always review generated code
-- Run linters and tests on Copilot-generated code
-- Treat Copilot suggestions as drafts, not final code
-- Use code review processes for all code, AI-generated or not
-
-## Real-World Use Case Examples
-
-Tailor instructions to your specific project type.
-
-**Scenario: E-commerce Platform**
-```markdown
-## E-commerce Specific Patterns
-- **Product Listings**: Virtualize lists with react-window for 1000+ items
-- **Cart State**: Use Context API, persist to localStorage
-- **Checkout Flow**: Multi-step form with validation at each step
-- **Payment**: Integrate Stripe, never handle card details directly
-- **Inventory**: Show real-time availability, handle race conditions
-- **SEO**: Generate structured data (JSON-LD) for products
-```
-
-**Scenario: Dashboard Application**
-```markdown
-## Dashboard Specific Patterns
-- **Data Visualization**: Use Recharts for charts, keep datasets optimized
-- **Real-time Updates**: WebSocket connection for live data
-- **Filtering**: Client-side filter for < 1000 items, server-side otherwise
-- **Export**: Generate CSV/Excel server-side for large datasets
-- **Permissions**: Hide/disable features based on user role
-- **Performance**: Virtual scrolling for tables with 100+ rows
-```
-
-**Scenario: Mobile-First Application**
-```markdown
-## Mobile-First Development
-- **Touch Targets**: Minimum 44x44px for all interactive elements
-- **Responsive**: Design for 320px minimum width
-- **Performance**: Target < 3s load time on 3G networks
-- **Offline**: Implement service workers for offline functionality
-- **Progressive Enhancement**: Core functionality works without JavaScript
-- **Gestures**: Support swipe, pinch-to-zoom where appropriate
-```
-
-## Advanced Techniques for Repository Instructions
-
-### 1. Document Deprecated Patterns
+### 6. Document Deprecated Patterns
 
 **Evidence-Based Practice**: Explicitly list patterns to avoid prevents Copilot from suggesting outdated code from project history.
 
+**Real-World Example:**
 ```markdown
 ## Deprecated Patterns (Do Not Use)
 - ❌ Class components - use functional components with hooks
@@ -489,10 +243,11 @@ Tailor instructions to your specific project type.
 
 **Impact**: Prevents Copilot from mimicking old patterns still present in the codebase.
 
-### 2. Provide Code Examples
+### 7. Provide Code Examples
 
 **Research Finding**: Concrete examples significantly improve Copilot's ability to generate consistent code.
 
+**Real-World Example:**
 ```markdown
 ## Component Pattern Example
 
@@ -526,147 +281,458 @@ export default function PhotoCard({ photoUrl, title, onSelect }: PhotoCardProps)
 \`\`\`
 ```
 
-### 3. Link to External Documentation
+## Critical Limitations of Repository-Wide Instructions
 
-Keep instructions focused while providing access to detailed docs.
+**Evidence-Based Research**: Understanding these limitations is essential for setting realistic expectations.
 
+### Token Limits and Context Windows
+
+**Research Finding**: GitHub Copilot models have context windows between 8K-32K tokens, with part reserved for code context.
+
+**Best Practice:**
+- Keep repository instructions concise (preferably under 2KB)
+- Focus on the most important patterns and standards
+- Use clear, direct language
+- Extremely large files may be truncated or partially ignored
+
+### Non-Deterministic Behavior
+
+**Research Finding**: Repository instructions "tilt" Copilot's suggestions but don't guarantee strict enforcement. Copilot may occasionally diverge due to the probabilistic nature of AI.
+
+**Reality Check:**
+- Instructions guide behavior, they don't control it absolutely
+- Some suggestions may not follow instructions perfectly
+- Code review is still necessary
+- Update instructions when patterns don't work as expected
+
+### Legacy Code Influence
+
+**Research Finding**: Without clear instructions, Copilot dropped into a legacy codebase tends to replicate bad patterns seen in the repository.
+
+**Solution:**
+- Use deprecated patterns section to explicitly call out what not to do
+- Consider path-specific instructions for legacy code areas
+- Provide examples of correct patterns to override legacy influence
+
+## Common Mistakes with Repository-Wide Instructions
+
+**Evidence-Based Analysis**: These patterns have been identified in real-world case studies as ineffective.
+
+### 1. Being Too Vague or Generic
+
+**❌ Doesn't Work:**
 ```markdown
-## Additional Resources
-- Design system patterns: `/docs/design-system.md`
-- API contracts: `/docs/api-specification.yaml`
-- Architecture decisions: `/docs/architecture/README.md`
-- Component library: https://storybook.our-domain.com
+Write clean, maintainable code
+Follow best practices
+Use good coding standards
 ```
 
-**Benefit**: Instructions stay concise while developers can access deeper information when needed.
+**✅ Works Better:**
+```markdown
+- Functions should be < 50 lines
+- Extract complex logic into named helper functions
+- Use TypeScript strict mode with explicit types
+- Follow the existing patterns in `src/components/ui/`
+```
 
-### 4. Use Path-Specific Instructions
+**Research Insight**: Vague directives yield inconsistent results. Copilot needs specific, actionable guidance.
 
-**Advanced Feature**: Create granular instructions for specific directories.
+### 2. Overloading the Instructions File
 
-**Example Structure:**
+**Research Finding**: Large, unfocused instruction files dilute Copilot's ability to synthesize productive suggestions.
+
+**Best Practice:**
+- Focus on the 20% of patterns that matter 80% of the time
+- Remove outdated or rarely-used instructions
+- Link to external documentation for deep details
+- Keep the file under 2KB when possible
+
+### 3. Not Updating Instructions
+
+**Research Finding**: Instructions that reference obsolete dependencies or don't match current code cause Copilot to suggest broken solutions.
+
+**Best Practice:**
+- Review and update instructions with each major project change
+- Remove deprecated patterns explicitly
+- Test instructions by asking Copilot to generate code
+- Version control allows tracking changes over time
+
+### 4. Assuming Strict Enforcement
+
+**Critical Mistake**: Expecting instructions to work like configuration files or linters.
+
+**Reality:**
+- Instructions are **guidance**, not rules
+- Always review generated code
+- Run linters and tests on Copilot-generated code
+- Treat Copilot suggestions as drafts, not final code
+- Use code review processes for all code
+
+---
+
+# Part 2: Path-Specific Instructions (`.github/instructions/*.instructions.md`)
+
+## Why Path-Specific Instructions Matter
+
+Path-specific instructions allow you to provide **granular, context-aware guidance** for different parts of your codebase. This is especially valuable for:
+
+- **Monorepos** with different standards for different projects
+- **Frontend vs Backend** with different technology stacks
+- **Security-sensitive areas** requiring stricter patterns
+- **Legacy code** that needs modernization guidance
+- **Test files** with specific conventions
+- **Different teams** working on different areas
+
+## How Path-Specific Instructions Work
+
+Path-specific instructions use the `applyTo` field to define which files they affect:
+
+**File Structure:**
 ```
 .github/
-├── copilot-instructions.md          # Repository-wide instructions
+├── copilot-instructions.md              # Repository-wide instructions
 └── instructions/
-    ├── tests.instructions.md        # Specific to test files
-    ├── api.instructions.md          # Specific to API routes
-    └── components.instructions.md   # Specific to components
+    ├── frontend.instructions.md         # Frontend-specific
+    ├── backend-api.instructions.md      # Backend-specific
+    ├── security.instructions.md         # Security areas
+    └── tests.instructions.md            # Test files
 ```
 
-**tests.instructions.md example:**
+**Example File** (`.github/instructions/frontend.instructions.md`):
 ```markdown
-## Testing-Specific Instructions
+applyTo:
+  - src/frontend/**
+  - webapp/components/**
+  - ui/**
 
-All test files in this directory should:
-- Use data-testid attributes for queries
-- Mock external API calls
-- Test accessibility with axe-core
-- Include both happy path and error cases
-- Use descriptive test names that explain behavior
-```
-
-### 5. Version and Track Changes
-
-Track evolution of your instructions over time.
-
-```markdown
----
-version: 2.1.0
-last-updated: 2025-11-03
-author: Development Team
 ---
 
-## Changelog
-- v2.1.0: Added security requirements for API routes
-- v2.0.0: Migrated from Pages Router to App Router
-- v1.5.0: Added path-specific instructions
-- v1.0.0: Initial repository instructions
+# Frontend-Specific Instructions
+
+## React Patterns
+- Use React Server Components by default
+- Add 'use client' only when necessary (interactivity, hooks, browser APIs)
+- Prefer composition over prop drilling
+- Use Context sparingly - props first
+
+## Styling
+- Use Tailwind utility classes
+- Mobile-first responsive design
+- Include dark mode variants with `dark:` prefix
+- Accessibility: semantic HTML, ARIA labels, keyboard navigation
+
+## Performance
+- Lazy load components below the fold
+- Use Next.js Image component for all images
+- Implement virtualization for long lists
+- Optimize re-renders with React.memo and useCallback
 ```
 
-**Why**: Helps teams understand when and why patterns changed, aids in onboarding.
+## Best Practices for Path-Specific Instructions
 
-## Implementation Strategies
+### 1. Use Precise Path Globs
 
-### For New Projects
+**Research Finding**: Incorrect path globs are the #1 reason path-specific instructions don't work.
+
+**Best Practices:**
+```markdown
+✅ Good - Specific and testable:
+applyTo:
+  - src/frontend/**
+  - components/ui/**/*.tsx
+
+❌ Bad - Too broad or wrong:
+applyTo:
+  - frontend  # Missing /**
+  - /src/**   # Leading slash may not match
+  - *.tsx     # Missing path, matches all levels
+```
+
+**Test Your Globs:**
+- Verify patterns match actual file paths
+- Test with `find` command: `find . -path "./src/frontend/**"`
+- Remember globs are relative to repository root
+
+### 2. Keep Instructions Focused and Relevant
+
+**Evidence-Based Recommendation**: Path-specific instructions should only contain guidance relevant to that specific area.
+
+**Real-World Example** (`.github/instructions/tests.instructions.md`):
+```markdown
+applyTo:
+  - **/*.test.ts
+  - **/*.test.tsx
+  - **/*.spec.ts
+  - tests/**
+
+---
+
+# Testing Standards
+
+## Test Structure
+- Use Arrange-Act-Assert pattern
+- One test per behavior
+- Descriptive test names: `it('should X when Y')`
+- Group related tests in `describe` blocks
+
+## Best Practices
+- Test behavior, not implementation
+- Mock external dependencies only
+- Use `data-testid` for component queries
+- Include accessibility tests for interactive components
+- Aim for 80% coverage on utilities, 60% on components
+
+## Example
+\`\`\`typescript
+describe('PhotoCard', () => {
+  it('should display hover actions when mouse enters', () => {
+    // Arrange
+    const onSelect = jest.fn();
+    render(<PhotoCard title="Test" onSelect={onSelect} />);
+    
+    // Act
+    fireEvent.mouseEnter(screen.getByRole('img'));
+    
+    // Assert
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
+});
+\`\`\`
+```
+
+### 3. Handle Conflicts with Repository-Wide Instructions
+
+**Research Finding**: Path-specific and repository-wide instructions merge through context, not hierarchy.
+
+**Best Practice:**
+- Ensure path-specific instructions complement, not contradict, repository-wide instructions
+- Use path-specific to add detail, not override basics
+- Document intentional differences explicitly
+
+**Example:**
+```markdown
+# backend-api.instructions.md
+applyTo:
+  - src/api/**
+  - server/**
+
+---
+
+# Backend API Specific Instructions
+
+Note: These instructions extend the repository-wide instructions with
+backend-specific patterns. For general TypeScript and project standards,
+see `.github/copilot-instructions.md`.
+
+## API-Specific Patterns
+- Use Express.js middleware pattern
+- Implement request validation with Zod
+- Return consistent error format: { error: string, code: number }
+- Log all requests with structured logging
+```
+
+### 4. Use for Gradual Migration
+
+**Real-World Use Case**: Use path-specific instructions to guide modernization of legacy code.
+
+**Example** (`.github/instructions/legacy.instructions.md`):
+```markdown
+applyTo:
+  - legacy/**
+  - deprecated/**
+
+---
+
+# Legacy Code Modernization
+
+When working with files in these directories:
+
+## Current State
+- These use class components and older patterns
+- Do NOT replicate these patterns in new code
+
+## When Modifying
+- Suggest migration to functional components
+- Flag usage of deprecated APIs
+- Recommend modern alternatives
+- Link to migration guide: /docs/modernization-guide.md
+
+## Do Not
+- Make breaking changes without team approval
+- Remove code without understanding its purpose
+- Introduce new dependencies to legacy code
+```
+
+## Common Mistakes with Path-Specific Instructions
+
+### 1. Missing `applyTo` Section
+
+**Critical Error**: Without `applyTo`, the instructions won't apply to any files.
+
+**Fix:**
+```markdown
+❌ Wrong - No applyTo:
+---
+# Frontend Instructions
+Use React hooks...
+
+✅ Correct - Include applyTo:
+applyTo:
+  - src/frontend/**
+
+---
+# Frontend Instructions
+Use React hooks...
+```
+
+### 2. Incorrect File Extension
+
+**Research Finding**: Only files ending in `.instructions.md` are recognized.
+
+**Fix:**
+```
+❌ Wrong:
+.github/instructions/frontend.md
+.github/instructions/frontend-instructions.md
+
+✅ Correct:
+.github/instructions/frontend.instructions.md
+.github/instructions/backend-api.instructions.md
+```
+
+### 3. Glob Patterns Don't Match Files
+
+**Most Common Issue**: Path globs that don't match actual file structure.
+
+**Debug Steps:**
+1. Test glob with `find`: `find . -path "./src/frontend/**"`
+2. Check for leading slashes (often not needed)
+3. Verify `**` for recursive matching
+4. Ensure case sensitivity matches
+
+### 4. Conflicting Instructions
+
+**Problem**: Path-specific instructions that contradict repository-wide or each other.
+
+**Example of Conflict:**
+```markdown
+# Repository-wide says:
+Use TypeScript strict mode
+
+# Path-specific says:
+Use any type for quick prototyping
+
+# Result: Confusing and unpredictable
+```
+
+**Fix**: Ensure instructions complement each other:
+```markdown
+# Path-specific should say:
+Follow repository-wide TypeScript standards.
+For prototyping in this area, use unknown instead of any.
+```
+
+### 5. Too Many Overlapping Instructions
+
+**Research Finding**: Having many path-specific files with overlapping patterns dilutes effectiveness.
+
+**Best Practice:**
+- Limit to 3-5 path-specific instruction files
+- Ensure each has a clear, distinct purpose
+- Minimize overlap in `applyTo` patterns
+- Test which instructions apply to key files
+
+---
+
+# Implementation Strategies
+
+## For New Projects
 
 **Evidence-Based Approach**: Starting with instructions from day one shows the highest return on investment.
 
-1. **Create Instructions During Setup**
-   - Write repository instructions as part of project initialization
-   - Include them in your project template or starter kit
-   - Document architectural decisions as they're made
+### Phase 1: Repository-Wide Foundation (Week 1)
+1. Create `.github/copilot-instructions.md`
+2. Include:
+   - Project overview and purpose
+   - Technology stack with versions
+   - Basic code style standards
+   - Project structure
 
-2. **Start Comprehensive, Then Refine**
-   - Cover all major patterns and technology choices
-   - Add examples for critical patterns
-   - Iterate based on what Copilot generates
+### Phase 2: Core Patterns (Week 2-3)
+3. Add to repository-wide instructions:
+   - Architecture patterns
+   - Security requirements
+   - Error handling standards
+   - Testing expectations
 
-3. **Test Your Instructions**
-   - Ask Copilot to generate code using your instructions
-   - Verify the output matches your expectations
-   - Refine instructions based on results
+### Phase 3: Path-Specific Refinement (Week 4+)
+4. Create path-specific instructions for:
+   - Test files (`tests.instructions.md`)
+   - Frontend vs backend (if applicable)
+   - Security-sensitive areas
+5. Test and refine based on usage
 
-### For Existing Projects
+## For Existing Projects
 
 **Research Finding**: Gradual adoption with team input leads to better adoption and effectiveness.
 
-1. **Audit Current Patterns**
-   - Review existing code to identify common patterns
-   - Document what's working well
-   - Identify inconsistencies to address
+### Step 1: Audit Current Patterns
+- Review existing code to identify common patterns
+- Document what's working well
+- Identify inconsistencies to address
 
-2. **Start Small and Focused**
-   - Begin with the most frequently used patterns (20% that matter 80% of the time)
-   - Add tech stack and architecture first
-   - Gradually expand based on team feedback
+### Step 2: Start with Repository-Wide Basics
+- Create `.github/copilot-instructions.md`
+- Focus on:
+  - Tech stack (prevent suggesting wrong frameworks)
+  - Deprecated patterns (prevent replicating old code)
+  - Project structure overview
+- Test with team: ask Copilot to generate code
 
-3. **Involve the Entire Team**
-   - Collaborative creation ensures buy-in
-   - Multiple perspectives catch edge cases
-   - Shared ownership improves maintenance
+### Step 3: Add Path-Specific as Needed
+- Identify areas with unique requirements
+- Create targeted instruction files
+- Start with 1-2 files, expand based on need
 
-4. **Migrate in Phases**
-   ```
-   Phase 1: Project overview and tech stack (Week 1)
-   Phase 2: Code style and architecture (Week 2-3)
-   Phase 3: Security and testing standards (Week 4)
-   Phase 4: Path-specific instructions (Week 5+)
-   ```
+### Step 4: Iterate Based on Feedback
+- Collect team feedback on what's working
+- Refine instructions based on Copilot's output
+- Remove ineffective instructions
+- Update as project evolves
 
-### Measuring Effectiveness
+## Measuring Effectiveness
 
 **Research-Backed Metrics**: Track these indicators to quantify impact.
 
-**Qualitative Metrics:**
+### Qualitative Metrics:
 - **Code Review Time**: Faster reviews due to consistent patterns?
 - **Code Consistency**: New code following established patterns?
 - **Onboarding Speed**: New developers productive faster?
 - **Team Satisfaction**: Developers finding Copilot more helpful?
 
-**Quantitative Metrics:**
+### Quantitative Metrics:
 - **Review Cycle Time**: Days from PR creation to merge
-- **Bug Rate**: Issues per 1000 lines of code
 - **Pattern Adherence**: % of code reviews with style comments
 - **Copilot Acceptance Rate**: % of suggestions accepted
+- **Bug Rate**: Issues per 1000 lines of code
 
-**Example Tracking:**
+### Example Tracking:
 ```markdown
-## Repository Instructions Effectiveness (Updated Monthly)
+## Repository Instructions Effectiveness Log
 
 ### November 2025
-- Average PR review time: 4 hours (was 8 hours)
+- Average PR review time: 4 hours (was 8 hours in October)
 - Style-related review comments: 12% (was 35%)
-- New developer time-to-first-PR: 2 days (was 5 days)
 - Copilot suggestion acceptance: 42% (was 28%)
+- Team feedback: "Much more relevant suggestions"
 
-### Actions
-- Instructions working well for component patterns
+### Actions Taken
+- Added deprecated patterns section → reduced legacy pattern replication
+- Created tests.instructions.md → better test generation
 - Need to add more examples for API route patterns
-- Security guidelines need clarification
 ```
 
-## Maintaining Repository Instructions
+## Maintaining Instructions
 
 **Critical Success Factor**: Instructions are living documents requiring active maintenance.
 
@@ -674,7 +740,7 @@ author: Development Team
 
 **Best Practice Schedule:**
 - **Monthly**: Quick review of effectiveness metrics
-- **Quarterly**: Deep review with team feedback
+- **Quarterly**: Deep review with team feedback session
 - **After Major Changes**: Update immediately when architecture changes
 - **During Onboarding**: Get feedback from new team members
 
@@ -687,67 +753,67 @@ Update instructions when:
 - ✅ Team consistently asks the same questions
 - ✅ Code review patterns emerge
 - ✅ Copilot generates unexpected code
-- ✅ New team members join and need context
+- ✅ Project structure changes significantly
 
-### Feedback Collection
+### Feedback Process
 
+**Template for Collecting Feedback:**
 ```markdown
-## Repository Instructions Feedback Template
+## Instructions Feedback Form
 
 **Date**: 2025-11-03
-**Contributor**: Developer Name
-**Feedback Type**: [ ] Addition  [ ] Clarification  [ ] Correction
+**Contributor**: [Name]
+**Area**: [ ] Repository-wide  [ ] Path-specific: ___________
 
-**Issue**: What isn't working or is unclear?
+**What's Not Working?**
+[Describe the issue or unclear guidance]
 
-**Suggestion**: What should be changed or added?
+**Suggested Improvement:**
+[What should be changed or added?]
 
-**Impact**: How often does this affect development?
-[ ] Daily  [ ] Weekly  [ ] Monthly  [ ] Rarely
+**Impact Level:**
+[ ] Daily - affects me constantly
+[ ] Weekly - I encounter this regularly  
+[ ] Monthly - occasional issue
+[ ] Rare - but important
 
-**Examples**: Links to PRs or code showing the issue
+**Example:**
+[Link to PR or code where this came up]
 ```
 
-### Version Control Best Practices
+### Version Tracking
 
-- Commit instructions changes with descriptive messages
-- Tag major instruction changes
-- Link instruction updates to related code changes
-- Review instruction history during retrospectives
+**Best Practice:**
+```markdown
+---
+# .github/copilot-instructions.md
+version: 2.1.0
+last-updated: 2025-11-03
+maintainer: Development Team
+---
 
-## Summary: User vs Repository Instructions
+## Changelog
+- v2.1.0 (2025-11-03): Added path-specific instructions for tests
+- v2.0.0 (2025-10-15): Migrated from Pages Router to App Router
+- v1.5.0 (2025-09-20): Added security requirements section
+- v1.0.0 (2025-08-01): Initial repository instructions
+```
 
-| Aspect | User Instructions | Repository Instructions |
-|--------|------------------|------------------------|
-| **Scope** | All projects you work on | Specific project only |
-| **Location** | IDE/GitHub settings | `.github/copilot-instructions.md` |
-| **Purpose** | Personal preferences | Team standards |
-| **Audience** | Just you | All contributors |
-| **Examples** | Code style, documentation preferences | Tech stack, architecture, security |
-| **Update Frequency** | Rarely | As project evolves |
-| **Version Control** | Not version controlled | Git tracked |
-| **Best For** | Individual workflow | Team collaboration |
+---
 
-## Key Takeaways
+# Summary & Key Takeaways
 
-### For User Instructions:
-1. ✅ Keep them personal and universal across projects
-2. ✅ Focus on coding style preferences
-3. ✅ Keep them brief and non-conflicting
-4. ❌ Don't include project-specific details
-5. ❌ Don't include team decisions
+## Repository-Wide vs Path-Specific Instructions
 
-### For Repository Instructions:
-1. ✅ Be specific about tech stack and architecture
-2. ✅ Include concrete code examples
-3. ✅ Document deprecated patterns explicitly
-4. ✅ Keep file concise (< 2KB ideally)
-5. ✅ Update regularly as project evolves
-6. ✅ Involve entire team in creation
-7. ❌ Don't be vague or generic
-8. ❌ Don't overload with too much information
-9. ❌ Don't let them become outdated
-10. ❌ Don't trust Copilot output without review
+| Aspect | Repository-Wide<br>(`.github/copilot-instructions.md`) | Path-Specific<br>(`.github/instructions/*.instructions.md`) |
+|--------|---------------------------------------------------|--------------------------------------------------|
+| **Scope** | All files in repository | Only files matching `applyTo` globs |
+| **Purpose** | Universal standards & tech stack | Context-specific guidance |
+| **Number of Files** | One file | Multiple files (3-5 recommended) |
+| **Size Recommendation** | < 2KB | < 1KB each |
+| **Update Frequency** | Quarterly or on major changes | As specific areas evolve |
+| **Best For** | Project foundations | Specialized requirements |
+| **Complexity** | Simple - no `applyTo` needed | More complex - requires glob patterns |
 
 ## Evidence-Based Impact
 
@@ -766,29 +832,91 @@ Update instructions when:
 4. Realistic expectations about AI limitations
 5. Always review generated code
 
+## Top 10 Dos and Don'ts
+
+### ✅ DO:
+1. **Be specific** - "Use Next.js App Router" not "use modern patterns"
+2. **Provide examples** - Show actual code patterns you want
+3. **Document deprecated patterns** - Explicitly say what NOT to do
+4. **Keep it concise** - Under 2KB for repo-wide, under 1KB for path-specific
+5. **Use `applyTo` correctly** - Test your glob patterns
+6. **Update regularly** - Review quarterly and after major changes
+7. **Test instructions** - Ask Copilot to generate code, verify results
+8. **Version track** - Use changelog to document evolution
+9. **Collect feedback** - Get input from team members
+10. **Complement, don't conflict** - Ensure instructions work together
+
+### ❌ DON'T:
+1. **Be vague** - "Write good code" provides no guidance
+2. **Overload files** - Don't create encyclopedia-length instructions
+3. **Forget `applyTo`** - Path-specific instructions need glob patterns
+4. **Let them stagnate** - Outdated instructions cause bad suggestions
+5. **Expect strict enforcement** - Instructions guide, not control
+6. **Create too many files** - Limit to 3-5 path-specific files
+7. **Use wrong extensions** - Must end in `.instructions.md`
+8. **Skip testing** - Always verify instructions work as expected
+9. **Create conflicts** - Ensure instructions complement each other
+10. **Trust blindly** - Always review Copilot's generated code
+
+## Quick Start Checklist
+
+### Creating Your First Repository Instructions
+
+- [ ] Create `.github/copilot-instructions.md`
+- [ ] Add project overview (what, who, why)
+- [ ] Define technology stack with versions
+- [ ] Document project structure
+- [ ] List coding style standards
+- [ ] Add security requirements
+- [ ] Document deprecated patterns
+- [ ] Provide code examples
+- [ ] Keep under 2KB total
+- [ ] Test by asking Copilot to generate code
+- [ ] Get team feedback
+- [ ] Iterate and refine
+
+### Adding Path-Specific Instructions (Optional)
+
+- [ ] Identify areas needing specific guidance
+- [ ] Create `.github/instructions/` directory
+- [ ] Create first file: `{area}.instructions.md`
+- [ ] Add `applyTo:` with glob patterns
+- [ ] Test glob patterns match intended files
+- [ ] Keep instructions focused and relevant
+- [ ] Ensure no conflicts with repo-wide instructions
+- [ ] Test with actual files in that path
+- [ ] Limit to 3-5 files total
+- [ ] Document why each file exists
+
 ## Conclusion
 
-GitHub Copilot custom instructions are a powerful tool, but only when used correctly. Understanding the distinction between user-level and repository-level instructions is fundamental to success.
+Repository custom instructions are a powerful tool for guiding Copilot, but they work best when:
 
-**User instructions** personalize Copilot to your individual style and follow you everywhere. **Repository instructions** align Copilot with your team's standards and project requirements.
+1. **Focused on the repository** - Not user preferences
+2. **Clearly structured** - Repository-wide for foundations, path-specific for nuance
+3. **Specific and actionable** - Not vague or generic
+4. **Regularly maintained** - Updated as the project evolves
+5. **Realistic about limitations** - Guidance, not enforcement
 
-Together, they create a development environment where AI assistance is both personalized and consistent with team expectations. The goal is not to constrain creativity but to establish a solid foundation that allows developers to focus on solving business problems rather than debating code style and architectural patterns.
+**Remember**: Instructions guide Copilot's behavior—they don't control it absolutely. Always review generated code, run tests, and use your judgment. Copilot is a powerful assistant that works best with clear guidance, but it's not a replacement for human expertise and code review.
 
-**Remember**: Repository instructions guide Copilot's behavior—they don't control it absolutely. Always review generated code, run tests, and use your judgment. Copilot is a powerful assistant, not a replacement for human expertise and code review.
+The combination of well-crafted repository-wide instructions and targeted path-specific instructions creates an environment where Copilot can provide relevant, context-aware suggestions that truly accelerate development while maintaining code quality and consistency.
+
+---
 
 ## Additional Resources
 
 ### Official Documentation
-- [GitHub Copilot Documentation](https://docs.github.com/copilot)
 - [Adding Repository Custom Instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
-- [Your First Custom Instructions](https://docs.github.com/en/copilot/tutorials/customization-library/custom-instructions/your-first-custom-instructions)
+- [Path-Scoped Custom Instruction Files](https://github.blog/changelog/2025-09-03-copilot-code-review-path-scoped-custom-instruction-file-support/)
+- [GitHub Copilot Tutorials](https://docs.github.com/copilot/tutorials)
 
-### Community Resources
+### Best Practices & Research
 - [5 Tips for Writing Better Custom Instructions (GitHub Blog)](https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/)
-- [Curated Copilot Instructions Examples](https://github.com/fielding/copilot-instructions/)
-- [Everything About Copilot Instructions (DEV Community)](https://dev.to/anchildress1/everything-i-know-about-github-copilot-instructions-from-zero-to-onboarded-for-real-4nb0)
-
-### Research & Case Studies
 - [The Complete Guide to GitHub Copilot Instructions](https://www.copilotcraft.dev/blog/getting-started-github-copilot-instructions)
-- [GitHub Copilot Best Practices and Tips](https://www.coderabbit.ai/blog/github-copilot-best-practices-10-tips-and-tricks-that-actually-help)
+- [Everything About Copilot Instructions (DEV Community)](https://dev.to/anchildress1/everything-i-know-about-github-copilot-instructions-from-zero-to-onboarded-for-real-4nb0)
+- [All I've Learned About Copilot Instructions (DEV Community)](https://dev.to/anchildress1/all-ive-learned-about-github-copilot-instructions-so-far-5bm7)
+
+### Common Problems & Solutions
 - [Common Problems with GitHub Copilot](https://hackernoon.com/common-problems-with-github-copilot-and-how-to-solve-them)
+- [GitHub Copilot Best Practices](https://www.coderabbit.ai/blog/github-copilot-best-practices-10-tips-and-tricks-that-actually-help)
