@@ -35,6 +35,10 @@ All lab exercises are located in the [`Labs/`](Labs/) directory:
 
 ## 🚀 Quick Start
 
+The first thing to do is to make sure that you create your own copy of this repository so that you can keep all of the work you do in this training.
+
+This repository is set up as a template, so simply click the green `Use this template` button in the top right corner of the repository homepage to create your own.
+
 ### Option 1: GitHub Codespaces (Recommended)
 
 The fastest way to get started:
@@ -60,8 +64,8 @@ The codespace will automatically:
 **Setup:**
 ```bash
 # Clone the repository
-git clone https://github.com/Coveros-GitHub-Training/sel-copilot-advanced-workshop.git
-cd sel-copilot-advanced-workshop/pixelperfect-gallery
+git clone https://github.com/<YOURORGANIZATION>/<YOURREPOSITORYNAME>.git
+cd <YOURREPOSITORYNAME>/pixelperfect-gallery
 
 # Install dependencies
 npm install

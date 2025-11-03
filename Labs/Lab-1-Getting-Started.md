@@ -40,6 +40,10 @@ Let's get started and create something beautiful! 📷
 
 ## Setting up Your Development Environment
 
+The first thing to do is to make sure that you create your own copy of this repository so that you can keep all of the work you do in this training.
+
+This repository is set up as a template, so simply click the green `Use this template` button in the top right corner of the repository homepage to create your own.
+
 ### Option A: GitHub Codespaces (Recommended)
 
 The fastest way to get started is using GitHub Codespaces:
@@ -75,8 +79,8 @@ If you prefer to work locally:
 
 2. **Clone the repository:**
    ```bash
-   git clone https://github.com/Coveros-GitHub-Training/sel-copilot-advanced-workshop.git
-   cd sel-copilot-advanced-workshop/pixelperfect-gallery
+   git clone https://github.com/<YOURORGANIZATION>/<YOURREPOSITORYNAME>.git
+   cd <YOURREPOSITORYNAME>/pixelperfect-gallery
    ```
 
 3. **Install dependencies:**
