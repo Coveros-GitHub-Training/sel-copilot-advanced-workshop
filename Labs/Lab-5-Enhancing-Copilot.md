@@ -1,15 +1,17 @@
-# Exercise 5 - Prompt Files, Custom Chat Modes, and Model Context Protocol (MCP)
+# Exercise 5 - Prompt Files, Custom Chat Modes, Custom Agents, and Model Context Protocol (MCP)
 
-#### Duration: 45 minutes
+#### Duration: 60 minutes
 
 ## 🎯 Learning Objectives
 
 By the end of this exercise, you will:
 - Create and use prompt files for consistent, reusable AI interactions
-- Understand and create custom chat modes for specialized workflows  
+- Understand and create custom chat modes for specialized workflows
+- Create custom agents for autonomous task execution
+- Understand the differences between custom agents and custom chat modes
 - Set up and use the GitHub MCP (Model Context Protocol) server in your IDE
-- Leverage MCP to interact with GitHub repositories, issues, and pull requests
-- Build efficient workflows combining prompt files, custom modes, and MCP
+- Leverage MCP to interact with GitHub repositories, issues, and pull requests through natural conversation
+- Build efficient workflows combining prompt files, custom modes, custom agents, and MCP
 
 ## 📸 Scenario: Advanced Workflows at PixelPerfect Gallery
 
@@ -23,10 +25,11 @@ Your team at PixelPerfect Gallery is becoming more sophisticated with GitHub Cop
 Today, you'll learn advanced customization techniques to:
 - Create reusable prompts that capture team knowledge
 - Build custom AI modes tailored to specific workflows
+- Create custom agents for autonomous task execution
 - Integrate GitHub data directly into your IDE using MCP
 - Streamline repetitive development tasks
 
-## 📝 Part 1: Prompt Files for Consistent Generation
+## 📝 Step 1: Prompt Files for Consistent Generation
 
 Prompt files allow you to create reusable, standardized prompts that maintain consistency across your team and save time on repetitive tasks.
 
@@ -108,7 +111,7 @@ Prompt files allow you to create reusable, standardized prompts that maintain co
 
 ### Step 1.3: Create Your Own Prompt File
 
-Let's create a custom prompt file for a common task in the PixelPerfect Gallery project.
+Let's create a custom prompt file for a common task in the PixelPerfect Gallery project. You'll create a prompt file that generates a new photo-related React component with TypeScript, following the project's conventions for styling and structure.
 
 #### Enable Prompt Files (if needed)
 
@@ -167,7 +170,7 @@ Create a new file at `.github/prompts/generate-photo-component.prompt.md`
 3. Fill in any requested input variables
 4. Review the generated code
 
-## 🎭 Part 2: Custom Chat Modes
+## 🎭 Step 2: Custom Chat Modes
 
 Chat modes define how GitHub Copilot behaves for specialized workflows. Let's create a custom mode for planning new features.
 
@@ -192,7 +195,6 @@ Chat modes define how GitHub Copilot behaves for specialized workflows. Let's cr
 description: 'What this mode does (shown in UI)'
 model: 'preferred-model' (optional)
 tools: ['tool1', 'tool2'] (optional - enables specific capabilities)
-temperature: 0.7 (optional - controls creativity)
 ---
 
 # Mode Behavior Instructions
@@ -205,15 +207,23 @@ Your instructions here define:
 - Any special behaviors
 ```
 
-**Available Tools:**
+**Available Tools (examples shown - many more are available):**
 - `codebase` - Search and analyze code
-- `editFiles` - Make file changes
+- `fetch` - Fetch content from URLs
 - `search` - Search documentation/web
-- `terminal` - Execute commands
+- `githubRepo` - Access GitHub repository information
+- `findTestFiles` - Locate test files in the codebase
+- `usages` - Find where code is used
+
+> **Note**: There are many more tools available beyond what's listed here. Copilot will automatically select appropriate tools based on your mode's needs.
 
 ### Step 2.2: Create Your Own Custom Chat Mode
 
-Custom chat modes allow you to create specialized AI assistants for specific workflows. Let's create a simple planning mode for the PixelPerfect Gallery project.
+Custom chat modes allow you to create specialized AI assistants for specific workflows. Let's create a powerful "BeastMode" style chat mode that combines multiple capabilities for maximum productivity.
+
+#### What is BeastMode?
+
+BeastMode is a concept popularized by Burke Holland that creates a supercharged AI assistant by enabling multiple tools and capabilities simultaneously. This mode is designed for developers who want maximum power and flexibility when working with code.
 
 #### Instructions:
 
@@ -227,87 +237,242 @@ Custom chat modes allow you to create specialized AI assistants for specific wor
 
 5. **Choose location**: `.github/chatmodes/`
 
-6. **Name the file**: `Plan.chatmode.md`
+6. **Name the file**: `BeastMode.chatmode.md`
 
-#### Create a Planning Mode:
-
-Review the existing Plan.chatmode.md file in the repository, or create one with this structure:
+#### Create a BeastMode Chat Mode:
 
 <details>
-  <summary>Example: Planning Chat Mode</summary>
+  <summary>Example: BeastMode Chat Mode</summary>
 
   ```markdown
   ---
-  description: Generate an implementation plan for new features
-  tools: ['fetch', 'search']
+  description: Maximum power mode with all tools enabled for complex development tasks
+  tools: ['codebase', 'fetch', 'search', 'githubRepo', 'findTestFiles', 'usages']
   ---
   
-  # Planning Mode Instructions
+  # BeastMode Instructions
   
-  You are in planning mode for the PixelPerfect Gallery application. Your task is to generate detailed implementation plans for new features or refactoring tasks.
+  You are in BeastMode - a supercharged development assistant with maximum capabilities enabled. You have access to all available tools to help solve complex development challenges efficiently.
   
-  **Do not make any code edits** - just generate a comprehensive plan.
+  ## Your Capabilities
   
-  ## Plan Structure
+  With all tools at your disposal, you can:
+  - Search and analyze the entire codebase
+  - Fetch content from external URLs and documentation
+  - Search the web for solutions and best practices
+  - Access GitHub repository information
+  - Locate and analyze test files
+  - Find usages of code across the project
   
-  Every plan should include:
+  ## Your Approach
   
-  ### 1. Overview
-  - Brief description of the feature or refactoring task
-  - Business value and user benefit
-  - Success criteria
+  When assisting with development tasks:
   
-  ### 2. Requirements
-  - Functional requirements
-  - Non-functional requirements (performance, accessibility, etc.)
-  - Dependencies and constraints
+  1. **Understand Context First**: Use codebase analysis to understand the existing patterns and architecture
+  2. **Research Best Practices**: Leverage search and fetch to find current best practices
+  3. **Find Related Code**: Use usages and codebase tools to identify related implementations
+  4. **Consider Tests**: Check test files to understand testing patterns
+  5. **Provide Complete Solutions**: Offer comprehensive answers with code examples, explanations, and alternatives
   
-  ### 3. Technical Approach
-  - Architecture decisions
-  - Technologies and libraries to use
-  - Component structure
-  - Data flow
+  ## Response Style
   
-  ### 4. Implementation Steps
-  - Detailed, numbered steps
-  - File changes required
-  - Order of implementation
-  - Potential challenges
+  - Be direct and actionable
+  - Provide working code examples
+  - Explain your reasoning
+  - Suggest optimizations and improvements
+  - Point out potential issues or edge cases
+  - Reference relevant documentation when helpful
   
-  ### 5. Testing Strategy
-  - Unit tests needed
-  - Integration tests
-  - Manual testing scenarios
-  - Accessibility testing
+  ## When to Suggest Tools
   
-  ### 6. Documentation
-  - README updates
-  - Component documentation
-  - API documentation (if applicable)
+  - Recommend specific tools when they would help solve the problem
+  - Explain how to use different Copilot features effectively
+  - Share keyboard shortcuts and productivity tips
   
-  Consider the existing codebase structure, component patterns, and technology stack when creating plans.
+  You're here to maximize developer productivity and solve complex problems efficiently.
   ```
 
 </details>
 
-#### Test Your Custom Chat Mode:
+#### Test Your BeastMode:
 
-1. **Switch to your Plan mode** in Copilot Chat
+1. **Switch to your BeastMode** in Copilot Chat
 
-2. **Ask it to plan a feature:**
+2. **Try a complex task:**
    ```
-   Plan a new feature for allowing users to organize photos into custom albums with drag-and-drop functionality
+   I need to add pagination to the gallery view. Find all related components, show me how other similar projects handle pagination, and suggest the best approach for our Next.js app.
    ```
 
-3. **Review the plan generated** - does it follow your template structure?
+3. **Observe how it uses multiple tools:**
+   - Searches the codebase for related code
+   - Fetches best practices for pagination
+   - Provides comprehensive solution with examples
 
-4. **Iterate on the mode** if needed to improve results
+4. **Iterate on the mode** if needed to adjust the behavior to your preferences
 
-## 🔌 Part 3: Model Context Protocol (MCP) with GitHub
+## 🤖 Step 3: Custom Agents
+
+Custom agents are a powerful new feature in GitHub Copilot that allow you to create specialized, autonomous AI assistants for specific development tasks. Unlike custom chat modes which modify how Copilot responds in chat, custom agents can take action on your behalf.
+
+### Step 3.1: Understanding Custom Agents
+
+#### What are Custom Agents?
+
+Custom agents are AI-powered assistants that can:
+- **Act autonomously**: Take actions without requiring approval for each step
+- **Use specialized tools**: Access specific APIs, databases, or services
+- **Execute complex workflows**: Chain multiple operations together
+- **Maintain context**: Remember information across interactions
+- **Integrate with external systems**: Connect to your organization's tools and services
+
+#### Why Use Custom Agents?
+
+**Custom agents excel at:**
+- **Repetitive workflows**: Automating multi-step processes
+- **Specialized tasks**: Domain-specific operations (database queries, API testing, deployment)
+- **Integration tasks**: Connecting different systems and tools
+- **Code generation with validation**: Generating and testing code automatically
+- **Research and analysis**: Gathering information from multiple sources
+
+**Example Use Cases:**
+- A database agent that can query your database and generate migration scripts
+- A testing agent that generates tests and runs them automatically
+- A documentation agent that updates docs based on code changes
+- A deployment agent that handles release workflows
+- A security agent that scans for vulnerabilities and suggests fixes
+
+### Step 3.2: Creating a Custom Agent
+
+Custom agents are defined in the `.github/agents/` directory of your repository.
+
+#### Agent Configuration Structure:
+
+```yaml
+# .github/agents/my-agent.yml
+name: my-agent
+description: A brief description of what this agent does
+instructions: |
+  Detailed instructions for how the agent should behave.
+  This is where you define the agent's expertise and approach.
+  
+tools:
+  - name: tool-name
+    description: What this tool does
+    configuration:
+      # Tool-specific configuration
+```
+
+#### Example: Create a Code Review Agent
+
+Let's create a custom agent that performs focused code reviews.
+
+1. **Create the agent directory** (if it doesn't exist):
+   ```bash
+   mkdir -p .github/agents
+   ```
+
+2. **Create a new agent file**: `.github/agents/code-reviewer.yml`
+
+<details>
+  <summary>Example: Code Review Agent</summary>
+
+  ```yaml
+  name: code-reviewer
+  description: Performs thorough code reviews with focus on best practices and potential issues
+  instructions: |
+    You are a senior code reviewer for the PixelPerfect Gallery project. Your role is to:
+    
+    1. **Review code quality**:
+       - Check for code smells and anti-patterns
+       - Verify adherence to project conventions
+       - Identify potential bugs or edge cases
+       - Suggest performance improvements
+    
+    2. **Verify best practices**:
+       - TypeScript usage and type safety
+       - React/Next.js best practices
+       - Accessibility compliance
+       - Security considerations
+    
+    3. **Check consistency**:
+       - Naming conventions
+       - Code style and formatting
+       - Component patterns
+       - Import organization
+    
+    4. **Provide actionable feedback**:
+       - Explain why something should be changed
+       - Suggest specific improvements
+       - Prioritize critical issues
+       - Offer alternatives when appropriate
+    
+    Always be constructive and educational in your reviews.
+    
+  tools:
+    - codebase
+    - search
+  ```
+
+</details>
+
+#### Step 3.3: Using Custom Agents
+
+Once created, you can invoke your custom agent in Copilot Chat:
+
+```
+@code-reviewer Please review the changes in src/components/gallery/GalleryGrid.tsx
+```
+
+The agent will:
+1. Analyze the specified file(s)
+2. Use its specialized instructions to perform the review
+3. Provide detailed, actionable feedback
+4. Suggest specific improvements
+
+### Step 3.4: Custom Agents vs Custom Chat Modes
+
+Understanding when to use custom agents versus custom chat modes is important:
+
+| Feature | Custom Chat Modes | Custom Agents |
+|---------|------------------|---------------|
+| **Purpose** | Change how Copilot responds in chat | Create specialized autonomous assistants |
+| **Interaction** | Conversational, requires user guidance | Can act autonomously with specific tools |
+| **Scope** | Affects chat behavior and response style | Executes specific tasks and workflows |
+| **Tools** | Limited to built-in Copilot tools | Can use custom integrations and APIs |
+| **Use Case** | Specialized response formats, context-aware conversations | Automated workflows, system integrations, complex multi-step tasks |
+| **Configuration** | `.github/chatmodes/*.chatmode.md` | `.github/agents/*.yml` |
+
+**Choose Custom Chat Modes when you want to:**
+- Change how Copilot formats responses
+- Add specialized context to conversations
+- Enable specific built-in tools
+- Create different "personalities" for different workflows
+
+**Choose Custom Agents when you want to:**
+- Automate complex multi-step workflows
+- Integrate with external systems and APIs
+- Create task-specific autonomous assistants
+- Execute actions without constant user approval
+
+### 💡 Custom Agent Best Practices:
+
+1. **Be Specific in Instructions**: Clear, detailed instructions lead to better agent behavior
+2. **Define Clear Scope**: Each agent should have a well-defined purpose
+3. **Test Thoroughly**: Test your agents with various inputs before sharing with team
+4. **Document Usage**: Include examples of how to invoke and use your agents
+5. **Iterate Based on Feedback**: Refine agent instructions based on team usage
+6. **Consider Security**: Be cautious about what tools and permissions agents have access to
+
+### 📚 Learn More:
+
+- [About Custom Agents](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents)
+- [How to Create Custom Agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+
+## 🔌 Step 4: Model Context Protocol (MCP) with GitHub
 
 MCP (Model Context Protocol) is a powerful way to extend Copilot's capabilities by connecting it to external data sources and tools. Let's set up the GitHub MCP server to interact with GitHub directly from your IDE.
 
-### Step 3.1: Understanding MCP
+### Step 4.1: Understanding MCP
 
 #### What is MCP?
 
@@ -332,7 +497,7 @@ This means you can ask Copilot questions like:
 - "Find examples of authentication middleware in my organization's repositories"
 - "Show me the latest CI/CD run results"
 
-### Step 3.2: Install and Configure GitHub MCP
+### Step 4.2: Install and Configure GitHub MCP
 
 #### Prerequisites:
 
@@ -417,61 +582,84 @@ $env:GITHUB_MCP_TOKEN="your-token-here"
 2. Type `@github` to see if the GitHub MCP server is available
 3. You should see GitHub as an available context source
 
-### Step 3.3: Using GitHub MCP in Your Workflow
+### Step 4.3: Using GitHub MCP Effectively
 
-Now that GitHub MCP is configured, let's explore practical use cases.
+The most effective way to use GitHub MCP is through natural conversation with Copilot, letting it automatically utilize the GitHub tools when needed.
 
-#### Example 1: Searching for Issues
+#### Best Practice: Natural Conversational Approach
 
-**Ask Copilot:**
+Instead of explicitly calling `@github`, simply ask Copilot questions about your GitHub repositories in natural language. Copilot will automatically use the GitHub MCP tools when appropriate.
+
+**Examples of Effective Prompts:**
+
+**Finding Issues:**
 ```
-@github Find all open issues in this repository labeled "enhancement"
+What open issues are labeled "bug" in this repository?
 ```
-
-**What Copilot Can Do:**
-- Query GitHub's API
-- Filter by label, state, assignee
-- Show issue titles, numbers, and descriptions
-- Provide direct links
-
-#### Example 2: Analyzing Pull Requests
-
-**Ask Copilot:**
+or
 ```
-@github Show me details of PR #42 including review status and CI checks
+Show me all enhancement requests that haven't been assigned yet
 ```
 
-**What You Get:**
-- PR title and description
-- Reviewer comments
-- CI/CD status
-- Merge conflicts (if any)
-- Approval status
-
-#### Example 3: Finding Code Examples
-
-**Ask Copilot:**
+**Working with Pull Requests:**
 ```
-@github Search for examples of React Server Components in repositories owned by vercel
+What's the current status of pull request #42?
+```
+or
+```
+Are there any PRs that need review?
 ```
 
-**Benefits:**
-- Learn from real-world examples
-- Find established patterns
-- Discover best practices
-
-#### Example 4: Monitoring Workflows
-
-**Ask Copilot:**
+**Analyzing Code Across Repositories:**
 ```
-@github Show me the status of the latest workflow runs for this repository
+Find examples of authentication middleware in my organization's repos
+```
+or
+```
+How do other projects in my org handle error logging?
 ```
 
-**What You See:**
-- Workflow names
-- Run status (success, failure, in progress)
-- Links to logs
-- Failure reasons
+**Monitoring CI/CD:**
+```
+Did the latest build pass?
+```
+or
+```
+Why did the main branch workflow fail?
+```
+
+#### How It Works:
+
+1. **Copilot analyzes your question** and determines if GitHub data would help answer it
+2. **Automatically selects appropriate tools** from the MCP server
+3. **Retrieves the information** from GitHub's API
+4. **Presents results** in a clear, actionable format
+
+#### When to Be More Specific:
+
+If Copilot isn't using the GitHub MCP tools when you expect it to, you can be more explicit:
+
+```
+Use GitHub API to find all issues labeled "high-priority" in the pixelperfect-gallery repository
+```
+
+#### Example Workflow: Investigating a Build Failure
+
+**You:** "The main branch build is failing. What happened?"
+
+**Copilot will:**
+1. Check the latest workflow runs using GitHub MCP
+2. Identify which job failed
+3. Retrieve relevant error logs
+4. Explain the cause
+5. Suggest fixes based on the error
+
+**You can then ask:** "Show me the changes in the commits from that run"
+
+**Copilot will:**
+1. Find the commits associated with the workflow run
+2. Show you the relevant code changes
+3. Help identify which change likely caused the failure
 
 ### 💡 MCP Best Practices:
 
@@ -488,8 +676,9 @@ Now that GitHub MCP is configured, let's explore practical use cases.
 - ✅ Use pagination for large result sets
 
 **Usage:**
+- ✅ Use natural language questions - Copilot will automatically use MCP when appropriate
+- ✅ Be specific in your questions to get better results
 - ✅ Combine MCP with custom modes for powerful workflows
-- ✅ Use @github context explicitly in your prompts
 - ✅ Verify MCP responses against GitHub UI when needed
 
 ## 🏆 Exercise Wrap-up
@@ -497,47 +686,28 @@ Now that GitHub MCP is configured, let's explore practical use cases.
 Excellent work! You've learned advanced GitHub Copilot customization techniques:
 - ✅ Created and used prompt files for reusable, consistent interactions
 - ✅ Built custom chat modes for specialized workflows
+- ✅ Created custom agents for autonomous task execution
+- ✅ Understood the differences between custom agents and custom chat modes
 - ✅ Installed and configured GitHub MCP server
-- ✅ Used MCP to interact with GitHub repositories, issues, and PRs
-- ✅ Combined prompt files, custom modes, and MCP for powerful workflows
+- ✅ Used MCP to interact with GitHub repositories, issues, and PRs through natural conversation
+- ✅ Combined prompt files, custom modes, custom agents, and MCP for powerful workflows
 
 ### Reflection Questions:
 1. **What repetitive tasks in your workflow could benefit from prompt files?**
 2. **What specialized modes would help your team work more efficiently?**
-3. **How can GitHub MCP integration improve your development process?**
-4. **What other MCP servers might benefit your team (Jira, Slack, database)?**
-5. **How will you share these customizations with your team?**
+3. **What autonomous workflows could be handled by custom agents?**
+4. **How can GitHub MCP integration improve your development process?**
+5. **What other MCP servers might benefit your team (Jira, Slack, database)?**
+6. **How will you share these customizations with your team?**
 
 ### Key Takeaways:
 - Prompt files capture team knowledge and ensure consistency
 - Custom chat modes create specialized AI personas for different tasks
+- Custom agents enable autonomous task execution and workflow automation
+- Understanding the difference between agents and modes helps you choose the right tool
 - MCP extends Copilot's capabilities by connecting to external services
+- Natural conversation with MCP is more effective than explicit commands
 - Combining these features creates powerful, automated workflows
 - These customizations multiply productivity across your entire team
-
-## 🚀 Next Steps
-
-Now that you've mastered advanced customization:
-
-1. **Build Your Library**
-   - Create prompt files for common tasks
-   - Design custom modes for your team's workflow
-   - Document what works best
-
-2. **Expand MCP Integration**
-   - Explore other MCP servers (Jira, Slack, database)
-   - Build custom MCP servers for internal tools
-   - Automate routine tasks
-
-3. **Share with Your Team**
-   - Commit prompt files and custom modes to repo
-   - Document usage in team wiki
-   - Train team members on effective use
-
-4. **Measure Impact**
-   - Track time savings
-   - Monitor consistency improvements
-   - Gather team feedback
-   - Iterate and improve
 
 **Ready for the next challenge? Move on to Lab 6 to learn about GitHub Copilot Spaces!**
