@@ -492,6 +492,9 @@ Let's create a custom agent that excels at C#
 
 #### Step 3.3: Using Custom Agents
 
+> [!IMPORTANT]
+> At present, it is not possible to run the custom agent within your IDE unless you are using VS Code Insiders. If you are not using Insiders, skip this step. You will be able to use you custom agent in Lab 7 with Copilot Coding Agent
+
 Once created, you can invoke your custom agent in Copilot Chat by selecting it from the mode dropdown:
 
 > Tip: You can also use custom agents in the CLI as well as with Copilot Coding Agent in GitHub.com which we will cover in Lab 7
