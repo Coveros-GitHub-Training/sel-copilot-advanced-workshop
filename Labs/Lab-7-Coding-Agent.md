@@ -107,9 +107,6 @@ This allows you to:
 ❌ Multiple unrelated changes
    Breaks single responsibility principle
    
-❌ Security-critical code
-   Requires expert human review
-   
 ❌ Business logic decisions
    Needs product/stakeholder input
    
@@ -272,61 +269,6 @@ so that the gallery loads faster and is easier to navigate.
 - [ ] Accessible keyboard navigation
 ```
 
-#### **Provide Context Efficiently**
-
-**Use Templates:**
-
-```markdown
-## Bug Report Template
-**Description:**
-Clear description of the bug
-
-**Steps to Reproduce:**
-1. Go to...
-2. Click on...
-3. Observe...
-
-**Expected Behavior:**
-What should happen
-
-**Actual Behavior:**
-What actually happens
-
-**Environment:**
-- Browser:
-- OS:
-- Version:
-
-**Additional Context:**
-Screenshots, error logs, etc.
-```
-
-```markdown
-## Feature Request Template
-**User Story:**
-As a [user type], I want [goal] so that [benefit]
-
-**Requirements:**
-- Functional requirement 1
-- Functional requirement 2
-- Non-functional requirements
-
-**Technical Approach:**
-Suggested implementation approach
-
-**Files to Reference:**
-- Similar feature in X file
-- Component pattern in Y file
-- Styling example in Z file
-
-**Acceptance Criteria:**
-- [ ] Criterion 1
-- [ ] Criterion 2
-
-**Out of Scope:**
-What this issue does NOT include
-```
-
 ### Coding Agent vs. IDE Agent Mode:
 
 | Feature | IDE Agent Mode | Coding Agent |
@@ -378,80 +320,22 @@ Let's create a task for Copilot to work on autonomously.
    - [ ] Consistent with existing design system
    ```
 
-3. **Submit the issue** by clicking "Submit new issue"
+3. **Create the issue** by clicking "Create"
 
 4. **Assign to Copilot:**
-   - In the issue sidebar, under **"Assignees"**, click **"Assign to Copilot"**
+   - In the issue sidebar, under **"Assignees"**, click the dropdown and select **"Copilot"**
    - In the popup:
      - Verify the target repository is correct
      - Ensure the base branch is `main` (or your default branch)
+     - Select a custom agent if needed (feel free to use BeastMode if you'd like)
      - Click **"Assign"**
 
 5. **Observe the reaction:**
    - Copilot will add a 👀 emoji to indicate it's started working
    - A comment will appear showing Copilot is planning its approach
+   - In the meantime continue on to learn about how to get the most out of CCA!
 
-### 💡 Tips for Writing Good Issues for Coding Agent:
-
-**DO:**
-- ✅ Be specific about requirements and acceptance criteria
-- ✅ Include examples or mockups when helpful
-- ✅ Reference existing components or patterns to follow
-- ✅ Specify technologies and frameworks to use
-- ✅ Break large features into smaller, focused issues
-- ✅ Provide error messages or reproduction steps for bugs
-- ✅ Link to related issues or PRs
-- ✅ Specify browser/environment constraints
-- ✅ Include user stories for context
-- ✅ List what's explicitly out of scope
-
-**DON'T:**
-- ❌ Make issues too vague ("make the app better")
-- ❌ Combine multiple unrelated changes in one issue
-- ❌ Create overly complex tasks that require architectural decisions
-- ❌ Forget to specify important constraints or requirements
-- ❌ Use ambiguous language ("improve performance" without metrics)
-- ❌ Skip acceptance criteria
-- ❌ Forget to mention existing patterns to follow
-- ❌ Leave edge cases undefined
-
-### 🎯 Advanced Issue Writing Techniques
-
-#### **Technique 1: The SMART Framework**
-
-Make issues **S**pecific, **M**easurable, **A**chievable, **R**elevant, **T**ime-bound:
-
-**Before (Weak):**
-```markdown
-Title: Fix gallery performance
-Body: The gallery is slow
-```
-
-**After (SMART):**
-```markdown
-Title: Optimize gallery rendering to load in under 2 seconds
-
-Body:
-## Problem
-Gallery page takes 5+ seconds to render 50 photos
-
-## Goal
-Reduce initial render time to < 2 seconds
-
-## Approach
-- Implement lazy loading for images
-- Add virtual scrolling for large lists
-- Optimize image sizes
-
-## Success Metrics
-- Lighthouse performance score > 90
-- Time to Interactive < 2s
-
-## Testing
-Test with 100+ photos to ensure scalability
-```
-
-#### **Technique 2: The Checklist Method**
+### 💡 Tips for Writing Good Issues for Coding Agent: **The Checklist Method**
 
 Break down complexity into clear, actionable items:
 
@@ -474,8 +358,6 @@ Body:
 - [ ] Write integration tests
 - [ ] Update API documentation
 ```
-
-
 
 ## 👀 Step 2: Monitor Copilot's Progress
 
@@ -526,12 +408,15 @@ Session logs provide insight into Copilot's decision-making process. When you cl
 - **Implementation**: Step-by-step code changes
 - **Testing**: Tests run and results
 - **Problem-Solving**: How it addressed issues encountered
+- **Agent Selection**: If CCA was instructed to use a custom agent, or detected that an agent fit the task you will see it in the log
 
 Use session logs to understand Copilot's reasoning and identify when to provide guidance or feedback.
 
 #### **Steering Copilot Mid-Session**
 
-You can guide Copilot while it's working by commenting on the PR or issue. This allows you to correct course before the work is complete.
+You can guide Copilot while it's working by inputing an additional prompt from the active session page. 
+
+> **Note**: [github.com/copilot/agents](github.com/copilot/agents) then find the session currently running and click into it
 
 **When to Steer:**
 - Wrong technical approach detected
@@ -540,11 +425,10 @@ You can guide Copilot while it's working by commenting on the PR or issue. This 
 - Performance or security concerns
 
 **How to Steer:**
-Add a comment to the PR mentioning `@copilot` with specific guidance:
+Add a prompt to the current session to steer Copilot. Unlike when first opening the issue, the input to steer copilot is a standard text box so you don't need to use Markdown format. 
 
-```markdown
-@copilot please use Tailwind CSS instead of creating 
-custom CSS files. Follow patterns in existing components.
+```
+Please use Tailwind CSS instead of creating custom CSS files. Follow patterns in existing components.
 ```
 
 Copilot will read your feedback and adjust its approach accordingly. This real-time steering helps ensure the final PR meets your expectations without multiple review cycles.
@@ -618,8 +502,7 @@ Once Copilot completes the task, it's time to review the implementation.
 
 6. **Approve or Request Changes:**
    - If satisfied, **approve** the PR
-   - If changes needed, **request changes** with specific feedback
-   - Copilot can iterate based on your feedback!
+   - If changes needed, **request changes** with specific feedback. Make sure to tag `@copilot` in the review and Copilot will immediately pick it up and start working on the changes!
 
 
 ### 🤖 Using GitHub Copilot Code Review Agent
@@ -636,7 +519,7 @@ GitHub Copilot offers a **Code Review agent** that can help you review the Codin
    ↓
 3. Code Review agent analyzes:
    - Code quality and patterns
-   - Security concerns
+   - Security concerns (Soon to be moved to Copilot Quality Agent)
    - Performance issues
    - Test coverage
    - Accessibility compliance
@@ -656,8 +539,8 @@ GitHub Copilot offers a **Code Review agent** that can help you review the Codin
 #### **Activating Code Review Agent**
 
 1. Navigate to the PR created by Coding Agent
-2. Look for the Copilot icon in the PR review interface
-3. Click "Review with Copilot" to start the analysis
+2. Click into the Reviewers section
+3. Assign Copilot as a reviewer
 4. Wait for the review to complete
 
 #### **What Code Review Agent Checks**
@@ -714,12 +597,6 @@ handling for null values. Please add try-catch blocks
 around the data fetching logic.
 ```
 
-**For Clarification:**
-```markdown
-@copilot Can you explain why you chose approach X over Y
-for the photo upload feature?
-```
-
 ### 💡 Best Practices for Code Review
 
 **DO:**
@@ -732,11 +609,8 @@ for the photo upload feature?
 **DON'T:**
 - ❌ Blindly accept all Code Review agent suggestions
 - ❌ Skip manual verification of critical changes
-- ❌ Provide vague feedback ("make it better")
-- ❌ Fix issues yourself - let Coding Agent iterate
-- ❌ Merge without running tests (if available)
 
-## 🔄 Step 4: Iterate with Copilot (Optional)
+## 🔄 Step 4: Iterate with Copilot
 
 If you requested changes, Copilot can address your feedback autonomously.
 
@@ -801,40 +675,13 @@ and follow our component patterns in @pixelperfect-gallery/src/components/ui/
 ❌ `@copilot add tests`
 ✅ `@copilot add unit tests for the upload validation logic, similar to tests in @pixelperfect-gallery/src/components/gallery/GalleryGrid.test.tsx`
 
-### Common Use Cases
-
-**1. Code Quality Improvements:**
-```markdown
-@copilot Please extract the repeated logic into a reusable utility function
-```
-
-**2. Adding Missing Features:**
-```markdown
-@copilot Add loading states and error handling to this form component
-```
-
-**3. Refactoring:**
-```markdown
-@copilot Refactor this to use React hooks instead of class components
-```
-
-**4. Documentation:**
-```markdown
-@copilot Add JSDoc comments to all exported functions
-```
-
-**5. Test Coverage:**
-```markdown
-@copilot Add tests for the edge cases mentioned in the code review
-```
-
 ### Documentation
 
 For more details, see: [Make Changes to an Existing PR](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/make-changes-to-an-existing-pr)
 
 ## 🎯 Step 5: Complete Feature Development Workflow
 
-Let's walk through a complete, real-world scenario that combines all the concepts you've learned. This demonstrates the full power of using Coding Agent with Code Review agent and iterative refinement.
+Now that we've learned about how we can use the different Copilot agents to boost our development level let's walk through a complete, real-world scenario that combines all the concepts you've learned. This demonstrates the full power of using Coding Agent with Code Review agent and iterative refinement.
 
 ### Scenario: Implement Photo Filtering Feature
 
@@ -999,21 +846,6 @@ This complete workflow demonstrates:
 ✅ **Iterative Refinement**: Multiple feedback rounds improve quality without manual coding
 ✅ **Efficient Collaboration**: Clear, specific feedback gets results faster
 ✅ **Quality Assurance**: Human oversight ensures the final product meets all standards
-
-### 🎯 Practice Exercise
-
-Try this workflow with a different feature:
-- Photo search functionality
-- Photo upload with validation
-- User favorites/likes feature
-- Export/download photos feature
-
-Each time, practice:
-1. Writing clear, specific issues
-2. Using Code Review agent effectively
-3. Providing comprehensive, actionable feedback
-4. Iterating efficiently
-5. Maintaining quality standards
 
 ## 🎁 Optional: Become a Tech Lead - Delegate Multiple Tasks
 
