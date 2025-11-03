@@ -122,7 +122,7 @@ Define where code lives and how components should be structured.
 **Real-World Example:**
 ```markdown
 ## Project Structure
-\`\`\`
+
 src/
 ├── app/              # Next.js 15 App Router pages
 ├── components/
@@ -130,21 +130,20 @@ src/
 │   ├── layout/       # Layout components (Header, Footer, Container)
 │   └── features/     # Feature-specific components
 └── lib/              # Utility functions and shared logic
-\`\`\`
 
 ## Architecture Patterns
-- **Layout Components**: Place in `components/layout/`, accept `children` prop
-- **Feature Components**: Place in `components/features/{feature-name}/`
-- **UI Components**: Reusable across features, place in `components/ui/`
-- **Services**: Business logic in `lib/services/`
-- **Utilities**: Helper functions in `lib/utils/`
-- **Server Actions**: Co-locate with components that use them
+- Layout Components: Place in components/layout/, accept children prop
+- Feature Components: Place in components/features/{feature-name}/
+- UI Components: Reusable across features, place in components/ui/
+- Services: Business logic in lib/services/
+- Utilities: Helper functions in lib/utils/
+- Server Actions: Co-locate with components that use them
 
 ## Component Guidelines
 - One component per file
 - Use default exports for components
 - Use named exports for utilities
-- Co-locate tests: `Component.test.tsx`
+- Co-locate tests: Component.test.tsx
 - Follow Atomic Design principles for UI components
 ```
 
@@ -210,13 +209,12 @@ Define security standards that should be followed in all generated code.
 - **Error Messages**: Never expose sensitive information in error messages
 
 ## Code Example
-\`\`\`typescript
-// Good: Parameterized query
+
+Good: Parameterized query
 const user = await db.user.findUnique({ where: { id: userId } });
 
-// Bad: String concatenation (vulnerable to SQL injection)
-// const query = "SELECT * FROM users WHERE id = '" + userId + "'";
-\`\`\`
+Bad: String concatenation (vulnerable to SQL injection)
+const query = "SELECT * FROM users WHERE id = '" + userId + "'";
 ```
 
 **Critical Impact**: Security patterns built into generated code from the start prevent vulnerabilities rather than requiring security audits later.
@@ -251,19 +249,20 @@ const user = await db.user.findUnique({ where: { id: userId } });
 ```markdown
 ## Component Pattern Example
 
-\`\`\`tsx
-// Good: Follow this pattern for all feature components
+Follow this pattern for all feature components:
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 
 interface PhotoCardProps {
   photoUrl: string;
   title: string;
-  onSelect: (id: string) => void;
+  onSelect: (photoId: string) => void;
 }
 
 export default function PhotoCard({ photoUrl, title, onSelect }: PhotoCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const photoId = photoUrl.split('/').pop() || photoUrl; // Extract ID from URL
   
   return (
     <div 
@@ -273,12 +272,11 @@ export default function PhotoCard({ photoUrl, title, onSelect }: PhotoCardProps)
     >
       <img src={photoUrl} alt={title} className="w-full h-48 object-cover" />
       {isHovered && (
-        <Button onClick={() => onSelect(photoUrl)}>Select</Button>
+        <Button onClick={() => onSelect(photoId)}>Select</Button>
       )}
     </div>
   );
 }
-\`\`\`
 ```
 
 ## Critical Limitations of Repository-Wide Instructions
@@ -483,12 +481,12 @@ applyTo:
 - Aim for 80% coverage on utilities, 60% on components
 
 ## Example
-\`\`\`typescript
+
 describe('PhotoCard', () => {
   it('should display hover actions when mouse enters', () => {
     // Arrange
     const onSelect = jest.fn();
-    render(<PhotoCard title="Test" onSelect={onSelect} />);
+    render(<PhotoCard photoUrl="test.jpg" title="Test" onSelect={onSelect} />);
     
     // Act
     fireEvent.mouseEnter(screen.getByRole('img'));
@@ -497,7 +495,6 @@ describe('PhotoCard', () => {
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 });
-\`\`\`
 ```
 
 ### 3. Handle Conflicts with Repository-Wide Instructions
