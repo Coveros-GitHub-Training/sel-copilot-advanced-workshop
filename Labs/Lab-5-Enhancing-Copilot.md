@@ -56,7 +56,7 @@ Prompt files allow you to create reusable, standardized prompts that maintain co
    ```markdown
    ---
    description: 'What this prompt does'
-   mode: 'edit'
+   agent: 'edit'
    model: 'optional-specific-model'
    ---
    
@@ -79,7 +79,7 @@ Prompt files allow you to create reusable, standardized prompts that maintain co
 
 **Header (YAML):**
 - `description`: What the prompt does
-- `mode`: 'ask', 'edit', or 'agent'
+- `agent`: 'ask', 'edit', or 'agent'
 - `model`: (optional) Specific AI model to use
 - `tools`: (optional) Specific tools to enable
 
