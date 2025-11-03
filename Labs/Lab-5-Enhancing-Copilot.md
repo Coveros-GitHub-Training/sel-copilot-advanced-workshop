@@ -39,23 +39,9 @@ Prompt files allow you to create reusable, standardized prompts that maintain co
 - **Consistency**: Same prompt structure every time
 - **Efficiency**: No need to retype complex prompts
 - **Standardization**: Team uses the same approaches
-- **Parameterization**: Customize with input variables
-- **Documentation**: Self-documenting common workflows
 - **Knowledge sharing**: Capture expert prompting techniques
-- **Onboarding**: New team members use proven patterns
-- **Quality control**: Enforce best practices automatically
 
 ### Step 1.2: Explore Existing Prompt Files
-
-#### Why Prompt Files Matter:
-- **Consistency**: Same prompt structure every time
-- **Efficiency**: No need to retype complex prompts
-- **Standardization**: Team uses the same approaches
-- **Parameterization**: Customize with input variables
-- **Documentation**: Self-documenting common workflows
-- **Knowledge sharing**: Capture expert prompting techniques
-- **Onboarding**: New team members use proven patterns
-- **Quality control**: Enforce best practices automatically
 
 #### Explore Existing Prompt Files:
 
@@ -130,6 +116,7 @@ Let's create a custom prompt file for a common task in the PixelPerfect Gallery 
 6. Name it `generate-photo-component.prompt.md`
 
 **Method 2: Create Manually**
+
 Create a new file at `.github/prompts/generate-photo-component.prompt.md`
 
 #### Sample Prompt File to Create:
@@ -140,7 +127,7 @@ Create a new file at `.github/prompts/generate-photo-component.prompt.md`
   ```markdown
   ---
   description: 'Generate a new photo-related React component with TypeScript'
-  mode: 'edit'
+  agent: 'edit'
   ---
   
   Create a new React component for the PixelPerfect Gallery photo application.
@@ -166,13 +153,13 @@ Create a new file at `.github/prompts/generate-photo-component.prompt.md`
 #### Test Your Prompt File:
 
 1. In Copilot Chat, type `/` followed by your prompt file name
-2. Press Enter
-3. Fill in any requested input variables
+2. Provide the values for the input variables specified. I.e. `/generate-photo-component with componentName newComponent`
+3. Press Enter
 4. Review the generated code
 
 ## 🎭 Step 2: Custom Chat Modes
 
-Chat modes define how GitHub Copilot behaves for specialized workflows. Let's create a custom mode for planning new features.
+Chat modes define how GitHub Copilot behaves for specialized workflows. Let's create a custom mode for super powered agnetic action.
 
 ### Step 2.1: Understanding Custom Chat Modes
 
@@ -241,58 +228,7 @@ BeastMode is a concept popularized by Burke Holland that creates a supercharged 
 
 #### Create a BeastMode Chat Mode:
 
-<details>
-  <summary>Example: BeastMode Chat Mode</summary>
-
-  ```markdown
-  ---
-  description: Maximum power mode with all tools enabled for complex development tasks
-  tools: ['codebase', 'fetch', 'search', 'githubRepo', 'findTestFiles', 'usages']
-  ---
-  
-  # BeastMode Instructions
-  
-  You are in BeastMode - a supercharged development assistant with maximum capabilities enabled. You have access to all available tools to help solve complex development challenges efficiently.
-  
-  ## Your Capabilities
-  
-  With all tools at your disposal, you can:
-  - Search and analyze the entire codebase
-  - Fetch content from external URLs and documentation
-  - Search the web for solutions and best practices
-  - Access GitHub repository information
-  - Locate and analyze test files
-  - Find usages of code across the project
-  
-  ## Your Approach
-  
-  When assisting with development tasks:
-  
-  1. **Understand Context First**: Use codebase analysis to understand the existing patterns and architecture
-  2. **Research Best Practices**: Leverage search and fetch to find current best practices
-  3. **Find Related Code**: Use usages and codebase tools to identify related implementations
-  4. **Consider Tests**: Check test files to understand testing patterns
-  5. **Provide Complete Solutions**: Offer comprehensive answers with code examples, explanations, and alternatives
-  
-  ## Response Style
-  
-  - Be direct and actionable
-  - Provide working code examples
-  - Explain your reasoning
-  - Suggest optimizations and improvements
-  - Point out potential issues or edge cases
-  - Reference relevant documentation when helpful
-  
-  ## When to Suggest Tools
-  
-  - Recommend specific tools when they would help solve the problem
-  - Explain how to use different Copilot features effectively
-  - Share keyboard shortcuts and productivity tips
-  
-  You're here to maximize developer productivity and solve complex problems efficiently.
-  ```
-
-</details>
+The official BeastMode instructions can be found in [Burke Hollands](https://gist.githubusercontent.com/burkeholland/88af0249c4b6aff3820bf37898c8bacf/raw/e1898331f1755aff3265d50e30106b8c6987c4f7/beastmode3.1.chatmode.md) repo or you can use the current version that has been included in this repo [References/BeastMode.md](../References/BeastMode.md).
 
 #### Test Your BeastMode:
 
@@ -320,19 +256,8 @@ Custom agents are a powerful new feature in GitHub Copilot that allow you to cre
 
 Custom agents are AI-powered assistants that can:
 - **Act autonomously**: Take actions without requiring approval for each step
-- **Use specialized tools**: Access specific APIs, databases, or services
 - **Execute complex workflows**: Chain multiple operations together
-- **Maintain context**: Remember information across interactions
 - **Integrate with external systems**: Connect to your organization's tools and services
-
-#### Why Use Custom Agents?
-
-**Custom agents excel at:**
-- **Repetitive workflows**: Automating multi-step processes
-- **Specialized tasks**: Domain-specific operations (database queries, API testing, deployment)
-- **Integration tasks**: Connecting different systems and tools
-- **Code generation with validation**: Generating and testing code automatically
-- **Research and analysis**: Gathering information from multiple sources
 
 **Example Use Cases:**
 - A database agent that can query your database and generate migration scripts
@@ -343,7 +268,7 @@ Custom agents are AI-powered assistants that can:
 
 ### Step 3.2: Creating a Custom Agent
 
-Custom agents are defined in the `.github/agents/` directory of your repository.
+Custom agents are defined in the `.github/agents/` directory of your repository, or in the .github repository in your organization.
 
 #### Agent Configuration Structure:
 
@@ -351,108 +276,253 @@ Custom agents are defined in the `.github/agents/` directory of your repository.
 # .github/agents/my-agent.yml
 name: my-agent
 description: A brief description of what this agent does
-instructions: |
-  Detailed instructions for how the agent should behave.
-  This is where you define the agent's expertise and approach.
-  
-tools:
-  - name: tool-name
-    description: What this tool does
-    configuration:
-      # Tool-specific configuration
+tools: ["read", "search", "edit"....]
+
+Detailed instructions for how the agent should behave.
+This is where you define the agent's expertise and approach.
+
 ```
 
-#### Example: Create a Code Review Agent
+#### Example: Create a language specific agent
 
-Let's create a custom agent that performs focused code reviews.
+Let's create a custom agent that excels at C#
 
 1. **Create the agent directory** (if it doesn't exist):
    ```bash
    mkdir -p .github/agents
    ```
 
-2. **Create a new agent file**: `.github/agents/code-reviewer.yml`
+2. **Create a new agent file**: `.github/agents/csharp-expert.yml`
 
 <details>
-  <summary>Example: Code Review Agent</summary>
+  <summary>Example: C# Agent</summary>
 
   ```yaml
-  name: code-reviewer
-  description: Performs thorough code reviews with focus on best practices and potential issues
-  instructions: |
-    You are a senior code reviewer for the PixelPerfect Gallery project. Your role is to:
-    
-    1. **Review code quality**:
-       - Check for code smells and anti-patterns
-       - Verify adherence to project conventions
-       - Identify potential bugs or edge cases
-       - Suggest performance improvements
-    
-    2. **Verify best practices**:
-       - TypeScript usage and type safety
-       - React/Next.js best practices
-       - Accessibility compliance
-       - Security considerations
-    
-    3. **Check consistency**:
-       - Naming conventions
-       - Code style and formatting
-       - Component patterns
-       - Import organization
-    
-    4. **Provide actionable feedback**:
-       - Explain why something should be changed
-       - Suggest specific improvements
-       - Prioritize critical issues
-       - Offer alternatives when appropriate
-    
-    Always be constructive and educational in your reviews.
-    
-  tools:
-    - codebase
-    - search
+  ---
+  name: C# Expert
+  description: An agent designed to assist with software development tasks for .NET projects.
+  # version: 2025-10-27a
+  ---
+  You are an expert C#/.NET developer. You help with .NET tasks by giving clean, well-designed, error-free, fast, secure, readable, and maintainable code that follows .NET conventions. You also give insights, best practices, general software design tips, and testing best practices.
+
+  When invoked:
+  - Understand the user's .NET task and context
+  - Propose clean, organized solutions that follow .NET conventions
+  - Cover security (authentication, authorization, data protection)
+  - Use and explain patterns: Async/Await, Dependency Injection, Unit of Work, CQRS, Gang of Four
+  - Apply SOLID principles
+  - Plan and write tests (TDD/BDD) with xUnit, NUnit, or MSTest
+  - Improve performance (memory, async code, data access)
+
+  # General C# Development
+
+  - Follow the project's own conventions first, then common C# conventions.
+  - Keep naming, formatting, and project structure consistent.
+
+  ## Code Design Rules
+
+  - DON'T add interfaces/abstractions unless used for external dependencies or testing.
+  - Don't wrap existing abstractions.
+  - Don't default to `public`. Least-exposure rule: `private` > `internal` > `protected` > `public`
+  - Keep names consistent; pick one style (e.g., `WithHostPort` or `WithBrowserPort`) and stick to it.
+  - Don't edit auto-generated code (`/api/*.cs`, `*.g.cs`, `// <auto-generated>`). 
+  - Comments explain **why**, not what.
+  - Don't add unused methods/params.
+  - When fixing one method, check siblings for the same issue.
+  - Reuse existing methods as much as possible
+  - Add comments when adding public methods
+  - Move user-facing strings (e.g., AnalyzeAndConfirmNuGetConfigChanges) into resource files. Keep error/help text localizable.
+
+  ## Error Handling & Edge Cases
+  - **Null checks**: use `ArgumentNullException.ThrowIfNull(x)`; for strings use `string.IsNullOrWhiteSpace(x)`; guard early. Avoid blanket `!`.
+  - **Exceptions**: choose precise types (e.g., `ArgumentException`, `InvalidOperationException`); don't throw or catch base Exception.
+  - **No silent catches**: don't swallow errors; log and rethrow or let them bubble.
+
+
+  ## Goals for .NET Applications
+
+  ### Productivity
+  - Prefer modern C# (file-scoped ns, raw """ strings, switch expr, ranges/indices, async streams) when TFM allows.
+  - Keep diffs small; reuse code; avoid new layers unless needed.
+  - Be IDE-friendly (go-to-def, rename, quick fixes work).
+
+  ### Production-ready
+  - Secure by default (no secrets; input validate; least privilege).
+  - Resilient I/O (timeouts; retry with backoff when it fits).
+  - Structured logging with scopes; useful context; no log spam.
+  - Use precise exceptions; don’t swallow; keep cause/context.
+
+  ### Performance
+  - Simple first; optimize hot paths when measured.
+  - Stream large payloads; avoid extra allocs.
+  - Use Span/Memory/pooling when it matters.
+  - Async end-to-end; no sync-over-async.
+
+  ### Cloud-native / cloud-ready
+  - Cross-platform; guard OS-specific APIs.
+  - Diagnostics: health/ready when it fits; metrics + traces.
+  - Observability: ILogger + OpenTelemetry hooks.
+  - 12-factor: config from env; avoid stateful singletons.
+
+  # .NET quick checklist
+
+  ## Do first
+
+  * Read TFM + C# version.
+  * Check `global.json` SDK.
+
+  ## Initial check
+
+  * App type: web / desktop / console / lib.
+  * Packages (and multi-targeting).
+  * Nullable on? (`<Nullable>enable</Nullable>` / `#nullable enable`)
+  * Repo config: `Directory.Build.*`, `Directory.Packages.props`.
+
+  ## C# version
+
+  * **Don't** set C# newer than TFM default.
+  * C# 14 (NET 10+): extension members; `field` accessor; implicit `Span<T>` conv; `?.=`; `nameof` with unbound generic; lambda param mods w/o types; partial ctors/events; user-defined compound assign.
+
+  ## Build
+
+  * .NET 5+: `dotnet build`, `dotnet publish`.
+  * .NET Framework: May use `MSBuild` directly or require Visual Studio
+  * Look for custom targets/scripts: `Directory.Build.targets`, `build.cmd/.sh`, `Build.ps1`.
+
+  ## Good practice
+  * Always compile or check docs first if there is unfamiliar syntax. Don't try to correct the syntax if code can compile.
+  * Don't change TFM, SDK, or `<LangVersion>` unless asked.
+
+
+  # Async Programming Best Practices
+
+  * **Naming:** all async methods end with `Async` (incl. CLI handlers).
+  * **Always await:** no fire-and-forget; if timing out, **cancel the work**.
+  * **Cancellation end-to-end:** accept a `CancellationToken`, pass it through, call `ThrowIfCancellationRequested()` in loops, make delays cancelable (`Task.Delay(ms, ct)`).
+  * **Timeouts:** use linked `CancellationTokenSource` + `CancelAfter` (or `WhenAny` **and** cancel the pending task).
+  * **Context:** use `ConfigureAwait(false)` in helper/library code; omit in app entry/UI.
+  * **Stream JSON:** `GetAsync(..., ResponseHeadersRead)` → `ReadAsStreamAsync` → `JsonDocument.ParseAsync`; avoid `ReadAsStringAsync` when large.
+  * **Exit code on cancel:** return non-zero (e.g., `130`).
+  * **`ValueTask`:** use only when measured to help; default to `Task`.
+  * **Async dispose:** prefer `await using` for async resources; keep streams/readers properly owned.
+  * **No pointless wrappers:** don’t add `async/await` if you just return the task.
+
+  ## Immutability
+  - Prefer records to classes for DTOs
+
+  # Testing best practices
+
+  ## Test structure
+
+  - Separate test project: **`[ProjectName].Tests`**.
+  - Mirror classes: `CatDoor` -> `CatDoorTests`.
+  - Name tests by behavior: `WhenCatMeowsThenCatDoorOpens`.
+  - Follow existing naming conventions.
+  - Use **public instance** classes; avoid **static** fields.
+  - No branching/conditionals inside tests.
+
+  ## Unit Tests
+
+  - One behavior per test;
+  - Avoid Unicode symbols.
+  - Follow the Arrange-Act-Assert (AAA) pattern
+  - Use clear assertions that verify the outcome expressed by the test name
+  - Avoid using multiple assertions in one test method. In this case, prefer multiple tests.
+  - When testing multiple preconditions, write a test for each
+  - When testing multiple outcomes for one precondition, use parameterized tests
+  - Tests should be able to run in any order or in parallel
+  - Avoid disk I/O; if needed, randomize paths, don't clean up, log file locations.
+  - Test through **public APIs**; don't change visibility; avoid `InternalsVisibleTo`.
+  - Require tests for new/changed **public APIs**.
+  - Assert specific values and edge cases, not vague outcomes.
+
+  ## Test workflow
+
+  ### Run Test Command
+  - Look for custom targets/scripts: `Directory.Build.targets`, `test.ps1/.cmd/.sh`
+  - .NET Framework: May use `vstest.console.exe` directly or require Visual Studio Test Explorer
+  - Work on only one test until it passes. Then run other tests to ensure nothing has been broken.
+
+  ### Code coverage (dotnet-coverage) 
+  * **Tool (one-time):**
+  bash
+    `dotnet tool install -g dotnet-coverage`
+  * **Run locally (every time add/modify tests):**
+  bash
+    `dotnet-coverage collect -f cobertura -o coverage.cobertura.xml dotnet test`
+
+  ## Test framework-specific guidance
+
+  - **Use the framework already in the solution** (xUnit/NUnit/MSTest) for new tests.
+
+  ### xUnit
+
+  * Packages: `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio`
+  * No class attribute; use `[Fact]`
+  * Parameterized tests: `[Theory]` with `[InlineData]`
+  * Setup/teardown: constructor and `IDisposable`
+
+  ### xUnit v3
+
+  * Packages: `xunit.v3`, `xunit.runner.visualstudio` 3.x, `Microsoft.NET.Test.Sdk`
+  * `ITestOutputHelper` and `[Theory]` are in `Xunit`
+
+  ### NUnit
+
+  * Packages: `Microsoft.NET.Test.Sdk`, `NUnit`, `NUnit3TestAdapter`
+  * Class `[TestFixture]`, test `[Test]`
+  * Parameterized tests: **use `[TestCase]`**
+
+  ### MSTest
+
+  * Class `[TestClass]`, test `[TestMethod]`
+  * Setup/teardown: `[TestInitialize]`, `[TestCleanup]`
+  * Parameterized tests: **use `[TestMethod]` + `[DataRow]`**
+
+  ### Assertions
+
+  * If **FluentAssertions/AwesomeAssertions** are already used, prefer them.
+  * Otherwise, use the framework’s asserts.
+  * Use `Throws/ThrowsAsync` (or MSTest `Assert.ThrowsException`) for exceptions.
+
+  ## Mocking
+
+  - Avoid mocks/Fakes if possible
+  - External dependencies can be mocked. Never mock code whose implementation is part of the solution under test.
+  - Try to verify that the outputs (e.g. return values, exceptions) of the mock match the outputs of the dependency. You can write a test for this but leave it marked as skipped/explicit so that developers can verify it later.
   ```
 
 </details>
 
 #### Step 3.3: Using Custom Agents
 
-Once created, you can invoke your custom agent in Copilot Chat:
+Once created, you can invoke your custom agent in Copilot Chat by selecting it from the mode dropdown:
+
+> Tip: You can also use custom agents in the CLI as well as with Copilot Coding Agent in GitHub.com which we will cover in Lab 7
 
 ```
-@code-reviewer Please review the changes in src/components/gallery/GalleryGrid.tsx
+If I wanted to rebuild this application using .NET and blazor and written in C# how would I do that?
 ```
 
 The agent will:
-1. Analyze the specified file(s)
-2. Use its specialized instructions to perform the review
+1. Analyze the specified files
+2. Use its specialized instructions to perform the analysis
 3. Provide detailed, actionable feedback
-4. Suggest specific improvements
+4. Suggest specific next steps if you want to proceed
 
 ### Step 3.4: Custom Agents vs Custom Chat Modes
 
-Understanding when to use custom agents versus custom chat modes is important:
+Custom Agents and Custom Chat Modes have a lot in common but they differ in where you should use them.
 
-| Feature | Custom Chat Modes | Custom Agents |
-|---------|------------------|---------------|
-| **Purpose** | Change how Copilot responds in chat | Create specialized autonomous assistants |
-| **Interaction** | Conversational, requires user guidance | Can act autonomously with specific tools |
-| **Scope** | Affects chat behavior and response style | Executes specific tasks and workflows |
-| **Tools** | Limited to built-in Copilot tools | Can use custom integrations and APIs |
-| **Use Case** | Specialized response formats, context-aware conversations | Automated workflows, system integrations, complex multi-step tasks |
-| **Configuration** | `.github/chatmodes/*.chatmode.md` | `.github/agents/*.yml` |
+Custom Chat Modes:
+- Defined in the repos themselves, or saved in the User Data folder in the IDE
+- Are used directly in the IDE as a means to control how Copilot behaves
+- Can be Ask, Edit, or Agent mode
 
-**Choose Custom Chat Modes when you want to:**
-- Change how Copilot formats responses
-- Add specialized context to conversations
-- Enable specific built-in tools
-- Create different "personalities" for different workflows
-
-**Choose Custom Agents when you want to:**
-- Automate complex multi-step workflows
-- Integrate with external systems and APIs
-- Create task-specific autonomous assistants
-- Execute actions without constant user approval
+Custom Agents:
+- Aslo defined in the repos themselves, or saved in the User Data folder in the IDE, but can also be saved in the Organization .github repo and set to be available to all users within the Organization
+- Can be used in the IDE, from the CLI, or with Copilot Coding Agent
+- Always run in agent mode and are specifically geared towards autonomous agentic development
 
 ### 💡 Custom Agent Best Practices:
 
@@ -467,126 +537,67 @@ Understanding when to use custom agents versus custom chat modes is important:
 
 - [About Custom Agents](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents)
 - [How to Create Custom Agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+- [Awesome Copilot Agents](https://github.com/github/awesome-copilot) developed by GitHub and the community
 
 ## 🔌 Step 4: Model Context Protocol (MCP) with GitHub
 
-MCP (Model Context Protocol) is a powerful way to extend Copilot's capabilities by connecting it to external data sources and tools. Let's set up the GitHub MCP server to interact with GitHub directly from your IDE.
+[Model Context Protocol](https://github.com/modelcontextprotocol) acts as a mediator between your code base and external services. By combining GitHub Copilot with various external systems, you can expand the knowledge GitHub Copilot has access to:
 
-### Step 4.1: Understanding MCP
+- **Data stores**: Files and databases
+- **Communication tools**: [Slack](https://docs.slack.dev/ai/mcp-server/)
+- **Design platforms**: [Figma](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server)
+- **Project management**: [Jira](https://github.com/atlassian/atlassian-mcp-server) or [Azure DevOps](https://devblogs.microsoft.com/devops/azure-devops-mcp-server-public-preview/)
+- **Cloud providers**: [Azure](https://learn.microsoft.com/azure/developer/azure-mcp-server/get-started)
+- And many, many more!  
 
-#### What is MCP?
+### Step 4.1: Getting the GitHub MCP Server up and running
 
-Model Context Protocol is an open standard that allows AI models to securely connect to:
-- External data sources (databases, APIs, file systems)
-- Tools and services (GitHub, Jira, Slack, etc.)
-- Custom integrations you build
+When looking to utilize MCP Servers, there are two primary ways of connecting your GitHub Copilot Client: through the MCP Registry and through manual configuration.
 
-#### Why Use MCP with GitHub?
+The [GitHub MCP Registry](https://github.com/mcp) provides a list of all currently available MCP Servers that can be easily and automatically installed. Simply find the MCP Server you need, click the appropriate "Install" drop-down menu, then choose the version of VS Code for which you would like to install that Server.
 
-The GitHub MCP server allows Copilot to:
-- **Search repositories**: Find code, issues, PRs across all your repos
-- **Read issues**: Get issue details, comments, labels
-- **View pull requests**: See PR content, reviews, status
-- **Check workflows**: Monitor CI/CD status, view logs
-- **Search code**: Find examples across GitHub
-- **Explore repository structure**: Understand project organization
+To manually configure an MCP connection, you will need to decide where you want to store your configuration file:
 
-This means you can ask Copilot questions like:
-- "Show me all open issues labeled 'bug' in this repo"
-- "What's the status of PR #123?"
-- "Find examples of authentication middleware in my organization's repositories"
-- "Show me the latest CI/CD run results"
+- To store the configuration at the repository level, create a `.vscode/mcp.json` file
+- To store the configuration for your local device across workspaces, add the configuration to your `settings.json` file in Visual Studio Code
 
-### Step 4.2: Install and Configure GitHub MCP
-
-#### Prerequisites:
-
-- Node.js 18+ installed
-- GitHub account with appropriate permissions
-- GitHub Personal Access Token (PAT)
-
-#### Installation Steps:
-
-**1. Install the GitHub MCP Server**
-
-```bash
-npm install -g @modelcontextprotocol/server-github
-```
-
-**2. Create a GitHub Personal Access Token**
-
-1. Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
-2. Click "Generate new token" → "Generate new token (classic)"
-3. Give it a descriptive name: "Copilot MCP Server"
-4. Select scopes:
-   - `repo` (Full control of private repositories)
-   - `read:org` (Read org and team membership)
-   - `workflow` (Update GitHub Action workflows)
-5. Click "Generate token"
-6. **Copy the token** - you won't see it again!
-
-**3. Configure MCP in VS Code**
-
-Create or edit your VS Code settings for Copilot MCP:
-
-**Location**: `~/.vscode/settings.json` or workspace `.vscode/settings.json`
+Inside the chosen file, you will add a configuration such as this template below...
 
 ```json
 {
-  "github.copilot.chat.mcp.servers": {
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_TOKEN": "your-github-token-here"
-      }
-    }
+"inputs": [
+  // The "inputs" section defines the inputs required for the MCP server configuration.
+  {
+    "type": "promptString"
   }
+],
+"servers": {
+  // The "servers" section defines the MCP servers you want to use.
+  "fetch": {
+    "command": "uvx",
+    "args": ["mcp-server-fetch"]
+  }
+ }
 }
 ```
 
-**Security Note**: For production use, store the token in a secure environment variable:
+By finding and viewing the documentation for your third-party MCP Server, you will be able to retrieve any additional information that may be required for that particular configuration. The communuity maintains a list of common MCP servers at https://github.com/modelcontextprotocol/servers.
 
-```json
-{
-  "github.copilot.chat.mcp.servers": {
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_TOKEN": "${env:GITHUB_MCP_TOKEN}"
-      }
-    }
-  }
-}
-```
+1. Start by opening up [the MCP Registry](https://github.com/mcp) in a new browser tab or window.
+2. Find the GitHub Server
 
-Then set the environment variable:
-```bash
-# On macOS/Linux
-export GITHUB_MCP_TOKEN="your-token-here"
+<img width="557" height="170" alt="image" src="https://github.com/user-attachments/assets/82e8a1b8-066f-4a8f-858f-f6161b5d0732" />
 
-# On Windows PowerShell
-$env:GITHUB_MCP_TOKEN="your-token-here"
-```
+3. Click the "Install" drop-down, then click "Install in VS Code"
+4. If prompted by your browser, accept opening VS Code
+5. In your IDE, an extension page for the GitHub MCP Server should be displayed. Click "Install".
+6. Link your GitHub account to your IDE as prompted
 
-**4. Reload VS Code**
+With that, you should be all set to begin work with the MCP Server.
 
-1. Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
-2. Type "Reload Window"
-3. Press Enter
-
-**5. Verify MCP Connection**
-
-1. Open GitHub Copilot Chat
-2. Type `@github` to see if the GitHub MCP server is available
-3. You should see GitHub as an available context source
-
-### Step 4.3: Using GitHub MCP Effectively
+### Step 4.2: Using GitHub MCP Effectively
 
 The most effective way to use GitHub MCP is through natural conversation with Copilot, letting it automatically utilize the GitHub tools when needed.
-
-#### Best Practice: Natural Conversational Approach
 
 Instead of explicitly calling `@github`, simply ask Copilot questions about your GitHub repositories in natural language. Copilot will automatically use the GitHub MCP tools when appropriate.
 
@@ -618,68 +629,6 @@ or
 ```
 How do other projects in my org handle error logging?
 ```
-
-**Monitoring CI/CD:**
-```
-Did the latest build pass?
-```
-or
-```
-Why did the main branch workflow fail?
-```
-
-#### How It Works:
-
-1. **Copilot analyzes your question** and determines if GitHub data would help answer it
-2. **Automatically selects appropriate tools** from the MCP server
-3. **Retrieves the information** from GitHub's API
-4. **Presents results** in a clear, actionable format
-
-#### When to Be More Specific:
-
-If Copilot isn't using the GitHub MCP tools when you expect it to, you can be more explicit:
-
-```
-Use GitHub API to find all issues labeled "high-priority" in the pixelperfect-gallery repository
-```
-
-#### Example Workflow: Investigating a Build Failure
-
-**You:** "The main branch build is failing. What happened?"
-
-**Copilot will:**
-1. Check the latest workflow runs using GitHub MCP
-2. Identify which job failed
-3. Retrieve relevant error logs
-4. Explain the cause
-5. Suggest fixes based on the error
-
-**You can then ask:** "Show me the changes in the commits from that run"
-
-**Copilot will:**
-1. Find the commits associated with the workflow run
-2. Show you the relevant code changes
-3. Help identify which change likely caused the failure
-
-### 💡 MCP Best Practices:
-
-**Security:**
-- ✅ Use environment variables for tokens
-- ✅ Limit token permissions to what you need
-- ✅ Rotate tokens regularly
-- ✅ Never commit tokens to version control
-- ✅ Use fine-grained tokens when possible
-
-**Performance:**
-- ✅ Be specific in your queries to reduce API calls
-- ✅ Be mindful of GitHub API rate limits
-- ✅ Use pagination for large result sets
-
-**Usage:**
-- ✅ Use natural language questions - Copilot will automatically use MCP when appropriate
-- ✅ Be specific in your questions to get better results
-- ✅ Combine MCP with custom modes for powerful workflows
-- ✅ Verify MCP responses against GitHub UI when needed
 
 ## 🏆 Exercise Wrap-up
 
