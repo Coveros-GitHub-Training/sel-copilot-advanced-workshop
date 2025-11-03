@@ -501,7 +501,7 @@ If I wanted to rebuild this application using .NET and blazor and written in C# 
 ```
 
 The agent will:
-1. Analyze the specified files
+1. Analyze the specified files (in this case the whole workspace)
 2. Use its specialized instructions to perform the analysis
 3. Provide detailed, actionable feedback
 4. Suggest specific next steps if you want to proceed
