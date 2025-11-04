@@ -78,10 +78,12 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## 📖 Getting Started
 
-1. **Start with Lab 1**: Begin with [Lab 1 - Getting Started](Labs/Lab-1-Getting-Started.md)
-2. **Follow the sequence**: Complete labs in order for the best learning experience
-3. **Practice hands-on**: Each lab includes practical exercises and examples
-4. **Explore freely**: Feel free to experiment beyond the guided exercises
+1. **Review the Glossary**: Start with the [Glossary](References/Glossary.md) to familiarize yourself with Copilot terminology
+2. **Start with Lab 1**: Begin with [Lab 1 - Getting Started](Labs/Lab-1-Getting-Started.md)
+3. **Follow the sequence**: Complete labs in order for the best learning experience
+4. **Practice hands-on**: Each lab includes practical exercises and examples
+5. **Reference as needed**: Use the [Glossary](References/Glossary.md) to look up unfamiliar terms during the labs
+6. **Explore freely**: Feel free to experiment beyond the guided exercises
 
 ## 📸 About PixelPerfect Gallery
 
@@ -130,6 +132,9 @@ The workshop uses **PixelPerfect Gallery**, a professional photo gallery and por
 
 ## 📝 Additional Resources
 
+### Quick Reference
+- **[Glossary](References/Glossary.md)** ⭐ - Comprehensive guide to all Copilot terms, tools, and features covered in the labs
+
 ### Component Documentation
 - [Component Usage Guide](pixelperfect-gallery/COMPONENT_USAGE_GUIDE.md) - Detailed guide for using UI components
 
@@ -140,6 +145,10 @@ The workshop uses **PixelPerfect Gallery**, a professional photo gallery and por
 
 ### Reference Materials
 - [References/](References/) - Additional reference documentation and guides
+  - [Premium Request Usage Guide](References/Premium-Request-Usage.md) - Model pricing and optimization
+  - [Copilot Instruction Best Practices](References/Copilot-Instruction-Best-Practices.md) - Writing effective instructions
+  - [Coding Agent Best Practices](References/Coding-Agent-Best-Practices.md) - Autonomous development patterns
+  - [BeastMode](References/BeastMode.md) - Advanced custom chat mode configuration
 
 ## 🤝 Contributing
 
@@ -156,6 +165,7 @@ This project is licensed under the terms specified in the [LICENSE](LICENSE) fil
 ## 🆘 Support
 
 If you encounter issues or have questions:
+- Check the [Glossary](References/Glossary.md) for terminology clarification
 - Review the lab instructions carefully
 - Check the [Component Usage Guide](pixelperfect-gallery/COMPONENT_USAGE_GUIDE.md)
 - Ask GitHub Copilot for help (it's great at explaining this codebase!)

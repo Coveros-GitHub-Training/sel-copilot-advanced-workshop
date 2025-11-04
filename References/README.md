@@ -4,6 +4,19 @@ This folder contains detailed reference documentation and informational material
 
 ## Contents
 
+### [Glossary](Glossary.md) ⭐ **START HERE**
+
+Comprehensive glossary of all GitHub Copilot terms, tools, and features covered in the workshop:
+
+- **Quick Reference**: Easy-to-search definitions for all Copilot terminology
+- **Organized by Category**: Core features, chat modes, customization, agents, spaces, MCP, and more
+- **Comparison Tables**: Side-by-side comparisons of similar features
+- **Lab Cross-References**: Find which labs cover specific topics
+- **Usage Examples**: Practical context for when and how to use each feature
+- **Quick Tips**: Common questions answered with direct guidance
+
+**Perfect for**: Looking up unfamiliar terms during labs, clarifying similar-sounding features, quick reference during development
+
 ### [Premium Request Usage Guide](Premium-Request-Usage.md)
 
 Comprehensive guide to understanding and managing GitHub Copilot premium requests, including:
@@ -15,19 +28,50 @@ Comprehensive guide to understanding and managing GitHub Copilot premium request
 - **Team Policies**: Templates and guidelines for team usage management
 - **Budget Planning**: Monthly strategies for managing request allowances
 
+### [Copilot Instruction Best Practices](Copilot-Instruction-Best-Practices.md)
+
+Best practices for creating effective instruction files that guide Copilot behavior:
+
+- **Instruction File Patterns**: Proven templates for different project types
+- **Real-World Examples**: Production-ready instruction configurations
+- **Team Standards**: How to maintain consistency across teams
+- **Advanced Techniques**: Versioning, context optimization, measurement strategies
+
+### [Coding Agent Best Practices](Coding-Agent-Best-Practices.md)
+
+Advanced guidance for maximizing effectiveness with GitHub Copilot Coding Agent:
+
+- **Task Selection**: What works well vs. what to avoid
+- **Issue Writing**: Crafting clear, actionable issues for autonomous development
+- **Monitoring & Review**: Managing agent work and providing effective feedback
+- **Team Patterns**: Scaling agent usage across development teams
+- **Security**: Best practices for safe autonomous development
+
+### [BeastMode](BeastMode.md)
+
+Complete configuration for the BeastMode custom chat mode:
+
+- **Multi-Tool Configuration**: Enable maximum Copilot capabilities
+- **Usage Patterns**: When and how to leverage BeastMode effectively
+- **Community Resource**: Based on Burke Holland's popular configuration
+
 ## How to Use These Materials
 
 These reference materials are designed to:
 
-1. **Support Instructors**: Provide detailed information for lecture content
-2. **Supplement Labs**: Offer deeper dives into topics introduced in hands-on exercises
-3. **Serve as Reference**: Act as a resource students can return to after training
-4. **Enable Self-Study**: Allow learners to explore topics at their own pace
+1. **Quick Reference**: Use the Glossary to look up unfamiliar terms while working through labs
+2. **Support Instructors**: Provide detailed information for lecture content and Q&A
+3. **Supplement Labs**: Offer deeper dives into topics introduced in hands-on exercises
+4. **Serve as Reference**: Act as a resource students can return to after training
+5. **Enable Self-Study**: Allow learners to explore topics at their own pace
 
 ## Related Labs
 
-- **Lab 4 - Engineering Practices & Customizing Copilot**: References the Premium Request Usage Guide for detailed cost optimization information
+- **All Labs**: Reference the [Glossary](Glossary.md) for terminology clarification
+- **Lab 4 - Engineering Practices**: References Premium Request Usage Guide and Copilot Instruction Best Practices
+- **Lab 5 - Enhancing Copilot**: References BeastMode configuration
+- **Lab 7 - Coding Agent**: References Coding Agent Best Practices Guide
 
 ---
 
-**Note**: The lab exercises focus on hands-on practice. These reference materials provide the theoretical background and detailed policies that support those practical skills.
+**Note**: The lab exercises focus on hands-on practice. These reference materials provide the theoretical background, terminology definitions, and detailed policies that support those practical skills.
