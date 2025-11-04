@@ -546,6 +546,9 @@ Custom Agents:
 
 ## 🔌 Step 4: Model Context Protocol (MCP) with GitHub
 
+> [!IMPORTANT]
+> If you are using a Codespace then you will not need to install the MCP server itself. However, you will need to configure it so that you can access all of the tools for these labs. The following process will be what you have to do when working in your IDEs directly.
+
 [Model Context Protocol](https://github.com/modelcontextprotocol) acts as a mediator between your code base and external services. By combining GitHub Copilot with various external systems, you can expand the knowledge GitHub Copilot has access to:
 
 - **Data stores**: Files and databases
@@ -600,7 +603,45 @@ By finding and viewing the documentation for your third-party MCP Server, you wi
 
 With that, you should be all set to begin work with the MCP Server.
 
-### Step 4.2: Using GitHub MCP Effectively
+### Step 4.2: Configuring the MCP tools list
+
+To enable access to all of the tools available on the GitHub MCP server you will need to add a configuration to you `mcp.json`.
+
+To access the `mcp.json` file by opening it directly or clicking configure `Show Configuration (JSON)` from the MCP Servers tab
+
+Direct Access
+1. Open the File searcher: `Cmd+P` (Mac) or `Ctrl+P` (Windows/Linux)
+2. Search for `mcp.json`
+
+Through MCP Server tab
+1. Open the `extensions` tab
+2. Click on the `MCP Servers - Installed` section at the bottom
+3. Click the settings icon on the GitHub MCP
+4. Click `Show Configuration (JSON)`
+
+Once you have the `mcp.json` file opened update it with the following:
+
+```json
+{
+  "servers": {
+    // Using OAuth (version 1.101 or greater)
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "X-MCP-Toolsets": "all"
+      }
+    }
+  }
+}
+```
+
+Notice the additional headers compared to what was there before. This allows us to specify additional tool sets to make available. In this case we just take all tools but in practice you would want to be more specific. 
+
+> [!IMPORTANT]
+> When prompting Copilot you can only have 128 tools active at a given time. Anything beyond that will cause a degradation in performance.
+
+### Step 4.3: Using GitHub MCP Effectively
 
 The most effective way to use GitHub MCP is through natural conversation with Copilot, letting it automatically utilize the GitHub tools when needed.
 
