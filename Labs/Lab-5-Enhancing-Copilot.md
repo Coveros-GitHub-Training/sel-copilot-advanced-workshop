@@ -1,6 +1,6 @@
 # Exercise 5 - Prompt Files, Custom Chat Modes, Custom Agents, and Model Context Protocol (MCP)
 
-#### Duration: XX minutes
+#### Duration: 50 minutes
 
 ## 🎯 Learning Objectives
 
