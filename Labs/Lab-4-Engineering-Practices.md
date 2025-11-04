@@ -99,6 +99,9 @@ Once the debug panel opens, you can explore:
 
 ## 🎛️ Step 2: Personal Instructions and Custom Configuration
 
+> [!IMPORTANT]
+> Currently personal instructions are only supported for GitHub Copilot Chat in GitHub.com.
+
 Personal instructions define how Copilot behaves across all repositories you work on. They're powerful for maintaining consistent coding standards and preferences.
 
 ### Step 2.1: Configure Personal Instructions
