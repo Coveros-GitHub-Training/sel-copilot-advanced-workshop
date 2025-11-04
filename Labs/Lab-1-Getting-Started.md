@@ -42,7 +42,7 @@ Let's get started and create something beautiful! 📷
 
 The first thing to do is to make sure that you create your own copy of this repository so that you can keep all of the work you do in this training.
 
-This repository is set up as a template, so simply click the green `Use this template` button in the top right corner of the repository homepage to create your own.
+The best option is to create a fork. Your SEL Training Org has a fork of this repo that you will want to use. This will enable you to get any updates that are made to the training materials after you create your copy.
 
 ### Option A: GitHub Codespaces (Recommended)
 
