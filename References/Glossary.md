@@ -26,25 +26,19 @@ This glossary provides clear definitions and explanations for all GitHub Copilot
 ### GitHub Copilot
 An AI-powered coding assistant that provides code suggestions, explanations, and development assistance directly within your IDE and throughout the GitHub platform.
 
-**Where It's Used**: Throughout all labs  
 **Key Capabilities**: Code completion, chat assistance, autonomous coding, code review
 
 ### GitHub Copilot Chat
 An interactive conversational interface that allows you to ask questions, request explanations, and get AI assistance with coding tasks. Available in VS Code, Visual Studio, and on GitHub.com.
 
-**Where It's Used**: Labs 2-7  
 **Key Capabilities**: Ask questions, explain code, generate implementations, refactor code
 
 ### Code Completions
 Real-time AI-powered suggestions that appear as "ghost text" while you type in your IDE. These suggestions help you write code faster by predicting what you want to write next.
 
-**Where It's Used**: Lab 1  
-**Example**: Start typing `function calculate` and Copilot suggests the complete function implementation
-
 ### Inline Chat
 A chat interface that appears directly in your code editor at the cursor position, allowing you to ask questions or request changes without leaving your code.
 
-**Where It's Used**: Labs 2-3  
 **Trigger**: `Ctrl+I` (Windows/Linux) or `Cmd+I` (Mac)
 
 ### Slash Commands
@@ -60,7 +54,6 @@ Special commands in Copilot Chat that start with `/` and trigger specific AI beh
 ### Chat Participants
 Special prefixes that scope Copilot's responses to specific contexts or enable specialized capabilities.
 
-**Where It's Used**: Labs 2-3  
 **Examples**:
 - `@workspace` - Provides context about your entire workspace
 - `@terminal` - Help with terminal commands
@@ -73,31 +66,28 @@ Special prefixes that scope Copilot's responses to specific contexts or enable s
 ### Ask Mode
 A read-only chat mode for understanding code, getting explanations, and exploring options without making any changes to your files.
 
-**Where It's Used**: Lab 2  
 **Best For**: Exploring codebases, learning concepts, getting suggestions  
 **Output**: Explanations and suggestions only - no code changes
 
 ### Edit Mode
 A chat mode that makes targeted, deliberate changes to one or more specific files that you explicitly identify.
 
-**Where It's Used**: Lab 3  
 **Best For**: Focused refactoring, bug fixes, specific file modifications  
 **Output**: Proposed changes with diffs you can review and accept
 
 ### Agent Mode (IDE)
 A chat mode where Copilot works autonomously within your IDE to explore your workspace, make decisions about what to change, and implement solutions across multiple files.
 
-**Where It's Used**: Lab 3  
 **Best For**: Complex features, exploratory tasks, multi-file implementations  
 **Output**: Autonomous changes across workspace files  
 **Note**: Different from Coding Agent (which works on GitHub.com)
 
 ### Plan Mode
-A preview-only chat mode that shows you what changes Copilot would make without actually applying them, allowing you to review the approach before execution.
+A chat mode that shows you what changes Copilot would make without actually applying them, allowing you to review the approach before execution.
 
-**Where It's Used**: Lab 3 (mentioned)  
 **Best For**: Understanding impact, validating approach, risk reduction  
 **Output**: Detailed plan of proposed changes without modifying files
+**Note**: Currently only available in VS Code Insiders
 
 ---
 
@@ -106,7 +96,6 @@ A preview-only chat mode that shows you what changes Copilot would make without 
 ### Personal Instructions
 User-level configuration that defines how Copilot behaves across all repositories you work on. Set on github.com/copilot.
 
-**Where It's Used**: Lab 4  
 **Location**: https://github.com/copilot (Personal instructions section)  
 **Scope**: All your repositories  
 **Examples**: Coding style preferences, comment standards, preferred frameworks
@@ -114,15 +103,20 @@ User-level configuration that defines how Copilot behaves across all repositorie
 ### Repository Instructions
 Project-specific configuration that guides Copilot to follow your repository's patterns, conventions, and requirements.
 
-**Where It's Used**: Lab 4  
 **Location**: `.github/copilot-instructions.md`  
 **Scope**: Single repository  
 **Examples**: Architecture patterns, component structure, team coding standards
 
+### Custom Instructions
+Specific instructions that cover things like language specific syntax standards or design patters that affect only certain file types. Use `applyTo` pattern logic to target specific file types.
+
+**Location**: `.github/instructions/*.instructions.md`  
+**Scope**: Single repository  
+**Examples**: C# syntax patterns, UI styling, 3rd party package usage
+
 ### Organization Instructions
 Company-wide standards set by organization administrators that apply to all repositories in the organization.
 
-**Where It's Used**: Lab 4  
 **Set By**: Organization administrators  
 **Scope**: All organization repositories  
 **Examples**: Security policies, compliance requirements, company standards
@@ -130,13 +124,11 @@ Company-wide standards set by organization administrators that apply to all repo
 ### Instruction Hierarchy
 The priority order when multiple instruction levels exist: Personal (highest) → Repository → Organization (lowest). Higher priority instructions override lower ones when they conflict.
 
-**Where It's Used**: Lab 4  
 **Order**: Personal > Repository > Organization
 
 ### Prompt Files
 Reusable, parameterized templates for common AI interactions that can be invoked with a slash command.
 
-**Where It's Used**: Lab 5  
 **Location**: `.github/prompts/*.prompt.md`  
 **Format**: Markdown with YAML frontmatter  
 **Usage**: Type `/prompt-name` in Copilot Chat  
@@ -145,7 +137,6 @@ Reusable, parameterized templates for common AI interactions that can be invoked
 ### Custom Chat Modes
 Specialized AI personas created for specific workflows, with custom instructions and tool configurations.
 
-**Where It's Used**: Lab 5  
 **Location**: `.github/chatmodes/*.chatmode.md`  
 **Format**: Markdown with YAML frontmatter  
 **Examples**: BeastMode, Security Review Mode, Documentation Mode
@@ -153,7 +144,6 @@ Specialized AI personas created for specific workflows, with custom instructions
 ### Custom Agents
 Autonomous AI assistants with specialized instructions and capabilities that can be used in the IDE, CLI, or with Coding Agent.
 
-**Where It's Used**: Lab 5  
 **Location**: `.github/agents/*.agent.yml`  
 **Format**: YAML with markdown instructions  
 **Usage**: Select from agent dropdown or reference in agent assignments  
@@ -163,7 +153,6 @@ Autonomous AI assistants with specialized instructions and capabilities that can
 ### BeastMode
 A community-created custom chat mode that combines multiple tools and capabilities for maximum AI power and flexibility, popularized by Burke Holland.
 
-**Where It's Used**: Lab 5  
 **Features**: Multi-tool access, comprehensive code search, web access  
 **Best For**: Complex problems requiring multiple capabilities
 
