@@ -135,7 +135,7 @@ Reusable, parameterized templates for common AI interactions that can be invoked
 **Examples**: `/generate-mock-photo-data`, `/generate-new-ui`
 
 ### Custom Chat Modes
-Specialized AI personas created for specific workflows, with custom instructions and tool configurations.
+Specialized AI personas created for specific workflows, with custom instructions and tool configurations. Only effective from within the IDE.
 
 **Location**: `.github/chatmodes/*.chatmode.md`  
 **Format**: Markdown with YAML frontmatter  
@@ -163,7 +163,6 @@ A community-created custom chat mode that combines multiple tools and capabiliti
 ### Coding Agent (GitHub Copilot Coding Agent)
 An autonomous AI developer that works on GitHub issues independently, creating pull requests without human intervention during implementation.
 
-**Where It's Used**: Lab 7  
 **Location**: GitHub.com (issues and pull requests)  
 **Assignment**: Assign GitHub issue to `@copilot`  
 **Output**: Pull request with implementation  
@@ -172,14 +171,12 @@ An autonomous AI developer that works on GitHub issues independently, creating p
 ### Session Logs
 Detailed records of Coding Agent's decision-making process, showing what files were analyzed, what approaches were considered, and why specific decisions were made.
 
-**Where It's Used**: Lab 7  
 **Access**: "View Session" link in pull request timeline  
 **Contents**: Context gathering, planning, implementation steps, testing results
 
 ### Code Review Agent
 An AI agent that automatically reviews pull requests and provides inline comments on code quality, security, performance, and best practices.
 
-**Where It's Used**: Lab 7  
 **Assignment**: Assign `@copilot` as a reviewer on any PR  
 **Output**: Inline comments and summary of findings  
 **Checks**: Security, performance, test coverage, accessibility, style
@@ -187,14 +184,12 @@ An AI agent that automatically reviews pull requests and provides inline comment
 ### Draft Pull Request
 A work-in-progress pull request that Coding Agent creates while working on an issue. Marked as "Draft" until the agent completes its work.
 
-**Where It's Used**: Lab 7  
 **Status**: Automatically changes to "Ready for review" when complete  
 **Purpose**: Shows progress and allows early feedback
 
 ### Session Steering
 The ability to guide Coding Agent mid-session by adding prompts to influence its approach while it's working.
 
-**Where It's Used**: Lab 7  
 **Access**: Active session page on github.com/copilot/agents  
 **Purpose**: Correct course without waiting for completion  
 **Example**: "Use Tailwind CSS instead of custom CSS files"
@@ -202,7 +197,6 @@ The ability to guide Coding Agent mid-session by adding prompts to influence its
 ### Iteration with @copilot
 The process of requesting changes to a pull request by mentioning `@copilot` in comments, allowing the agent to make updates autonomously.
 
-**Where It's Used**: Lab 7  
 **Works On**: Any PR (Copilot-created or human-created)  
 **Usage**: Comment on PR with `@copilot` followed by requested changes  
 **Example**: `@copilot Please add error handling for null values`
@@ -214,7 +208,6 @@ The process of requesting changes to a pull request by mentioning `@copilot` in 
 ### Copilot Spaces
 Dedicated, persistent AI workspaces where you can define specific goals, add custom context, and have focused conversations with Copilot about particular projects or initiatives.
 
-**Where It's Used**: Lab 6  
 **Location**: https://github.com/copilot/spaces  
 **Key Features**: Custom instructions, curated source files, collaborative workspace  
 **Best For**: Long-running projects, specialized tasks, team collaboration
@@ -222,7 +215,6 @@ Dedicated, persistent AI workspaces where you can define specific goals, add cus
 ### Space Instructions
 Custom guidance specific to a Copilot Space that defines how the AI should behave for that particular workspace or project.
 
-**Where It's Used**: Lab 6  
 **Location**: Within Space configuration  
 **Scope**: Single Space  
 **Examples**: "Focus on security best practices", "Document for beginners"
@@ -230,7 +222,6 @@ Custom guidance specific to a Copilot Space that defines how the AI should behav
 ### Space Sources
 Files, documentation, issues, or text content added to a Space to provide context for AI assistance.
 
-**Where It's Used**: Lab 6  
 **Types**: Repository files, text content, issues, external documentation  
 **Purpose**: Give Copilot relevant context for focused assistance
 
@@ -241,7 +232,6 @@ Files, documentation, issues, or text content added to a Space to provide contex
 ### Model Context Protocol (MCP)
 A standardized protocol that allows AI assistants like Copilot to connect to external services and data sources, expanding their knowledge and capabilities.
 
-**Where It's Used**: Labs 5-6  
 **Purpose**: Integrate external systems (GitHub, Slack, databases, etc.)  
 **Official Site**: https://github.com/modelcontextprotocol  
 **Server List**: https://github.com/modelcontextprotocol/servers
@@ -249,14 +239,12 @@ A standardized protocol that allows AI assistants like Copilot to connect to ext
 ### MCP Server
 A service that implements the Model Context Protocol to expose data or functionality to AI assistants.
 
-**Where It's Used**: Lab 5  
 **Examples**: GitHub MCP Server, Slack MCP, Figma MCP, Azure MCP  
 **Location**: Community list at https://github.com/modelcontextprotocol/servers
 
 ### MCP Registry
 A centralized directory of available MCP servers that can be easily installed into your development environment.
 
-**Where It's Used**: Lab 5  
 **Location**: https://github.com/mcp (GitHub's registry interface)  
 **Community List**: https://github.com/modelcontextprotocol/servers  
 **Purpose**: Discover and install MCP servers with one click
@@ -264,14 +252,12 @@ A centralized directory of available MCP servers that can be easily installed in
 ### GitHub MCP Server
 An MCP server that connects Copilot to GitHub's data, enabling queries about repositories, issues, pull requests, and more through natural conversation.
 
-**Where It's Used**: Labs 5-6  
 **Capabilities**: Query issues, search repositories, analyze PRs, access organization data  
 **Installation**: Via MCP Registry or manual configuration
 
 ### MCP Configuration
 The setup file that defines which MCP servers are available to your IDE and how they should be configured.
 
-**Where It's Used**: Lab 5  
 **Location**: `.vscode/mcp.json` (repository) or VS Code settings.json (user)  
 **Format**: JSON configuration with server definitions
 
@@ -282,42 +268,36 @@ The setup file that defines which MCP servers are available to your IDE and how 
 ### AI Models
 The underlying machine learning models that power GitHub Copilot's capabilities. Different models have different strengths, speeds, and costs.
 
-**Where It's Used**: Lab 4  
 **Providers**: OpenAI (GPT), Anthropic (Claude), Google (Gemini)  
 **Documentation**: https://docs.github.com/copilot/reference/ai-models/supported-models
 
 ### Premium Models
 AI models that count against your monthly request allowance. Generally more powerful but limited in usage.
 
-**Where It's Used**: Lab 4  
 **Examples**: GPT-4, Claude Sonnet, advanced models  
 **Cost**: Counts against monthly premium request quota
 
 ### 0x Models (Unlimited)
 AI models with unlimited usage that don't count against your premium request allowance. Optimized for common tasks.
 
-**Where It's Used**: Lab 4  
 **Examples**: Base GPT models, standard Claude models  
 **Cost**: Unlimited, no request counting
 
 ### Auto Model Selection
 A feature that automatically selects the most appropriate AI model for your task while providing a 10% discount on premium requests.
 
-**Where It's Used**: Lab 4  
 **Benefit**: Cost savings + optimal model selection  
 **Best For**: Users who want automation without manual model selection
 
 ### Premium Request Usage
 Tracking and management of your monthly allowance of premium model requests.
 
-**Where It's Used**: Lab 4  
 **Monitor At**: GitHub Copilot settings page  
 **Reference Guide**: [Premium Request Usage Guide](Premium-Request-Usage.md)
 
 ### Model Switching
 The ability to select different AI models for different tasks based on their strengths and your needs.
 
-**Where It's Used**: Lab 4  
 **Location**: Model selector dropdown in Copilot Chat  
 **Purpose**: Match model capabilities to task requirements
 
@@ -328,7 +308,6 @@ The ability to select different AI models for different tasks based on their str
 ### Debug Panel (Chat Debug View)
 A transparency feature that shows exactly what context, prompts, and system instructions Copilot is using for its responses.
 
-**Where It's Used**: Lab 4  
 **Access**: Command Palette → "Copilot Chat Debug: Focus on Copilot Chat Debug View"  
 **Shows**: Prompts, system instructions, context files, token usage  
 **Purpose**: Understand AI decision-making, improve prompts, debug issues
@@ -336,28 +315,24 @@ A transparency feature that shows exactly what context, prompts, and system inst
 ### RAG (Retrieval Augmented Generation)
 A technique where AI retrieves relevant information from your codebase before generating responses, ensuring context-aware and project-consistent outputs.
 
-**Where It's Used**: Throughout (underlying technology)  
 **How It Works**: AI searches codebase → finds relevant patterns → generates matching code  
 **Benefit**: Code that matches your project's style and patterns
 
 ### Workspace Context
 The set of files, folders, and project information that Copilot can access and analyze in your current development environment.
 
-**Where It's Used**: Throughout all labs  
 **Triggered By**: `@workspace` participant  
 **Scope**: All files in your opened workspace/repository
 
 ### File References
 A way to explicitly include specific files in your Copilot Chat context to ensure relevant information is considered.
 
-**Where It's Used**: Labs 3, 5  
 **Syntax**: `#filename.tsx` or `@filename.tsx`  
 **Purpose**: Ensure specific files are considered in AI responses
 
 ### Context Files
 Files that have been added to a chat conversation to provide relevant information for AI assistance.
 
-**Where It's Used**: Throughout labs  
 **How to Add**: Click `+` in chat, use `#filename`, or reference with `@`  
 **Examples**: Related components, configuration files, documentation
 
@@ -368,28 +343,24 @@ Files that have been added to a chat conversation to provide relevant informatio
 ### Linting
 Automated code quality checking that identifies style issues, potential bugs, and code that doesn't follow project standards.
 
-**Where It's Used**: Labs 1, 4  
 **Command**: `npm run lint`  
 **Purpose**: Ensure code quality and consistency
 
 ### TypeScript
 A programming language that adds static types to JavaScript, providing better tooling, error detection, and code quality.
 
-**Where It's Used**: Throughout (PixelPerfect Gallery is built with TypeScript)  
 **Files**: `.ts`, `.tsx`  
 **Benefits**: Type safety, better IDE support, fewer runtime errors
 
 ### Test Coverage
 The percentage of your code that is executed by automated tests, indicating how well-tested your application is.
 
-**Where It's Used**: Labs 4, 7  
 **Goal**: High coverage for critical features  
 **Types**: Unit tests, integration tests, end-to-end tests
 
 ### Acceptance Criteria
 Specific, measurable conditions that must be met for a feature or task to be considered complete.
 
-**Where It's Used**: Lab 7  
 **Format**: Checklist in issue description  
 **Example**: "User can filter photos by category"  
 **Purpose**: Clear success metrics for Coding Agent
@@ -397,7 +368,6 @@ Specific, measurable conditions that must be met for a feature or task to be con
 ### Code Review
 The process of examining code changes to ensure quality, security, and adherence to standards before merging.
 
-**Where It's Used**: Lab 7  
 **Participants**: Humans and/or Code Review Agent  
 **Purpose**: Catch issues, improve quality, share knowledge
 
@@ -408,7 +378,6 @@ The process of examining code changes to ensure quality, security, and adherence
 ### `.github/copilot-instructions.md`
 The repository-level instructions file that guides Copilot's behavior for a specific project.
 
-**Where It's Used**: Lab 4  
 **Format**: Markdown  
 **Contains**: Architecture patterns, coding standards, project context  
 **Scope**: Single repository
@@ -416,7 +385,6 @@ The repository-level instructions file that guides Copilot's behavior for a spec
 ### `.github/prompts/*.prompt.md`
 Directory containing reusable prompt templates that can be invoked as slash commands.
 
-**Where It's Used**: Lab 5  
 **Format**: Markdown with YAML frontmatter  
 **Naming**: `filename.prompt.md`  
 **Usage**: `/filename` in chat
@@ -424,7 +392,6 @@ Directory containing reusable prompt templates that can be invoked as slash comm
 ### `.github/chatmodes/*.chatmode.md`
 Directory containing custom chat mode definitions for specialized AI behaviors.
 
-**Where It's Used**: Lab 5  
 **Format**: Markdown with YAML frontmatter  
 **Naming**: `filename.chatmode.md`  
 **Usage**: Select from mode dropdown
@@ -432,7 +399,6 @@ Directory containing custom chat mode definitions for specialized AI behaviors.
 ### `.github/agents/*.agent.yml`
 Directory containing custom agent definitions for autonomous task execution.
 
-**Where It's Used**: Lab 5  
 **Format**: YAML with markdown instructions  
 **Naming**: `filename.agent.yml`  
 **Usage**: Select from agent dropdown or reference in assignments
@@ -440,7 +406,6 @@ Directory containing custom agent definitions for autonomous task execution.
 ### `.vscode/mcp.json`
 Repository-level MCP server configuration file.
 
-**Where It's Used**: Lab 5  
 **Format**: JSON  
 **Contains**: Server definitions and configurations  
 **Scope**: Single repository
@@ -448,14 +413,12 @@ Repository-level MCP server configuration file.
 ### `next.config.ts`
 Configuration file for Next.js applications, defining build options, routing, and framework behavior.
 
-**Where It's Used**: Lab 1  
 **Framework**: Next.js  
 **Purpose**: Project configuration and build settings
 
 ### `package.json`
 Node.js project configuration file listing dependencies, scripts, and project metadata.
 
-**Where It's Used**: Lab 1  
 **Contains**: Dependencies, scripts, project information  
 **Purpose**: Define project setup and available commands
 
@@ -488,79 +451,6 @@ Node.js project configuration file listing dependencies, scripts, and project me
 | **Personal** | All your repos | You (on github.com/copilot) | Highest |
 | **Repository** | Single repo | Repo file (`.github/copilot-instructions.md`) | Medium |
 | **Organization** | All org repos | Org admins | Lowest |
-
----
-
-## Related Documentation
-
-For more detailed information on specific topics, see these reference guides:
-
-- **[Premium Request Usage Guide](Premium-Request-Usage.md)** - Comprehensive model pricing and usage optimization
-- **[Copilot Instruction Best Practices](Copilot-Instruction-Best-Practices.md)** - How to write effective instruction files
-- **[Coding Agent Best Practices](Coding-Agent-Best-Practices.md)** - Advanced patterns for autonomous development
-- **[BeastMode](BeastMode.md)** - Full BeastMode custom chat mode configuration
-
----
-
-## Lab Cross-Reference
-
-### By Lab
-
-**Lab 1 - Getting Started**
-- GitHub Copilot, Code Completions, Basic Setup
-
-**Lab 2 - Exploring the Codebase**
-- Copilot Chat, Ask Mode, Slash Commands, Chat Participants, `@workspace`
-
-**Lab 3 - Code Editing & Generation**
-- Edit Mode, Agent Mode (IDE), Plan Mode, Multi-file Changes, Context Files
-
-**Lab 4 - Engineering Practices**
-- Personal Instructions, Repository Instructions, Organization Instructions, Debug Panel, AI Models, Premium Models, Model Switching, Linting
-
-**Lab 5 - Enhancing Copilot**
-- Prompt Files, Custom Chat Modes, Custom Agents, BeastMode, MCP, MCP Servers, GitHub MCP Server
-
-**Lab 6 - Copilot Spaces**
-- Copilot Spaces, Space Instructions, Space Sources, MCP Integration
-
-**Lab 7 - Coding Agent**
-- Coding Agent, Session Logs, Code Review Agent, Draft Pull Request, Session Steering, Iteration with @copilot, Acceptance Criteria
-
----
-
-## Quick Tips
-
-### When You're Confused About...
-
-**"What mode should I use?"**
-- Understanding code → Ask Mode
-- Specific file changes → Edit Mode  
-- Complex features → Agent Mode (IDE)
-- Delegated tasks → Coding Agent (GitHub)
-
-**"Where do I configure this?"**
-- Your preferences → Personal Instructions (github.com/copilot)
-- Project patterns → Repository Instructions (`.github/copilot-instructions.md`)
-- Reusable prompts → Prompt Files (`.github/prompts/`)
-- Specialized modes → Custom Chat Modes (`.github/chatmodes/`)
-
-**"What's the difference between Agent Mode and Coding Agent?"**
-- Agent Mode (IDE) → Interactive in VS Code, real-time collaboration
-- Coding Agent → Autonomous on GitHub, works independently on issues
-
-**"When should I use Spaces?"**
-- Long-running projects with specific focus areas
-- Security reviews, documentation projects, feature development
-- Team collaboration with shared context
-
-**"How do I control costs?"**
-- Use 0x models for routine tasks
-- Enable Auto selection for 10% discount
-- Monitor usage at github.com/copilot settings
-- See [Premium Request Usage Guide](Premium-Request-Usage.md)
-
----
 
 **Last Updated**: Reference for GitHub Copilot Advanced Workshop  
 **For Questions**: Use GitHub Copilot Chat with this glossary as context!
