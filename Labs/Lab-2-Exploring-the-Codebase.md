@@ -36,6 +36,8 @@ GitHub Copilot Chat is an AI-powered conversational interface that helps you und
 
 Let's start by understanding what GitHub Copilot can do for you.
 
+For the purposes of this lab use `Auto` as the model when submitting the prompts. We will learn more about the `Auto` model as well as all the other models in a later lab.
+
 ### Instructions:
 1. Switch to "Ask" mode within GitHub Copilot Chat if you are not already in that mode.
 2. Type the following command in the Copilot chat:
