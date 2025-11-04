@@ -159,6 +159,9 @@ Create a new file at `.github/prompts/generate-photo-component.prompt.md`
 
 ## 🎭 Step 2: Custom Chat Modes
 
+> [!IMPORTANT]
+> This functionality will soon be replaced by Custom Agents in VS Code and Codespaces, but is not yet currently the available. Custom Agents, as you'll see shortly, are implemented very similarly to Custom Chat Modes. Until the switch takes place using Custom Chat Modes is what you should use.
+
 Chat modes define how GitHub Copilot behaves for specialized workflows. Let's create a custom mode for super powered agnetic action.
 
 ### Step 2.1: Understanding Custom Chat Modes
@@ -247,6 +250,9 @@ The official BeastMode instructions can be found in [Burke Hollands](https://gis
 4. **Iterate on the mode** if needed to adjust the behavior to your preferences
 
 ## 🤖 Step 3: Custom Agents
+
+> [!IMPORTANT]
+> This functionality is not yet available in VS Code and Codespaces, but will be released very soon to replace Custom Chat Modes. Until the switch takes place Custom Agents will only be usable with the Copilot Coding Agent.
 
 Custom agents are a powerful new feature in GitHub Copilot that allow you to create specialized, autonomous AI assistants for specific development tasks. Unlike custom chat modes which modify how Copilot responds in chat, custom agents can take action on your behalf.
 
