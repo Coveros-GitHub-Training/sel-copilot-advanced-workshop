@@ -15,6 +15,9 @@ Through a series of guided, real-world exercises, you will learn how to:
 - Optimize GitHub Copilot performance using Custom Instructions and Prompt Files
 - Understand engineering best practices for AI-assisted development
 
+> [!IMPORTANT]
+> Throughout this lab you will work on a variety of tasks using your new best friend GitHub Copilot. At times there may be things that don't work as expected, and that's ok! Copilot is here to help in all aspects of our work. So if you encounter an issue while working through a lab try asking Copilot if it can help you solve the problem. Throw the error message into the chat, or link Copilot to an problem in the command line output. You might be surprised at the thing Copilot is able to help you solve.
+
 ## Welcome to PixelPerfect Gallery
 
 📸 **Your Mission: Build the perfect photo gallery experience!**
