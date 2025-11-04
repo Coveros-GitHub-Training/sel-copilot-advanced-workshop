@@ -42,7 +42,7 @@ Let's get started and create something beautiful! 📷
 
 The first thing to do is to make sure that you create your own copy of this repository so that you can keep all of the work you do in this training.
 
-The best option is to create a fork. Your SEL Training Org has a fork of this repo that you will want to use. This will enable you to get any updates that are made to the training materials after you create your copy.
+The best option is to create a fork. Your SEL Training Org has a fork of this repo that you will want to use. This will enable you to get any updates that are made to the training materials after you create your copy. Make sure that you set the SEL Training Organization as the owner of the repo so that you get all of the features for Copilot enabled.
 
 ### Option A: GitHub Codespaces (Recommended)
 
