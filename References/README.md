@@ -67,7 +67,6 @@ These reference materials are designed to:
 
 ## Related Labs
 
-- **All Labs**: Reference the [Glossary](Glossary.md) for terminology clarification
 - **Lab 4 - Engineering Practices**: References Premium Request Usage Guide and Copilot Instruction Best Practices
 - **Lab 5 - Enhancing Copilot**: References BeastMode configuration
 - **Lab 7 - Coding Agent**: References Coding Agent Best Practices Guide

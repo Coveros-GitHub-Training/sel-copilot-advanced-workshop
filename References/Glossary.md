@@ -254,7 +254,8 @@ A standardized protocol that allows AI assistants like Copilot to connect to ext
 
 **Where It's Used**: Labs 5-6  
 **Purpose**: Integrate external systems (GitHub, Slack, databases, etc.)  
-**Official Site**: https://github.com/modelcontextprotocol
+**Official Site**: https://github.com/modelcontextprotocol  
+**Server List**: https://github.com/modelcontextprotocol/servers
 
 ### MCP Server
 A service that implements the Model Context Protocol to expose data or functionality to AI assistants.
@@ -267,7 +268,8 @@ A service that implements the Model Context Protocol to expose data or functiona
 A centralized directory of available MCP servers that can be easily installed into your development environment.
 
 **Where It's Used**: Lab 5  
-**Location**: https://github.com/mcp  
+**Location**: https://github.com/mcp (GitHub's registry interface)  
+**Community List**: https://github.com/modelcontextprotocol/servers  
 **Purpose**: Discover and install MCP servers with one click
 
 ### GitHub MCP Server
