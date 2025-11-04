@@ -9,10 +9,10 @@ interface FeatureCard {
 
 export const featureCardsData: FeatureCard[] = [
   {
-    icon: Upload,
-    title: "Smart Upload",
-    description: "Drag & drop with automatic resizing and optimization",
-    iconColor: "text-blue-600"
+    icon: Users,
+    title: "Public Sharing",
+    description: "Create public portfolios with custom URLs",
+    iconColor: "text-purple-600"
   },
   {
     icon: Eye,
@@ -21,9 +21,9 @@ export const featureCardsData: FeatureCard[] = [
     iconColor: "text-green-600"
   },
   {
-    icon: Users,
-    title: "Public Sharing",
-    description: "Create public portfolios with custom URLs",
-    iconColor: "text-purple-600"
+    icon: Upload,
+    title: "Smart Upload",
+    description: "Drag & drop with automatic resizing and optimization",
+    iconColor: "text-blue-600"
   }
 ];

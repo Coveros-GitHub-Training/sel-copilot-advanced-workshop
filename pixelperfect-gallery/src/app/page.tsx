@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero Section */}
       <Hero 
         title="Professional Photo Gallery & Portfolio" 
-        description="Upload, organize, and share your photography with automatic optimization, tagging system, and client proofing capabilities."
+        description="Share your photography publicly and with clients using custom portfolios, client proofing, and smart upload capabilities."
       />
       
       {/* Feature Cards Section */}
