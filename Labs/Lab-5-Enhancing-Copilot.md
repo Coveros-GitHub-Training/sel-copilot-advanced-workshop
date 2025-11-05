@@ -647,6 +647,12 @@ The most effective way to use GitHub MCP is through natural conversation with Co
 
 Instead of explicitly calling `@github` or directly referencing a tool from the MCP, simply ask Copilot questions about your GitHub repositories in natural language. Copilot will automatically use the GitHub MCP tools when appropriate.
 
+> **Note:** Before testing out the MCP, ensure that you have Issues enabled in your repository
+>   - Go to `Settings` > `General`
+>   - Scroll to the `Features` section
+>   - Check the `Issues` box (enable it)
+>   - Return to the repository (refresh if needed) before proceeding
+
 **Examples of Effective Prompts:**
 
 **Finding Issues:**
