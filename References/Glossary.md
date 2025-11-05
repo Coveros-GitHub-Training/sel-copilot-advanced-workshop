@@ -134,8 +134,7 @@ A chat mode that shows you what changes Copilot would make without actually appl
 User-level configuration that defines how Copilot behaves across all repositories you work on. Set on github.com/copilot.
 
 **Access**: 
-- **GitHub.com**: Navigate to https://github.com/copilot → Scroll to "Personal instructions" section → Click "Edit"
-- **Alternative**: Click your profile icon (top-right) → "Settings" → "Copilot" (in sidebar) → Scroll to "Personal instructions"
+- **GitHub.com**: Navigate to https://github.com/copilot → Click on your profile icon in the bottom left corner → click "Personal instructions"
 
 **Location**: https://github.com/copilot (Personal instructions section)  
 **Scope**: All your repositories  
