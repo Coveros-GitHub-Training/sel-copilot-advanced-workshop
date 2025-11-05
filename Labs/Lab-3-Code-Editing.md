@@ -1,6 +1,6 @@
 # Exercise 3 - Code Editing and Generation with GitHub Copilot
 
-#### Duration: 30 minutes
+#### Duration: 40 minutes
 
 ## 🎯 Learning Objectives
 
