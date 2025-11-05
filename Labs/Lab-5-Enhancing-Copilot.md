@@ -160,9 +160,9 @@ Create a new file at `.github/prompts/generate-photo-component.prompt.md`
 ## 🎭 Step 2: Custom Chat Modes
 
 > [!IMPORTANT]
-> This functionality will soon be replaced by Custom Agents in VS Code and Codespaces, but is not yet currently the available. Custom Agents, as you'll see shortly, are implemented very similarly to Custom Chat Modes. Until the switch takes place using Custom Chat Modes is what you should use.
+> This functionality will soon be replaced by Custom Agents in VS Code and Codespaces, but is not yet currently available. Custom Agents, as you'll see shortly, are implemented very similarly to Custom Chat Modes. Until the switch takes place, using Custom Chat Modes is what you should use.
 
-Chat modes define how GitHub Copilot behaves for specialized workflows. Let's create a custom mode for super powered agnetic action.
+Chat modes define how GitHub Copilot behaves for specialized workflows. Let's create a custom mode for super-powered agnetic action.
 
 ### Step 2.1: Understanding Custom Chat Modes
 
