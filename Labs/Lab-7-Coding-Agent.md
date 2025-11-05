@@ -284,12 +284,17 @@ so that the gallery loads faster and is easier to navigate.
 Let's create a task for Copilot to work on autonomously.
 
 ### Instructions:
+1. Ensure that GitHub Issues are enabled for your repository. If you don't see an Issues tab or if accessing issues give you an error:
+   - Go to `Settings` > `General`
+   - Scroll to the `Features` section
+   - Check the `Issues` box (enable it)
+   - Return to the repository (refresh if needed) before proceeding
 
-1. **Navigate to Issues:**
+2. **Navigate to Issues:**
    - Go to the **Issues** tab in your GitHub repository
    - Click **"New Issue"** button
 
-2. **Create a well-defined issue:**
+3. **Create a well-defined issue:**
 
    **Title**: `Add photographer profile page`
 
@@ -319,9 +324,9 @@ Let's create a task for Copilot to work on autonomously.
    - [ ] Consistent with existing design system
    ```
 
-3. **Create the issue** by clicking "Create"
+4. **Create the issue** by clicking "Create"
 
-4. **Assign to Copilot:**
+5. **Assign to Copilot:**
    - In the issue sidebar, under **"Assignees"**, click the dropdown and select **"Copilot"**
    - In the popup:
      - Verify the target repository is correct
@@ -329,7 +334,7 @@ Let's create a task for Copilot to work on autonomously.
      - Select a custom agent if needed (feel free to use BeastMode if you'd like)
      - Click **"Assign"**
 
-5. **Observe the reaction:**
+6. **Observe the reaction:**
    - Copilot will add a 👀 emoji to indicate it's started working
    - A comment will appear showing Copilot is planning its approach
    - In the meantime continue on to learn about how to get the most out of CCA!
