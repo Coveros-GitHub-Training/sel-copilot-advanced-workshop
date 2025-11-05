@@ -220,6 +220,11 @@ Autonomous AI assistants with specialized instructions and capabilities that can
 ### BeastMode
 A community-created custom chat mode that combines multiple tools and capabilities for maximum AI power and flexibility, popularized by Burke Holland.
 
+**Access**: 
+- **Setup**: Add BeastMode configuration file to `.github/chatmodes/` directory in your repository
+- **Use in VS Code**: Click the mode selector dropdown at the top of the Copilot Chat panel → Select "BeastMode"
+- **Reference**: See [BeastMode.md](BeastMode.md) for setup instructions
+
 **Features**: Multi-tool access, comprehensive code search, web access  
 **Best For**: Complex problems requiring multiple capabilities
 
@@ -344,12 +349,20 @@ A service that implements the Model Context Protocol to expose data or functiona
 ### MCP Registry
 A centralized directory of available MCP servers that can be easily installed into your development environment.
 
+**Access**: 
+- **GitHub.com**: Navigate to https://github.com/mcp to browse the registry
+- **Community List**: Visit https://github.com/modelcontextprotocol/servers for community-maintained servers
+
 **Location**: https://github.com/mcp (GitHub's registry interface)  
 **Community List**: https://github.com/modelcontextprotocol/servers  
 **Purpose**: Discover and install MCP servers with one click
 
 ### GitHub MCP Server
 An MCP server that connects Copilot to GitHub's data, enabling queries about repositories, issues, pull requests, and more through natural conversation.
+
+**Access**: 
+- **Installation**: Add to your MCP configuration file (`.vscode/mcp.json`) or install via VS Code MCP extension
+- **Usage**: Once configured, use `@github` participant in Copilot Chat to access GitHub data
 
 **Capabilities**: Query issues, search repositories, analyze PRs, access organization data  
 **Installation**: Via MCP Registry or manual configuration
@@ -487,12 +500,19 @@ The percentage of your code that is executed by automated tests, indicating how 
 ### Acceptance Criteria
 Specific, measurable conditions that must be met for a feature or task to be considered complete.
 
-**Format**: Checklist in issue description  
+**Access**: 
+- **GitHub.com**: When creating or editing an issue, add acceptance criteria in the description using markdown checklist format
+- **Format**: Use `- [ ]` for each criterion in the issue description
+
 **Example**: "User can filter photos by category"  
 **Purpose**: Clear success metrics for Coding Agent
 
 ### Code Review
 The process of examining code changes to ensure quality, security, and adherence to standards before merging.
+
+**Access**: 
+- **GitHub.com**: Open a pull request → "Files changed" tab → Add comments on specific lines or use "Review changes" button
+- **With AI**: Assign `@copilot` as a reviewer for automated code review
 
 **Participants**: Humans and/or Code Review Agent  
 **Purpose**: Catch issues, improve quality, share knowledge
@@ -504,12 +524,20 @@ The process of examining code changes to ensure quality, security, and adherence
 ### `.github/copilot-instructions.md`
 The repository-level instructions file that guides Copilot's behavior for a specific project.
 
+**Access**: 
+- **Create/Edit**: In your IDE, create or open `.github/copilot-instructions.md` in the repository root
+- **Location**: Must be at the path `.github/copilot-instructions.md` (exact path required)
+
 **Format**: Markdown  
 **Contains**: Architecture patterns, coding standards, project context  
 **Scope**: Single repository
 
 ### `.github/prompts/*.prompt.md`
 Directory containing reusable prompt templates that can be invoked as slash commands.
+
+**Access**: 
+- **Create**: In your IDE, create the directory `.github/prompts/` and add files with `.prompt.md` extension
+- **Use**: Type `/` in Copilot Chat to see and select your custom prompts
 
 **Format**: Markdown with YAML frontmatter  
 **Naming**: `filename.prompt.md`  
@@ -518,6 +546,10 @@ Directory containing reusable prompt templates that can be invoked as slash comm
 ### `.github/chatmodes/*.chatmode.md`
 Directory containing custom chat mode definitions for specialized AI behaviors.
 
+**Access**: 
+- **Create**: In your IDE, create the directory `.github/chatmodes/` and add files with `.chatmode.md` extension
+- **Use**: Click the mode selector dropdown at the top of Copilot Chat panel to select your custom mode
+
 **Format**: Markdown with YAML frontmatter  
 **Naming**: `filename.chatmode.md`  
 **Usage**: Select from mode dropdown
@@ -525,12 +557,20 @@ Directory containing custom chat mode definitions for specialized AI behaviors.
 ### `.github/agents/*.agent.yml`
 Directory containing custom agent definitions for autonomous task execution.
 
+**Access**: 
+- **Create**: In your IDE, create the directory `.github/agents/` and add files with `.agent.yml` extension
+- **Use**: Available in agent selector when using Agent mode or when assigning work to Coding Agent
+
 **Format**: YAML with markdown instructions  
 **Naming**: `filename.agent.yml`  
 **Usage**: Select from agent dropdown or reference in assignments
 
 ### `.vscode/mcp.json`
 Repository-level MCP server configuration file.
+
+**Access**: 
+- **Create/Edit**: In your IDE, create or open `.vscode/mcp.json` in the repository root
+- **Location**: Must be at the path `.vscode/mcp.json` (exact path required)
 
 **Format**: JSON  
 **Contains**: Server definitions and configurations  
