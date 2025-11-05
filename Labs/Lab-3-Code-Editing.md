@@ -162,7 +162,7 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
 3. **Give Agent mode a clear task:**
    - Give Agent mode a prompt that clearly instructs it to add the `<footer>` section to our Gallery site. If you'd like an example of what this could look like see below
    - <details>
-      <summary>Example Prompt</summary>
+      <summary>Hint:</summary>
    
       Type the following prompt in the chat:
       ```
@@ -239,7 +239,7 @@ The gallery needs a "Featured Photos" section on the homepage that highlights se
    - Come up with a prompt that covers the core requirements listed above.
    - **Hint**: Using markdown format to create lists of requirements is a very effective method when working with AI
    - <details>
-      <summary>Example Prompt</summary>
+      <summary>Hint:</summary>
 
       Type the following prompt in the chat:
       ```
@@ -308,7 +308,7 @@ You want to add animations and improve the user experience for one of the compon
    - Add UI to show when image data is being loaded
    - Make improvements to mobile UI. We need to improve the way the images are shown and how you can navigate through them
    - <details>
-      <summary>Example Prompt</summary>
+      <summary>Hint:</summary>
 
       Type the following prompt in the chat:
       ```
@@ -332,7 +332,7 @@ You want to add animations and improve the user experience for one of the compon
    - Add loading indicators while data is being loaded
    - Add an animation for when the grid is ready and appears
    - <details>
-      <summary>Example Prompt</summary>
+      <summary>Hint:</summary>
 
       Type the following prompt in the chat:
       ```
