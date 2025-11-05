@@ -144,18 +144,18 @@ User-level configuration that defines how Copilot behaves across all repositorie
 Project-specific configuration that guides Copilot to follow your repository's patterns, conventions, and requirements.
 
 **Access**: 
-- **VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "Edit Repository Instructions" → This creates `.github/copilot-instructions.md` with template
-- **Alternative**: Manually create or edit `.github/copilot-instructions.md` in your repository root
+- **VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "Generate Chat Instructions" → This creates `.github/copilot-instructions.md` with instructions built for Copilot to read
+- **Alternative**: Manually create or edit `.github/copilot-instructions.md` in your repository
 
 **Location**: `.github/copilot-instructions.md`  
 **Scope**: Single repository  
 **Examples**: Architecture patterns, component structure, team coding standards
 
 ### Custom Instructions
-Specific instructions that cover things like language specific syntax standards or design patters that affect only certain file types. Use `applyTo` pattern logic to target specific file types.
+Specific instructions that cover things like language specific syntax standards or design patterns that affect only certain file types. Use `applyTo` pattern logic to target specific file types.
 
 **Access**: 
-- **VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "New Custom Instructions" → This creates a file in `.github/instructions/` with proper template and YAML frontmatter
+- **VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "Chat Instructions" → `New Instructions File` → `.github/instructions` → Enter the name you want for the instructions file → This creates a file in `.github/instructions/` with proper template and YAML frontmatter
 - **Alternative**: Manually create files in `.github/instructions/` directory with `.instructions.md` extension
 
 **Location**: `.github/instructions/*.instructions.md`  
@@ -164,10 +164,6 @@ Specific instructions that cover things like language specific syntax standards 
 
 ### Organization Instructions
 Company-wide standards set by organization administrators that apply to all repositories in the organization.
-
-**Access**: 
-- **GitHub.com** (Org Admins only): Organization settings → "Copilot" → "Instructions" section
-- **Path**: Navigate to `https://github.com/organizations/{your-organization}/settings/copilot/instructions`
 
 **Set By**: Organization administrators  
 **Scope**: All organization repositories  
@@ -182,7 +178,7 @@ The priority order when multiple instruction levels exist: Personal (highest) �
 Reusable, parameterized templates for common AI interactions that can be invoked with a slash command.
 
 **Access**: 
-- **Create in VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "New Prompt" → This creates a file in `.github/prompts/` with proper template and YAML frontmatter
+- **Create in VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "Prompt Files" → `New Prompt File` → `.github/prompts` → Enter the name you want for the prompt file → This creates a file in `.github/prompts/` with proper template and YAML frontmatter
 - **Use**: Type `/` in Copilot Chat → Select your custom prompt from the list
 - **Alternative**: Manually create files in `.github/prompts/` directory with `.prompt.md` extension
 
@@ -190,23 +186,23 @@ Reusable, parameterized templates for common AI interactions that can be invoked
 **Format**: Markdown with YAML frontmatter  
 **Examples**: `/generate-mock-photo-data`, `/generate-new-ui`
 
-### Custom Chat Modes
-Specialized AI personas created for specific workflows, with custom instructions and tool configurations. Only effective from within the IDE.
+~~### Custom Chat Modes~~
+~~Specialized AI personas created for specific workflows, with custom instructions and tool configurations. Only effective from within the IDE.~~
 
-**Access**: 
-- **Create in VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "New Chat Mode" → This creates a file in `.github/chatmodes/` with proper template and YAML frontmatter
-- **Use**: Click the mode selector dropdown at the top of the Copilot Chat panel → Select your custom chat mode
-- **Alternative**: Manually create files in `.github/chatmodes/` directory with `.chatmode.md` extension
+~~**Access**:~~
+~~- **Create in VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "Modes" → `New Chat mode` → `.github/chatmodes` → Enter the name you want for the chat mode file → This creates a file in `.github/chatmodes/` with proper template and YAML frontmatter~~
+~~- **Use**: Click the mode selector dropdown at the top of the Copilot Chat panel → Select your custom chat mode~~
+~~- **Alternative**: Manually create files in `.github/chatmodes/` directory with `.chatmode.md` extension~~
 
-**Location**: `.github/chatmodes/*.chatmode.md`  
-**Format**: Markdown with YAML frontmatter  
-**Examples**: BeastMode, Security Review Mode, Documentation Mode
+~~**Location**: `.github/chatmodes/*.chatmode.md`~~
+~~**Format**: Markdown with YAML frontmatter~~
+~~**Examples**: BeastMode, Security Review Mode, Documentation Mode~~
 
 ### Custom Agents
 Autonomous AI assistants with specialized instructions and capabilities that can be used in the IDE, CLI, or with Coding Agent.
 
 **Access**: 
-- **Create in VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "New Agent" → This creates a file in `.github/agents/` with proper template in YAML format
+- **Create in VS Code**: Open Copilot Chat panel → Click the settings gear icon (⚙️) at the top → Select "Custom Agents" → `New Custom Agent` → `.github/agents` → Enter the name you want for the custom agent file (**Note**The name of the file is not the name of the agent in the drop down. That is controllled by the `Name` field in the file) → This creates a file in `.github/agents/` with proper template in YAML format
 - **Use in IDE**: In Agent mode, custom agents are available in the agent selector
 - **Use with Coding Agent**: Reference agent in issue assignment or through GitHub.com interface
 - **Alternative**: Manually create files in `.github/agents/` directory with `.agent.yml` extension
@@ -216,17 +212,6 @@ Autonomous AI assistants with specialized instructions and capabilities that can
 **Usage**: Select from agent dropdown or reference in agent assignments  
 **Scope**: IDE, CLI, and Coding Agent  
 **Examples**: C# Expert agent, Testing agent, Security agent
-
-### BeastMode
-A community-created custom chat mode that combines multiple tools and capabilities for maximum AI power and flexibility, popularized by Burke Holland.
-
-**Access**: 
-- **Setup**: Add BeastMode configuration file to `.github/chatmodes/` directory in your repository
-- **Use in VS Code**: Click the mode selector dropdown at the top of the Copilot Chat panel → Select "BeastMode"
-- **Reference**: See [BeastMode.md](BeastMode.md) for setup instructions
-
-**Features**: Multi-tool access, comprehensive code search, web access  
-**Best For**: Complex problems requiring multiple capabilities
 
 ---
 
