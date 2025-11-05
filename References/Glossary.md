@@ -217,12 +217,12 @@ Autonomous AI assistants with specialized instructions and capabilities that can
 
 ## Coding Agent & Autonomous Development
 
-### Coding Agent (GitHub Copilot Coding Agent)
+### Coding Agent (GitHub Copilot Coding Agent or CCA)
 An autonomous AI developer that works on GitHub issues independently, creating pull requests without human intervention during implementation.
 
 **Access**: 
 - **GitHub.com**: Open an issue → Click "Assignees" on the right sidebar → Type and select `@copilot`
-- **Alternative**: In the issue, type `@copilot` in a comment to ask it to work on the issue
+- **Alternative**: In a PR, type `@copilot` in a comment to ask it to work on the PR
 
 **Location**: GitHub.com (issues and pull requests)  
 **Assignment**: Assign GitHub issue to `@copilot`  
@@ -243,20 +243,19 @@ An AI agent that automatically reviews pull requests and provides inline comment
 
 **Access**: 
 - **GitHub.com**: Open a pull request → Click "Reviewers" on the right sidebar → Type and select `@copilot`
-- **Alternative**: In PR comments, mention `@copilot please review this PR`
 
 **Assignment**: Assign `@copilot` as a reviewer on any PR  
 **Output**: Inline comments and summary of findings  
 **Checks**: Security, performance, test coverage, accessibility, style
 
 ### Draft Pull Request
-A work-in-progress pull request that Coding Agent creates while working on an issue. Marked as "Draft" until the agent completes its work.
+A work-in-progress pull request that Coding Agent creates while working on an issue. Once the work is complete CCA will notify you that it is ready for your review. You will need to mark the PR as ready before it can be merged in. The button `Ready For Review` can be found to the right of where the merge button is located. 
 
 **Access**: 
 - **GitHub.com**: Navigate to the repository → "Pull requests" tab → Look for draft PRs created by Copilot
 - **From Issue**: Click the PR link that appears in the issue timeline when Copilot starts working
 
-**Status**: Automatically changes to "Ready for review" when complete  
+~~**Status**: Automatically changes to "Ready for review" when complete~~
 **Purpose**: Shows progress and allows early feedback
 
 ### Session Steering
