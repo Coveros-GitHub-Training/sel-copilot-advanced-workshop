@@ -161,10 +161,9 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
 
 3. **Give Agent mode a clear task:**
    - Give Agent mode a prompt that clearly instructs it to add the `<footer>` section to our Gallery site. If you'd like an example of what this could look like see below
-
-   <details>
+   - <details>
       <summary>Example Prompt</summary>
-
+   
       Type the following prompt in the chat:
       ```
       Create a footer component for this application and integrate it into the main layout.
@@ -182,6 +181,7 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
       ```
 
    </details>
+   
 
 4. **Watch Agent mode work:**
    - Agent mode will create the Footer component file
@@ -235,30 +235,38 @@ The gallery needs a "Featured Photos" section on the homepage that highlights se
    - Open `pixelperfect-gallery/src/lib/mock-photo-data.ts` (to see data structure)
 
 2. **Prompt Agent mode with the complete requirement:**
-   
-   ```
-   Create a Featured Photos section for the homepage.
-   
-   Tasks:
-   1. Create a new FeaturedSection.tsx component in pixelperfect-gallery/src/components/gallery/
-   2. The component should display 3 featured photos in a hero-style layout
-   3. Add a "featured" boolean field to the Photo type in pixelperfect-gallery/src/lib/mock-photo-data.ts
-   4. Update the mock data to mark 3 photos as featured
-   5. Import and add FeaturedSection to the home page (src/app/page.tsx) after the Hero component
-   6. Use existing components like SectionContainer and SectionTitle for consistency
-   7. Style with Tailwind CSS and include dark mode support
-   8. Make it responsive (different layouts for mobile/desktop)
-   
-   Follow patterns from GalleryGrid.tsx and other components.
-   ```
 
-3. **Monitor the implementation:**
+   - Come up with a prompt that covers the core requirements listed above.
+   - **Hint**: Using markdown format to create lists of requirements is a very effective method when working with AI
+   - <details>
+      <summary>Example Prompt</summary>
+
+      Type the following prompt in the chat:
+      ```
+      Create a Featured Photos section for the homepage.
+      
+      Tasks:
+      1. Create a new FeaturedSection.tsx component in pixelperfect-gallery/src/components/gallery/
+      2. The component should display 3 featured photos in a hero-style layout
+      3. Add a "featured" boolean field to the Photo type in pixelperfect-gallery/src/lib/mock-photo-data.ts
+      4. Update the mock data to mark 3 photos as featured
+      5. Import and add FeaturedSection to the home page (src/app/page.tsx) after the Hero component
+      6. Use existing components like SectionContainer and SectionTitle for consistency
+      7. Style with Tailwind CSS and include dark mode support
+      8. Make it responsive (different layouts for mobile/desktop)
+      
+      Follow patterns from GalleryGrid.tsx and other components.
+      ```
+   
+      </details>
+
+4. **Monitor the implementation:**
    - Watch as Agent mode creates the component
    - See it update the data structure and mock data
    - Observe it integrate everything into the home page
    - Check that it follows existing patterns
 
-4. **Review and test:**
+5. **Review and test:**
    - Check each modified/created file
    - Verify TypeScript types are consistent
    - Test the homepage at [http://localhost:3000](http://localhost:3000)
@@ -295,45 +303,65 @@ You want to add animations and improve the user experience for one of the compon
    Agent mode remembers your previous conversation, so you can build on it:
    
    **If enhancing FeaturedSection from Step 3:**
-   ```
-   Enhance the FeaturedSection component we just created:
-   
-   Improvements:
-   1. Add smooth fade-in animations using Framer Motion (already installed)
-   2. Add hover effects on featured photos (scale and shadow)
-   3. Include a "View Gallery" call-to-action button at the bottom
-   4. Add loading states for when data is being fetched
-   5. Improve the mobile layout to show 1 photo at a time in a carousel style
-   
-   Use the patterns from other components that use Framer Motion.
-   ```
+   - Add animations to the featured section (fade-in, hover effects, particle effects, etc.)
+   - Add a View Gallery button
+   - Add UI to show when image data is being loaded
+   - Make improvements to mobile UI. We need to improve the way the images are shown and how you can navigate through them
+   - <details>
+      <summary>Example Prompt</summary>
+
+      Type the following prompt in the chat:
+      ```
+      Enhance the FeaturedSection component we just created:
+      
+      Improvements:
+      1. Add smooth fade-in animations using Framer Motion (already installed)
+      2. Add hover effects on featured photos (scale and shadow)
+      3. Include a "View Gallery" call-to-action button at the bottom
+      4. Add loading states for when data is being fetched
+      5. Improve the mobile layout to show 1 photo at a time in a carousel style
+      
+      Use the patterns from other components that use Framer Motion.
+      ```
+      
+      </details>
    
    **If enhancing GalleryGrid instead:**
-   ```
-   Enhance the GalleryGrid component in pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx:
-   
-   Improvements:
-   1. Add smooth fade-in animations when photos load using Framer Motion
-   2. Add hover effects on photos (scale and shadow)
-   3. Improve the mobile layout with better spacing
-   4. Add loading skeletons while photos are being fetched
-   5. Add a subtle entrance animation when the grid appears
-   
-   Use the patterns from other components that use Framer Motion.
-   ```
+   - Add animations to the featured section (fade-in, hover effects, shadowing, etc.)
+   - Improve the mobile layout
+   - Add loading indicators while data is being loaded
+   - Add an animation for when the grid is ready and appears
+   - <details>
+      <summary>Example Prompt</summary>
 
-3. **Review agent modes changes:**
+      Type the following prompt in the chat:
+      ```
+      Enhance the GalleryGrid component in pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx:
+      
+      Improvements:
+      1. Add smooth fade-in animations when photos load using Framer Motion
+      2. Add hover effects on photos (scale and shadow)
+      3. Improve the mobile layout with better spacing
+      4. Add loading skeletons while photos are being fetched
+      5. Add a subtle entrance animation when the grid appears
+      
+      Use the patterns from other components that use Framer Motion.
+      ```
+      
+   </details>
+
+4. **Review agent modes changes:**
    - Agent mode will show what files it modifies as it works
    - Depending on which file you selected, verify that it updates that file
    - You should see new imports for Framer Motion
    - Accept the changes
 
-4. **Test the improvements:**
+5. **Test the improvements:**
    - Refresh the browser and observe the animations
    - Hover over photos to see the effects
    - Resize the browser to see responsive behavior
 
-5. **Request additional refinements if needed:**
+6. **Request additional refinements if needed:**
    
    You can continue the conversation:
    ```
@@ -346,7 +374,7 @@ You want to add animations and improve the user experience for one of the compon
    ```
 
    OR:
-   Have Copilot refine the changes to what you think will look best. There's no wrong answers!
+   Have Copilot refine the changes to what you think will look best. There are no wrong answers!
 
 ### 💡 Benefits of Iterating with Agent Mode:
 
