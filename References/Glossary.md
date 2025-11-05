@@ -346,7 +346,7 @@ An MCP server that connects Copilot to GitHub's data, enabling queries about rep
 
 **Access**: 
 - **Installation**: Add to your MCP configuration file (`.vscode/mcp.json`) or install via VS Code MCP extension
-- **Usage**: Once configured, use `@github` participant in Copilot Chat to access GitHub data
+- **Usage**: Once configured, ask Copilot questions about Issues/PRs/Spaces/Etc.
 
 **Capabilities**: Query issues, search repositories, analyze PRs, access organization data  
 **Installation**: Via MCP Registry or manual configuration
@@ -381,7 +381,7 @@ AI models that count against your monthly request allowance. Generally more powe
 AI models with unlimited usage that don't count against your premium request allowance. Optimized for common tasks.
 
 **Examples**: Base GPT models, standard Claude models  
-**Cost**: Unlimited, no request counting
+**Cost**: Unlimited
 
 ### Auto Model Selection
 A feature that automatically selects the most appropriate AI model for your task while providing a 10% discount on premium requests.
@@ -393,6 +393,7 @@ A feature that automatically selects the most appropriate AI model for your task
 Tracking and management of your monthly allowance of premium model requests.
 
 **Access**: 
+- **VS Code**: Hover over the Copilot icon to see a popup detailing Premium Request Usage (this defaults to the bottom right corner of the window)
 - **GitHub.com**: Navigate to https://github.com/settings/copilot → View "Premium requests" section
 - **Alternative**: Profile icon (top-right) → "Settings" → "Copilot" → Scroll to usage metrics
 
