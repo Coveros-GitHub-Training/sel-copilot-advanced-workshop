@@ -63,7 +63,6 @@ Special commands in Copilot Chat that start with `/` and trigger specific AI beh
 - **VS Code**: Type `/` in the Copilot Chat panel or Inline Chat
 - **GitHub.com**: Type `/` in the Copilot Chat interface
 
-**Where It's Used**: Lab 2  
 **Examples**: 
 - `/explain` - Explain selected code
 - `/fix` - Suggest fixes for problems
