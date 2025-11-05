@@ -169,7 +169,7 @@ Company-wide standards set by organization administrators that apply to all repo
 
 **Access**: 
 - **GitHub.com** (Org Admins only): Organization settings → "Copilot" → "Instructions" section
-- **Path**: Navigate to `https://github.com/organizations/YOUR-ORG/settings/copilot/instructions`
+- **Path**: Navigate to `https://github.com/organizations/{your-organization}/settings/copilot/instructions`
 
 **Set By**: Organization administrators  
 **Scope**: All organization repositories  
@@ -433,7 +433,7 @@ The ability to select different AI models for different tasks based on their str
 A transparency feature that shows exactly what context, prompts, and system instructions Copilot is using for its responses.
 
 **Access**: 
-- **VS Code**: Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac) → Type "Copilot Chat Debug" → Select "Copilot Chat Debug: Focus on Copilot Chat Debug View"
+- **VS Code**: Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac) → Type "Copilot Chat Debug" → Select the command "Copilot Chat Debug: Focus on Copilot Chat Debug View"
 - **Alternative**: View menu → Open View → Search for "Copilot Chat Debug"
 
 **Shows**: Prompts, system instructions, context files, token usage  
