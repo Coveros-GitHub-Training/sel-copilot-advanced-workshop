@@ -180,7 +180,7 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
       Follow the patterns used in other layout components like Hero.tsx.
       ```
 
-   </details>
+     </details>
    
 
 4. **Watch Agent mode work:**
