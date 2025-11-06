@@ -463,7 +463,7 @@ Let's build a social sharing feature using **Copilot Agent mode in VS Code** whi
 5. **Let Agent Mode Work**:
    - Copilot Agent will propose changes across multiple files
    - Review the proposed changes in the chat panel
-   - Click **"Apply"** to accept the changes
+   - Click **"Keep"** to accept the changes
 
 6. **Debug and Refine** (Important Learning!):
    - Try to run the app: `npm run dev` in the terminal
@@ -472,14 +472,13 @@ Let's build a social sharing feature using **Copilot Agent mode in VS Code** whi
      I'm getting an error: [paste error here]
      Please help me fix it.
      ```
-   - Work through any issues with Copilot's help
+   - Work through any issues with Copilot's help. As this is just a training workshop, it's totally fine if you aren't able to get things fully implemented. The goal is to learn with Agent mode and have Copilot help resolve issues that come up.
    - This simulates real development where you encounter and solve problems
 
 7. **Test Your Changes**:
    - Navigate to the gallery page
    - Verify the share buttons appear on photo cards
    - Test the different share options
-   - Check mobile responsiveness
 
 ### 💡 Debugging Tips
 
