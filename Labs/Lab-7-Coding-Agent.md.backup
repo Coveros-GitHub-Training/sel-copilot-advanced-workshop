@@ -998,6 +998,259 @@ around the data fetching logic.
 - ❌ Blindly accept all Code Review agent suggestions
 - ❌ Skip manual verification of critical changes
 
+## 🔄 Step 4: Iterate with Copilot (Optional)
+
+If you requested changes on either PR, Copilot can address your feedback autonomously while continuing to work on the other PR!
+
+### Instructions:
+
+1. **Leave specific feedback** on either or both PRs:
+
+   **For the Login Page:**
+   ```markdown
+   @copilot Please add basic form validation messages that appear 
+   when fields are empty.
+   ```
+
+   **For the Profile Page:**
+   ```markdown
+   @copilot Can you add a loading state skeleton while the profile 
+   data is being loaded?
+   ```
+
+2. **Copilot will respond on each PR:**
+   - Address your comments independently
+   - Make additional commits on each branch
+   - Update each PR separately
+
+3. **Review the iterations:**
+   - Check that your feedback was addressed on each PR
+   - Review the new changes on both
+   - Notice how changes on one PR don't affect the other
+
+4. **Merge when satisfied:**
+   - For each PR independently:
+     - Click **"Ready for review"** if still in draft
+     - Approve the PR
+     - Merge using your preferred strategy
+   - **Pro Tip**: You can merge one PR while still iterating on the other!
+
+### 🎯 Understanding Independent Parallel Work
+
+Notice that:
+- Each PR can be reviewed and merged independently
+- Feedback on one doesn't slow down the other
+- You can approve/merge the login page while still refining the profile page
+- This flexibility is key to maintaining velocity with multiple tasks
+
+## 💬 Requesting Changes on Pull Requests
+
+One of Copilot's most powerful features is the ability to request changes on **any** pull request by mentioning `@copilot` in a comment - whether the PR was created by Copilot itself or by you or another developer.
+
+### How It Works
+
+**On Copilot-Created PRs:**
+When Copilot opens a PR for an issue, you can request modifications by commenting:
+
+```markdown
+@copilot Please add error handling for network failures 
+following the pattern in @pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx
+```
+
+**On Human-Created PRs:**
+You can also assign Copilot to make changes to PRs created by you or your teammates:
+
+```markdown
+@copilot Please refactor this component to use TypeScript 
+and follow our component patterns in @pixelperfect-gallery/src/components/ui/
+```
+
+### Best Practices for PR Comments
+
+**Be Specific:**
+❌ `@copilot fix this`
+✅ `@copilot add TypeScript types to all function parameters`
+
+**Reference Examples:**
+❌ `@copilot make it better`
+✅ `@copilot follow the styling pattern in @pixelperfect-gallery/src/components/ui/layout/Hero.tsx`
+
+**Provide Context:**
+❌ `@copilot add tests`
+✅ `@copilot add unit tests for the upload validation logic, similar to tests in @pixelperfect-gallery/src/components/gallery/GalleryGrid.test.tsx`
+
+### Documentation
+
+For more details, see: [Make Changes to an Existing PR](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/make-changes-to-an-existing-pr)
+
+## 🎯 Step 5: Complete Feature Development Workflow
+
+Now that we've learned about how we can use the different Copilot agents to boost our development level let's walk through a complete, real-world scenario that combines all the concepts you've learned. This demonstrates the full power of using Coding Agent with Code Review agent and iterative refinement.
+
+### Scenario: Implement Photo Filtering Feature
+
+In this exercise, you'll:
+1. Have Copilot Coding Agent implement a new feature
+2. Use Code Review agent to analyze the implementation
+3. Conduct your own manual review
+4. Combine all findings and provide feedback to Copilot
+5. Iterate until the feature is complete and ready to merge
+
+### Part 1: Feature Implementation
+
+**1. Create a new issue:**
+
+**Title**: `Add category filter to gallery page`
+
+**Description**:
+```markdown
+## User Story
+As a gallery user, I want to filter photos by category 
+so that I can quickly find photos in specific categories.
+
+## Requirements
+- Add a filter dropdown above the gallery grid
+- Categories: All, Nature, Urban, Portrait, Abstract
+- Filter updates the displayed photos immediately
+- Maintain responsive design
+- Follow existing component patterns
+
+## Acceptance Criteria
+- [ ] Filter dropdown displays all categories
+- [ ] Selecting a category filters the photos
+- [ ] "All" shows all photos
+- [ ] Mobile responsive
+- [ ] Follows Tailwind CSS patterns
+- [ ] TypeScript types properly defined
+
+## Technical Notes
+- Reference existing GalleryGrid component
+- Use mock data categories from @pixelperfect-gallery/src/lib/mock-photo-data.ts
+- Follow styling patterns in @pixelperfect-gallery/src/components/ui/
+```
+
+**2. Assign to @copilot:**
+- Click "Assign to Copilot" in the issue sidebar
+- Verify repository and base branch
+- Wait for Copilot to start (👀 emoji)
+
+**3. Monitor progress:**
+- Watch for the PR creation
+- Check session logs periodically
+- Let Copilot complete the work (~10-15 minutes)
+
+### Part 2: Code Review Agent + Manual Review
+
+Once Copilot marks the PR as ready for review:
+
+**4. Invoke Code Review Agent:**
+- Navigate to the PR
+- Click "Review with Copilot"
+- Review the automated findings
+
+**5. Conduct your own manual review:**
+Check the "Files changed" tab and look for:
+
+**Code Quality:**
+- Are components properly structured?
+- Is the code readable and maintainable?
+- Are there any obvious bugs?
+
+**TypeScript:**
+- Are types properly defined?
+- Any `any` types that should be more specific?
+- Props interfaces complete?
+
+**Design Patterns:**
+- Does it follow existing patterns?
+- Is Tailwind CSS used correctly?
+- Dark mode support included?
+
+**Functionality:**
+- Does it meet all acceptance criteria?
+- Edge cases handled?
+- Error states considered?
+
+**Testing:**
+- Are tests included?
+- Do tests cover the main functionality?
+- Any missing test cases?
+
+### Part 3: Combine Findings and Provide Feedback
+
+**6. Create a comprehensive feedback comment:**
+
+Combine the Code Review agent's findings with your own observations. For example:
+
+```markdown
+@copilot Thank you for the implementation! I've reviewed the code along 
+with the Code Review agent's findings. Please address the following:
+
+**From Code Review Agent:**
+1. Add error handling for when no photos match the filter
+2. The filter state should be lifted to avoid prop drilling
+
+**From My Review:**
+3. Please add a visual indicator showing the active filter
+4. The dropdown should show photo counts per category (e.g., "Nature (12)")
+5. Add keyboard navigation support for accessibility
+6. Include a "Clear filter" option when a category is selected
+
+**Additional Requests:**
+7. Add unit tests for the filter logic
+8. Update the component documentation
+
+Please reference the existing filter pattern in 
+@pixelperfect-gallery/src/components/ui/ for styling consistency.
+```
+
+**7. Wait for Copilot to address feedback:**
+- Copilot will read your comment
+- Make the requested changes
+- Commit updates to the PR
+- Usually takes 5-10 minutes
+
+### Part 4: Second Review and Iteration
+
+**8. Review the updates:**
+- Check that all feedback items were addressed
+- Look at the new commits
+- Test the changes if possible
+
+**9. If more changes needed:**
+Add another comment with specific requests:
+
+```markdown
+@copilot Great improvements! Two more small items:
+
+1. The photo count in the dropdown is showing undefined for "Abstract" 
+   category - please fix
+2. Can you add a smooth transition animation when the filter changes?
+
+Reference the animation patterns in @pixelperfect-gallery/src/components/gallery/
+```
+
+**10. Continue iterating until satisfied**
+
+### Part 5: Final Approval and Merge
+
+**11. When all requirements are met:**
+- Leave an approving review
+- Add a final comment: "Looks great! Ready to merge."
+- Merge the PR
+
+**12. Verify the issue is automatically closed**
+
+### 💡 Key Takeaways from This Workflow
+
+This complete workflow demonstrates:
+
+✅ **AI-Augmented Development**: Copilot handles implementation while you focus on requirements and quality
+✅ **Dual Review Process**: Code Review agent catches common issues; you focus on business logic and design
+✅ **Iterative Refinement**: Multiple feedback rounds improve quality without manual coding
+✅ **Efficient Collaboration**: Clear, specific feedback gets results faster
+✅ **Quality Assurance**: Human oversight ensures the final product meets all standards
+
 ## 🎁 Optional: Scale Your Parallel Development
 
 Now that you've experienced parallel development with two tasks, want to push it further? Let's delegate additional tasks and truly experience working like a tech lead!
@@ -1099,7 +1352,7 @@ Title: Create README for login and profile features
 
 This is the transformational benefit of Coding Agent - your capacity is no longer limited by your personal coding time!
 
-## 🌐 Step 7: Alternative Ways to Work with Coding Agent
+## 🌐 Step 6: Alternative Ways to Work with Coding Agent
 
 There are multiple ways to interact with Coding Agent beyond the GitHub Issues UI.
 
@@ -1224,17 +1477,15 @@ Now that you've learned the fundamentals of GitHub Copilot Coding Agent, you're 
 ### 🎉 Congratulations!
 
 You've completed the Coding Agent lab! You now understand:
-- ✅ How to create and assign issues to Copilot for autonomous development
-- ✅ **How to work on other tasks while CCA runs** - eliminating idle time!
-- ✅ How to monitor CCA progress through session logs
-- ✅ How to review and request changes on CCA pull requests
-- ✅ **How to scale to multiple parallel tasks** for 2-3x productivity gains
-- ✅ How to use Code Review agent to accelerate reviews
-- ✅ How to manage multiple concurrent PRs efficiently
+- ✅ How to create and assign multiple issues to Copilot in parallel
+- ✅ How to monitor and guide autonomous development across multiple tasks
+- ✅ How to use Code Review agent effectively
+- ✅ How to iterate and provide feedback using @copilot
+- ✅ The complete feature development workflow
+- ✅ **The power of parallel development** - the biggest benefit of CCA!
+- ✅ How to achieve 3-4x productivity gains through simultaneous task delegation
 - ✅ Best practices and when to use Coding Agent
 
-**Key Insight**: You experienced the transformational power of autonomous parallel development. While Coding Agent built the profile page on GitHub, you built the social sharing feature in your IDE—two features progressing simultaneously with zero idle time. Then you scaled further with multiple parallel tasks. This isn't just about coding faster—it's about fundamentally multiplying your development capacity.
-
-**Real-World Impact**: The workflow you just learned can turn a 2-3 hour solo coding session into a 60-minute session with multiple features complete. By delegating routine implementations to CCA while you focus on complex work (or even strategic activities like planning and reviews), you've unlocked a new level of productivity.
+**Key Insight**: You just experienced the transformational shift from sequential development to parallel development. By assigning multiple tasks to Copilot simultaneously, you've seen firsthand how CCA multiplies your development capacity. This isn't just about writing code faster - it's about fundamentally changing how development teams operate and scale.
 
 **Welcome to AI-augmented parallel development! 🚀**
