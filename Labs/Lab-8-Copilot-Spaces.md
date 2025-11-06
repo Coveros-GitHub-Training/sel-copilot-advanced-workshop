@@ -1,4 +1,4 @@
-# Exercise 6 - GitHub Copilot Spaces
+# Exercise 8 - GitHub Copilot Spaces
 
 #### Duration: 30 minutes
 
@@ -333,7 +333,7 @@ As you create more Spaces, organization becomes important.
 
 ## 🔌 Step 4: Using Spaces from Your IDE with GitHub MCP
 
-Now that you've created and worked with Spaces in the browser, let's integrate them into your daily workflow by accessing them directly from VS Code using the GitHub MCP server you configured in Lab 5.
+Now that you've created and worked with Spaces in the browser, let's integrate them into your daily workflow by accessing them directly from VS Code using the GitHub MCP server you configured in Lab 7.
 
 ### Why Use Spaces from Your IDE?
 
@@ -345,7 +345,7 @@ Accessing Copilot Spaces through the GitHub MCP server in your IDE provides:
 
 ### Prerequisites:
 
-Ensure you completed Lab 5 and have the GitHub MCP server configured in VS Code. If not, refer back to [Lab 5 - Step 4.2](Lab-5-Enhancing-Copilot.md#step-41-getting-the-github-mcp-server-up-and-running) for setup instructions.
+Ensure you completed Lab 7 and have the GitHub MCP server configured in VS Code. If not, refer back to [Lab 7 - Step 2](Lab-7-Model-Context-Protocol.md#step-2-installing-the-github-mcp-server) for setup instructions.
 
 ### Step 4.1: Access Your Spaces via MCP
 

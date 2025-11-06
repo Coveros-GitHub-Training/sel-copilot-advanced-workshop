@@ -68,8 +68,8 @@ These reference materials are designed to:
 ## Related Labs
 
 - **Lab 4 - Engineering Practices**: References Premium Request Usage Guide and Copilot Instruction Best Practices
-- **Lab 5 - Enhancing Copilot**: References BeastMode configuration
-- **Lab 7 - Coding Agent**: References Coding Agent Best Practices Guide
+- **Lab 6 - Custom Chat Modes and Custom Agents**: References BeastMode configuration
+- **Lab 9 - Coding Agent**: References Coding Agent Best Practices Guide
 
 ---
 
