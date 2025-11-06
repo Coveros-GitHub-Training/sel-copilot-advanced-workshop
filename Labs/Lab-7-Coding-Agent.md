@@ -83,8 +83,7 @@ This allows you to:
 - **Work in parallel**: Code one feature while CCA handles another simultaneously
 - **Eliminate wait time**: Never sit idle waiting for CI/CD or build processes
 - **Focus on what you enjoy**: Delegate routine tasks, keep interesting ones
-- **Multiply capacity**: Double (or more) your throughput without working harder
-- **Stay in flow**: No context switching—CCA handles one track, you handle another
+- **Stay in flow**: Limit context switching—CCA handles one track, you handle another
 
 ### 💡 When to Use Coding Agent
 
@@ -94,7 +93,7 @@ This allows you to:
    "Add search filter to gallery page"
    
 ✅ Bug fixes with clear reproduction steps
-   "Fix sorting issue in photo grid"
+   "Fix sorting issue in photo grid..."
    
 ✅ Test coverage improvements
    "Add tests for PhotoCard component"
