@@ -472,7 +472,7 @@ Let's build a social sharing feature using **Copilot Agent mode in VS Code** whi
      I'm getting an error: [paste error here]
      Please help me fix it.
      ```
-   - Work through any issues with Copilot's help. As this is just a training workshop, it's totally fine if you aren't able to get things fully implemented. The goal is to learn with Agent mode and have Copilot help resolve issues that come up.
+   - Work through any issues with Copilot's help. **As this is just a training workshop, it's totally fine if you aren't able to get things fully implemented. The goal is to learn with Agent mode and have Copilot help resolve issues that come up.**
    - This simulates real development where you encounter and solve problems
 
 7. **Test Your Changes**:
