@@ -557,7 +557,7 @@ Now let's see what Coding Agent has accomplished while you were working on the s
 
 ### 💡 Reflection: What Just Happened?
 
-**Timeline Recap:**
+**Timeline Recap (Timeline is just an example):**
 ```
 9:00 AM  - You assigned profile page to Coding Agent
 9:02 AM  - You started building social sharing in IDE
@@ -571,7 +571,7 @@ Results:
 ✅ Your idle time: ZERO
 ```
 
-**Versus Traditional Sequential Development:**
+**Versus Traditional Sequential Development (Timeline is still just an example):**
 ```
 9:00 AM  - Start building profile page manually
 9:30 AM  - Finish profile page
