@@ -190,7 +190,7 @@ Find examples of authentication middleware in my organization's repos
 ```
 or
 ```
-How do other projects in my org handle error logging?
+How do other repos in my org handle error logging?
 ```
 
 ### Step 4.3: Observe MCP in Action
