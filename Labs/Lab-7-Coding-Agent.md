@@ -612,7 +612,7 @@ Let's practice the review and iteration workflow. Even if the PR looks good, req
 
 1. **Leave a Review Comment on the PR**:
    
-   In the PR, add a comment (you don't need to tag @copilot for this—Copilot automatically monitors its PRs):
+   In the PR, add a comment (Make sure you tag @copilot so Copilot will know to pick up this comment as a request for work):
    
    ```markdown
    This looks great! Can you make the following improvements:
@@ -1068,7 +1068,7 @@ Title: Create README for login and profile features
 **Expected Outcome:**
 - All four tasks complete in ~15-20 minutes total
 - Sequential development would take 60-80 minutes
-- You've just experienced a **4x productivity multiplier**!
+- You've just experienced a **4x productivity multiplier** with Copilot Coding Agent alone!
 
 ### Pro Tips for Scaling Parallel Development:
 
@@ -1135,6 +1135,9 @@ gh agent-task create --title "Your task title" --body "Task description"
 
 ## ⚠️ Best Practices and Limitations
 
+> [!IMPORTANT]
+> Just because you can delegate several tasks to Copilot Coding Agent at the same time does not mean you always should or need to. Like with all things moderation is key. Strive to ensure that the tasks you give to CCA are the best fit for it and aren't more than you can handle. While the following are a good baseline on how to decide what tasks are best for Copilot Coding Agent you will need to use your judgement on a case by case basis so you can get the maximum benefit of these tools!
+
 ### What Coding Agent Does Well:
 
 - ✅ Incremental feature additions to existing patterns
@@ -1164,39 +1167,7 @@ gh agent-task create --title "Your task title" --body "Task description"
 
 ## 📚 Best Practices and Advanced Topics
 
-For comprehensive guidance on maximizing Coding Agent effectiveness, including:
-- Task selection strategies
-- Preparation and monitoring best practices
-- Review processes and iteration patterns
-- Team collaboration workflows
-- Security considerations
-- Advanced patterns and scaling strategies
-- Common pitfalls and solutions
-
-See the **[Coding Agent Best Practices Guide](../References/Coding-Agent-Best-Practices.md)** in the References directory.
-
-### Quick Best Practices Summary
-
-**What Coding Agent Does Well:**
-- ✅ Incremental feature additions to existing patterns
-- ✅ Bug fixes with clear reproduction steps
-- ✅ Test coverage improvements
-- ✅ Documentation updates
-- ✅ Refactoring following established patterns
-- ✅ Accessibility improvements
-
-**What to Avoid:**
-- ❌ Major architectural changes
-- ❌ Security-critical implementations without review
-- ❌ Complex multi-system integrations
-- ❌ Ambiguous or poorly-defined requirements
-
-**Security Considerations:**
-- **Always review** Copilot's code before merging
-- **Don't blindly trust** security-related changes
-- **Verify** any external dependencies added
-- **Test thoroughly** before deploying to production
-- **Use branch protection** rules to require human review
+For comprehensive guidance on maximizing Coding Agent effectiveness, see the **[Coding Agent Best Practices Guide](../References/Coding-Agent-Best-Practices.md)** in the References directory.
 
 ## 🚀 Next Steps
 
