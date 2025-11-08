@@ -25,9 +25,13 @@ Your manager has heard about GitHub Copilot's Coding Agent—an autonomous AI de
 2. **Working on something else** in your IDE while CCA runs autonomously
 3. **Experiencing parallel development** by managing multiple tasks simultaneously
 
-> **🚀 Key Lab Focus: Autonomous Development & Parallel Work**
+> **🚀 Key Lab Focus: Asynchronous & Parallel Development**
 > 
-> In this lab, you'll learn how to delegate tasks to Coding Agent and continue being productive while it works. You'll start by assigning a single task, then work on a different feature in your IDE with Agent mode. This demonstrates how CCA enables true parallel development—you code one thing while CCA handles another, multiplying your productivity without any idle time!
+> This lab demonstrates CCA's two fundamental benefits:
+> 1. **Asynchronous work**: Delegate a large task to CCA and immediately shift your focus to other work in your IDE—no waiting, no idle time
+> 2. **Parallel development**: Run multiple CCA tasks simultaneously while you work on additional features
+> 
+> You'll experience this by assigning a profile page to CCA, then building a social sharing feature in your IDE while CCA works autonomously. This demonstrates how CCA multiplies your productivity—you code one thing while CCA handles another, all happening at the same time!
 
 ## 🤖 Introduction to Coding Agent
 
@@ -615,7 +619,7 @@ Let's practice the review and iteration workflow. Even if the PR looks good, req
    In the PR, add a comment (Make sure you tag @copilot so Copilot will know to pick up this comment as a request for work):
    
    ```markdown
-   This looks great! Can you make the following improvements:
+   @copilot This looks great! Can you make the following improvements:
    
    1. Add a "Contact" button in the profile header that shows an email address
    2. Add a loading skeleton state for the photos while they're "loading"
@@ -871,11 +875,11 @@ Total: 150 minutes (2.5 hours!)
 
 ### 💬 Requesting Changes on Pull Requests
 
-If you need changes on any PR, Copilot will automatically respond when you leave review comments:
+If you need changes on any PR, you must tag @copilot in your review comments for Copilot to pick them up and work on them:
 
 **Example feedback**:
 ```markdown
-The login page looks great! A few small improvements:
+@copilot The login page looks great! A few small improvements:
 
 1. Add client-side validation for email format
 2. Add a "Remember me" checkbox
