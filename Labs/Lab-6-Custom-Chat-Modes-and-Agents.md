@@ -102,9 +102,16 @@ The official BeastMode instructions can be found in [Burke Holland's gist](https
 1. **Switch to your BeastMode** in Copilot Chat
 
 2. **Try a complex task:**
+   
+   Create a prompt asking BeastMode to help you add pagination to the gallery view. Your prompt should request that it find related components, research best practices, and suggest the best approach.
+   
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    I need to add pagination to the gallery view. Find all related components, show me how other similar projects handle pagination, and suggest the best approach for our Next.js app.
    ```
+   </details>
 
 3. **Observe how it uses multiple tools:**
    - Searches the codebase for related code

@@ -167,6 +167,12 @@ Instead of explicitly calling `@github` or directly referencing a tool from the 
 ### Step 4.2: Try Natural Language Queries
 
 **Finding Issues:**
+
+Create a query asking about open issues with specific criteria (like a particular label) in your repository.
+
+<details>
+<summary>Example Queries</summary>
+
 ```
 What open issues are labeled "bug" in this repository?
 ```
@@ -174,8 +180,15 @@ or
 ```
 Show me all enhancement requests that haven't been assigned yet
 ```
+</details>
 
 **Working with Pull Requests:**
+
+Create a query asking about the status of a pull request or finding PRs that need attention.
+
+<details>
+<summary>Example Queries</summary>
+
 ```
 What's the current status of pull request #42?
 ```
@@ -183,8 +196,15 @@ or
 ```
 Are there any PRs that need review?
 ```
+</details>
 
 **Analyzing Code Across Repositories:**
+
+Create a query to find code examples or patterns across repositories in your organization.
+
+<details>
+<summary>Example Queries</summary>
+
 ```
 Find examples of authentication middleware in my organization's repos
 ```
@@ -192,6 +212,7 @@ or
 ```
 How do other repos in my org handle error logging?
 ```
+</details>
 
 ### Step 4.3: Observe MCP in Action
 

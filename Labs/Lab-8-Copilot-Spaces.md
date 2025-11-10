@@ -248,7 +248,15 @@ Now that your Spaces are configured, let's use them to accomplish specific goals
 
 2. **Try these security-focused prompts:**
 
-**Try one or more of these prompts:**
+Create prompts to analyze the application for security vulnerabilities. Consider asking about:
+- File upload security risks
+- Input validation and sanitization
+- Security headers configuration
+- XSS prevention
+- Security checklists based on OWASP Top 10
+
+<details>
+<summary>Example Prompts</summary>
 
 ```
 Analyze the UploadZone component for potential security vulnerabilities. What risks should we address?
@@ -269,6 +277,7 @@ What security headers should we configure in next.config.ts for this application
 ```
 Create a security checklist for the photo upload feature based on OWASP Top 10.
 ```
+</details>
 
 3. **Review the responses** - Notice how Copilot uses the security context and OWASP guidelines from your Space
 
@@ -279,6 +288,16 @@ Create a security checklist for the photo upload feature based on OWASP Top 10.
    - Open the "Photo Gallery - Documentation Hub" Space
 
 6. **Try these documentation-focused prompts:**
+
+Create prompts to generate documentation for the application. Consider asking for:
+- JSDoc comments for components
+- API specifications
+- Component usage guides
+- Architecture decision records
+- Getting started guides for developers
+
+<details>
+<summary>Example Prompts</summary>
 
 ```
 Generate comprehensive JSDoc comments for the GalleryGrid component.
@@ -299,6 +318,7 @@ Generate an architecture decision record (ADR) for using Next.js App Router in t
 ```
 Create a getting started guide for new developers joining the photo gallery project.
 ```
+</details>
 
 7. **Compare the experiences:**
    - Notice how each Space has different expertise based on its instructions
@@ -354,9 +374,16 @@ Ensure you completed Lab 7 and have the GitHub MCP server configured in VS Code.
 2. **Open GitHub Copilot Chat** in VS Code
 
 3. **List your Copilot Spaces:**
+   
+   Create a prompt to list all of your Copilot Spaces.
+   
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    Show me all my Copilot Spaces
    ```
+   </details>
 
 4. **Review the list** - you should see both of your Spaces:
    - Photo Gallery - Security Assessment
@@ -375,18 +402,29 @@ Now let's leverage your Spaces while working on code in VS Code.
 
 2. **In Copilot Chat, ask for security analysis using your Space context:**
 
-   In a new chat session, switch to ask mode and ask Copilot the following:
+   Create a prompt in Ask mode that requests security analysis of the UploadZone component using your Security Assessment Space context. Your prompt should reference the Space by name and ask for specific improvements.
+
+   <details>
+   <summary>Example Prompt</summary>
 
    ```
    Using my "Photo Gallery - Security Assessment" Space for reference, analyze the currently open UploadZone component for security vulnerabilities. What specific improvements should I make?
    ```
+   </details>
 
 3. **Review the suggestions** - Copilot should provide security-focused analysis informed by the OWASP context and instructions from your Space
 
 4. **Ask follow-up questions** while staying in your Space context:
+   
+   Create a follow-up prompt asking for specific code recommendations based on the Security Assessment Space.
+   
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    Based on the Security Assessment Space, what file type validation code should I add to this component?
    ```
+   </details>
 
 #### Exercise B: Generate Documentation from IDE
 
@@ -397,21 +435,29 @@ Now let's leverage your Spaces while working on code in VS Code.
 
 2. **Request documentation using your Documentation Hub Space:**
 
-   In a new chat session, switch to agent mode and ask Copilot the following:
+   Create a prompt in Agent mode that requests JSDoc comments for the GalleryGrid component using your Documentation Hub Space. Your prompt should reference the Space by name and mention following the documentation template.
+
+   <details>
+   <summary>Example Prompt</summary>
 
    ```
    Using my "Photo Gallery - Documentation Hub" Space, generate comprehensive JSDoc comments for this GalleryGrid component following the documentation template.
    ```
+   </details>
 
 3. **Review and apply the documentation** - Notice how Copilot follows the documentation standards and templates from your Space
 
 4. **Generate additional documentation:**
 
-   Switch to ask mode and prompt the following:
+   Create a prompt in Ask mode requesting a usage example for the component, referencing the Documentation Hub Space context.
+
+   <details>
+   <summary>Example Prompt</summary>
 
    ```
    Using the Documentation Hub Space context, create a usage example for this component with all its props explained.
    ```
+   </details>
 
 ### 💡 MCP + Spaces Best Practices:
 

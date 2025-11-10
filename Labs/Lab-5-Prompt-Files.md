@@ -85,14 +85,28 @@ Let's examine the prompt files already in the repository to understand best prac
 Try using one of the existing prompts to see how they work.
 
 **Generate Mock Data:**
+
+Create a command using the `/generate-mock-photo-data` prompt file to generate mock photo data. You'll need to specify the number of photos to generate.
+
+<details>
+<summary>Example Command</summary>
+
 ```
 /generate-mock-photo-data 3
 ```
+</details>
 
 **Generate UI Component:**
+
+Create a command using the `/generate-new-ui` prompt file to generate a photo card component. Describe what the component should display and where to place it.
+
+<details>
+<summary>Example Command</summary>
+
 ```
 /generate-new-ui for a photo card component that displays a photo thumbnail with title and photographer name. Place it in the gallery folder.
 ```
+</details>
 
 ### Observe:
 - How the prompt automatically fills in your input
