@@ -97,7 +97,7 @@ This allows you to:
    "Add search filter to gallery page"
    
 ✅ Bug fixes with clear reproduction steps
-   "Fix sorting issue in photo grid..."
+   "Fix sorting issue in photo grid"
    
 ✅ Test coverage improvements
    "Add tests for PhotoCard component"
