@@ -403,4 +403,4 @@ Excellent work! You've learned professional engineering practices and instructio
 - These practices make AI-assisted development more professional and reliable
 - Well-crafted instruction files multiply Copilot's effectiveness
 
-**Ready for the next challenge? Move on to Lab 5 to learn about Prompt Files, Custom Chat Modes, and MCP!**
+**Ready for the next challenge? Move on to Lab 5 to learn about Prompt Files!**
