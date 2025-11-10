@@ -24,14 +24,16 @@ All lab exercises are located in the [`Labs/`](Labs/) directory:
 | Lab | Title | Duration | Description |
 |-----|-------|----------|-------------|
 | [Lab 1](Labs/Lab-1-Getting-Started.md) | Getting Started | 15 min | Set up your development environment and get introduced to PixelPerfect Gallery |
-| [Lab 2](Labs/Lab-2-Exploring-the-Codebase.md) | Exploring the Codebase | 20 min | Use Copilot Chat to understand project structure, technologies, and architecture |
-| [Lab 3](Labs/Lab-3-Code-Editing.md) | Code Editing & Generation | 30 min | Master Edit mode and Agent mode for code generation and multi-file modifications |
-| [Lab 4](Labs/Lab-4-Engineering-Practices.md) | Engineering Practices & Copilot Instructions | 45 min | Debug Copilot's decisions, configure personal and repository instructions, switch models |
-| [Lab 5](Labs/Lab-5-Enhancing-Copilot.md) | Prompt Files, Custom Modes, and MCP | 60 min | Create prompt files and custom chat modes, set up GitHub MCP for advanced integrations |
-| [Lab 6](Labs/Lab-6-Copilot-Spaces.md) | Copilot Spaces | 40 min | Create dedicated AI workspaces for focused, collaborative development and IDE integration |
-| [Lab 7](Labs/Lab-7-Coding-Agent.md) | Coding Agent | 60 min | Assign issues to Copilot for autonomous implementation and PR creation |
+| [Lab 2](Labs/Lab-2-Exploring-the-Codebase.md) | Exploring the Codebase | 25 min | Use Copilot Chat to understand project structure, technologies, and architecture |
+| [Lab 3](Labs/Lab-3-Code-Editing.md) | Code Editing & Generation | 40 min | Master Edit mode and Agent mode for code generation and multi-file modifications |
+| [Lab 4](Labs/Lab-4-Engineering-Practices.md) | Engineering Practices & Copilot Instructions | 40 min | Debug Copilot's decisions, configure personal and repository instructions, switch models |
+| [Lab 5](Labs/Lab-5-Prompt-Files.md) | Prompt Files | 20 min | Create and use prompt files for consistent, reusable AI interactions |
+| [Lab 6](Labs/Lab-6-Custom-Chat-Modes-and-Agents.md) | Custom Chat Modes and Custom Agents | 20 min | Build custom chat modes and agents for specialized, autonomous workflows |
+| [Lab 7](Labs/Lab-7-Model-Context-Protocol.md) | Model Context Protocol (MCP) | 15 min | Set up GitHub MCP for seamless IDE integration with external services |
+| [Lab 8](Labs/Lab-8-Copilot-Spaces.md) | Copilot Spaces | 30 min | Create dedicated AI workspaces for focused, collaborative development and IDE integration |
+| [Lab 9](Labs/Lab-9-Coding-Agent.md) | Coding Agent | 60 min | Assign issues to Copilot for autonomous implementation and PR creation |
 
-**Total Duration**: Approximately 4 hours
+**Total Duration**: Approximately 4.5 hours
 
 ## 🚀 Quick Start
 
