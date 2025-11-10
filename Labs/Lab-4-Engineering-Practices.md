@@ -72,9 +72,16 @@ Once the debug panel opens, you can explore:
 #### 🔬 Try This Experiment:
 
 1. **Ask a simple question in Copilot Chat:**
+   
+   Create a prompt asking how the GalleryGrid component handles filtering.
+   
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    How does the GalleryGrid component handle filtering?
    ```
+   </details>
 
 2. **Open the debug view** to see:
    - What files were included in the context
@@ -82,9 +89,16 @@ Once the debug panel opens, you can explore:
    - How the query was processed
 
 3. **Ask a more complex question:**
+   
+   Create a prompt that asks to refactor the UploadZone component to use a custom hook for file handling. Use the `@workspace` participant for better context.
+   
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    @workspace Refactor the UploadZone component to use a custom hook for file handling
    ```
+   </details>
 
 4. **Compare the debug information:**
    - Notice the difference in context files used
@@ -162,9 +176,16 @@ If you're stuck, click the **lightbulb icon** in the bottom right of the textbox
 1. **After adding instructions**, return to VS Code
 
 2. **Ask Copilot to generate some code:**
+   
+   Create a prompt asking Copilot to create a new component for displaying photo metadata. This will help you see how your personal instructions affect the generated code.
+   
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    Create a new component for displaying photo metadata
    ```
+   </details>
 
 3. **Observe how the generated code** reflects your personal instructions
 
@@ -232,10 +253,17 @@ Let's try the same coding task with different models and compare results.
 
 4. **Select Model #1** from the model selector in Copilot Chat
 
-5. **Ask this refactoring question:**
+5. **Ask a refactoring question:**
+   
+   Create a prompt asking Copilot to refactor the selected function for better performance, readability, and TypeScript improvements.
+   
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    Help me refactor this function for better performance, readability, and add TypeScript improvements
    ```
+   </details>
 
 6. **Note the response** - save or copy it for comparison
 

@@ -441,8 +441,15 @@ Let's build a social sharing feature using **Copilot Agent mode in VS Code** whi
 
 4. **Create the Social Sharing Feature**:
    
-   Type this prompt in the chat panel:
+   Create a prompt in the chat panel that requests a ShareButton component for sharing photos on social media. Your prompt should specify:
+   - Which platforms to support (Twitter/X, Facebook, Pinterest, copy link)
+   - File location and component patterns to follow
+   - Styling requirements (Tailwind CSS, dark mode, mobile-responsive)
+   - Integration into the PhotoCard component
    
+   <details>
+   <summary>Example Prompt</summary>
+
    ```
    I need to add a social sharing feature to the PixelPerfect Gallery. 
    
@@ -463,6 +470,7 @@ Let's build a social sharing feature using **Copilot Agent mode in VS Code** whi
    
    Then integrate it into the PhotoCard component so each photo has a share button.
    ```
+   </details>
 
 5. **Let Agent Mode Work**:
    - Copilot Agent will propose changes across multiple files
