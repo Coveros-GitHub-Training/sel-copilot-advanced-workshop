@@ -174,24 +174,24 @@ Let's start by using GitHub Copilot's Agent mode to add a footer component to th
    - Ensure it follows the existing design system and supports dark mode
    - Indicate where to integrate it in the layout
    
-   <details>
-   <summary>Example Prompt</summary>
-
-   ```
-   Create a footer component for this application and integrate it into the main layout.
+      <details>
+      <summary>Example Prompt</summary>
    
-   Requirements:
-   - Create a new Footer.tsx component in pixelperfect-gallery/src/components/ui/layout/
-   - Include PixelPerfect Gallery branding/logo text
-   - Add copyright information with current year
-   - Include links to About, Privacy, and Terms pages
-   - Style with Tailwind CSS matching the existing design system
-   - Support dark mode using dark: classes
-   - Add the footer to layout.tsx at line 52 where the REPLACE THIS COMMENT placeholder is
-   
-   Follow the patterns used in other layout components like Hero.tsx.
-   ```
-   </details>
+      ```
+      Create a footer component for this application and integrate it into the main layout.
+      
+      Requirements:
+      - Create a new Footer.tsx component in pixelperfect-gallery/src/components/ui/layout/
+      - Include PixelPerfect Gallery branding/logo text
+      - Add copyright information with current year
+      - Include links to About, Privacy, and Terms pages
+      - Style with Tailwind CSS matching the existing design system
+      - Support dark mode using dark: classes
+      - Add the footer to layout.tsx at line 52 where the REPLACE THIS COMMENT placeholder is
+      
+      Follow the patterns used in other layout components like Hero.tsx.
+      ```
+      </details>
    
 
 4. **Watch Agent mode work:**
@@ -323,22 +323,22 @@ You want to add animations and improve the user experience for one of the compon
    - Loading state UI
    - Mobile UI improvements for image navigation
    
-   <details>
-   <summary>Example Prompt for FeaturedSection</summary>
-
-   ```
-   Enhance the FeaturedSection component we just created:
+      <details>
+      <summary>Example Prompt for FeaturedSection</summary>
    
-   Improvements:
-   1. Add smooth fade-in animations using Framer Motion (already installed)
-   2. Add hover effects on featured photos (scale and shadow)
-   3. Include a "View Gallery" call-to-action button at the bottom
-   4. Add loading states for when data is being fetched
-   5. Improve the mobile layout to show 1 photo at a time in a carousel style
-   
-   Use the patterns from other components that use Framer Motion.
-   ```
-   </details>
+      ```
+      Enhance the FeaturedSection component we just created:
+      
+      Improvements:
+      1. Add smooth fade-in animations using Framer Motion (already installed)
+      2. Add hover effects on featured photos (scale and shadow)
+      3. Include a "View Gallery" call-to-action button at the bottom
+      4. Add loading states for when data is being fetched
+      5. Improve the mobile layout to show 1 photo at a time in a carousel style
+      
+      Use the patterns from other components that use Framer Motion.
+      ```
+      </details>
    
    **If enhancing GalleryGrid instead:**
    - Your prompt should request animations for the grid
@@ -346,22 +346,22 @@ You want to add animations and improve the user experience for one of the compon
    - Loading indicators
    - Entrance animations
    
-   <details>
-   <summary>Example Prompt for GalleryGrid</summary>
-
-   ```
-   Enhance the GalleryGrid component in pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx:
+      <details>
+      <summary>Example Prompt for GalleryGrid</summary>
    
-   Improvements:
-   1. Add smooth fade-in animations when photos load using Framer Motion
-   2. Add hover effects on photos (scale and shadow)
-   3. Improve the mobile layout with better spacing
-   4. Add loading skeletons while photos are being fetched
-   5. Add a subtle entrance animation when the grid appears
-   
-   Use the patterns from other components that use Framer Motion.
-   ```
-   </details>
+      ```
+      Enhance the GalleryGrid component in pixelperfect-gallery/src/components/gallery/GalleryGrid.tsx:
+      
+      Improvements:
+      1. Add smooth fade-in animations when photos load using Framer Motion
+      2. Add hover effects on photos (scale and shadow)
+      3. Improve the mobile layout with better spacing
+      4. Add loading skeletons while photos are being fetched
+      5. Add a subtle entrance animation when the grid appears
+      
+      Use the patterns from other components that use Framer Motion.
+      ```
+      </details>
 
 4. **Review agent modes changes:**
    - Agent mode will show what files it modifies as it works
